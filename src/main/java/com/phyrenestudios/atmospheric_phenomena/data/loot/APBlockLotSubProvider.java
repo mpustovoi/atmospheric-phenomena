@@ -38,5 +38,9 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             dropSelf(base.getMeteorBlock());
         }
+
+        dropSelf(APBlocks.RAW_LONSDALEITE.get());
+        dropSelf(APBlocks.LONSDALEITE_BLOCK.get());
+        dropSelf(APBlocks.METEORIC_ICE.get());
     }
 }

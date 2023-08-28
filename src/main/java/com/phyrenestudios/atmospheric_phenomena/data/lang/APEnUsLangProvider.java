@@ -1,7 +1,9 @@
 package com.phyrenestudios.atmospheric_phenomena.data.lang;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
+import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -23,9 +25,20 @@ public class APEnUsLangProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         for (MeteorBlocks base : MeteorBlocks.values()) {
-            add(base.getMeteorBlock(), parseLangName(name(base.getMeteorBlock())));
+            add(base.getMeteorBlock());
         }
-        add("itemGroup.atmoshperic_phenomena.atmospheric_phenomena_tab", "Atmospheric Phenomena");
+        add(APBlocks.RAW_LONSDALEITE.get());
+        add(APBlocks.LONSDALEITE_BLOCK.get(), "Block of Lonsdaleite");
+        add(APBlocks.METEORIC_ICE.get());
+        add(APItems.LONSDALEITE.get());
+        add("itemGroup.atmospheric_phenomena.main", "Atmospheric Phenomena");
+    }
+
+    private void add(Block blockIn) {
+        add(blockIn, parseLangName(ForgeRegistries.BLOCKS.getResourceKey(blockIn).get().location().getPath()));
+    }
+    private void add(Item itemIn) {
+        add(itemIn, parseLangName(ForgeRegistries.ITEMS.getResourceKey(itemIn).get().location().getPath()));
     }
 
     private String parseLangName(String registryName) {

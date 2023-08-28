@@ -1,10 +1,12 @@
 package com.phyrenestudios.atmospheric_phenomena.data.tags;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -26,5 +28,14 @@ public class APBlockTagsProvider extends BlockTagsProvider {
             tag(BlockTags.NEEDS_IRON_TOOL).add(base.getMeteorBlock());
             tag(APTags.Blocks.METEOR_BLOCKS).add(base.getMeteorBlock());
         }
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(APBlocks.RAW_LONSDALEITE.get(), APBlocks.LONSDALEITE_BLOCK.get(), APBlocks.METEORIC_ICE.get());
+        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(APBlocks.RAW_LONSDALEITE.get());
+        tag(APTags.Blocks.METEOR_CORE_BLOCKS).add(MeteorBlocks.KAMACITE.getMeteorBlock());
+        tag(APTags.Blocks.METEOR_CORE_BLOCKS).add(MeteorBlocks.TAENITE.getMeteorBlock());
+        tag(APTags.Blocks.METEOR_CORE_BLOCKS).add(MeteorBlocks.TETRATAENITE.getMeteorBlock());
+        tag(APTags.Blocks.METEOR_RARE_CORE_BLOCKS).add(APBlocks.RAW_LONSDALEITE.get());
+        tag(APTags.Blocks.METEOR_RARE_CORE_BLOCKS).add(APBlocks.METEORIC_ICE.get());
+        tag(Tags.Blocks.STORAGE_BLOCKS_DIAMOND).add(APBlocks.LONSDALEITE_BLOCK.get());
+        tag(BlockTags.ICE).add(APBlocks.METEORIC_ICE.get());
     }
 }

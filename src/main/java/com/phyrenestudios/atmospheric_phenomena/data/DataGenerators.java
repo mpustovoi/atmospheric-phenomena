@@ -4,6 +4,7 @@ import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.data.lang.APEnUsLangProvider;
 import com.phyrenestudios.atmospheric_phenomena.data.loot.APLootTableSubProvider;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APBlockTagsProvider;
+import com.phyrenestudios.atmospheric_phenomena.data.tags.APItemTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -25,15 +26,14 @@ public final class DataGenerators {
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
         ExistingFileHelper helper = event.getExistingFileHelper();
 
-        gen.addProvider(event.includeClient(), new APBlockstateProvider(packOutput, helper));
-        gen.addProvider(event.includeClient(), new APItemModelProvider(packOutput, helper));
+        gen.addProvider(true, new APBlockstateProvider(packOutput, helper));
+        gen.addProvider(true, new APItemModelProvider(packOutput, helper));
         gen.addProvider(event.includeClient(), new APEnUsLangProvider(packOutput, "en_us"));
         gen.addProvider(event.includeServer(), new APLootTableSubProvider(packOutput));
-
         APBlockTagsProvider blockTags = new APBlockTagsProvider(packOutput, provider, helper);
         gen.addProvider(event.includeServer(), blockTags);
+        gen.addProvider(event.includeServer(), new APItemTagProvider(packOutput, provider, blockTags.contentsGetter(), helper));
         /*
-        gen.addProvider(event.includeServer(), new RankineItemTagsProvider(packOutput, provider, blockTags.contentsGetter(), helper));
         gen.addProvider(event.includeServer(), new RankineBiomeTagsProvider(packOutput, provider, helper));
 
 

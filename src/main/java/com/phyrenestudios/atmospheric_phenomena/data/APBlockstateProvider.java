@@ -1,6 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.data;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -25,6 +26,9 @@ public class APBlockstateProvider extends BlockStateProvider {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             cubeAll(base.getMeteorBlock());
         }
+        cubeAll(APBlocks.RAW_LONSDALEITE.get());
+        cubeAll(APBlocks.LONSDALEITE_BLOCK.get());
+        cubeAll(APBlocks.METEORIC_ICE.get());
     }
 
 }

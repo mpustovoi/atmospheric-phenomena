@@ -4,10 +4,14 @@
   "block.atmospheric_phenomena.chondrite": "Chondrite",
   "block.atmospheric_phenomena.enstatite_chondrite": "Enstatite Chondrite",
   "block.atmospheric_phenomena.kamacite": "Kamacite",
+  "block.atmospheric_phenomena.lonsdaleite_block": "Block of Lonsdaleite",
   "block.atmospheric_phenomena.mesosiderite": "Mesosiderite",
+  "block.atmospheric_phenomena.meteoric_ice": "Meteoric Ice",
   "block.atmospheric_phenomena.pallasite": "Pallasite",
+  "block.atmospheric_phenomena.raw_lonsdaleite": "Raw Lonsdaleite",
   "block.atmospheric_phenomena.taenite": "Taenite",
   "block.atmospheric_phenomena.tetrataenite": "Tetrataenite",
   "block.atmospheric_phenomena.ureilite": "Ureilite",
-  "itemGroup.atmoshperic_phenomena.atmospheric_phenomena_tab": "Atmospheric Phenomena"
+  "item.atmospheric_phenomena.lonsdaleite": "Lonsdaleite",
+  "itemGroup.atmospheric_phenomena.main": "Atmospheric Phenomena"
 }

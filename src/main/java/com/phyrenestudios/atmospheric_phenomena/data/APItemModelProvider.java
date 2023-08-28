@@ -1,7 +1,9 @@
 package com.phyrenestudios.atmospheric_phenomena.data;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
+import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -29,6 +31,11 @@ public class APItemModelProvider extends ItemModelProvider {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             withExistingParent(base.getMeteorBlock());
         }
+        withExistingParent(APBlocks.RAW_LONSDALEITE.get());
+        withExistingParent(APBlocks.LONSDALEITE_BLOCK.get());
+        withExistingParent(APBlocks.METEORIC_ICE.get());
+
+        basicItem(APItems.LONSDALEITE.get());
     }
 
     private ItemModelBuilder withExistingParent(Block blk) {
