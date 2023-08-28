@@ -1,0 +1,13 @@
+{
+  "block.atmospheric_phenomena.angrite": "Angrite",
+  "block.atmospheric_phenomena.carbonaceous_chondrite": "Carbonaceous Chondrite",
+  "block.atmospheric_phenomena.chondrite": "Chondrite",
+  "block.atmospheric_phenomena.enstatite_chondrite": "Enstatite Chondrite",
+  "block.atmospheric_phenomena.kamacite": "Kamacite",
+  "block.atmospheric_phenomena.mesosiderite": "Mesosiderite",
+  "block.atmospheric_phenomena.pallasite": "Pallasite",
+  "block.atmospheric_phenomena.taenite": "Taenite",
+  "block.atmospheric_phenomena.tetrataenite": "Tetrataenite",
+  "block.atmospheric_phenomena.ureilite": "Ureilite",
+  "itemGroup.atmoshperic_phenomena.atmospheric_phenomena_tab": "Atmospheric Phenomena"
+}

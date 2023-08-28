@@ -1,0 +1,4 @@
+// 1.20.1	2023-08-28T16:49:41.6177193	atmospheric_phenomena - Block Tags
+4f0c51e689499dbcb3a0a8ec62871cbe966fa932 data/atmospheric_phenomena/tags/blocks/meteor_blocks.json
+4f0c51e689499dbcb3a0a8ec62871cbe966fa932 data/minecraft/tags/blocks/mineable/pickaxe.json
+4f0c51e689499dbcb3a0a8ec62871cbe966fa932 data/minecraft/tags/blocks/needs_iron_tool.json
