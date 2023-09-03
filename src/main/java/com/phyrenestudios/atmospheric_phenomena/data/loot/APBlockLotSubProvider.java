@@ -2,6 +2,7 @@ package com.phyrenestudios.atmospheric_phenomena.data.loot;
 
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
+import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -9,7 +10,10 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.registries.RegistryObject;
@@ -39,8 +43,18 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
             dropSelf(base.getMeteorBlock());
         }
 
-        dropSelf(APBlocks.RAW_LONSDALEITE.get());
+        addOre(APBlocks.KAMACITE.get(), APItems.METEORIC_IRON.get());
+        addOre(APBlocks.TAENITE.get(), APItems.METEORIC_IRON.get());
+        addOre(APBlocks.TETRATAENITE.get(), APItems.METEORIC_IRON.get());
+        addOre(APBlocks.RAW_LONSDALEITE.get(), APItems.LONSDALEITE.get());
         dropSelf(APBlocks.LONSDALEITE_BLOCK.get());
         dropSelf(APBlocks.METEORIC_ICE.get());
+    }
+
+    private void addOre(Block blk, ItemLike itemLike) {
+        add(blk, createSilkTouchDispatchTable(blk, this.applyExplosionDecay(blk, LootItem.lootTableItem(itemLike).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)))));
+    }
+    private void addSilkTouchSingleItem(Block blk, ItemLike itemLike) {
+        add(blk, createSingleItemTableWithSilkTouch(blk, itemLike));
     }
 }

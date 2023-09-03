@@ -17,10 +17,7 @@ public enum MeteorBlocks implements StringRepresentable {
     ANGRITE("angrite"),
     UREILITE("ureilite"),
     PALLASITE("pallasite"),
-    MESOSIDERITE("mesosiderite"),
-    KAMACITE("kamacite"),
-    TAENITE("taenite"),
-    TETRATAENITE("tetrataenite");
+    MESOSIDERITE("mesosiderite");
 
     RegistryObject<Block> block;
 

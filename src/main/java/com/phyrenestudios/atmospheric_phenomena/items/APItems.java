@@ -17,10 +17,14 @@ public class APItems {
     static {
         MeteorBlocks.registerItems();
     }
+    public static final RegistryObject<Item> KAMACITE = ITEMS.register("kamacite", () -> new BlockItem(APBlocks.KAMACITE.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> TAENITE = ITEMS.register("taenite", () -> new BlockItem(APBlocks.TAENITE.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> TETRATAENITE = ITEMS.register("tetrataenite", () -> new BlockItem(APBlocks.TETRATAENITE.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> RAW_LONSDALEITE = ITEMS.register("raw_lonsdaleite", () -> new BlockItem(APBlocks.RAW_LONSDALEITE.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> LONSDALEITE = ITEMS.register("lonsdaleite", () -> new Item(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> LONSDALEITE_BLOCK = ITEMS.register("lonsdaleite_block", () -> new BlockItem(APBlocks.RAW_LONSDALEITE.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> LONSDALEITE_BLOCK = ITEMS.register("lonsdaleite_block", () -> new BlockItem(APBlocks.LONSDALEITE_BLOCK.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> METEORIC_ICE = ITEMS.register("meteoric_ice", () -> new BlockItem(APBlocks.METEORIC_ICE.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> METEORIC_IRON = ITEMS.register("meteoric_iron", () -> new Item(new Item.Properties().stacksTo(64)));
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     //public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2

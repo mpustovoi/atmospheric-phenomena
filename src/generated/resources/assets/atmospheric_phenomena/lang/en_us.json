@@ -13,5 +13,6 @@
   "block.atmospheric_phenomena.tetrataenite": "Tetrataenite",
   "block.atmospheric_phenomena.ureilite": "Ureilite",
   "item.atmospheric_phenomena.lonsdaleite": "Lonsdaleite",
+  "item.atmospheric_phenomena.meteoric_iron": "Meteoric Iron",
   "itemGroup.atmospheric_phenomena.main": "Atmospheric Phenomena"
 }

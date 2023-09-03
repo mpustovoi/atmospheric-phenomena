@@ -13,8 +13,9 @@ public class APTags {
 
     public static final class Blocks {
         public static final TagKey<Block> METEOR_BLOCKS = modBlock("meteor_blocks");
+        public static final TagKey<Block> RARE_METEOR_BLOCKS = modBlock("rare_meteor_blocks");
         public static final TagKey<Block> METEOR_CORE_BLOCKS = modBlock("meteor_core_blocks");
-        public static final TagKey<Block> METEOR_RARE_CORE_BLOCKS = modBlock("meteor_rare_core_blocks");
+        public static final TagKey<Block> RARE_METEOR_CORE_BLOCKS = modBlock("rare_meteor_core_blocks");
 
     }
 

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "atmospheric_phenomena:lonsdaleite"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GGG",
+    "GGG"
+  ],
+  "result": {
+    "item": "atmospheric_phenomena:lonsdaleite_block"
+  },
+  "show_notification": true
+}

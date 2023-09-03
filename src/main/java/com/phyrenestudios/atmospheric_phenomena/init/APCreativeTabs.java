@@ -22,9 +22,13 @@ public class APCreativeTabs {
                 for (MeteorBlocks base : MeteorBlocks.values()) {
                     output.accept(base.getMeteorBlock()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
                 }
+                output.accept(APItems.KAMACITE.get());
+                output.accept(APItems.TAENITE.get());
+                output.accept(APItems.TETRATAENITE.get());
                 output.accept(APItems.METEORIC_ICE.get());
                 output.accept(APItems.RAW_LONSDALEITE.get());
                 output.accept(APItems.LONSDALEITE.get());
                 output.accept(APItems.LONSDALEITE_BLOCK.get());
+                output.accept(APItems.METEORIC_IRON.get());
             }).build());
 }

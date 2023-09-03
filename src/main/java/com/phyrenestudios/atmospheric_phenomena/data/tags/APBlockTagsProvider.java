@@ -28,13 +28,12 @@ public class APBlockTagsProvider extends BlockTagsProvider {
             tag(BlockTags.NEEDS_IRON_TOOL).add(base.getMeteorBlock());
             tag(APTags.Blocks.METEOR_BLOCKS).add(base.getMeteorBlock());
         }
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(APBlocks.RAW_LONSDALEITE.get(), APBlocks.LONSDALEITE_BLOCK.get(), APBlocks.METEORIC_ICE.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.RAW_LONSDALEITE.get(), APBlocks.LONSDALEITE_BLOCK.get(), APBlocks.METEORIC_ICE.get());
+        tag(BlockTags.NEEDS_IRON_TOOL).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get());
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(APBlocks.RAW_LONSDALEITE.get());
-        tag(APTags.Blocks.METEOR_CORE_BLOCKS).add(MeteorBlocks.KAMACITE.getMeteorBlock());
-        tag(APTags.Blocks.METEOR_CORE_BLOCKS).add(MeteorBlocks.TAENITE.getMeteorBlock());
-        tag(APTags.Blocks.METEOR_CORE_BLOCKS).add(MeteorBlocks.TETRATAENITE.getMeteorBlock());
-        tag(APTags.Blocks.METEOR_RARE_CORE_BLOCKS).add(APBlocks.RAW_LONSDALEITE.get());
-        tag(APTags.Blocks.METEOR_RARE_CORE_BLOCKS).add(APBlocks.METEORIC_ICE.get());
+        tag(APTags.Blocks.RARE_METEOR_BLOCKS).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get());
+        tag(APTags.Blocks.METEOR_CORE_BLOCKS).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get());
+        tag(APTags.Blocks.RARE_METEOR_CORE_BLOCKS).add(APBlocks.RAW_LONSDALEITE.get(), APBlocks.METEORIC_ICE.get());
         tag(Tags.Blocks.STORAGE_BLOCKS_DIAMOND).add(APBlocks.LONSDALEITE_BLOCK.get());
         tag(BlockTags.ICE).add(APBlocks.METEORIC_ICE.get());
     }

@@ -31,11 +31,15 @@ public class APItemModelProvider extends ItemModelProvider {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             withExistingParent(base.getMeteorBlock());
         }
+        withExistingParent(APBlocks.KAMACITE.get());
+        withExistingParent(APBlocks.TAENITE.get());
+        withExistingParent(APBlocks.TETRATAENITE.get());
         withExistingParent(APBlocks.RAW_LONSDALEITE.get());
         withExistingParent(APBlocks.LONSDALEITE_BLOCK.get());
         withExistingParent(APBlocks.METEORIC_ICE.get());
 
         basicItem(APItems.LONSDALEITE.get());
+        basicItem(APItems.METEORIC_IRON.get());
     }
 
     private ItemModelBuilder withExistingParent(Block blk) {

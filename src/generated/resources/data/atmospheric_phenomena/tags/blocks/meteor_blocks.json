@@ -6,9 +6,6 @@
     "atmospheric_phenomena:angrite",
     "atmospheric_phenomena:ureilite",
     "atmospheric_phenomena:pallasite",
-    "atmospheric_phenomena:mesosiderite",
-    "atmospheric_phenomena:kamacite",
-    "atmospheric_phenomena:taenite",
-    "atmospheric_phenomena:tetrataenite"
+    "atmospheric_phenomena:mesosiderite"
   ]
 }

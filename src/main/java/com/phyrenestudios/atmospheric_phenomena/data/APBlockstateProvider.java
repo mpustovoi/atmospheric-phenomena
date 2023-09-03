@@ -24,11 +24,14 @@ public class APBlockstateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         for (MeteorBlocks base : MeteorBlocks.values()) {
-            cubeAll(base.getMeteorBlock());
+            simpleBlock(base.getMeteorBlock());
         }
-        cubeAll(APBlocks.RAW_LONSDALEITE.get());
-        cubeAll(APBlocks.LONSDALEITE_BLOCK.get());
-        cubeAll(APBlocks.METEORIC_ICE.get());
+        simpleBlock(APBlocks.KAMACITE.get());
+        simpleBlock(APBlocks.TAENITE.get());
+        simpleBlock(APBlocks.TETRATAENITE.get());
+        simpleBlock(APBlocks.RAW_LONSDALEITE.get());
+        simpleBlock(APBlocks.LONSDALEITE_BLOCK.get());
+        simpleBlock(APBlocks.METEORIC_ICE.get());
     }
 
 }

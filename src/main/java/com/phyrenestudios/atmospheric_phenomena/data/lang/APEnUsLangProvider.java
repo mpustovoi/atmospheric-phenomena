@@ -27,10 +27,14 @@ public class APEnUsLangProvider extends LanguageProvider {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             add(base.getMeteorBlock());
         }
+        add(APBlocks.KAMACITE.get());
+        add(APBlocks.TAENITE.get());
+        add(APBlocks.TETRATAENITE.get());
         add(APBlocks.RAW_LONSDALEITE.get());
         add(APBlocks.LONSDALEITE_BLOCK.get(), "Block of Lonsdaleite");
         add(APBlocks.METEORIC_ICE.get());
         add(APItems.LONSDALEITE.get());
+        add(APItems.METEORIC_IRON.get());
         add("itemGroup.atmospheric_phenomena.main", "Atmospheric Phenomena");
     }
 

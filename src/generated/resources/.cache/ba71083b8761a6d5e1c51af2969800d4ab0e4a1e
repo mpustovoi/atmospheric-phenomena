@@ -1,7 +1,8 @@
-// 1.20.1	2023-08-28T17:46:38.8886635	atmospheric_phenomena - Block Tags
-4f0c51e689499dbcb3a0a8ec62871cbe966fa932 data/atmospheric_phenomena/tags/blocks/meteor_blocks.json
+// 1.20.1	2023-09-02T19:54:17.7430884	atmospheric_phenomena - Block Tags
+acdf642b637a4d60ab574d48a9d0303782cfb4cb data/atmospheric_phenomena/tags/blocks/meteor_blocks.json
 b1d9bc8851c4a764dd3dbf263bd94be63127be19 data/atmospheric_phenomena/tags/blocks/meteor_core_blocks.json
-c6548576efdb0a28cb7806e7986d987537d21dea data/atmospheric_phenomena/tags/blocks/meteor_rare_core_blocks.json
+b1d9bc8851c4a764dd3dbf263bd94be63127be19 data/atmospheric_phenomena/tags/blocks/rare_meteor_blocks.json
+c6548576efdb0a28cb7806e7986d987537d21dea data/atmospheric_phenomena/tags/blocks/rare_meteor_core_blocks.json
 ba5167dcaebfb172cfd09fcf6264e36dc445248f data/forge/tags/blocks/storage_blocks/diamond.json
 270edd9b5a2684d9d5cd3996e6b2f36c0c86a538 data/minecraft/tags/blocks/ice.json
 de5dc25cfdfb315931edbee635298e3fa56c882a data/minecraft/tags/blocks/mineable/pickaxe.json
