@@ -5,25 +5,25 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.GlassBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.RegistryObject;
 
-public enum MeteorBlocks implements StringRepresentable {
+public enum TektiteBlocks implements StringRepresentable {
 
-    CHONDRITE("chondrite"),
-    ENSTATITE_CHONDRITE("enstatite_chondrite"),
-    CARBONACEOUS_CHONDRITE("carbonaceous_chondrite"),
-    ANGRITE("angrite"),
-    UREILITE("ureilite"),
-    PALLASITE("pallasite"),
-    MESOSIDERITE("mesosiderite");
+    BLACK_TEKTITE("black_tektite"),
+    GRAY_TEKTITE("gray_tektite"),
+    GREEN_TEKTITE("green_tektite"),
+    YELLOW_TEKTITE("yellow_tektite"),
+    RED_TEKTITE("red_tektite"),
+    BROWN_TEKTITE("brown_tektite");
 
     RegistryObject<Block> block;
 
     private final String name;
 
-    MeteorBlocks(String name) {
+    TektiteBlocks(String name) {
         this.name = name;
     }
 
@@ -33,16 +33,16 @@ public enum MeteorBlocks implements StringRepresentable {
     public String getSerializedName() {
         return this.name;
     }
-    public Block getMeteorBlock() {return this.block.get();}
+    public Block getTektite() {return this.block.get();}
 
     public static void registerBlocks() {
-        for (MeteorBlocks baseBlock : values()) {
-            baseBlock.block =  APBlocks.BLOCKS.register(baseBlock.getSerializedName(), () -> new Block(BlockBehaviour.Properties.copy(Blocks.END_STONE).requiresCorrectToolForDrops().strength(2.0F, 6.0F)));
+        for (TektiteBlocks baseBlock : values()) {
+            baseBlock.block =  APBlocks.BLOCKS.register(baseBlock.getSerializedName(),() -> new GlassBlock(BlockBehaviour.Properties.of().strength(5.0F, 30.0F).sound(SoundType.GLASS).noOcclusion().requiresCorrectToolForDrops()));
         }
     }
 
     public static void registerItems() {
-        for (MeteorBlocks baseBlock : values()) {
+        for (TektiteBlocks baseBlock : values()) {
             APItems.ITEMS.register(baseBlock.getSerializedName(), () -> new BlockItem(baseBlock.block.get(), new Item.Properties().stacksTo(64)));
         }
     }

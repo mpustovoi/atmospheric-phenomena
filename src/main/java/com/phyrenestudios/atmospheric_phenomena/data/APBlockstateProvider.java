@@ -3,6 +3,7 @@ package com.phyrenestudios.atmospheric_phenomena.data;
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -25,6 +26,9 @@ public class APBlockstateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             simpleBlock(base.getMeteorBlock());
+        }
+        for (TektiteBlocks base : TektiteBlocks.values()) {
+            simpleBlock(base.getTektite(), models().cubeAll(base.getSerializedName(), blockTexture(base.getTektite())).renderType("translucent"));
         }
         simpleBlock(APBlocks.KAMACITE.get());
         simpleBlock(APBlocks.TAENITE.get());

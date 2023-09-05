@@ -3,6 +3,7 @@ package com.phyrenestudios.atmospheric_phenomena.data.lang;
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
@@ -26,6 +27,9 @@ public class APEnUsLangProvider extends LanguageProvider {
     protected void addTranslations() {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             add(base.getMeteorBlock());
+        }
+        for (TektiteBlocks base : TektiteBlocks.values()) {
+            add(base.getTektite());
         }
         add(APBlocks.KAMACITE.get());
         add(APBlocks.TAENITE.get());

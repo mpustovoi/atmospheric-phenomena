@@ -1,11 +1,13 @@
-// 1.20.1	2023-09-05T09:36:33.9116213	atmospheric_phenomena - Block Tags
+// 1.20.1	2023-09-05T10:04:53.3018216	atmospheric_phenomena - Block Tags
+b37fdc9abe7a98f320159a38fe11438e01677b9e data/atmospheric_phenomena/tags/blocks/meteorite_strewn_blocks.json
 acdf642b637a4d60ab574d48a9d0303782cfb4cb data/atmospheric_phenomena/tags/blocks/meteor_blocks.json
 b1d9bc8851c4a764dd3dbf263bd94be63127be19 data/atmospheric_phenomena/tags/blocks/meteor_core_blocks.json
 0408676ac9f2d27946ceae9de91480ffaf592e7e data/atmospheric_phenomena/tags/blocks/rare_meteor_blocks.json
 c6548576efdb0a28cb7806e7986d987537d21dea data/atmospheric_phenomena/tags/blocks/rare_meteor_core_blocks.json
 b7a8b8c8dce36fc92612f2d86c0bcc6a313fa62b data/atmospheric_phenomena/tags/blocks/valid_meteorite_spawn.json
+b37fdc9abe7a98f320159a38fe11438e01677b9e data/forge/tags/blocks/glass.json
 ba5167dcaebfb172cfd09fcf6264e36dc445248f data/forge/tags/blocks/storage_blocks/diamond.json
 270edd9b5a2684d9d5cd3996e6b2f36c0c86a538 data/minecraft/tags/blocks/ice.json
-de5dc25cfdfb315931edbee635298e3fa56c882a data/minecraft/tags/blocks/mineable/pickaxe.json
+527b38e9dc23506cde54f8ab8d176e1fb99bb0a7 data/minecraft/tags/blocks/mineable/pickaxe.json
 39cc97938269319031fd75fa1472c684f5f7fba2 data/minecraft/tags/blocks/needs_diamond_tool.json
-4f0c51e689499dbcb3a0a8ec62871cbe966fa932 data/minecraft/tags/blocks/needs_iron_tool.json
+c13a60a5cf37164029916480221467be5d464afb data/minecraft/tags/blocks/needs_iron_tool.json

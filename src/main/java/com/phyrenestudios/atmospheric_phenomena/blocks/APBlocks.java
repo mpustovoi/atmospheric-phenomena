@@ -18,6 +18,7 @@ public class APBlocks {
 
     static {
         MeteorBlocks.registerBlocks();
+        TektiteBlocks.registerBlocks();
     }
 
     public static final RegistryObject<Block> KAMACITE = BLOCKS.register("kamacite", () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(5.0F, 6.0F), UniformInt.of(1, 4)));

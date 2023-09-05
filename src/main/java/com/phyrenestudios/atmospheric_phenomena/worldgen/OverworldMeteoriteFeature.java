@@ -38,24 +38,29 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
 
         List<BlockPos> centerList = Arrays.asList(posIn, posIn.offset(rand.nextInt(size-1)+1, rand.nextInt(size-1)-1, rand.nextInt(size-1)+1));
         BlockPos centerPos = getCenterPos(centerList);
-        buildCrater(levelIn, centerPos.above(size+3), size + 8, levelIn.getBlockState(centerPos.below(5)), Blocks.GLASS, levelIn.getFluidState(posIn).is(FluidTags.WATER));
+        buildCrater(levelIn, rand, centerPos.above(size+4), size + 8, levelIn.getBlockState(posIn.below()), levelIn.getBlockState(centerPos.below(5)), levelIn.getFluidState(posIn).is(FluidTags.WATER));
         buildMeteor(levelIn, rand, centerList, size);
         return true;
     }
 
-    private void buildCrater(WorldGenLevel levelIn, BlockPos posIn, int radius, BlockState groundmass, Block tektite, boolean waterlog) {
+    private void buildCrater(WorldGenLevel levelIn, RandomSource rand, BlockPos posIn, int radius, BlockState surface, BlockState groundmass, boolean waterlog) {
+
+        Optional<Block> glass = ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEORITE_STREWN_BLOCKS).getRandomElement(rand);
+        boolean genMagma = rand.nextBoolean();
         for (BlockPos blockpos : BlockPos.betweenClosed(posIn.offset(-radius, -radius, -radius), posIn.offset(radius, radius, radius))) {
             if (!levelIn.getBlockState(blockpos).is(APTags.Blocks.VALID_METEORITE_SPAWN)) continue;
 
             if (blockpos.distSqr(posIn) > radius*radius) continue;
             if (blockpos.distSqr(posIn) > (radius-1)*(radius-1)) {
                 float chance = levelIn.getRandom().nextFloat();
-                if (chance < 0.3) {
-                    levelIn.setBlock(blockpos, tektite.defaultBlockState(), 3);
-                } else if (chance < 0.4) {
+                if (chance < 0.05 && genMagma) {
                     levelIn.setBlock(blockpos, Blocks.MAGMA_BLOCK.defaultBlockState(), 3);
-                } else if (chance < 0.7) {
+                } else if (chance < 0.3 && glass.isPresent()) {
+                    levelIn.setBlock(blockpos, glass.get().defaultBlockState(), 3);
+                } else if (chance < 0.5) {
                     levelIn.setBlock(blockpos, groundmass, 3);
+                } else if (chance < 0.7) {
+                    levelIn.setBlock(blockpos, surface, 3);
                 }
             } else {
                 levelIn.setBlock(blockpos, waterlog ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), 3);
@@ -64,7 +69,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         }
     }
 
-    private void buildMeteor(WorldGenLevel reader, RandomSource rand, List<BlockPos> centerList, int size) {
+    private void buildMeteor(WorldGenLevel levelIn, RandomSource rand, List<BlockPos> centerList, int size) {
 
         Optional<Block> meteor = ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_BLOCKS).getRandomElement(rand);
         Optional<Block> rareMeteor = ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_BLOCKS).getRandomElement(rand);
@@ -82,9 +87,9 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
             center = center.below(size);
             for(BlockPos blockpos : BlockPos.betweenClosed(center.offset(-size, -size, -size), center.offset(size, size, size))) {
                 if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)*0.3) {
-                    reader.setBlock(blockpos.below(1), coreMeteor.get().defaultBlockState(), 3);
+                    levelIn.setBlock(blockpos.below(1), coreMeteor.get().defaultBlockState(), 3);
                 } else if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)) {
-                    reader.setBlock(blockpos.below(1), meteor.get().defaultBlockState(), 3);
+                    levelIn.setBlock(blockpos.below(1), meteor.get().defaultBlockState(), 3);
                 }
             }
         }

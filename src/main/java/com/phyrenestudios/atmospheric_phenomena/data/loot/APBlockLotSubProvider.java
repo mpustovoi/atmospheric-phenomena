@@ -2,6 +2,7 @@ package com.phyrenestudios.atmospheric_phenomena.data.loot;
 
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -41,6 +42,9 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
     protected void generate() {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             dropSelf(base.getMeteorBlock());
+        }
+        for (TektiteBlocks base : TektiteBlocks.values()) {
+            dropSelf(base.getTektite());
         }
 
         addOre(APBlocks.KAMACITE.get(), APItems.METEORIC_IRON.get());
