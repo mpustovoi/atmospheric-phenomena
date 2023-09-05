@@ -1,17 +1,24 @@
 package com.phyrenestudios.atmospheric_phenomena.data.tags;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class APTags {
 
 
+    public static final class Biomes {
+        public static final TagKey<Biome> METEORITE_BLACKLIST = createBiomeTag("meteorite_blacklist");
+
+    }
     public static final class Blocks {
+        public static final TagKey<Block> VALID_METEORITE_SPAWN = modBlock("valid_meteorite_spawn");
         public static final TagKey<Block> METEOR_BLOCKS = modBlock("meteor_blocks");
         public static final TagKey<Block> RARE_METEOR_BLOCKS = modBlock("rare_meteor_blocks");
         public static final TagKey<Block> METEOR_CORE_BLOCKS = modBlock("meteor_core_blocks");
@@ -31,4 +38,9 @@ public class APTags {
     private static TagKey<Item> modItem(String path) {
         return ItemTags.create(new ResourceLocation(AtmosphericPhenomena.MODID, path));
     }
+    private static TagKey<Biome> createBiomeTag(String p_207631_) {
+        return TagKey.create(Registries.BIOME, new ResourceLocation(AtmosphericPhenomena.MODID, p_207631_));
+    }
+
+
 }

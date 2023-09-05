@@ -1,0 +1,16 @@
+{
+  "values": [
+    "#forge:stone",
+    "#minecraft:dirt",
+    "#minecraft:snow",
+    "#minecraft:sand",
+    "#forge:sandstone",
+    "#forge:obsidian",
+    "#forge:gravel",
+    "#forge:cobblestone",
+    "#forge:ores",
+    "#minecraft:terracotta",
+    "minecraft:dirt_path",
+    "minecraft:clay"
+  ]
+}

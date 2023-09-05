@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.init.APCreativeTabs;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
+import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,6 +35,7 @@ public class AtmosphericPhenomena
         modEventBus.addListener(this::commonSetup);
         APBlocks.BLOCKS.register(modEventBus);
         APItems.ITEMS.register(modEventBus);
+        APFeatures.FEATURES.register(modEventBus);
         APCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
