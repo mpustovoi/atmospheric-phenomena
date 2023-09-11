@@ -48,23 +48,25 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         Optional<Block> glass = ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEORITE_STREWN_BLOCKS).getRandomElement(rand);
         boolean genMagma = rand.nextBoolean();
         for (BlockPos blockpos : BlockPos.betweenClosed(posIn.offset(-radius, -radius, -radius), posIn.offset(radius, radius, radius))) {
-            if (!levelIn.getBlockState(blockpos).is(APTags.Blocks.VALID_METEORITE_SPAWN)) continue;
-
+            if (levelIn.getBlockState(blockpos).is(Blocks.AIR) || levelIn.getBlockState(blockpos).is(Blocks.WATER)) continue;
             if (blockpos.distSqr(posIn) > radius*radius) continue;
-            if (blockpos.distSqr(posIn) > (radius-1)*(radius-1)) {
-                float chance = levelIn.getRandom().nextFloat();
-                if (chance < 0.05 && genMagma) {
-                    levelIn.setBlock(blockpos, Blocks.MAGMA_BLOCK.defaultBlockState(), 3);
-                } else if (chance < 0.3 && glass.isPresent()) {
-                    levelIn.setBlock(blockpos, glass.get().defaultBlockState(), 3);
-                } else if (chance < 0.5) {
-                    levelIn.setBlock(blockpos, groundmass, 3);
-                } else if (chance < 0.7) {
-                    levelIn.setBlock(blockpos, surface, 3);
-                }
-            } else {
-                levelIn.setBlock(blockpos, waterlog ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), 3);
+
+            if (!levelIn.getBlockState(blockpos).is(APTags.Blocks.VALID_METEORITE_SPAWN) || blockpos.distSqr(posIn) < (radius-1)*(radius-1)) {
+                levelIn.setBlock(blockpos, waterlog && blockpos.getY() <= levelIn.getSeaLevel() ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), 3);
+                continue;
             }
+
+            float chance = levelIn.getRandom().nextFloat();
+            if (chance < 0.05 && genMagma) {
+                levelIn.setBlock(blockpos, Blocks.MAGMA_BLOCK.defaultBlockState(), 3);
+            } else if (chance < 0.3 && glass.isPresent()) {
+                levelIn.setBlock(blockpos, glass.get().defaultBlockState(), 3);
+            } else if (chance < 0.5) {
+                levelIn.setBlock(blockpos, groundmass, 3);
+            } else if (chance < 0.7) {
+                levelIn.setBlock(blockpos, surface, 3);
+            }
+
 
         }
     }
