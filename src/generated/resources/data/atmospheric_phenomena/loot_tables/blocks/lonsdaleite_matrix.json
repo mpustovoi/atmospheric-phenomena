@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "atmospheric_phenomena:raw_lonsdaleite"
+              "name": "atmospheric_phenomena:lonsdaleite_matrix"
             },
             {
               "type": "minecraft:item",
@@ -46,5 +46,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "atmospheric_phenomena:blocks/raw_lonsdaleite"
+  "random_sequence": "atmospheric_phenomena:blocks/lonsdaleite_matrix"
 }

@@ -50,7 +50,8 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
         addOre(APBlocks.KAMACITE.get(), APItems.METEORIC_IRON.get());
         addOre(APBlocks.TAENITE.get(), APItems.METEORIC_IRON.get());
         addOre(APBlocks.TETRATAENITE.get(), APItems.METEORIC_IRON.get());
-        addOre(APBlocks.RAW_LONSDALEITE.get(), APItems.LONSDALEITE.get());
+        addOre(APBlocks.GOLDEN_MATRIX.get(), Items.RAW_GOLD);
+        addOre(APBlocks.LONSDALEITE_MATRIX.get(), APItems.LONSDALEITE.get());
         dropSelf(APBlocks.LONSDALEITE_BLOCK.get());
         dropSelf(APBlocks.METEORIC_ICE.get());
     }

@@ -28,7 +28,8 @@ public class APCreativeTabs {
                     output.accept(base.getTektite());
                 }
                 output.accept(APItems.METEORIC_ICE.get());
-                output.accept(APItems.RAW_LONSDALEITE.get());
+                output.accept(APItems.GOLDEN_MATRIX.get());
+                output.accept(APItems.LONSDALEITE_MATRIX.get());
                 output.accept(APItems.LONSDALEITE.get());
                 output.accept(APItems.LONSDALEITE_BLOCK.get());
                 output.accept(APItems.METEORIC_IRON.get());

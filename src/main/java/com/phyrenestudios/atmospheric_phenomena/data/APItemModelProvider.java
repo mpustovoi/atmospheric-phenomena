@@ -38,7 +38,8 @@ public class APItemModelProvider extends ItemModelProvider {
         withExistingParent(APBlocks.KAMACITE.get());
         withExistingParent(APBlocks.TAENITE.get());
         withExistingParent(APBlocks.TETRATAENITE.get());
-        withExistingParent(APBlocks.RAW_LONSDALEITE.get());
+        withExistingParent(APBlocks.GOLDEN_MATRIX.get());
+        withExistingParent(APBlocks.LONSDALEITE_MATRIX.get());
         withExistingParent(APBlocks.LONSDALEITE_BLOCK.get());
         withExistingParent(APBlocks.METEORIC_ICE.get());
 

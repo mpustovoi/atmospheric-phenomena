@@ -34,7 +34,8 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APBlocks.KAMACITE.get());
         add(APBlocks.TAENITE.get());
         add(APBlocks.TETRATAENITE.get());
-        add(APBlocks.RAW_LONSDALEITE.get());
+        add(APBlocks.GOLDEN_MATRIX.get());
+        add(APBlocks.LONSDALEITE_MATRIX.get());
         add(APBlocks.LONSDALEITE_BLOCK.get(), "Block of Lonsdaleite");
         add(APBlocks.METEORIC_ICE.get());
         add(APItems.LONSDALEITE.get());
