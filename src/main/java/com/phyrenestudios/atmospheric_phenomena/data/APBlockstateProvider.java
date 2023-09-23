@@ -37,6 +37,8 @@ public class APBlockstateProvider extends BlockStateProvider {
         simpleBlock(APBlocks.LONSDALEITE_MATRIX.get());
         simpleBlock(APBlocks.LONSDALEITE_BLOCK.get());
         simpleBlock(APBlocks.METEORIC_ICE.get());
+        simpleBlock(APBlocks.SOIL_FULGURITE.get());
+        simpleBlock(APBlocks.SSTONE_FULGURITE.get());
     }
 
 }

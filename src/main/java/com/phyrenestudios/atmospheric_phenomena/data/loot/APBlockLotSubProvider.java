@@ -54,6 +54,8 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
         addOre(APBlocks.LONSDALEITE_MATRIX.get(), APItems.LONSDALEITE.get());
         dropSelf(APBlocks.LONSDALEITE_BLOCK.get());
         dropSelf(APBlocks.METEORIC_ICE.get());
+        dropSelf(APBlocks.SOIL_FULGURITE.get());
+        dropSelf(APBlocks.SSTONE_FULGURITE.get());
     }
 
     private void addOre(Block blk, ItemLike itemLike) {

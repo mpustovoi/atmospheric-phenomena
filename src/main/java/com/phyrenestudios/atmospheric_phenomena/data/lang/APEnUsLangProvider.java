@@ -38,6 +38,8 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APBlocks.LONSDALEITE_MATRIX.get());
         add(APBlocks.LONSDALEITE_BLOCK.get(), "Block of Lonsdaleite");
         add(APBlocks.METEORIC_ICE.get());
+        add(APBlocks.SOIL_FULGURITE.get());
+        add(APBlocks.SSTONE_FULGURITE.get());
         add(APItems.LONSDALEITE.get());
         add(APItems.METEORIC_IRON.get());
         add("itemGroup.atmospheric_phenomena.main", "Atmospheric Phenomena");

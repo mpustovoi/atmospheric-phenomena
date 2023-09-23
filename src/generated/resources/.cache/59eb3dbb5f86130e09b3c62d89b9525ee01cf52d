@@ -1,4 +1,4 @@
-// 1.20.1	2023-09-11T11:30:27.6466145	Loot Tables
+// 1.20.1	2023-09-18T09:23:21.5179037	Loot Tables
 4aa4b96f99e1d2602aa5efb875511614b493d41c data/atmospheric_phenomena/loot_tables/blocks/angrite.json
 8c3ba5361781b7c4a54ccf507cccc832d09241f8 data/atmospheric_phenomena/loot_tables/blocks/black_tektite.json
 f4455bbe19fd99014e09a47ac430ce1d148c6a54 data/atmospheric_phenomena/loot_tables/blocks/brown_tektite.json
@@ -15,6 +15,8 @@ aef2c13c22cd85752a587792e3e89bf7c14f6cdf data/atmospheric_phenomena/loot_tables/
 93cac550a46784f42bc37825b6fe3659fcce4145 data/atmospheric_phenomena/loot_tables/blocks/meteoric_ice.json
 16f249edc76ee21f163cff0eb820703e43348b75 data/atmospheric_phenomena/loot_tables/blocks/pallasite.json
 83bc26c966e8ba59e0122c2c3c5d13e3796e3bf7 data/atmospheric_phenomena/loot_tables/blocks/red_tektite.json
+fbd34651f35784aafc3edbb8a1774e35c86ba22b data/atmospheric_phenomena/loot_tables/blocks/soil_fulgurite.json
+86b415dbc71b9453b1bad0fee15ff303d78864ac data/atmospheric_phenomena/loot_tables/blocks/stone_fulgurite.json
 6646cff5049cf4bdc2cd9b926edcf7630ac5f8b2 data/atmospheric_phenomena/loot_tables/blocks/taenite.json
 d16d1934c0b1b697564d08bcd105c567319acb4c data/atmospheric_phenomena/loot_tables/blocks/tetrataenite.json
 87fa89be576eca63ce43a5b58fb2221081120033 data/atmospheric_phenomena/loot_tables/blocks/ureilite.json

@@ -30,6 +30,9 @@ public class APCreativeTabs {
                 output.accept(APItems.METEORIC_ICE.get());
                 output.accept(APItems.GOLDEN_MATRIX.get());
                 output.accept(APItems.LONSDALEITE_MATRIX.get());
+                output.accept(APItems.SSTONE_FULGURITE.get());
+                output.accept(APItems.SOIL_FULGURITE.get());
+
                 output.accept(APItems.LONSDALEITE.get());
                 output.accept(APItems.LONSDALEITE_BLOCK.get());
                 output.accept(APItems.METEORIC_IRON.get());

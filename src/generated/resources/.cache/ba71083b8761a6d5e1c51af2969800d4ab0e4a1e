@@ -1,13 +1,16 @@
-// 1.20.1	2023-09-11T11:30:27.614954	atmospheric_phenomena - Block Tags
+// 1.20.1	2023-09-19T19:35:03.8320721	atmospheric_phenomena - Block Tags
 b37fdc9abe7a98f320159a38fe11438e01677b9e data/atmospheric_phenomena/tags/blocks/meteorite_strewn_blocks.json
 acdf642b637a4d60ab574d48a9d0303782cfb4cb data/atmospheric_phenomena/tags/blocks/meteor_blocks.json
 b1d9bc8851c4a764dd3dbf263bd94be63127be19 data/atmospheric_phenomena/tags/blocks/meteor_core_blocks.json
 0408676ac9f2d27946ceae9de91480ffaf592e7e data/atmospheric_phenomena/tags/blocks/rare_meteor_blocks.json
 74b5f3ed623227f2481ccf47d28932f5ac5922dc data/atmospheric_phenomena/tags/blocks/rare_meteor_core_blocks.json
 b7a8b8c8dce36fc92612f2d86c0bcc6a313fa62b data/atmospheric_phenomena/tags/blocks/valid_meteorite_spawn.json
+c1b2a217bb3fcb7e1d67f5bc45409796720bd171 data/atmospheric_phenomena/tags/blocks/vitrifies_to_glass.json
+95bef16bd9380966b4590ffa3c3bfdb585bd78de data/atmospheric_phenomena/tags/blocks/vitrifies_to_soil_fulgurite.json
+8728fba352d2773c70fd79a0fffbb3bea026c028 data/atmospheric_phenomena/tags/blocks/vitrifies_to_stone_fulgurite.json
 b37fdc9abe7a98f320159a38fe11438e01677b9e data/forge/tags/blocks/glass.json
 ba5167dcaebfb172cfd09fcf6264e36dc445248f data/forge/tags/blocks/storage_blocks/diamond.json
 270edd9b5a2684d9d5cd3996e6b2f36c0c86a538 data/minecraft/tags/blocks/ice.json
-ceaf8c2eaf9b3b5d7bae01d4a033134febaf9d5a data/minecraft/tags/blocks/mineable/pickaxe.json
+0d990ebbdf36c9e41f1436048085e90d7c744889 data/minecraft/tags/blocks/mineable/pickaxe.json
 80f0c88eae5e374014267b6803a99d55d3c7ee2d data/minecraft/tags/blocks/needs_diamond_tool.json
 c0b36f8464b9658c116c9339b2ee1395367eb958 data/minecraft/tags/blocks/needs_iron_tool.json

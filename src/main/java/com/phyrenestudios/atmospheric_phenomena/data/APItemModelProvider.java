@@ -42,6 +42,8 @@ public class APItemModelProvider extends ItemModelProvider {
         withExistingParent(APBlocks.LONSDALEITE_MATRIX.get());
         withExistingParent(APBlocks.LONSDALEITE_BLOCK.get());
         withExistingParent(APBlocks.METEORIC_ICE.get());
+        withExistingParent(APBlocks.SOIL_FULGURITE.get());
+        withExistingParent(APBlocks.SSTONE_FULGURITE.get());
 
         basicItem(APItems.LONSDALEITE.get());
         basicItem(APItems.METEORIC_IRON.get());

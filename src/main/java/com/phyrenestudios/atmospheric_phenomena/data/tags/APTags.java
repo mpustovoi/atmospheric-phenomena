@@ -24,6 +24,9 @@ public class APTags {
         public static final TagKey<Block> METEOR_CORE_BLOCKS = modBlock("meteor_core_blocks");
         public static final TagKey<Block> RARE_METEOR_CORE_BLOCKS = modBlock("rare_meteor_core_blocks");
         public static final TagKey<Block> METEORITE_STREWN_BLOCKS = modBlock("meteorite_strewn_blocks");
+        public static final TagKey<Block> VITRIFIES_TO_SOIL_FULGURITE = modBlock("vitrifies_to_soil_fulgurite");
+        public static final TagKey<Block> VITRIFIES_TO_STONE_FULGURITE = modBlock("vitrifies_to_stone_fulgurite");
+        public static final TagKey<Block> VITRIFIES_TO_GLASS = modBlock("vitrifies_to_glass");
 
     }
 

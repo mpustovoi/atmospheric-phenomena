@@ -19,6 +19,8 @@
     "atmospheric_phenomena:golden_matrix",
     "atmospheric_phenomena:lonsdaleite_matrix",
     "atmospheric_phenomena:lonsdaleite_block",
-    "atmospheric_phenomena:meteoric_ice"
+    "atmospheric_phenomena:meteoric_ice",
+    "atmospheric_phenomena:soil_fulgurite",
+    "atmospheric_phenomena:stone_fulgurite"
   ]
 }

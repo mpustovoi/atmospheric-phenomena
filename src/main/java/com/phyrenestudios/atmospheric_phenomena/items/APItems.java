@@ -28,6 +28,11 @@ public class APItems {
     public static final RegistryObject<Item> LONSDALEITE_BLOCK = ITEMS.register("lonsdaleite_block", () -> new BlockItem(APBlocks.LONSDALEITE_BLOCK.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> METEORIC_ICE = ITEMS.register("meteoric_ice", () -> new BlockItem(APBlocks.METEORIC_ICE.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> METEORIC_IRON = ITEMS.register("meteoric_iron", () -> new Item(new Item.Properties().stacksTo(64)));
+
+    public static final RegistryObject<Item> SOIL_FULGURITE = ITEMS.register("soil_fulgurite", () -> new BlockItem(APBlocks.SOIL_FULGURITE.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> SSTONE_FULGURITE = ITEMS.register("stone_fulgurite", () -> new BlockItem(APBlocks.SSTONE_FULGURITE.get(), new Item.Properties().stacksTo(64)));
+
+
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     //public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
