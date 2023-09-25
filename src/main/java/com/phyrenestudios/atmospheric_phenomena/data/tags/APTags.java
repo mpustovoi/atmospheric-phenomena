@@ -27,8 +27,15 @@ public class APTags {
         public static final TagKey<Block> VITRIFIES_TO_SOIL_FULGURITE = modBlock("vitrifies_to_soil_fulgurite");
         public static final TagKey<Block> VITRIFIES_TO_STONE_FULGURITE = modBlock("vitrifies_to_stone_fulgurite");
         public static final TagKey<Block> VITRIFIES_TO_GLASS = modBlock("vitrifies_to_glass");
+        public static final TagKey<Block> LIGHTNING_GLASS = modBlock("lightning_glass");
 
     }
+
+    public static final class Items {
+        public static final TagKey<Item> LIGHTNING_GLASS = modItem("lightning_glass");
+
+    }
+
 
     private static TagKey<Block> forgeBlock(String path) {
         return BlockTags.create(new ResourceLocation("forge", path));

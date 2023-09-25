@@ -1,6 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.data.tags;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.core.HolderLookup;
@@ -29,6 +30,10 @@ public class APItemTagProvider extends ItemTagsProvider {
 
         for (TektiteBlocks base : TektiteBlocks.values()) {
             tag(Tags.Items.GLASS).add(base.getTektite().asItem());
+        }
+        for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
+            tag(APTags.Items.LIGHTNING_GLASS).add(base.getGlass().asItem());
+            tag(Tags.Items.GLASS).add(base.getGlass().asItem());
         }
     }
 }

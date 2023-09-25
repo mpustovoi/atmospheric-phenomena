@@ -2,6 +2,7 @@ package com.phyrenestudios.atmospheric_phenomena.data.lang;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
@@ -30,6 +31,9 @@ public class APEnUsLangProvider extends LanguageProvider {
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             add(base.getTektite());
+        }
+        for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
+            add(base.getGlass());
         }
         add(APBlocks.KAMACITE.get());
         add(APBlocks.TAENITE.get());

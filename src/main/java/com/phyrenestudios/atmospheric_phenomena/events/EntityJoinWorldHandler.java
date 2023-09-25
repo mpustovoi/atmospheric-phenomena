@@ -1,6 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.events;
 
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
@@ -36,7 +37,7 @@ public class EntityJoinWorldHandler {
     }
 
     private static BlockState getVitrifiedBlock(BlockState stateIn) {
-        if (stateIn.is(APTags.Blocks.VITRIFIES_TO_GLASS)) return APBlocks.GOLDEN_MATRIX.get().defaultBlockState();
+        if (stateIn.is(APTags.Blocks.VITRIFIES_TO_GLASS)) return LightningGlassBlocks.WHITE_LIGHTNING_GLASS.getGlass().defaultBlockState();
         if (stateIn.is(APTags.Blocks.VITRIFIES_TO_SOIL_FULGURITE)) return APBlocks.SOIL_FULGURITE.get().defaultBlockState();
         if (stateIn.is(APTags.Blocks.VITRIFIES_TO_STONE_FULGURITE)) return APBlocks.SSTONE_FULGURITE.get().defaultBlockState();
         return Blocks.AIR.defaultBlockState();

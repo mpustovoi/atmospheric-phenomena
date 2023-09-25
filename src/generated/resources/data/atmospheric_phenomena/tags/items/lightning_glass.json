@@ -1,0 +1,20 @@
+{
+  "values": [
+    "atmospheric_phenomena:white_lightning_glass",
+    "atmospheric_phenomena:light_gray_lightning_glass",
+    "atmospheric_phenomena:gray_lightning_glass",
+    "atmospheric_phenomena:black_lightning_glass",
+    "atmospheric_phenomena:brown_lightning_glass",
+    "atmospheric_phenomena:red_lightning_glass",
+    "atmospheric_phenomena:orange_lightning_glass",
+    "atmospheric_phenomena:yellow_lightning_glass",
+    "atmospheric_phenomena:lime_lightning_glass",
+    "atmospheric_phenomena:green_lightning_glass",
+    "atmospheric_phenomena:cyan_lightning_glass",
+    "atmospheric_phenomena:light_blue_lightning_glass",
+    "atmospheric_phenomena:blue_lightning_glass",
+    "atmospheric_phenomena:purple_lightning_glass",
+    "atmospheric_phenomena:magenta_lightning_glass",
+    "atmospheric_phenomena:pink_lightning_glass"
+  ]
+}

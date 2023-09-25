@@ -19,6 +19,7 @@ public class APBlocks {
     static {
         MeteorBlocks.registerBlocks();
         TektiteBlocks.registerBlocks();
+        LightningGlassBlocks.registerBlocks();
     }
 
     public static final RegistryObject<Block> KAMACITE = BLOCKS.register("kamacite", () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(5.0F, 6.0F), UniformInt.of(1, 4)));
@@ -31,7 +32,6 @@ public class APBlocks {
 
     public static final RegistryObject<Block> SOIL_FULGURITE = BLOCKS.register("soil_fulgurite", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).requiresCorrectToolForDrops().strength(3F, 3F)));
     public static final RegistryObject<Block> SSTONE_FULGURITE = BLOCKS.register("stone_fulgurite", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).requiresCorrectToolForDrops().strength(3F, 3F)));
-
 
     //Charred wood
 }

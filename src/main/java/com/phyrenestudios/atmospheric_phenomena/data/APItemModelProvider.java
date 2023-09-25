@@ -2,6 +2,7 @@ package com.phyrenestudios.atmospheric_phenomena.data;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
@@ -34,6 +35,9 @@ public class APItemModelProvider extends ItemModelProvider {
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             withExistingParent(base.getTektite());
+        }
+        for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
+            withExistingParent(base.getGlass());
         }
         withExistingParent(APBlocks.KAMACITE.get());
         withExistingParent(APBlocks.TAENITE.get());

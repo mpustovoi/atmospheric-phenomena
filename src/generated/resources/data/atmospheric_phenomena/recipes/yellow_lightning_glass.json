@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "atmospheric_phenomena:lightning_glasses",
+  "key": {
+    "D": {
+      "tag": "forge:dyes/yellow"
+    },
+    "G": {
+      "tag": "atmospheric_phenomena:lightning_glass"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GDG",
+    "GGG"
+  ],
+  "result": {
+    "count": 8,
+    "item": "atmospheric_phenomena:yellow_lightning_glass"
+  },
+  "show_notification": true
+}

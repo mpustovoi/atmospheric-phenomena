@@ -1,6 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.init;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
@@ -33,6 +34,9 @@ public class APCreativeTabs {
                 output.accept(APItems.SSTONE_FULGURITE.get());
                 output.accept(APItems.SOIL_FULGURITE.get());
 
+                for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
+                    output.accept(base.getGlass());
+                }
                 output.accept(APItems.LONSDALEITE.get());
                 output.accept(APItems.LONSDALEITE_BLOCK.get());
                 output.accept(APItems.METEORIC_IRON.get());

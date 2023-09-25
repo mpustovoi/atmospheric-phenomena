@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "glowing=false": {
+      "model": "atmospheric_phenomena:block/magenta_lightning_glass"
+    },
+    "glowing=true": {
+      "model": "atmospheric_phenomena:block/magenta_lightning_glass_glowing"
+    }
+  }
+}

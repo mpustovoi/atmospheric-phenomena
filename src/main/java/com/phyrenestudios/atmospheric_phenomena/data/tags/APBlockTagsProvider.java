@@ -2,6 +2,7 @@ package com.phyrenestudios.atmospheric_phenomena.data.tags;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import net.minecraft.core.HolderLookup;
@@ -35,6 +36,11 @@ public class APBlockTagsProvider extends BlockTagsProvider {
             tag(BlockTags.NEEDS_IRON_TOOL).add(base.getTektite());
             tag(Tags.Blocks.GLASS).add(base.getTektite());
             tag(APTags.Blocks.METEORITE_STREWN_BLOCKS).add(base.getTektite());
+        }
+        for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
+            tag(BlockTags.MINEABLE_WITH_PICKAXE).add(base.getGlass());
+            tag(APTags.Blocks.LIGHTNING_GLASS).add(base.getGlass());
+            tag(Tags.Blocks.GLASS).add(base.getGlass());
         }
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.LONSDALEITE_BLOCK.get(), APBlocks.METEORIC_ICE.get(), APBlocks.SOIL_FULGURITE.get(), APBlocks.SSTONE_FULGURITE.get());
         tag(BlockTags.NEEDS_IRON_TOOL).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get());

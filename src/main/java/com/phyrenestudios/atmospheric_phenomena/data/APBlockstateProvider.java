@@ -1,11 +1,11 @@
 package com.phyrenestudios.atmospheric_phenomena.data;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
-import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.*;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nonnull;
@@ -27,6 +27,11 @@ public class APBlockstateProvider extends BlockStateProvider {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             simpleBlock(base.getMeteorBlock());
         }
+        for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
+            getVariantBuilder(base.getGlass())
+                    .partialState().with(LightningGlassBlock.GLOWING, false).modelForState().modelFile(models().cubeAll(base.getSerializedName(), blockTexture(base.getGlass())).renderType("translucent")).addModel()
+                    .partialState().with(LightningGlassBlock.GLOWING, true).modelForState().modelFile(models().cubeAll(base.getSerializedName()+"_glowing", blockTexture(base.getGlass())).renderType("translucent")).addModel();
+        }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             simpleBlock(base.getTektite(), models().cubeAll(base.getSerializedName(), blockTexture(base.getTektite())).renderType("translucent"));
         }
@@ -41,4 +46,14 @@ public class APBlockstateProvider extends BlockStateProvider {
         simpleBlock(APBlocks.SSTONE_FULGURITE.get());
     }
 
+    private void lightningGlassBlock(Block blockIn, ModelFile modelIn) {
+        getVariantBuilder(blockIn)
+                .partialState().with(LightningGlassBlock.GLOWING, false).modelForState().modelFile(modelIn).addModel()
+                .partialState().with(LightningGlassBlock.GLOWING, true).modelForState().modelFile(modelIn).addModel();
+    }
+
+
+
+
 }
+

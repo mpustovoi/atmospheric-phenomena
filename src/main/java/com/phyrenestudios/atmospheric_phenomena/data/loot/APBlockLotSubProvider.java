@@ -1,6 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.data.loot;
 
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
@@ -45,6 +46,9 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             dropSelf(base.getTektite());
+        }
+        for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
+            dropSelf(base.getGlass());
         }
 
         addOre(APBlocks.KAMACITE.get(), APItems.METEORIC_IRON.get());
