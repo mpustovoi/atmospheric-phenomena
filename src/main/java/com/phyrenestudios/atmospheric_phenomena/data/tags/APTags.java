@@ -28,6 +28,7 @@ public class APTags {
         public static final TagKey<Block> VITRIFIES_TO_STONE_FULGURITE = modBlock("vitrifies_to_stone_fulgurite");
         public static final TagKey<Block> VITRIFIES_TO_GLASS = modBlock("vitrifies_to_glass");
         public static final TagKey<Block> LIGHTNING_GLASS = modBlock("lightning_glass");
+        public static final TagKey<Block> LIGHTNING_CONDUCTIVE = modBlock("lightning_conductive");
 
     }
 

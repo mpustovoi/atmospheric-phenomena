@@ -1,4 +1,5 @@
-// 1.20.1	2023-09-25T15:50:04.32619	atmospheric_phenomena - Block Tags
+// 1.20.1	2023-09-25T17:03:20.5385908	atmospheric_phenomena - Block Tags
+b00c71ccb0584a7a35e99130017ada0d409373b7 data/atmospheric_phenomena/tags/blocks/lightning_conductive.json
 b27e0b87c8f6d3fcf3db177f6cfe9fd339c85c84 data/atmospheric_phenomena/tags/blocks/lightning_glass.json
 b37fdc9abe7a98f320159a38fe11438e01677b9e data/atmospheric_phenomena/tags/blocks/meteorite_strewn_blocks.json
 acdf642b637a4d60ab574d48a9d0303782cfb4cb data/atmospheric_phenomena/tags/blocks/meteor_blocks.json
