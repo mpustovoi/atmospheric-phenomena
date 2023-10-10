@@ -11,6 +11,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -67,25 +68,37 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
                 levelIn.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 3);
                 continue;
             }
-            if (levelIn.getBlockState(blockpos).is(Blocks.AIR) || levelIn.getBlockState(blockpos).is(Blocks.WATER)) continue;
+            if (levelIn.getBlockState(blockpos).is(Blocks.AIR) || levelIn.getBlockState(blockpos).is(Blocks.WATER)) {
+                if (blockpos.getY() == levelIn.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, blockpos.getX(), blockpos.getZ()) && blockpos.distSqr(posIn) >= (radius-1)*(radius-1)) {
+                    setCraterBlock(levelIn, blockpos, genMagma, glass, surface, groundmass);
+                }
+                continue;
+            }
 
             if (!levelIn.getBlockState(blockpos).is(APTags.Blocks.VALID_METEORITE_SPAWN) || blockpos.distSqr(posIn) < (radius-1)*(radius-1)) {
                 levelIn.setBlock(blockpos, waterlog && blockpos.getY() < levelIn.getSeaLevel() ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), 3);
                 continue;
             }
 
-            float chance = levelIn.getRandom().nextFloat();
-            if (chance < 0.1 && genMagma && blockpos.getY() < posIn.getY()-radius*0.5) {
-                levelIn.setBlock(blockpos, Blocks.MAGMA_BLOCK.defaultBlockState(), 3);
-            } else if (chance < 0.3 && glass.isPresent()) {
-                levelIn.setBlock(blockpos, glass.get().defaultBlockState(), 3);
-            } else if (chance < 0.5) {
-                levelIn.setBlock(blockpos, groundmass, 3);
-            } else if (chance < 0.7) {
-                levelIn.setBlock(blockpos, surface, 3);
-            }
+            setCraterBlock(levelIn, blockpos, genMagma, glass, surface, groundmass);
 
+        }
+    }
 
+    private void setCraterBlock(WorldGenLevel levelIn, BlockPos posIn, boolean genMagma, Optional<Block> glass, BlockState surface, BlockState groundmass) {
+        if (genMagma && levelIn.getRandom().nextFloat() < Config.magmaBlockFrequency && posIn.getY() < posIn.getY()-2) {
+            levelIn.setBlock(posIn, Blocks.MAGMA_BLOCK.defaultBlockState(), 3);
+            return;
+        }
+        if (levelIn.getRandom().nextFloat() < Config.tektiteBlockFrequency && glass.isPresent()) {
+            levelIn.setBlock(posIn, glass.get().defaultBlockState(), 3);
+            return;
+        }
+        int chance = levelIn.getRandom().nextInt(3);
+        if (chance == 1) {
+            levelIn.setBlock(posIn, groundmass, 3);
+        } else if (chance == 2) {
+            levelIn.setBlock(posIn, surface, 3);
         }
     }
 
