@@ -17,11 +17,13 @@ import java.util.List;
 public class APPlacements {
 
     public static final ResourceKey<PlacedFeature> OVERWORLD_METEORITE = createKey("overworld_meteorite");
+   // public static final ResourceKey<PlacedFeature> LARGE_CRATER = createKey("large_crater");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, OVERWORLD_METEORITE, configuredFeatureGetter.getOrThrow(APFeatures.CONFIGURED_OVERWORLD_METEORITE), Arrays.asList(RarityFilter.onAverageOnceEvery(40), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome()));
+        //register(context, LARGE_CRATER, configuredFeatureGetter.getOrThrow(APFeatures.CONFIGURED_LARGE_CRATER), Arrays.asList(RarityFilter.onAverageOnceEvery(20), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome()));
     }
 
     protected static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers) {

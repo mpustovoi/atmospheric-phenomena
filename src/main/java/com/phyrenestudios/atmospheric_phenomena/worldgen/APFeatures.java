@@ -18,12 +18,15 @@ public class APFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, AtmosphericPhenomena.MODID);
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> OVERWORLD_METEORITE = FEATURES.register("overworld_meteorite", () -> new OverworldMeteoriteFeature(NoneFeatureConfiguration.CODEC));
+    //public static final RegistryObject<Feature<NoneFeatureConfiguration>> LARGE_CRATER = FEATURES.register("large_crater", () -> new LargeCraterFeature(NoneFeatureConfiguration.CODEC));
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_OVERWORLD_METEORITE = createKey("overworld_meteorite");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_LARGE_CRATER= createKey("large_crater");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         register(context, CONFIGURED_OVERWORLD_METEORITE, OVERWORLD_METEORITE.get(), new NoneFeatureConfiguration());
+       // register(context, CONFIGURED_LARGE_CRATER, LARGE_CRATER.get(), new NoneFeatureConfiguration());
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration) {

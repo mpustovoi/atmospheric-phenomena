@@ -70,6 +70,11 @@ public final class DataGenerators {
                     HolderSet.direct(context.lookup(Registries.PLACED_FEATURE).getOrThrow(APPlacements.OVERWORLD_METEORITE)),
                     GenerationStep.Decoration.LOCAL_MODIFICATIONS
             ));
+            //context.register(ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(AtmosphericPhenomena.MODID, "large_crater")), new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+           //         biomeGetter.getOrThrow(BiomeTags.IS_OVERWORLD),
+            //        HolderSet.direct(context.lookup(Registries.PLACED_FEATURE).getOrThrow(APPlacements.LARGE_CRATER)),
+            //        GenerationStep.Decoration.RAW_GENERATION
+            //));
 
         });
         registryBuilder.add(Registries.BIOME, context -> {});
