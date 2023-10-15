@@ -39,6 +39,9 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APBlocks.TAENITE.get());
         add(APBlocks.TETRATAENITE.get());
         add(APBlocks.GOLDEN_MATRIX.get());
+        add(APBlocks.QUARTZ_MATRIX.get());
+        add(APBlocks.CHARGED_QUARTZ_MATRIX.get());
+        add(APBlocks.DEBRIS_MATRIX.get());
         add(APBlocks.LONSDALEITE_MATRIX.get());
         add(APBlocks.LONSDALEITE_BLOCK.get(), "Block of Lonsdaleite");
         add(APBlocks.METEORIC_ICE.get());

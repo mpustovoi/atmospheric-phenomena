@@ -42,12 +42,14 @@ public class APBlockTagsProvider extends BlockTagsProvider {
             tag(APTags.Blocks.LIGHTNING_GLASS).add(base.getGlass());
             tag(Tags.Blocks.GLASS).add(base.getGlass());
         }
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.LONSDALEITE_BLOCK.get(), APBlocks.METEORIC_ICE.get(), APBlocks.SOIL_FULGURITE.get(), APBlocks.SSTONE_FULGURITE.get());
-        tag(BlockTags.NEEDS_IRON_TOOL).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get());
-        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(APBlocks.LONSDALEITE_MATRIX.get());
-        tag(APTags.Blocks.RARE_METEOR_BLOCKS).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), Blocks.CRYING_OBSIDIAN).addTag(Tags.Blocks.OBSIDIAN);
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.CHARGED_QUARTZ_MATRIX.get(), APBlocks.DEBRIS_MATRIX.get(), APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.LONSDALEITE_BLOCK.get(), APBlocks.METEORIC_ICE.get(), APBlocks.SOIL_FULGURITE.get(), APBlocks.SSTONE_FULGURITE.get());
+        tag(BlockTags.NEEDS_IRON_TOOL).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.CHARGED_QUARTZ_MATRIX.get());
+        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.DEBRIS_MATRIX.get());
+        tag(APTags.Blocks.RARE_METEOR_BLOCKS).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get()).addTag(Tags.Blocks.OBSIDIAN);
+        tag(APTags.Blocks.ULTRA_RARE_METEOR_BLOCKS).add(Blocks.CRYING_OBSIDIAN);
         tag(APTags.Blocks.METEOR_CORE_BLOCKS).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get());
-        tag(APTags.Blocks.RARE_METEOR_CORE_BLOCKS).add(APBlocks.GOLDEN_MATRIX.get(), APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.METEORIC_ICE.get());
+        tag(APTags.Blocks.RARE_METEOR_CORE_BLOCKS).add(APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.METEORIC_ICE.get());
+        tag(APTags.Blocks.ULTRA_RARE_METEOR_CORE_BLOCKS).add(APBlocks.DEBRIS_MATRIX.get());
         tag(Tags.Blocks.STORAGE_BLOCKS_DIAMOND).add(APBlocks.LONSDALEITE_BLOCK.get());
         tag(BlockTags.ICE).add(APBlocks.METEORIC_ICE.get());
         tag(APTags.Blocks.VALID_METEORITE_SPAWN).addTags(Tags.Blocks.STONE,BlockTags.DIRT,BlockTags.SNOW,BlockTags.SAND,Tags.Blocks.SANDSTONE,Tags.Blocks.OBSIDIAN,Tags.Blocks.GRAVEL,Tags.Blocks.COBBLESTONE,Tags.Blocks.ORES,BlockTags.TERRACOTTA).add(Blocks.DIRT_PATH, Blocks.CLAY);

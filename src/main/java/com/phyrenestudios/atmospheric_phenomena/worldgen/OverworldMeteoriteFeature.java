@@ -4,6 +4,7 @@ package com.phyrenestudios.atmospheric_phenomena.worldgen;
 import com.mojang.serialization.Codec;
 import com.phyrenestudios.atmospheric_phenomena.Config;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
+import com.phyrenestudios.atmospheric_phenomena.util.WeightedCollection;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -17,9 +18,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
     public OverworldMeteoriteFeature(Codec<NoneFeatureConfiguration> p_i49915_1_) {
@@ -34,7 +33,6 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         RandomSource rand = levelIn.getRandom();
         BlockState target = levelIn.getBlockState(posIn.below());
         if (!target.is(APTags.Blocks.VALID_METEORITE_SPAWN)) return false;
-        if (ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_BLOCKS).isEmpty()) return false;
 
         int size = 2;
 
@@ -103,14 +101,13 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
     }
 
     private void buildMeteor(WorldGenLevel levelIn, RandomSource rand, List<BlockPos> centerList, int size) {
-
-        Optional<Block> meteor = ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_BLOCKS).getRandomElement(rand);
-        Optional<Block> rareMeteor = ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_BLOCKS).getRandomElement(rand);
-        Optional<Block> coreMeteor = ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_CORE_BLOCKS).getRandomElement(rand);
-        Optional<Block> rareCoreMeteor = ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_CORE_BLOCKS).getRandomElement(rand);
-        if (rareMeteor.isPresent() && rand.nextFloat() < 0.1) meteor = rareMeteor;
-        if (rareCoreMeteor.isPresent() && rand.nextFloat() < 0.1) coreMeteor = rareCoreMeteor;
-        if (coreMeteor.isEmpty() || rand.nextFloat() < 0.2) coreMeteor = meteor;
+        Block meteor = meteorBlockCollection().getRandomElement();
+        Block coreMeteor;
+        if (rand.nextFloat() < Config.solidCoreMeteoriteChance) {
+            coreMeteor = meteor;
+        } else {
+            coreMeteor = meteorCoreBlockCollection().getRandomElement();
+        }
 
         for (BlockPos center : centerList) {
             int j = 1 + rand.nextInt(size);
@@ -120,13 +117,42 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
             center = center.below(size);
             for(BlockPos blockpos : BlockPos.betweenClosed(center.offset(-size, -size, -size), center.offset(size, size, size))) {
                 if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)*0.3) {
-                    levelIn.setBlock(blockpos.below(1), coreMeteor.get().defaultBlockState(), 3);
+                    levelIn.setBlock(blockpos.below(1), coreMeteor.defaultBlockState(), 3);
                 } else if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)) {
-                    levelIn.setBlock(blockpos.below(1), meteor.get().defaultBlockState(), 3);
+                    levelIn.setBlock(blockpos.below(1), meteor.defaultBlockState(), 3);
                 }
             }
         }
 
+    }
+
+    private WeightedCollection<Block> meteorBlockCollection() {
+        WeightedCollection<Block> blockCollection = new WeightedCollection<>();
+
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_BLOCKS)) {
+            blockCollection.add(Config.meteoriteChance, blk);
+        }
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_BLOCKS)) {
+            blockCollection.add(Config.rareMeteoriteChance, blk);
+        }
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.ULTRA_RARE_METEOR_BLOCKS)) {
+            blockCollection.add(Config.ultraRareMeteoriteChance, blk);
+        }
+        return blockCollection;
+    }
+    private WeightedCollection<Block> meteorCoreBlockCollection() {
+        WeightedCollection<Block> blockCollection = new WeightedCollection<>();
+
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_CORE_BLOCKS)) {
+            blockCollection.add(Config.meteoriteChance, blk);
+        }
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_CORE_BLOCKS)) {
+            blockCollection.add(Config.rareMeteoriteChance, blk);
+        }
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.ULTRA_RARE_METEOR_CORE_BLOCKS)) {
+            blockCollection.add(Config.ultraRareMeteoriteChance, blk);
+        }
+        return blockCollection;
     }
 
     private double shortestDistance(BlockPos posIn, List<BlockPos> centerList, int size) {

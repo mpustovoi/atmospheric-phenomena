@@ -39,6 +39,9 @@ public class APBlockstateProvider extends BlockStateProvider {
         simpleBlock(APBlocks.TAENITE.get());
         simpleBlock(APBlocks.TETRATAENITE.get());
         simpleBlock(APBlocks.GOLDEN_MATRIX.get());
+        simpleBlock(APBlocks.QUARTZ_MATRIX.get());
+        simpleBlock(APBlocks.CHARGED_QUARTZ_MATRIX.get());
+        simpleBlock(APBlocks.DEBRIS_MATRIX.get());
         simpleBlock(APBlocks.LONSDALEITE_MATRIX.get());
         simpleBlock(APBlocks.LONSDALEITE_BLOCK.get());
         simpleBlock(APBlocks.METEORIC_ICE.get());

@@ -25,7 +25,10 @@ public class APItems {
     public static final RegistryObject<Item> KAMACITE = ITEMS.register("kamacite", () -> new BlockItem(APBlocks.KAMACITE.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> TAENITE = ITEMS.register("taenite", () -> new BlockItem(APBlocks.TAENITE.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> TETRATAENITE = ITEMS.register("tetrataenite", () -> new BlockItem(APBlocks.TETRATAENITE.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> QUARTZ_MATRIX = ITEMS.register("quartz_matrix", () -> new BlockItem(APBlocks.QUARTZ_MATRIX.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> CHARGED_QUARTZ_MATRIX = ITEMS.register("charged_quartz_matrix", () -> new BlockItem(APBlocks.CHARGED_QUARTZ_MATRIX.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> GOLDEN_MATRIX = ITEMS.register("golden_matrix", () -> new BlockItem(APBlocks.GOLDEN_MATRIX.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> DEBRIS_MATRIX = ITEMS.register("debris_matrix", () -> new BlockItem(APBlocks.DEBRIS_MATRIX.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> LONSDALEITE_MATRIX = ITEMS.register("lonsdaleite_matrix", () -> new BlockItem(APBlocks.LONSDALEITE_MATRIX.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> LONSDALEITE = ITEMS.register("lonsdaleite", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> LONSDALEITE_BLOCK = ITEMS.register("lonsdaleite_block", () -> new BlockItem(APBlocks.LONSDALEITE_BLOCK.get(), new Item.Properties().stacksTo(64)));

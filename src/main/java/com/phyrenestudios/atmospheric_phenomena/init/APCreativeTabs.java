@@ -29,8 +29,10 @@ public class APCreativeTabs {
                     output.accept(base.getTektite());
                 }
                 output.accept(APItems.METEORIC_ICE.get());
+                output.accept(APItems.QUARTZ_MATRIX.get());
                 output.accept(APItems.GOLDEN_MATRIX.get());
                 output.accept(APItems.LONSDALEITE_MATRIX.get());
+                output.accept(APItems.DEBRIS_MATRIX.get());
                 output.accept(APItems.SSTONE_FULGURITE.get());
                 output.accept(APItems.SOIL_FULGURITE.get());
 

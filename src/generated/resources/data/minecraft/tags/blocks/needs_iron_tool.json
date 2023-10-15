@@ -16,6 +16,8 @@
     "atmospheric_phenomena:kamacite",
     "atmospheric_phenomena:taenite",
     "atmospheric_phenomena:tetrataenite",
-    "atmospheric_phenomena:golden_matrix"
+    "atmospheric_phenomena:golden_matrix",
+    "atmospheric_phenomena:quartz_matrix",
+    "atmospheric_phenomena:charged_quartz_matrix"
   ]
 }
