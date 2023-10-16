@@ -30,6 +30,7 @@ public class APCreativeTabs {
                 }
                 output.accept(APItems.METEORIC_ICE.get());
                 output.accept(APItems.QUARTZ_MATRIX.get());
+                output.accept(APItems.CHARGED_QUARTZ_MATRIX.get());
                 output.accept(APItems.GOLDEN_MATRIX.get());
                 output.accept(APItems.LONSDALEITE_MATRIX.get());
                 output.accept(APItems.DEBRIS_MATRIX.get());
