@@ -31,6 +31,7 @@ public class APTags {
         public static final TagKey<Block> VITRIFIES_TO_GLASS = modBlock("vitrifies_to_glass");
         public static final TagKey<Block> LIGHTNING_GLASS = modBlock("lightning_glass");
         public static final TagKey<Block> LIGHTNING_CONDUCTIVE = modBlock("lightning_conductive");
+        public static final TagKey<Block> EXPLODES_FROM_CONDUCTIVITY = modBlock("explodes_from_conductivity");
 
     }
 
