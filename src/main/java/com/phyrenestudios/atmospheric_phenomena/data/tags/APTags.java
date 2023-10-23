@@ -32,11 +32,13 @@ public class APTags {
         public static final TagKey<Block> LIGHTNING_GLASS = modBlock("lightning_glass");
         public static final TagKey<Block> LIGHTNING_CONDUCTIVE = modBlock("lightning_conductive");
         public static final TagKey<Block> EXPLODES_FROM_CONDUCTIVITY = modBlock("explodes_from_conductivity");
+        public static final TagKey<Block> CHARRED_LOGS = modBlock("charred_logs");
 
     }
 
     public static final class Items {
         public static final TagKey<Item> LIGHTNING_GLASS = modItem("lightning_glass");
+        public static final TagKey<Item> CHARRED_LOGS = modItem("charred_logs");
 
     }
 

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "atmospheric_phenomena:block/charred_planks",
+    "side": "atmospheric_phenomena:block/charred_bookshelf"
+  }
+}

@@ -1,11 +1,13 @@
 package com.phyrenestudios.atmospheric_phenomena;
 
 import com.mojang.logging.LogUtils;
+import com.phyrenestudios.atmospheric_phenomena.block_entities.APBlockEntities;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.init.APCreativeTabs;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -33,6 +35,7 @@ public class AtmosphericPhenomena
         modEventBus.addListener(this::commonSetup);
         APBlocks.BLOCKS.register(modEventBus);
         APItems.ITEMS.register(modEventBus);
+        APBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
         APFeatures.FEATURES.register(modEventBus);
         APCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
@@ -41,7 +44,7 @@ public class AtmosphericPhenomena
 
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        WoodType.register(APBlocks.CHARRED_WOODTYPE);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -57,9 +60,10 @@ public class AtmosphericPhenomena
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            event.enqueueWork(() -> {
+                    Sheets.addWoodType(APBlocks.CHARRED_WOODTYPE);
+                    APBlockEntities.registerBlockEntityRenders();
+            });
         }
     }
 }

@@ -49,6 +49,23 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APBlocks.SSTONE_FULGURITE.get());
         add(APItems.LONSDALEITE.get());
         add(APItems.METEORIC_IRON.get());
+
+        add(APBlocks.CHARRED_LOG.get());
+        add(APBlocks.STRIPPED_CHARRED_LOG.get());
+        add(APBlocks.CHARRED_WOOD.get());
+        add(APBlocks.STRIPPED_CHARRED_WOOD.get());
+        add(APBlocks.CHARRED_PLANKS.get());
+        add(APBlocks.CHARRED_SLAB.get());
+        add(APBlocks.CHARRED_STAIRS.get());
+        add(APBlocks.CHARRED_FENCE.get());
+        add(APBlocks.CHARRED_FENCE_GATE.get());
+        add(APBlocks.CHARRED_DOOR.get());
+        add(APBlocks.CHARRED_TRAPDOOR.get());
+        add(APBlocks.CHARRED_PRESSURE_PLATE.get());
+        add(APBlocks.CHARRED_BUTTON.get());
+        add(APBlocks.CHARRED_BOOKSHELF.get());
+        add(APItems.CHARRED_SIGN.get());
+
         add("itemGroup.atmospheric_phenomena.main", "Atmospheric Phenomena");
     }
 

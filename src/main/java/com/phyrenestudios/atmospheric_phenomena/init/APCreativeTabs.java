@@ -34,7 +34,7 @@ public class APCreativeTabs {
                 output.accept(APItems.GOLDEN_MATRIX.get());
                 output.accept(APItems.LONSDALEITE_MATRIX.get());
                 output.accept(APItems.DEBRIS_MATRIX.get());
-                output.accept(APItems.SSTONE_FULGURITE.get());
+                output.accept(APItems.STONE_FULGURITE.get());
                 output.accept(APItems.SOIL_FULGURITE.get());
 
                 for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
@@ -43,5 +43,23 @@ public class APCreativeTabs {
                 output.accept(APItems.LONSDALEITE.get());
                 output.accept(APItems.LONSDALEITE_BLOCK.get());
                 output.accept(APItems.METEORIC_IRON.get());
+
+                output.accept(APItems.CHARRED_LOG.get());
+                output.accept(APItems.STRIPPED_CHARRED_LOG.get());
+                output.accept(APItems.CHARRED_WOOD.get());
+                output.accept(APItems.STRIPPED_CHARRED_WOOD.get());
+                output.accept(APItems.CHARRED_PLANKS.get());
+                output.accept(APItems.CHARRED_STAIRS.get());
+                output.accept(APItems.CHARRED_SLAB.get());
+                output.accept(APItems.CHARRED_FENCE.get());
+                output.accept(APItems.CHARRED_FENCE_GATE.get());
+                output.accept(APItems.CHARRED_DOOR.get());
+                output.accept(APItems.CHARRED_TRAPDOOR.get());
+                output.accept(APItems.CHARRED_PRESSURE_PLATE.get());
+                output.accept(APItems.CHARRED_BUTTON.get());
+                output.accept(APItems.CHARRED_SIGN.get());
+                output.accept(APItems.CHARRED_BOOKSHELF.get());
+
+
             }).build());
 }

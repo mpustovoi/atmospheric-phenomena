@@ -54,10 +54,36 @@ public class APItemModelProvider extends ItemModelProvider {
 
         basicItem(APItems.LONSDALEITE.get());
         basicItem(APItems.METEORIC_IRON.get());
+
+        withExistingParent(APBlocks.CHARRED_LOG.get());
+        withExistingParent(APBlocks.STRIPPED_CHARRED_LOG.get());
+        withExistingParent(APBlocks.CHARRED_WOOD.get());
+        withExistingParent(APBlocks.STRIPPED_CHARRED_WOOD.get());
+        withExistingParent(APBlocks.CHARRED_PLANKS.get());
+        slabParent(APBlocks.CHARRED_SLAB.get());
+        stairsParent(APBlocks.CHARRED_STAIRS.get());
+        withExistingParent(name(APBlocks.CHARRED_FENCE.get()), getBlockRSL(name(APBlocks.CHARRED_FENCE.get(),"_inventory")));
+        withExistingParent(APBlocks.CHARRED_FENCE_GATE.get());
+        basicItem(APBlocks.CHARRED_DOOR.get().asItem());
+        withExistingParent(name(APBlocks.CHARRED_TRAPDOOR.get()), getBlockRSL(name(APBlocks.CHARRED_TRAPDOOR.get(),"_bottom")));
+        withExistingParent(APBlocks.CHARRED_PRESSURE_PLATE.get());
+        withExistingParent(name(APBlocks.CHARRED_BUTTON.get()), getBlockRSL(name(APBlocks.CHARRED_BUTTON.get(),"_inventory")));
+        basicItem(APItems.CHARRED_SIGN.get());
+        withExistingParent(APBlocks.CHARRED_BOOKSHELF.get());
+        //basicItem(Wood.getBoat());
+
+
+
     }
 
     private ItemModelBuilder withExistingParent(Block blk) {
         return withExistingParent(name(blk), modLoc("block/" + name(blk)));
+    }
+    private ItemModelBuilder slabParent(Block BLK) {
+        return withExistingParent(name(BLK), getBlockRSL(name(BLK)));
+    }
+    private ItemModelBuilder stairsParent(Block BLK) {
+        return withExistingParent(name(BLK), getBlockRSL(name(BLK)));
     }
 
     private static ResourceLocation key(Block block) {
@@ -89,5 +115,14 @@ public class APItemModelProvider extends ItemModelProvider {
     }
     private static String name(String prefix, Item itemLike, String suffix) {
         return prefix + key(itemLike).getPath() + suffix;
+    }
+    private ResourceLocation getBlockRSL(Block itemLike) {
+        return getBlockRSL(name(itemLike));
+    }
+    private ResourceLocation getBlockRSL(String textureName) {
+        return modLoc("block/"+textureName);
+    }
+    private ResourceLocation getBlockRSL(String namespace, String textureName) {
+        return new ResourceLocation(namespace,"block/"+textureName);
     }
 }

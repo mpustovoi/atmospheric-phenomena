@@ -1,4 +1,5 @@
-// 1.20.1	2023-10-17T08:31:26.7827268	atmospheric_phenomena - Block Tags
+// 1.20.1	2023-10-23T08:00:57.3988939	atmospheric_phenomena - Block Tags
+d66d81cd4e2c15d320a99acc3e293d6bf6ac4b36 data/atmospheric_phenomena/tags/blocks/charred_logs.json
 b00c71ccb0584a7a35e99130017ada0d409373b7 data/atmospheric_phenomena/tags/blocks/lightning_conductive.json
 b27e0b87c8f6d3fcf3db177f6cfe9fd339c85c84 data/atmospheric_phenomena/tags/blocks/lightning_glass.json
 b37fdc9abe7a98f320159a38fe11438e01677b9e data/atmospheric_phenomena/tags/blocks/meteorite_strewn_blocks.json
@@ -14,7 +15,19 @@ c1b2a217bb3fcb7e1d67f5bc45409796720bd171 data/atmospheric_phenomena/tags/blocks/
 8728fba352d2773c70fd79a0fffbb3bea026c028 data/atmospheric_phenomena/tags/blocks/vitrifies_to_stone_fulgurite.json
 f211a5d7f6078c24f70d65ce26631d618f1bc83d data/forge/tags/blocks/glass.json
 ba5167dcaebfb172cfd09fcf6264e36dc445248f data/forge/tags/blocks/storage_blocks/diamond.json
+22a9e10689601a6f4795cf6dec96f10987936376 data/minecraft/tags/blocks/fence_gates.json
 270edd9b5a2684d9d5cd3996e6b2f36c0c86a538 data/minecraft/tags/blocks/ice.json
+128ed5c2573877f33e157b5a4fce600dc33aab03 data/minecraft/tags/blocks/mineable/axe.json
 fa5712a08da01f5cd84856e96e3380fcf3ac59fc data/minecraft/tags/blocks/mineable/pickaxe.json
 b41c4fee94f7180dcf62bae5ec256b0969a0cf8b data/minecraft/tags/blocks/needs_diamond_tool.json
 b2605370dba089327ef9ec49ad2047026d553e34 data/minecraft/tags/blocks/needs_iron_tool.json
+312291bb9bea80b00750a0d339453b4131c57036 data/minecraft/tags/blocks/planks.json
+d0851965b5432d2799918c059d447e56d5f81489 data/minecraft/tags/blocks/standing_signs.json
+a65723c3c93b3832d3e6e621bf9ce04ee33eced8 data/minecraft/tags/blocks/wall_signs.json
+13258a16232d9df47d83870d0b3357dd548c7199 data/minecraft/tags/blocks/wooden_buttons.json
+c00ffdbea0e7254b99badcef59f8a2c83a7a32cc data/minecraft/tags/blocks/wooden_doors.json
+a53ce7dc59ded6b5ad365fd48bda90c247ffa4cd data/minecraft/tags/blocks/wooden_fences.json
+d20be3289eec3c84398d4c69ec5127fff0799582 data/minecraft/tags/blocks/wooden_pressure_plates.json
+6f7cc6ba36decb135adedd9c4f4a23a347158cd4 data/minecraft/tags/blocks/wooden_slabs.json
+8196d27ad4b25dd0b4faf34c947ba5dd3c5a60ad data/minecraft/tags/blocks/wooden_stairs.json
+1cb94601299647d516f09f51c451487ffb8d2de9 data/minecraft/tags/blocks/wooden_trapdoors.json

@@ -27,6 +27,7 @@ public class APItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(Tags.Items.GEMS_DIAMOND).add(APItems.LONSDALEITE.get());
         tag(Tags.Items.STORAGE_BLOCKS_DIAMOND).add(APItems.LONSDALEITE_BLOCK.get());
+        copy(APTags.Blocks.CHARRED_LOGS, APTags.Items.CHARRED_LOGS);
 
         for (TektiteBlocks base : TektiteBlocks.values()) {
             tag(Tags.Items.GLASS).add(base.getTektite().asItem());

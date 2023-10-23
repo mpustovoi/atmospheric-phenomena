@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "atmospheric_phenomena:block/stripped_charred_log",
+    "side": "atmospheric_phenomena:block/stripped_charred_log"
+  }
+}

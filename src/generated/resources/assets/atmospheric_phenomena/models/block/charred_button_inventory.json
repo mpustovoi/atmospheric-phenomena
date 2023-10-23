@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "atmospheric_phenomena:block/charred_planks"
+  }
+}

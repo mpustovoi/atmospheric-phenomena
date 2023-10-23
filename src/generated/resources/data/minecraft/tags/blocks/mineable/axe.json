@@ -1,0 +1,17 @@
+{
+  "values": [
+    "#atmospheric_phenomena:charred_logs",
+    "atmospheric_phenomena:charred_planks",
+    "atmospheric_phenomena:charred_slab",
+    "atmospheric_phenomena:charred_stairs",
+    "atmospheric_phenomena:charred_fence",
+    "atmospheric_phenomena:charred_fence_gate",
+    "atmospheric_phenomena:charred_door",
+    "atmospheric_phenomena:charred_trapdoor",
+    "atmospheric_phenomena:charred_pressure_plate",
+    "atmospheric_phenomena:charred_button",
+    "atmospheric_phenomena:charred_sign",
+    "atmospheric_phenomena:charred_wall_sign",
+    "atmospheric_phenomena:charred_bookshelf"
+  ]
+}

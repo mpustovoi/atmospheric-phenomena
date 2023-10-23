@@ -42,6 +42,33 @@ public class APBlockTagsProvider extends BlockTagsProvider {
             tag(APTags.Blocks.LIGHTNING_GLASS).add(base.getGlass());
             tag(Tags.Blocks.GLASS).add(base.getGlass());
         }
+
+        tag(APTags.Blocks.CHARRED_LOGS).add(APBlocks.CHARRED_LOG.get(),APBlocks.STRIPPED_CHARRED_LOG.get(),APBlocks.CHARRED_WOOD.get(),APBlocks.STRIPPED_CHARRED_WOOD.get());
+        tag(BlockTags.PLANKS).add(APBlocks.CHARRED_PLANKS.get());
+        tag(BlockTags.WOODEN_SLABS).add(APBlocks.CHARRED_SLAB.get());
+        tag(BlockTags.WOODEN_STAIRS).add(APBlocks.CHARRED_STAIRS.get());
+        tag(BlockTags.WOODEN_FENCES).add(APBlocks.CHARRED_FENCE.get());
+        tag(BlockTags.FENCE_GATES).add(APBlocks.CHARRED_FENCE_GATE.get());
+        tag(BlockTags.WOODEN_DOORS).add(APBlocks.CHARRED_DOOR.get());
+        tag(BlockTags.WOODEN_TRAPDOORS).add(APBlocks.CHARRED_TRAPDOOR.get());
+        tag(BlockTags.WOODEN_PRESSURE_PLATES).add(APBlocks.CHARRED_PRESSURE_PLATE.get());
+        tag(BlockTags.WOODEN_BUTTONS).add(APBlocks.CHARRED_BUTTON.get());
+        tag(BlockTags.STANDING_SIGNS).add(APBlocks.CHARRED_SIGN.get());
+        tag(BlockTags.WALL_SIGNS).add(APBlocks.CHARRED_WALL_SIGN.get());
+        tag(BlockTags.MINEABLE_WITH_AXE).addTag(APTags.Blocks.CHARRED_LOGS).add(
+                APBlocks.CHARRED_PLANKS.get(),
+                APBlocks.CHARRED_SLAB.get(),
+                APBlocks.CHARRED_STAIRS.get(),
+                APBlocks.CHARRED_FENCE.get(),
+                APBlocks.CHARRED_FENCE_GATE.get(),
+                APBlocks.CHARRED_DOOR.get(),
+                APBlocks.CHARRED_TRAPDOOR.get(),
+                APBlocks.CHARRED_PRESSURE_PLATE.get(),
+                APBlocks.CHARRED_BUTTON.get(),
+                APBlocks.CHARRED_SIGN.get(),
+                APBlocks.CHARRED_WALL_SIGN.get(),
+                APBlocks.CHARRED_BOOKSHELF.get());
+
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.CHARGED_QUARTZ_MATRIX.get(), APBlocks.DEBRIS_MATRIX.get(), APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.LONSDALEITE_BLOCK.get(), APBlocks.METEORIC_ICE.get(), APBlocks.SOIL_FULGURITE.get(), APBlocks.SSTONE_FULGURITE.get());
         tag(BlockTags.NEEDS_IRON_TOOL).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.CHARGED_QUARTZ_MATRIX.get());
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.DEBRIS_MATRIX.get());

@@ -18,6 +18,8 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Collections;
@@ -63,12 +65,38 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
         dropSelf(APBlocks.METEORIC_ICE.get());
         dropSelf(APBlocks.SOIL_FULGURITE.get());
         dropSelf(APBlocks.SSTONE_FULGURITE.get());
-    }
 
+
+        dropSelf(APBlocks.CHARRED_LOG.get());
+        dropSelf(APBlocks.STRIPPED_CHARRED_LOG.get());
+        dropSelf(APBlocks.CHARRED_WOOD.get());
+        dropSelf(APBlocks.STRIPPED_CHARRED_WOOD.get());
+        dropSelf(APBlocks.CHARRED_PLANKS.get());
+        addSlab(APBlocks.CHARRED_SLAB.get());
+        dropSelf(APBlocks.CHARRED_STAIRS.get());
+        dropSelf(APBlocks.CHARRED_FENCE.get());
+        dropSelf(APBlocks.CHARRED_FENCE_GATE.get());
+        addDoor(APBlocks.CHARRED_DOOR.get());
+        dropSelf(APBlocks.CHARRED_TRAPDOOR.get());
+        dropSelf(APBlocks.CHARRED_PRESSURE_PLATE.get());
+        dropSelf(APBlocks.CHARRED_BUTTON.get());
+        dropSelf(APBlocks.CHARRED_SIGN.get());
+        dropSelf(APBlocks.CHARRED_WALL_SIGN.get());
+        addSilkTouchSingleItem(APBlocks.CHARRED_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3.0F));
+    }
+    private void addSlab(Block blk) {
+        add(blk, createSlabItemTable(blk));
+    }
+    private void addDoor(Block blk) {
+        add(blk, createDoorTable(blk));
+    }
     private void addOre(Block blk, ItemLike itemLike) {
         add(blk, createSilkTouchDispatchTable(blk, this.applyExplosionDecay(blk, LootItem.lootTableItem(itemLike).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)))));
     }
     private void addSilkTouchSingleItem(Block blk, ItemLike itemLike) {
         add(blk, createSingleItemTableWithSilkTouch(blk, itemLike));
+    }
+    private void addSilkTouchSingleItem(Block blk, ItemLike itemLike, NumberProvider p_250047_) {
+        add(blk, createSingleItemTableWithSilkTouch(blk, itemLike, p_250047_));
     }
 }

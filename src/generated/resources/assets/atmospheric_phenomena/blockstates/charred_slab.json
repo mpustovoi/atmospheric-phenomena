@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "atmospheric_phenomena:block/charred_slab"
+    },
+    "type=double": {
+      "model": "atmospheric_phenomena:block/charred_planks"
+    },
+    "type=top": {
+      "model": "atmospheric_phenomena:block/charred_slab_top"
+    }
+  }
+}

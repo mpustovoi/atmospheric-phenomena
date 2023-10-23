@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "atmospheric_phenomena:block/charred_planks",
+    "side": "atmospheric_phenomena:block/charred_planks",
+    "top": "atmospheric_phenomena:block/charred_planks"
+  }
+}
