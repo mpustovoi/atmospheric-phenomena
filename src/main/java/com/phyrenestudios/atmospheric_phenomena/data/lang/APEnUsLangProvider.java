@@ -50,6 +50,10 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APItems.LONSDALEITE.get());
         add(APItems.METEORIC_IRON.get());
 
+        add(APBlocks.BURNING_LOG.get());
+        add(APBlocks.BURNING_WOOD.get());
+        add(APBlocks.SMOULDERING_LOG.get());
+        add(APBlocks.SMOULDERING_WOOD.get());
         add(APBlocks.CHARRED_LOG.get());
         add(APBlocks.STRIPPED_CHARRED_LOG.get());
         add(APBlocks.CHARRED_WOOD.get());

@@ -1,4 +1,5 @@
-// 1.20.1	2023-10-23T08:00:57.3988939	atmospheric_phenomena - Block Tags
+// 1.20.1	2023-10-24T09:14:33.6875628	atmospheric_phenomena - Block Tags
+7a0c6f8914577d382100fb581a1169aff16274fd data/atmospheric_phenomena/tags/blocks/burning_logs.json
 d66d81cd4e2c15d320a99acc3e293d6bf6ac4b36 data/atmospheric_phenomena/tags/blocks/charred_logs.json
 b00c71ccb0584a7a35e99130017ada0d409373b7 data/atmospheric_phenomena/tags/blocks/lightning_conductive.json
 b27e0b87c8f6d3fcf3db177f6cfe9fd339c85c84 data/atmospheric_phenomena/tags/blocks/lightning_glass.json
@@ -7,6 +8,7 @@ acdf642b637a4d60ab574d48a9d0303782cfb4cb data/atmospheric_phenomena/tags/blocks/
 b1d9bc8851c4a764dd3dbf263bd94be63127be19 data/atmospheric_phenomena/tags/blocks/meteor_core_blocks.json
 0408676ac9f2d27946ceae9de91480ffaf592e7e data/atmospheric_phenomena/tags/blocks/rare_meteor_blocks.json
 9a7c3d4960387060ce810ba352848ae657801556 data/atmospheric_phenomena/tags/blocks/rare_meteor_core_blocks.json
+9b69a580b78719cb98b5153c216e0c1fa09984bd data/atmospheric_phenomena/tags/blocks/smouldering_logs.json
 6709e029dcdb781bc96e92c5e95ef69620b94c99 data/atmospheric_phenomena/tags/blocks/ultra_rare_meteor_blocks.json
 95a2c3409b9b81d78893c64628bebb96d4607406 data/atmospheric_phenomena/tags/blocks/ultra_rare_meteor_core_blocks.json
 b7a8b8c8dce36fc92612f2d86c0bcc6a313fa62b data/atmospheric_phenomena/tags/blocks/valid_meteorite_spawn.json
@@ -17,7 +19,8 @@ f211a5d7f6078c24f70d65ce26631d618f1bc83d data/forge/tags/blocks/glass.json
 ba5167dcaebfb172cfd09fcf6264e36dc445248f data/forge/tags/blocks/storage_blocks/diamond.json
 22a9e10689601a6f4795cf6dec96f10987936376 data/minecraft/tags/blocks/fence_gates.json
 270edd9b5a2684d9d5cd3996e6b2f36c0c86a538 data/minecraft/tags/blocks/ice.json
-128ed5c2573877f33e157b5a4fce600dc33aab03 data/minecraft/tags/blocks/mineable/axe.json
+08a7fa2b4d52477c5b46a61b0f0b337924aa5ba8 data/minecraft/tags/blocks/logs_that_burn.json
+fe1ec35e6455fe18700589cfc693976a95748c04 data/minecraft/tags/blocks/mineable/axe.json
 fa5712a08da01f5cd84856e96e3380fcf3ac59fc data/minecraft/tags/blocks/mineable/pickaxe.json
 b41c4fee94f7180dcf62bae5ec256b0969a0cf8b data/minecraft/tags/blocks/needs_diamond_tool.json
 b2605370dba089327ef9ec49ad2047026d553e34 data/minecraft/tags/blocks/needs_iron_tool.json

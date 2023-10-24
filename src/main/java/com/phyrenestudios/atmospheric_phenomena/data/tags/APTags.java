@@ -33,6 +33,8 @@ public class APTags {
         public static final TagKey<Block> LIGHTNING_CONDUCTIVE = modBlock("lightning_conductive");
         public static final TagKey<Block> EXPLODES_FROM_CONDUCTIVITY = modBlock("explodes_from_conductivity");
         public static final TagKey<Block> CHARRED_LOGS = modBlock("charred_logs");
+        public static final TagKey<Block> SMOULDERING_LOGS = modBlock("smouldering_logs");
+        public static final TagKey<Block> BURNING_LOGS = modBlock("burning_logs");
 
     }
 

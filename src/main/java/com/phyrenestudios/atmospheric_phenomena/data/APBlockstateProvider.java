@@ -54,6 +54,12 @@ public class APBlockstateProvider extends BlockStateProvider {
         simpleBlock(APBlocks.SSTONE_FULGURITE.get());
 
 
+        axisBlock(APBlocks.BURNING_LOG.get(), getBlockRSL(APBlocks.BURNING_LOG.get()), getBlockRSL(name(APBlocks.BURNING_LOG.get(),"_top")));
+        axisBlock(APBlocks.BURNING_WOOD.get(), getBlockRSL(APBlocks.BURNING_LOG.get()), getBlockRSL(APBlocks.BURNING_LOG.get()));
+
+        axisBlock(APBlocks.SMOULDERING_LOG.get(), getBlockRSL(APBlocks.SMOULDERING_LOG.get()), getBlockRSL(name(APBlocks.SMOULDERING_LOG.get(),"_top")));
+        axisBlock(APBlocks.SMOULDERING_WOOD.get(), getBlockRSL(APBlocks.SMOULDERING_LOG.get()), getBlockRSL(APBlocks.SMOULDERING_LOG.get()));
+
         axisBlock(APBlocks.CHARRED_LOG.get(), getBlockRSL(APBlocks.CHARRED_LOG.get()), getBlockRSL(name(APBlocks.CHARRED_LOG.get(),"_top")));
         axisBlock(APBlocks.STRIPPED_CHARRED_LOG.get(), getBlockRSL(APBlocks.STRIPPED_CHARRED_LOG.get()), getBlockRSL(name(APBlocks.STRIPPED_CHARRED_LOG.get(),"_top")));
         axisBlock(APBlocks.CHARRED_WOOD.get(), getBlockRSL(APBlocks.CHARRED_LOG.get()), getBlockRSL(APBlocks.CHARRED_LOG.get()));

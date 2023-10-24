@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "atmospheric_phenomena:block/burning_wood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "atmospheric_phenomena:block/burning_wood"
+    },
+    "axis=z": {
+      "model": "atmospheric_phenomena:block/burning_wood_horizontal",
+      "x": 90
+    }
+  }
+}

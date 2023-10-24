@@ -40,6 +40,10 @@ public class APItems {
     public static final RegistryObject<Item> STONE_FULGURITE = ITEMS.register("stone_fulgurite", () -> new BlockItem(APBlocks.SSTONE_FULGURITE.get(), new Item.Properties().stacksTo(64)));
 
     private static final String baseName = "charred";
+    public static final RegistryObject<Item> BURNING_LOG = ITEMS.register("burning_log", () -> new BlockItem(APBlocks.BURNING_LOG.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> BURNING_WOOD = ITEMS.register("burning_wood", () -> new BlockItem(APBlocks.BURNING_WOOD.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> SMOULDERING_LOG = ITEMS.register("smouldering_log", () -> new BlockItem(APBlocks.SMOULDERING_LOG.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> SMOULDERING_WOOD = ITEMS.register("smouldering_wood", () -> new BlockItem(APBlocks.SMOULDERING_WOOD.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> CHARRED_LOG = ITEMS.register(baseName + "_log", () -> new BlockItem(APBlocks.CHARRED_LOG.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> STRIPPED_CHARRED_LOG = ITEMS.register("stripped_" + baseName + "_log", () -> new BlockItem(APBlocks.STRIPPED_CHARRED_LOG.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> CHARRED_WOOD = ITEMS.register(baseName + "_wood", () -> new BlockItem(APBlocks.CHARRED_WOOD.get(), new Item.Properties().stacksTo(64)));

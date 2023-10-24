@@ -44,6 +44,10 @@ public class APCreativeTabs {
                 output.accept(APItems.LONSDALEITE_BLOCK.get());
                 output.accept(APItems.METEORIC_IRON.get());
 
+                output.accept(APItems.BURNING_LOG.get());
+                output.accept(APItems.BURNING_WOOD.get());
+                output.accept(APItems.SMOULDERING_LOG.get());
+                output.accept(APItems.SMOULDERING_WOOD.get());
                 output.accept(APItems.CHARRED_LOG.get());
                 output.accept(APItems.STRIPPED_CHARRED_LOG.get());
                 output.accept(APItems.CHARRED_WOOD.get());

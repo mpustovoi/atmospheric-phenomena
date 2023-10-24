@@ -55,6 +55,10 @@ public class APItemModelProvider extends ItemModelProvider {
         basicItem(APItems.LONSDALEITE.get());
         basicItem(APItems.METEORIC_IRON.get());
 
+        withExistingParent(APBlocks.BURNING_LOG.get());
+        withExistingParent(APBlocks.BURNING_WOOD.get());
+        withExistingParent(APBlocks.SMOULDERING_LOG.get());
+        withExistingParent(APBlocks.SMOULDERING_WOOD.get());
         withExistingParent(APBlocks.CHARRED_LOG.get());
         withExistingParent(APBlocks.STRIPPED_CHARRED_LOG.get());
         withExistingParent(APBlocks.CHARRED_WOOD.get());

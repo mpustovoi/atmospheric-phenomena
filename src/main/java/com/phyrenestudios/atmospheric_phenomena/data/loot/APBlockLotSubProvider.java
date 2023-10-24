@@ -67,6 +67,10 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
         dropSelf(APBlocks.SSTONE_FULGURITE.get());
 
 
+        dropOther(APBlocks.BURNING_LOG.get(), APBlocks.CHARRED_LOG.get());
+        dropOther(APBlocks.BURNING_WOOD.get(), APBlocks.CHARRED_WOOD.get());
+        dropOther(APBlocks.SMOULDERING_LOG.get(), APBlocks.CHARRED_LOG.get());
+        dropOther(APBlocks.SMOULDERING_WOOD.get(), APBlocks.CHARRED_WOOD.get());
         dropSelf(APBlocks.CHARRED_LOG.get());
         dropSelf(APBlocks.STRIPPED_CHARRED_LOG.get());
         dropSelf(APBlocks.CHARRED_WOOD.get());

@@ -44,6 +44,9 @@ public class APBlockTagsProvider extends BlockTagsProvider {
         }
 
         tag(APTags.Blocks.CHARRED_LOGS).add(APBlocks.CHARRED_LOG.get(),APBlocks.STRIPPED_CHARRED_LOG.get(),APBlocks.CHARRED_WOOD.get(),APBlocks.STRIPPED_CHARRED_WOOD.get());
+        tag(APTags.Blocks.SMOULDERING_LOGS).add(APBlocks.SMOULDERING_LOG.get(),APBlocks.SMOULDERING_WOOD.get());
+        tag(APTags.Blocks.BURNING_LOGS).add(APBlocks.BURNING_LOG.get(),APBlocks.BURNING_WOOD.get());
+        tag(BlockTags.LOGS_THAT_BURN).addTag(APTags.Blocks.CHARRED_LOGS).addTag(APTags.Blocks.SMOULDERING_LOGS);
         tag(BlockTags.PLANKS).add(APBlocks.CHARRED_PLANKS.get());
         tag(BlockTags.WOODEN_SLABS).add(APBlocks.CHARRED_SLAB.get());
         tag(BlockTags.WOODEN_STAIRS).add(APBlocks.CHARRED_STAIRS.get());
@@ -55,7 +58,7 @@ public class APBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.WOODEN_BUTTONS).add(APBlocks.CHARRED_BUTTON.get());
         tag(BlockTags.STANDING_SIGNS).add(APBlocks.CHARRED_SIGN.get());
         tag(BlockTags.WALL_SIGNS).add(APBlocks.CHARRED_WALL_SIGN.get());
-        tag(BlockTags.MINEABLE_WITH_AXE).addTag(APTags.Blocks.CHARRED_LOGS).add(
+        tag(BlockTags.MINEABLE_WITH_AXE).addTag(APTags.Blocks.CHARRED_LOGS).addTag(APTags.Blocks.SMOULDERING_LOGS).add(
                 APBlocks.CHARRED_PLANKS.get(),
                 APBlocks.CHARRED_SLAB.get(),
                 APBlocks.CHARRED_STAIRS.get(),
