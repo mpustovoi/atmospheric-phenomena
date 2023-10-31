@@ -3,6 +3,7 @@ package com.phyrenestudios.atmospheric_phenomena;
 import com.mojang.logging.LogUtils;
 import com.phyrenestudios.atmospheric_phenomena.block_entities.APBlockEntities;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.AbstractCharredLogBlock;
 import com.phyrenestudios.atmospheric_phenomena.init.APCreativeTabs;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
@@ -45,6 +46,7 @@ public class AtmosphericPhenomena
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         WoodType.register(APBlocks.CHARRED_WOODTYPE);
+        AbstractCharredLogBlock.populateMaps();
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

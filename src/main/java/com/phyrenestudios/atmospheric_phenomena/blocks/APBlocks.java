@@ -42,16 +42,16 @@ public class APBlocks {
 
     private static final String baseName = "charred";
     public static final WoodType CHARRED_WOODTYPE = WoodType.register(new WoodType(AtmosphericPhenomena.MODID+baseName, BlockSetType.OAK));
-    public static final RegistryObject<RotatedPillarBlock> BURNING_LOG = BLOCKS.register("burning_log", () -> log(MapColor.STONE, MapColor.STONE));
-    public static final RegistryObject<RotatedPillarBlock> BURNING_WOOD = BLOCKS.register("burning_wood", () -> new APLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
+    public static final RegistryObject<RotatedPillarBlock> BURNING_LOG = BLOCKS.register("burning_log", () -> burningLog(MapColor.STONE, MapColor.STONE));
+    public static final RegistryObject<RotatedPillarBlock> BURNING_WOOD = BLOCKS.register("burning_wood", () -> new APBurningLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
 
-    public static final RegistryObject<RotatedPillarBlock> SMOULDERING_LOG = BLOCKS.register("smouldering_log", () -> log(MapColor.STONE, MapColor.STONE));
-    public static final RegistryObject<RotatedPillarBlock> SMOULDERING_WOOD = BLOCKS.register("smouldering_wood", () -> new APLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
+    public static final RegistryObject<RotatedPillarBlock> SMOULDERING_LOG = BLOCKS.register("smouldering_log", () -> smoulderingLog(MapColor.STONE, MapColor.STONE));
+    public static final RegistryObject<RotatedPillarBlock> SMOULDERING_WOOD = BLOCKS.register("smouldering_wood", () -> new APSmoulderingLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
 
-    public static final RegistryObject<RotatedPillarBlock> CHARRED_LOG = BLOCKS.register(baseName + "_log", () -> log(MapColor.STONE, MapColor.STONE));
-    public static final RegistryObject<RotatedPillarBlock> STRIPPED_CHARRED_LOG = BLOCKS.register("stripped_" + baseName + "_log", () -> log(MapColor.STONE, MapColor.STONE));
-    public static final RegistryObject<RotatedPillarBlock> CHARRED_WOOD = BLOCKS.register(baseName + "_wood", () -> new APLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
-    public static final RegistryObject<RotatedPillarBlock> STRIPPED_CHARRED_WOOD = BLOCKS.register("stripped_" + baseName + "_wood", () -> new APLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
+    public static final RegistryObject<RotatedPillarBlock> CHARRED_LOG = BLOCKS.register(baseName + "_log", () -> charredLog(MapColor.STONE, MapColor.STONE));
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_CHARRED_LOG = BLOCKS.register("stripped_" + baseName + "_log", () -> charredLog(MapColor.STONE, MapColor.STONE));
+    public static final RegistryObject<RotatedPillarBlock> CHARRED_WOOD = BLOCKS.register(baseName + "_wood", () -> new APCharredLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_CHARRED_WOOD = BLOCKS.register("stripped_" + baseName + "_wood", () -> new APCharredLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> CHARRED_PLANKS = BLOCKS.register(baseName+"_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
     public static final RegistryObject<APWoodenSlabBlock> CHARRED_SLAB = BLOCKS.register(baseName+"_slab", () -> new APWoodenSlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
     public static final RegistryObject<APWoodenStairBlock> CHARRED_STAIRS = BLOCKS.register(baseName+"_stairs", () -> new APWoodenStairBlock(CHARRED_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(CHARRED_PLANKS.get())));
@@ -67,16 +67,20 @@ public class APBlocks {
     //public static final RegistryObject<Block> CHARRED_WALL_SIGN = BLOCKS.register(baseName+"_wall_sign", () -> new WallHangingSignBlock(BlockBehaviour.Properties.of().mapColor(OAK_LOG.defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().dropsLike(OAK_HANGING_SIGN), WoodType.OAK));
     public static final RegistryObject<APBookshelvesBlock> CHARRED_BOOKSHELF = BLOCKS.register(baseName+"_bookshelf", () -> new APBookshelvesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD).ignitedByLava()));
 
-    private static RotatedPillarBlock log(MapColor p_285370_, MapColor p_285126_) {
-        return new APLogBlock(BlockBehaviour.Properties.of().mapColor((p_152624_) -> {
+    private static RotatedPillarBlock charredLog(MapColor p_285370_, MapColor p_285126_) {
+        return new APCharredLogBlock(BlockBehaviour.Properties.of().mapColor((p_152624_) -> {
             return p_152624_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? p_285370_ : p_285126_;
-        }).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
+        }).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava());
     }
-
-    private static RotatedPillarBlock log(MapColor p_285425_, MapColor p_285292_, SoundType p_285418_) {
-        return new APLogBlock(BlockBehaviour.Properties.of().mapColor((p_258972_) -> {
-            return p_258972_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? p_285425_ : p_285292_;
-        }).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(p_285418_).ignitedByLava());
+    private static RotatedPillarBlock smoulderingLog(MapColor p_285370_, MapColor p_285126_) {
+        return new APSmoulderingLogBlock(BlockBehaviour.Properties.of().mapColor((p_152624_) -> {
+            return p_152624_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? p_285370_ : p_285126_;
+        }).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava());
+    }
+    private static RotatedPillarBlock burningLog(MapColor p_285370_, MapColor p_285126_) {
+        return new APBurningLogBlock(BlockBehaviour.Properties.of().mapColor((p_152624_) -> {
+            return p_152624_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? p_285370_ : p_285126_;
+        }).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava());
     }
 
     private static ButtonBlock woodenButton(BlockSetType p_278239_, FeatureFlag... p_278229_) {

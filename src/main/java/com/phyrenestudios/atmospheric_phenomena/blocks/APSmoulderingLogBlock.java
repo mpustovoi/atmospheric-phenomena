@@ -5,34 +5,34 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class APBurningLogBlock extends AbstractCharredLogBlock {
+public class APSmoulderingLogBlock extends AbstractCharredLogBlock {
 
-    public APBurningLogBlock(Properties properties) {
+    public APSmoulderingLogBlock(Properties properties) {
         super(properties);
     }
 
     @Override
     public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
-        return 10;
+        return 4;
     }
 
     @Override
     boolean spawnFire() {
-        return true;
+        return false;
     }
 
     @Override
     float damageChance() {
-        return 0.3f;
+        return 0.1f;
     }
 
     @Override
     public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-        return 1;
+        return 3;
     }
 
     @Override
     public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-        return 1;
+        return 3;
     }
 }
