@@ -12,6 +12,10 @@ public class Config
 {
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
+    private static final ForgeConfigSpec.IntValue LIGHTNING_MAX_BLOCKS = BUILDER
+            .comment("The maximum number of blocks that can be converted by a lightning strike")
+            .defineInRange("lightningMaxBlocks", 80, 0, Integer.MAX_VALUE);
+
     private static final ForgeConfigSpec.IntValue METEORITE_CHANCE = BUILDER
             .comment("The chance for a meteorite to generate with blocks from #atmospheric_phenomena:meteor_blocks.")
             .defineInRange("meteoriteChance", 10, 0, Integer.MAX_VALUE);
@@ -40,6 +44,8 @@ public class Config
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
+    public static int lightningMaxBlocks;
+
     public static int meteoriteChance;
     public static int rareMeteoriteChance;
     public static int ultraRareMeteoriteChance;
@@ -56,6 +62,8 @@ public class Config
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
+        lightningMaxBlocks = LIGHTNING_MAX_BLOCKS.get();
+
         meteoriteChance = METEORITE_CHANCE.get();
         rareMeteoriteChance = RARE_METEORITE_CHANCE.get();
         ultraRareMeteoriteChance = ULTRA_RARE_METEORITE_CHANCE.get();

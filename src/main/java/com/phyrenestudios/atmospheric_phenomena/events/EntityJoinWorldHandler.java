@@ -1,10 +1,12 @@
 package com.phyrenestudios.atmospheric_phenomena.events;
 
+import com.phyrenestudios.atmospheric_phenomena.Config;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
@@ -20,59 +22,61 @@ import java.util.Stack;
 
 public class EntityJoinWorldHandler {
     public static void onLightningEvent(EntityJoinLevelEvent event) {
-        //if (!Config.GENERAL.LIGHTNING_CONVERSION.get()) return;
-        if (event.getLevel().isClientSide()) return;
         if (!(event.getEntity() instanceof LightningBolt entity)) return;
+        if (Config.lightningMaxBlocks == 0) return;
+        if (event.getLevel().isClientSide()) return;
         Level levelIn = event.getLevel();
         BlockPos startPos = entity.blockPosition().below();
 
         Set<BlockPos> conductiveBlocks = new HashSet<>();
         Stack<BlockPos> conductiveBlocksToCheck = new Stack<>();
-        Set<BlockPos> explodableBlocks = new HashSet<>();
-        Set<BlockPos> chargeableBlocks = new HashSet<>();
-        Set<BlockPos> tntBlocks = new HashSet<>();
+        Stack<BlockPos> toCheck = new Stack<>();
 
         int maxConductiveLength = 32;
         conductiveBlocksToCheck.add(startPos);
         while (!conductiveBlocksToCheck.isEmpty() && conductiveBlocks.size() < maxConductiveLength) {
             BlockPos cp = conductiveBlocksToCheck.pop();
-            if (conductiveBlocks.contains(cp) || !isConductive(levelIn.getBlockState(cp))) continue;
+            if (conductiveBlocks.contains(cp)) continue;
             conductiveBlocks.add(cp);
             for (Direction dir : Direction.values()) {
-                if (isExplodable(levelIn.getBlockState(cp.relative(dir)))) {
-                    explodableBlocks.add(cp.relative(dir).immutable());
-                    continue;
+                if (isConductive(levelIn.getBlockState(cp.relative(dir)))) {
+                    conductiveBlocksToCheck.add(cp.relative(dir).immutable());
+                } else {
+                    toCheck.add(cp.relative(dir).immutable());
                 }
-                if (isChargeable(levelIn.getBlockState(cp.relative(dir)))) {
-                    chargeableBlocks.add(cp.relative(dir).immutable());
-                    continue;
-                }
-                if (levelIn.getBlockState(cp.relative(dir)).getBlock() instanceof TntBlock) {
-                    tntBlocks.add(cp.relative(dir).immutable());
-                    continue;
-                }
-                if (isConductive(levelIn.getBlockState(cp.relative(dir)))) conductiveBlocksToCheck.add(cp.relative(dir).immutable());
             }
         }
 
         Set<BlockPos> vitrifiedBlocks = new HashSet<>();
-        Stack<BlockPos> toCheck = new Stack<>();
-        toCheck.addAll(conductiveBlocks);
-        toCheck.add(startPos);
-        toCheck.add(startPos.north());
-        toCheck.add(startPos.south());
-        toCheck.add(startPos.east());
-        toCheck.add(startPos.west());
+        Set<BlockPos> explodableBlocks = new HashSet<>();
+        Set<BlockPos> chargeableBlocks = new HashSet<>();
+        Set<BlockPos> tntBlocks = new HashSet<>();
 
-        int maxSize = 80;
-        while (!toCheck.isEmpty() && vitrifiedBlocks.size() < maxSize) {
+        toCheck.add(startPos);
+        int convertedBlockCount = 0;
+        while (!toCheck.isEmpty() && convertedBlockCount < Config.lightningMaxBlocks) {
             BlockPos cp = toCheck.pop();
-            if (vitrifiedBlocks.contains(cp) || (!isConductive(levelIn.getBlockState(cp)) && !isVitrifyable(levelIn.getBlockState(cp)))) continue;
-            if (isVitrifyable(levelIn.getBlockState(cp))) vitrifiedBlocks.add(cp);
-            for (Direction dir : Direction.values()) {
-                if (dir == Direction.UP) continue;
-                float vitrificationChance = 0.2f + (dir == Direction.DOWN ? 0.1f : 0.0f);
-                if (levelIn.getRandom().nextFloat() < vitrificationChance) toCheck.add(cp.relative(dir).immutable());
+            boolean converted = false;
+            if (!chargeableBlocks.contains(cp) && isChargeable(levelIn.getBlockState(cp))) {
+                chargeableBlocks.add(cp.immutable());
+                converted = true;
+            } else if (!explodableBlocks.contains(cp) && isExplodable(levelIn.getBlockState(cp))) {
+                explodableBlocks.add(cp.immutable());
+                converted = true;
+            } else if (!tntBlocks.contains(cp) && levelIn.getBlockState(cp).getBlock() instanceof TntBlock) {
+                tntBlocks.add(cp.immutable());
+                converted = true;
+            } else if (!vitrifiedBlocks.contains(cp) && isVitrifyable(levelIn.getBlockState(cp))) {
+                vitrifiedBlocks.add(cp.immutable());
+                converted = true;
+            }
+            if (converted) {
+                convertedBlockCount += 1;
+                for (Direction dir : Direction.values()) {
+                    if (dir == Direction.UP) continue;
+                    float vitrificationChance = 0.2f + (dir == Direction.DOWN ? 0.1f : 0.0f);
+                    if (levelIn.getRandom().nextFloat() < vitrificationChance) toCheck.add(cp.relative(dir).immutable());
+                }
             }
         }
 
@@ -103,7 +107,7 @@ public class EntityJoinWorldHandler {
         return stateIn.is(APTags.Blocks.LIGHTNING_CONDUCTIVE);
     }
     private static boolean isVitrifyable(BlockState stateIn) {
-        return stateIn.is(APTags.Blocks.VITRIFIES_TO_GLASS) || stateIn.is(APTags.Blocks.VITRIFIES_TO_SOIL_FULGURITE) || stateIn.is(APTags.Blocks.VITRIFIES_TO_STONE_FULGURITE);
+        return stateIn.is(APTags.Blocks.VITRIFIES_TO_GLASS) || stateIn.is(APTags.Blocks.VITRIFIES_TO_SOIL_FULGURITE) || stateIn.is(APTags.Blocks.VITRIFIES_TO_STONE_FULGURITE) || stateIn.is(BlockTags.LOGS_THAT_BURN);
     }
     private static boolean isExplodable(BlockState stateIn) {
         return stateIn.is(APTags.Blocks.EXPLODES_FROM_CONDUCTIVITY);
@@ -116,6 +120,7 @@ public class EntityJoinWorldHandler {
         if (stateIn.is(APTags.Blocks.VITRIFIES_TO_GLASS)) return LightningGlassBlocks.WHITE_LIGHTNING_GLASS.getGlass().defaultBlockState();
         if (stateIn.is(APTags.Blocks.VITRIFIES_TO_SOIL_FULGURITE)) return APBlocks.SOIL_FULGURITE.get().defaultBlockState();
         if (stateIn.is(APTags.Blocks.VITRIFIES_TO_STONE_FULGURITE)) return APBlocks.SSTONE_FULGURITE.get().defaultBlockState();
+        if (stateIn.is(BlockTags.LOGS_THAT_BURN)) return APBlocks.BURNING_LOG.get().defaultBlockState();
         return Blocks.AIR.defaultBlockState();
     }
     private static BlockState getChargedBlock(BlockState stateIn) {
