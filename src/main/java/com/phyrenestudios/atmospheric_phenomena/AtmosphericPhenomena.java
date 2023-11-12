@@ -8,6 +8,7 @@ import com.phyrenestudios.atmospheric_phenomena.client.model.MeteorModel;
 import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.MeteorRenderer;
 import com.phyrenestudios.atmospheric_phenomena.entities.APEntityTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.APCreativeTabs;
+import com.phyrenestudios.atmospheric_phenomena.init.APParticleTypes;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import net.minecraft.client.renderer.Sheets;
@@ -40,12 +41,15 @@ public class AtmosphericPhenomena
     public AtmosphericPhenomena() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
-        APBlocks.BLOCKS.register(modEventBus);
-        APItems.ITEMS.register(modEventBus);
+
         APBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
+        APBlocks.BLOCKS.register(modEventBus);
+        APCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         APEntityTypes.ENTITY_TYPES.register(modEventBus);
         APFeatures.FEATURES.register(modEventBus);
-        APCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+        APItems.ITEMS.register(modEventBus);
+        APParticleTypes.PARTICLE_TYPES.register(modEventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
