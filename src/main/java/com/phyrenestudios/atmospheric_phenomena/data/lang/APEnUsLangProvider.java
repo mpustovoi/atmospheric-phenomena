@@ -71,6 +71,7 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APItems.CHARRED_SIGN.get());
 
         add("itemGroup.atmospheric_phenomena.main", "Atmospheric Phenomena");
+        add("entity.atmospheric_phenomena.meteor", "Meteor");
     }
 
     private void add(Block blockIn) {

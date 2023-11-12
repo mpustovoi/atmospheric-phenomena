@@ -14,7 +14,6 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class APItems {
 
-
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AtmosphericPhenomena.MODID);
 
     static {

@@ -59,6 +59,7 @@
   "block.atmospheric_phenomena.white_lightning_glass": "White Lightning Glass",
   "block.atmospheric_phenomena.yellow_lightning_glass": "Yellow Lightning Glass",
   "block.atmospheric_phenomena.yellow_tektite": "Yellow Tektite",
+  "entity.atmospheric_phenomena.meteor": "Meteor",
   "item.atmospheric_phenomena.lonsdaleite": "Lonsdaleite",
   "item.atmospheric_phenomena.meteoric_iron": "Meteoric Iron",
   "itemGroup.atmospheric_phenomena.main": "Atmospheric Phenomena"

@@ -4,13 +4,19 @@ import com.mojang.logging.LogUtils;
 import com.phyrenestudios.atmospheric_phenomena.block_entities.APBlockEntities;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.AbstractCharredLogBlock;
+import com.phyrenestudios.atmospheric_phenomena.client.model.MeteorModel;
+import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.MeteorRenderer;
+import com.phyrenestudios.atmospheric_phenomena.entities.APEntityTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.APCreativeTabs;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -37,6 +43,7 @@ public class AtmosphericPhenomena
         APBlocks.BLOCKS.register(modEventBus);
         APItems.ITEMS.register(modEventBus);
         APBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
+        APEntityTypes.ENTITY_TYPES.register(modEventBus);
         APFeatures.FEATURES.register(modEventBus);
         APCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
@@ -68,4 +75,26 @@ public class AtmosphericPhenomena
             });
         }
     }
+
+
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents {
+        @SubscribeEvent
+        @OnlyIn(Dist.CLIENT)
+        public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerEntityRenderer(APEntityTypes.METEOR.get(), MeteorRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            event.registerLayerDefinition(MeteorModel.LAYER_LOCATION, MeteorModel::createBodyLayer);
+        }
+
+        @SubscribeEvent
+        public static void entityAttributes(EntityAttributeCreationEvent event) {
+            //event.put(APEntityTypes.METEOR.get(), Meteor.createAttributes().build());
+        }
+
+    }
+
 }
