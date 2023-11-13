@@ -1,5 +1,6 @@
 package com.phyrenestudios.atmospheric_phenomena.entities;
 
+import com.phyrenestudios.atmospheric_phenomena.init.APGameRules;
 import com.phyrenestudios.atmospheric_phenomena.init.APParticleTypes;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import net.minecraft.core.BlockPos;
@@ -129,6 +130,7 @@ public class CometEntity extends Entity {
         BlockPos blockpos = this.blockPosition();
         if (blockpos.getY() > this.level().getMinBuildHeight() && blockpos.getY() < this.level().getMaxBuildHeight()) {
             this.discard();
+            if (this.level().isClientSide || !this.level().getGameRules().getBoolean(APGameRules.RULE_CREATE_IMPACT_CRATERS)) return;
             Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional = this.level().registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(APFeatures.CONFIGURED_FRESH_METEORITE);
             optional.ifPresent(configuredFeatureHolder -> configuredFeatureHolder.value().place((WorldGenLevel) this.level(), ((ServerLevel)this.level()).getChunkSource().getGenerator(), this.level().getRandom(), this.blockPosition()));
         }

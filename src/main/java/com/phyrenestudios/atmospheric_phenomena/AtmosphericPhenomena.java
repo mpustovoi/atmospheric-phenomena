@@ -10,6 +10,7 @@ import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.CometRend
 import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.MeteorRenderer;
 import com.phyrenestudios.atmospheric_phenomena.entities.APEntityTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.APCreativeTabs;
+import com.phyrenestudios.atmospheric_phenomena.init.APGameRules;
 import com.phyrenestudios.atmospheric_phenomena.init.APParticleTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
@@ -32,13 +33,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(AtmosphericPhenomena.MODID)
-public class AtmosphericPhenomena
-{
-    // Define mod id in a common place for everything to reference
+public class AtmosphericPhenomena {
     public static final String MODID = "atmospheric_phenomena";
-    // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public AtmosphericPhenomena() {
@@ -61,6 +58,7 @@ public class AtmosphericPhenomena
     private void commonSetup(final FMLCommonSetupEvent event) {
         WoodType.register(APBlocks.CHARRED_WOODTYPE);
         AbstractCharredLogBlock.populateMaps();
+        APGameRules.initializeGamerules();
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
