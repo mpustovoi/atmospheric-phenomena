@@ -27,17 +27,17 @@ import net.minecraftforge.fluids.FluidType;
 
 import java.util.Optional;
 
-public class MeteorEntity extends Entity {
-    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(MeteorEntity.class, EntityDataSerializers.INT);
+public class CometEntity extends Entity {
+    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(CometEntity.class, EntityDataSerializers.INT);
     //private int size;
-    public MeteorEntity(EntityType<?> p_19870_, Level levelIn) {
+    public CometEntity(EntityType<?> p_19870_, Level levelIn) {
         super(p_19870_, levelIn);
     }
-    public MeteorEntity(Level levelIn, double p_31557_, double p_31558_, double p_31559_) {
-        this(APEntityTypes.METEOR.get(), levelIn);
+    public CometEntity(Level levelIn, double p_31557_, double p_31558_, double p_31559_) {
+        this(APEntityTypes.COMET.get(), levelIn);
         this.setPos(p_31557_, p_31558_, p_31559_);
     }
-    public MeteorEntity(Level levelIn, BlockPos posIn) {
+    public CometEntity(Level levelIn, BlockPos posIn) {
         this(levelIn, posIn.getX(), posIn.getY(), posIn.getZ());
     }
 
@@ -106,12 +106,12 @@ public class MeteorEntity extends Entity {
         }
 
         if (!this.isNoGravity() && this.getDeltaMovement().length() == 0.0D) {
-            this.setDeltaMovement(this.getDeltaMovement().add((random.nextDouble()-0.5D)*2.0D, random.nextDouble()*-1.0D - 0.5D, (random.nextDouble()-0.5D)*2.0D));
+            this.setDeltaMovement(this.getDeltaMovement().add((random.nextDouble()-0.5D)*3.0D, random.nextDouble() * -0.5D, (random.nextDouble()-0.5D)*3.0D));
         }
 
         if (this.level().isClientSide) {
             for (int i = 0; i < 4; ++i) {
-                this.level().addAlwaysVisibleParticle(APParticleTypes.ENTRY_FLAME.get(), true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + random.nextDouble(), this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0D, 0.5D, 0D);
+                this.level().addAlwaysVisibleParticle(APParticleTypes.LARGE_CLOUD.get(), true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + random.nextDouble(), this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0D, 0.5D, 0D);
                 this.level().addAlwaysVisibleParticle(ParticleTypes.LARGE_SMOKE, true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + random.nextDouble(), this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0D, 0.5D, 0D);
             }
         }
@@ -139,7 +139,7 @@ public class MeteorEntity extends Entity {
         if (!this.level().isClientSide) {
             if (this.level() instanceof ServerLevel serverLevel) {
                 for (int i = 0; i < 60; ++i) {
-                    serverLevel.sendParticles(APParticleTypes.METEOR_BURNOUT.get(), this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 1, 0.0D, 0.0D, 0.0D, 0.0D);
+                    serverLevel.sendParticles(ParticleTypes.LARGE_SMOKE, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 1, 0.0D, 0.0D, 0.0D, 0.0D);
                 }
             }
 

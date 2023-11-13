@@ -21,6 +21,9 @@ public class Config
             .comment("The chance for a burning log to spawn fire around it.")
             .defineInRange("burningLogSpawnFire", 0.05D, 0.0D, 1.0D);
 
+    private static final ForgeConfigSpec.IntValue COMET_CHANCE = BUILDER
+            .comment("The chance for a comet to spawn. Set to 0 to disable.")
+            .defineInRange("cometChance", 1000000, 0, Integer.MAX_VALUE);
     private static final ForgeConfigSpec.IntValue METEOR_CHANCE = BUILDER
             .comment("The chance for a meteor to spawn. Set to 0 to disable.")
             .defineInRange("meteorChance", 1000000, 0, Integer.MAX_VALUE);
@@ -52,6 +55,7 @@ public class Config
     public static int lightningMaxBlocks;
     public static double burningLogSpawnFire;
 
+    public static int cometChance;
     public static int meteorChance;
     public static int meteoriteChance;
     public static int rareMeteoriteChance;
@@ -71,6 +75,7 @@ public class Config
         lightningMaxBlocks = LIGHTNING_MAX_BLOCKS.get();
         burningLogSpawnFire = BURNING_LOG_SPAWN_FIRE_CHANCE.get();
 
+        cometChance = COMET_CHANCE.get();
         meteorChance = METEOR_CHANCE.get();
         meteoriteChance = METEORITE_CHANCE.get();
         rareMeteoriteChance = RARE_METEORITE_CHANCE.get();

@@ -13,5 +13,6 @@ public class APEntityTypes {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, AtmosphericPhenomena.MODID);
 
     public static final RegistryObject<EntityType<MeteorEntity>> METEOR = ENTITY_TYPES.register("meteor", () -> EntityType.Builder.<MeteorEntity>of(MeteorEntity::new, MobCategory.MISC).sized(1.0F, 1.0F).clientTrackingRange(10).build(new ResourceLocation(AtmosphericPhenomena.MODID, "meteor").toString()));
+    public static final RegistryObject<EntityType<CometEntity>> COMET = ENTITY_TYPES.register("comet", () -> EntityType.Builder.<CometEntity>of(CometEntity::new, MobCategory.MISC).sized(1.0F, 1.0F).clientTrackingRange(10).build(new ResourceLocation(AtmosphericPhenomena.MODID, "comet").toString()));
 
 }

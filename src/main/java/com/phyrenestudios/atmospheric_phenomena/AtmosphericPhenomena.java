@@ -4,14 +4,15 @@ import com.mojang.logging.LogUtils;
 import com.phyrenestudios.atmospheric_phenomena.block_entities.APBlockEntities;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.AbstractCharredLogBlock;
+import com.phyrenestudios.atmospheric_phenomena.client.model.CometModel;
 import com.phyrenestudios.atmospheric_phenomena.client.model.MeteorModel;
+import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.CometRenderer;
 import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.MeteorRenderer;
 import com.phyrenestudios.atmospheric_phenomena.entities.APEntityTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.APCreativeTabs;
 import com.phyrenestudios.atmospheric_phenomena.init.APParticleTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
-import com.phyrenestudios.atmospheric_phenomena.util.FeatureUtils;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -89,11 +90,13 @@ public class AtmosphericPhenomena
         @OnlyIn(Dist.CLIENT)
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerEntityRenderer(APEntityTypes.METEOR.get(), MeteorRenderer::new);
+            event.registerEntityRenderer(APEntityTypes.COMET.get(), CometRenderer::new);
         }
 
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
             event.registerLayerDefinition(MeteorModel.LAYER_LOCATION, MeteorModel::createBodyLayer);
+            event.registerLayerDefinition(CometModel.LAYER_LOCATION, CometModel::createBodyLayer);
         }
 
         @SubscribeEvent
