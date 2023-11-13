@@ -4,24 +4,23 @@ package com.phyrenestudios.atmospheric_phenomena.worldgen;
 import com.mojang.serialization.Codec;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.init.Config;
-import com.phyrenestudios.atmospheric_phenomena.util.FeatureUtils;
+import com.phyrenestudios.atmospheric_phenomena.util.WeightedCollection;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
-    public OverworldMeteoriteFeature(Codec<NoneFeatureConfiguration> p_i49915_1_) {
+public class BuriedMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
+    public BuriedMeteoriteFeature(Codec<NoneFeatureConfiguration> p_i49915_1_) {
         super(p_i49915_1_);
     }
 
@@ -37,64 +36,18 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         int size = 2;
 
         List<BlockPos> centerList = getCenters(rand, posIn, size, 3);
-        BlockPos centerPos = getCenterPos(centerList);
-        buildCrater(levelIn, rand, centerPos.above(size+4), size + 8, levelIn.getBlockState(posIn.below()), levelIn.getBlockState(centerPos.below(5)));
+        centerList = burriedPositions(centerList);
         buildMeteor(levelIn, rand, centerList, size);
         return true;
     }
 
-    private void buildCrater(WorldGenLevel levelIn, RandomSource rand, BlockPos posIn, int radius, BlockState surface, BlockState groundmass) {
-        boolean waterlog = false;
-        for (BlockPos blockpos : BlockPos.betweenClosed(posIn.offset(-radius, -radius, -radius), posIn.offset(radius, radius, radius))) {
-            if (blockpos.distSqr(posIn) > (radius)*(radius)) continue;
-            if (levelIn.getBlockState(blockpos).is(Blocks.WATER)) {
-                waterlog = true;
-                break;
-            }
-        }
-        Block glass = FeatureUtils.meteorStrewnBlockCollection.getRandomElement();
-        for (BlockPos blockpos : BlockPos.betweenClosed(posIn.offset(-radius, -radius, -radius), posIn.offset(radius, radius, radius))) {
-            if (blockpos.distSqr(posIn) > radius*radius) continue;
-
-            if (levelIn.getBlockState(blockpos).is(Blocks.WATER)) {
-                if (blockpos.getY() > levelIn.getSeaLevel()) levelIn.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 3);
-                continue;
-            }
-            if (blockpos.getY() == levelIn.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, blockpos.getX(), blockpos.getZ()) && blockpos.distSqr(posIn) >= (radius-1)*(radius-1) && (levelIn.getBlockState(blockpos).is(Blocks.AIR) || levelIn.getBlockState(blockpos).is(Blocks.WATER))) {
-                setCraterBlock(levelIn, blockpos, glass, surface, groundmass);
-                continue;
-            }
-
-            if (!levelIn.getBlockState(blockpos).is(APTags.Blocks.VALID_METEORITE_SPAWN) || blockpos.distSqr(posIn) < (radius-1)*(radius-1)) {
-                levelIn.setBlock(blockpos, waterlog && blockpos.getY() < levelIn.getSeaLevel() ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), 3);
-                continue;
-            }
-
-            setCraterBlock(levelIn, blockpos, glass, surface, groundmass);
-
-        }
-    }
-
-    private void setCraterBlock(WorldGenLevel levelIn, BlockPos posIn, Block glass, BlockState surface, BlockState groundmass) {
-        if (levelIn.getRandom().nextFloat() < Config.tektiteBlockFrequency) {
-            levelIn.setBlock(posIn, glass.defaultBlockState(), 3);
-            return;
-        }
-        int chance = levelIn.getRandom().nextInt(3);
-        if (chance == 1) {
-            levelIn.setBlock(posIn, groundmass, 3);
-        } else if (chance == 2) {
-            levelIn.setBlock(posIn, surface, 3);
-        }
-    }
-
     private void buildMeteor(WorldGenLevel levelIn, RandomSource rand, List<BlockPos> centerList, int size) {
-        Block meteor = FeatureUtils.meteorBlockCollection.getRandomElement();
+        Block meteor = meteorBlockCollection().getRandomElement();
         Block coreMeteor;
         if (rand.nextFloat() < Config.solidCoreMeteoriteChance) {
             coreMeteor = meteor;
         } else {
-            coreMeteor = FeatureUtils.meteorCoreBlockCollection.getRandomElement();
+            coreMeteor = meteorCoreBlockCollection().getRandomElement();
         }
 
         for (BlockPos center : centerList) {
@@ -112,6 +65,35 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
             }
         }
 
+    }
+
+    private WeightedCollection<Block> meteorBlockCollection() {
+        WeightedCollection<Block> blockCollection = new WeightedCollection<>();
+
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_BLOCKS)) {
+            blockCollection.add(Config.meteoriteChance, blk);
+        }
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_BLOCKS)) {
+            blockCollection.add(Config.rareMeteoriteChance, blk);
+        }
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.ULTRA_RARE_METEOR_BLOCKS)) {
+            blockCollection.add(Config.ultraRareMeteoriteChance, blk);
+        }
+        return blockCollection;
+    }
+    private WeightedCollection<Block> meteorCoreBlockCollection() {
+        WeightedCollection<Block> blockCollection = new WeightedCollection<>();
+
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_CORE_BLOCKS)) {
+            blockCollection.add(Config.meteoriteChance, blk);
+        }
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_CORE_BLOCKS)) {
+            blockCollection.add(Config.rareMeteoriteChance, blk);
+        }
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.ULTRA_RARE_METEOR_CORE_BLOCKS)) {
+            blockCollection.add(Config.ultraRareMeteoriteChance, blk);
+        }
+        return blockCollection;
     }
 
     private double shortestDistance(BlockPos posIn, List<BlockPos> centerList, int size) {
@@ -137,6 +119,14 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         }
         return list;
     }
+    private List<BlockPos> burriedPositions(List<BlockPos> centers) {
+        List<BlockPos> list = new ArrayList<>();
+        for (BlockPos pos : centers) {
+            list.add(pos.below(3));
+        }
+        return list;
+    }
+
 
     private BlockPos getCenterPos(List<BlockPos> centerList) {
         int Xs = 0;
@@ -150,7 +140,6 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         }
         return new BlockPos(Xs /centerList.size(), Ys /centerList.size(), Zs /centerList.size());
     }
-
 
 
 }

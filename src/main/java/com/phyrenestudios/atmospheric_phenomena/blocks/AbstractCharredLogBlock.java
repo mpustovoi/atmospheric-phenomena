@@ -2,7 +2,7 @@ package com.phyrenestudios.atmospheric_phenomena.blocks;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import com.phyrenestudios.atmospheric_phenomena.Config;
+import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

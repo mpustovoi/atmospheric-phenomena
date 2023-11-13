@@ -1,6 +1,6 @@
 package com.phyrenestudios.atmospheric_phenomena.events;
 
-import com.phyrenestudios.atmospheric_phenomena.Config;
+import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;

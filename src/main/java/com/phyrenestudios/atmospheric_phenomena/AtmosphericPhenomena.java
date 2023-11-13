@@ -9,7 +9,9 @@ import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.MeteorRen
 import com.phyrenestudios.atmospheric_phenomena.entities.APEntityTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.APCreativeTabs;
 import com.phyrenestudios.atmospheric_phenomena.init.APParticleTypes;
+import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
+import com.phyrenestudios.atmospheric_phenomena.util.FeatureUtils;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -96,7 +98,7 @@ public class AtmosphericPhenomena
 
         @SubscribeEvent
         public static void entityAttributes(EntityAttributeCreationEvent event) {
-            //event.put(APEntityTypes.METEOR.get(), Meteor.createAttributes().build());
+
         }
 
     }

@@ -1,5 +1,6 @@
-package com.phyrenestudios.atmospheric_phenomena;
+package com.phyrenestudios.atmospheric_phenomena.init;
 
+import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,7 +23,7 @@ public class Config
 
     private static final ForgeConfigSpec.IntValue METEOR_CHANCE = BUILDER
             .comment("The chance for a meteor to spawn. Set to 0 to disable.")
-            .defineInRange("meteorChance", 1000, 0, Integer.MAX_VALUE);
+            .defineInRange("meteorChance", 1000000, 0, Integer.MAX_VALUE);
     private static final ForgeConfigSpec.IntValue METEORITE_CHANCE = BUILDER
             .comment("The chance for a meteorite to generate with blocks from #atmospheric_phenomena:meteor_blocks.")
             .defineInRange("meteoriteChance", 10, 0, Integer.MAX_VALUE);
@@ -38,9 +39,6 @@ public class Config
     private static final ForgeConfigSpec.DoubleValue BURRIED_METEORITE_CHANCE = BUILDER
             .comment("The chance for a meteorite to generate with a filled in crater.")
             .defineInRange("burriedMeteoriteChance", 0.3D, 0.0D, 1.0D);
-    private static final ForgeConfigSpec.DoubleValue CRATER_MAGMA_CHANCE = BUILDER
-            .comment("The chance for a meteorite crater to generate magma blocks.")
-            .defineInRange("crateMagmaChance", 0.2D, 0.0D, 1.0D);
     private static final ForgeConfigSpec.DoubleValue MAGMA_FREQUENCY = BUILDER
             .comment("The chance to determine the frequency of magma blocks in the crater wall.")
             .defineInRange("magmaBlockFrequency", 0.2D, 0.0D, 1.0D);
@@ -49,7 +47,7 @@ public class Config
             .defineInRange("tektiteBlockFrequency", 0.2D, 0.0D, 1.0D);
 
 
-    static final ForgeConfigSpec SPEC = BUILDER.build();
+    public static final ForgeConfigSpec SPEC = BUILDER.build();
 
     public static int lightningMaxBlocks;
     public static double burningLogSpawnFire;
@@ -59,7 +57,6 @@ public class Config
     public static int rareMeteoriteChance;
     public static int ultraRareMeteoriteChance;
     public static double solidCoreMeteoriteChance;
-    public static double crateMagmaChance;
     public static double magmaBlockFrequency;
     public static double tektiteBlockFrequency;
     public static double burriedMeteoriteChance;
@@ -79,7 +76,6 @@ public class Config
         rareMeteoriteChance = RARE_METEORITE_CHANCE.get();
         ultraRareMeteoriteChance = ULTRA_RARE_METEORITE_CHANCE.get();
         solidCoreMeteoriteChance = SOLID_CORE_METEORITE_CHANCE.get();
-        crateMagmaChance = CRATER_MAGMA_CHANCE.get();
         magmaBlockFrequency = MAGMA_FREQUENCY.get();
         tektiteBlockFrequency = TEKTITE_FREQUENCY.get();
         burriedMeteoriteChance = BURRIED_METEORITE_CHANCE.get();

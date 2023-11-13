@@ -20,8 +20,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import java.util.ArrayList;
 import java.util.List;
 
-public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
-    public OverworldMeteoriteFeature(Codec<NoneFeatureConfiguration> p_i49915_1_) {
+public class FreshMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
+    public FreshMeteoriteFeature(Codec<NoneFeatureConfiguration> p_i49915_1_) {
         super(p_i49915_1_);
     }
 
@@ -32,7 +32,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         BlockPos posIn = context.origin();
         RandomSource rand = levelIn.getRandom();
         BlockState target = levelIn.getBlockState(posIn.below());
-        if (!target.is(APTags.Blocks.VALID_METEORITE_SPAWN)) return false;
+        //if (!target.is(APTags.Blocks.VALID_METEORITE_SPAWN)) return false;
 
         int size = 2;
 
@@ -61,7 +61,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
                 continue;
             }
             if (blockpos.getY() == levelIn.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, blockpos.getX(), blockpos.getZ()) && blockpos.distSqr(posIn) >= (radius-1)*(radius-1) && (levelIn.getBlockState(blockpos).is(Blocks.AIR) || levelIn.getBlockState(blockpos).is(Blocks.WATER))) {
-                setCraterBlock(levelIn, blockpos, glass, surface, groundmass);
+                setCraterBlock(levelIn, blockpos, glass, surface, groundmass, posIn);
                 continue;
             }
 
@@ -70,12 +70,16 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
                 continue;
             }
 
-            setCraterBlock(levelIn, blockpos, glass, surface, groundmass);
+            setCraterBlock(levelIn, blockpos, glass, surface, groundmass, posIn);
 
         }
     }
 
-    private void setCraterBlock(WorldGenLevel levelIn, BlockPos posIn, Block glass, BlockState surface, BlockState groundmass) {
+    private void setCraterBlock(WorldGenLevel levelIn, BlockPos posIn, Block glass, BlockState surface, BlockState groundmass, BlockPos centerPos) {
+        if (levelIn.getRandom().nextFloat() < Config.magmaBlockFrequency && posIn.getY() < centerPos.getY()) {
+            levelIn.setBlock(posIn, Blocks.MAGMA_BLOCK.defaultBlockState(), 3);
+            return;
+        }
         if (levelIn.getRandom().nextFloat() < Config.tektiteBlockFrequency) {
             levelIn.setBlock(posIn, glass.defaultBlockState(), 3);
             return;
@@ -138,6 +142,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         return list;
     }
 
+
     private BlockPos getCenterPos(List<BlockPos> centerList) {
         int Xs = 0;
         int Ys = 0;
@@ -150,7 +155,6 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         }
         return new BlockPos(Xs /centerList.size(), Ys /centerList.size(), Zs /centerList.size());
     }
-
 
 
 }

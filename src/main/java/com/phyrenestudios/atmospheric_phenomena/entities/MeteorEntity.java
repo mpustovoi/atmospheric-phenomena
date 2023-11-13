@@ -23,6 +23,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.fluids.FluidType;
 
 import java.util.Optional;
 
@@ -46,15 +47,20 @@ public class MeteorEntity extends Entity {
     }
 
 
+    @Override
     public boolean isAttackable() {
         return false;
     }
-
+    @Override
     public boolean canBeCollidedWith() {
         return true;
     }
-
+    @Override
     public boolean isPushable() {
+        return false;
+    }
+    @Override
+    public boolean isPushedByFluid(FluidType type) {
         return false;
     }
 
@@ -109,8 +115,8 @@ public class MeteorEntity extends Entity {
         }
         if (this.level().isClientSide) {
             for (int i = 0; i < 4; ++i) {
-                this.level().addAlwaysVisibleParticle(APParticleTypes.ENTRY_FLAME.get(), true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 2.0, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 2.0, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 2.0, 0D, 0.5D, 0D);
-                this.level().addAlwaysVisibleParticle(ParticleTypes.SMOKE, true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 2.0, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 2.0, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 2.0, 0D, 0.5D, 0D);
+                this.level().addAlwaysVisibleParticle(APParticleTypes.ENTRY_FLAME.get(), true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + random.nextDouble(), this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0D, 0.5D, 0D);
+                this.level().addAlwaysVisibleParticle(ParticleTypes.SMOKE, true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + random.nextDouble(), this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0D, 0.5D, 0D);
             }
         }
         this.move(MoverType.SELF, this.getDeltaMovement());
@@ -127,18 +133,16 @@ public class MeteorEntity extends Entity {
         BlockPos blockpos = this.blockPosition();
         if (blockpos.getY() > this.level().getMinBuildHeight() && blockpos.getY() < this.level().getMaxBuildHeight()) {
             this.discard();
-            Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional = this.level().registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(APFeatures.CONFIGURED_OVERWORLD_METEORITE);
+            Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional = this.level().registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(APFeatures.CONFIGURED_FRESH_METEORITE);
             optional.ifPresent(configuredFeatureHolder -> configuredFeatureHolder.value().place((WorldGenLevel) this.level(), ((ServerLevel)this.level()).getChunkSource().getGenerator(), this.level().getRandom(), this.blockPosition()));
         }
     }
 
     public void burnOut() {
-        //this.level().explode(null, this.getX(), this.getY(), this.getZ(), 1.0f, Level.ExplosionInteraction.NONE);
+        this.level().explode(null, this.getX(), this.getY(), this.getZ(), 1.0f, Level.ExplosionInteraction.NONE);
         if (!this.level().isClientSide) {
             if (this.level() instanceof ServerLevel serverLevel) {
-                for (int i = 0; i < 40; ++i) {
-                    //this.level().addAlwaysVisibleParticle(APParticleTypes.METEOR_BURNOUT.get(), true,this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0.0D, 0.0D, 0.0D);
-                    //this.level().addAlwaysVisibleParticle(ParticleTypes.LARGE_SMOKE, true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0.0D, 0.0D, 0.0D);
+                for (int i = 0; i < 60; ++i) {
                     serverLevel.sendParticles(ParticleTypes.LARGE_SMOKE, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 1, 0.0D, 0.0D, 0.0D, 0.0D);
                 }
             }
