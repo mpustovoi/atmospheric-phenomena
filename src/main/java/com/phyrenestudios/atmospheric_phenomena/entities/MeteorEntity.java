@@ -106,6 +106,7 @@ public class MeteorEntity extends Entity {
             return;
         }
 
+
         if (!this.isNoGravity() && this.getDeltaMovement().length() == 0.0D) {
             this.setDeltaMovement(this.getDeltaMovement().add((random.nextDouble()-0.5D)*2.0D, random.nextDouble()*-1.0D - 0.5D, (random.nextDouble()-0.5D)*2.0D));
         }
@@ -118,6 +119,9 @@ public class MeteorEntity extends Entity {
         }
         this.move(MoverType.SELF, this.getDeltaMovement());
         if (!this.level().isClientSide) {
+            //if (this.getSize() % 30 == 0) {
+            //    this.level().playSound(null, this.getX(), this.getY(), this.getZ(), APSoundEvents.ATMOSPHERIC_ENTRY.get(), SoundSource.WEATHER, 1.0f, 1.0f);
+            //}
             BlockHitResult blockhitresult = this.level().clip(new ClipContext(new Vec3(this.xo, this.yo, this.zo), this.position(), ClipContext.Block.COLLIDER, ClipContext.Fluid.SOURCE_ONLY, this));
             if (blockhitresult.getType() != HitResult.Type.MISS || this.onGround()) {
                 this.crash();
@@ -130,7 +134,10 @@ public class MeteorEntity extends Entity {
         BlockPos blockpos = this.blockPosition();
         if (blockpos.getY() > this.level().getMinBuildHeight() && blockpos.getY() < this.level().getMaxBuildHeight()) {
             this.discard();
-            if (this.level().isClientSide || !this.level().getGameRules().getBoolean(APGameRules.RULE_CREATE_IMPACT_CRATERS)) return;
+            if (this.level().isClientSide || !this.level().getGameRules().getBoolean(APGameRules.RULE_CREATE_IMPACT_CRATERS)) {
+                this.level().explode(null, this.getX(), this.getY(), this.getZ(), 1.0f, Level.ExplosionInteraction.NONE);
+                return;
+            }
             Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional = this.level().registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(APFeatures.CONFIGURED_FRESH_METEORITE);
             optional.ifPresent(configuredFeatureHolder -> configuredFeatureHolder.value().place((WorldGenLevel) this.level(), ((ServerLevel)this.level()).getChunkSource().getGenerator(), this.level().getRandom(), this.blockPosition()));
         }

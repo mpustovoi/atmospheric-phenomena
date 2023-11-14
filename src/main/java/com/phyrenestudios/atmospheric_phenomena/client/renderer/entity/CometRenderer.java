@@ -33,7 +33,7 @@ public class CometRenderer extends EntityRenderer<CometEntity> {
     public void render(CometEntity entityIn, float p_114486_, float p_114487_, PoseStack stackIn, MultiBufferSource bufferIn, int p_114490_) {
         super.render(entityIn, p_114486_, p_114487_, stackIn, bufferIn, p_114490_);
         stackIn.pushPose();
-        float f = Math.max(entityIn.getSize()/100f, 0.5f);
+        float f = Math.max((entityIn.getSize()+200)/100f, 1.0f);
         stackIn.scale(f, f, f);
         VertexConsumer vertexconsumer = bufferIn.getBuffer(this.model.renderType(this.getTextureLocation(entityIn)));
         this.model.renderToBuffer(stackIn, vertexconsumer, p_114490_, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);

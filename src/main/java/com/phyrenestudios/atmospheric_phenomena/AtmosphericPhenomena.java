@@ -9,10 +9,7 @@ import com.phyrenestudios.atmospheric_phenomena.client.model.MeteorModel;
 import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.CometRenderer;
 import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.MeteorRenderer;
 import com.phyrenestudios.atmospheric_phenomena.entities.APEntityTypes;
-import com.phyrenestudios.atmospheric_phenomena.init.APCreativeTabs;
-import com.phyrenestudios.atmospheric_phenomena.init.APGameRules;
-import com.phyrenestudios.atmospheric_phenomena.init.APParticleTypes;
-import com.phyrenestudios.atmospheric_phenomena.init.Config;
+import com.phyrenestudios.atmospheric_phenomena.init.*;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import net.minecraft.client.renderer.Sheets;
@@ -49,6 +46,7 @@ public class AtmosphericPhenomena {
         APFeatures.FEATURES.register(modEventBus);
         APItems.ITEMS.register(modEventBus);
         APParticleTypes.PARTICLE_TYPES.register(modEventBus);
+        APSoundEvents.SOUNDS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);

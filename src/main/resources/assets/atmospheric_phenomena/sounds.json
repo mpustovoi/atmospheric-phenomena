@@ -1,0 +1,11 @@
+{
+  "atmospheric_entry": {
+    "subtitle": "atmospheric_phenomena.subtitle.atmospheric_entry",
+    "sounds": [
+      {
+        "name": "atmospheric_phenomena:atmospheric_entry",
+        "volume": 1.0
+      }
+    ]
+  }
+}

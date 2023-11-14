@@ -27,6 +27,9 @@ public class Config
     private static final ForgeConfigSpec.IntValue METEOR_CHANCE = BUILDER
             .comment("The chance for a meteor to spawn. Set to 0 to disable.")
             .defineInRange("meteorChance", 1000000, 0, Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.BooleanValue METEORITE_DESTROY_ALL = BUILDER
+            .comment("Defines if meteorite features destroy all blocks. If false, the feature only replaces blocks from #atmospheric_phenomena:valid_meteorite_spawn.")
+            .define("meteoriteDestroyAll", true);
     private static final ForgeConfigSpec.IntValue METEORITE_CHANCE = BUILDER
             .comment("The chance for a meteorite to generate with blocks from #atmospheric_phenomena:meteor_blocks.")
             .defineInRange("meteoriteChance", 10, 0, Integer.MAX_VALUE);
@@ -54,6 +57,7 @@ public class Config
 
     public static int lightningMaxBlocks;
     public static double burningLogSpawnFire;
+    public static boolean meteoriteDestroyAll;
 
     public static int cometChance;
     public static int meteorChance;
@@ -74,6 +78,7 @@ public class Config
     static void onLoad(final ModConfigEvent event) {
         lightningMaxBlocks = LIGHTNING_MAX_BLOCKS.get();
         burningLogSpawnFire = BURNING_LOG_SPAWN_FIRE_CHANCE.get();
+        meteoriteDestroyAll = METEORITE_DESTROY_ALL.get();
 
         cometChance = COMET_CHANCE.get();
         meteorChance = METEOR_CHANCE.get();

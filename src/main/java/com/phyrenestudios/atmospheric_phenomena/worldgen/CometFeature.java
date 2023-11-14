@@ -2,6 +2,7 @@ package com.phyrenestudios.atmospheric_phenomena.worldgen;
 
 
 import com.mojang.serialization.Codec;
+import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import com.phyrenestudios.atmospheric_phenomena.util.FeatureUtils;
@@ -19,8 +20,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import java.util.ArrayList;
 import java.util.List;
 
-public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
-    public OverworldMeteoriteFeature(Codec<NoneFeatureConfiguration> p_i49915_1_) {
+public class CometFeature extends Feature<NoneFeatureConfiguration> {
+    public CometFeature(Codec<NoneFeatureConfiguration> p_i49915_1_) {
         super(p_i49915_1_);
     }
 
@@ -33,7 +34,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         BlockState target = levelIn.getBlockState(posIn.below());
         if (!target.is(APTags.Blocks.VALID_METEORITE_SPAWN)) return false;
 
-        int size = 2;
+        int size = 1;
 
         List<BlockPos> centerList = getCenters(rand, posIn, size, 3);
         BlockPos centerPos = getCenterPos(centerList);
@@ -102,6 +103,10 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
     }
 
     private void setCraterBlock(WorldGenLevel levelIn, BlockPos posIn, Block glass, BlockState surface, BlockState groundmass, BlockPos centerPos, boolean override) {
+        if (levelIn.getRandom().nextFloat() < Config.magmaBlockFrequency && posIn.getY() < centerPos.getY()+1) {
+            levelIn.setBlock(posIn, Blocks.MAGMA_BLOCK.defaultBlockState(), 3);
+            return;
+        }
         if (levelIn.getRandom().nextFloat() < Config.tektiteBlockFrequency) {
             levelIn.setBlock(posIn, glass.defaultBlockState(), 3);
             return;
@@ -117,23 +122,14 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
     }
 
     private void buildMeteor(WorldGenLevel levelIn, RandomSource rand, List<BlockPos> centerList, int size) {
-        Block meteor = FeatureUtils.meteorBlockCollection.getRandomElement();
-        Block coreMeteor;
-        if (rand.nextFloat() < Config.solidCoreMeteoriteChance) {
-            coreMeteor = meteor;
-        } else {
-            coreMeteor = FeatureUtils.meteorCoreBlockCollection.getRandomElement();
-        }
-
+        Block meteor = APBlocks.METEORIC_ICE.get();
         for (BlockPos center : centerList) {
             int j = 1 + rand.nextInt(size);
             int k = 1 + rand.nextInt(size);
             int l = 1 + rand.nextInt(size);
             float f = (float)(j + k + l) * 0.333F + 0.75F;
             for(BlockPos blockpos : BlockPos.betweenClosed(center.offset(-size-1, -size-1, -size-1), center.offset(size+1, size+1, size+1))) {
-                if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)*0.3) {
-                    levelIn.setBlock(blockpos, coreMeteor.defaultBlockState(), 3);
-                } else if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)) {
+                if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)) {
                     levelIn.setBlock(blockpos, meteor.defaultBlockState(), 3);
                 }
             }

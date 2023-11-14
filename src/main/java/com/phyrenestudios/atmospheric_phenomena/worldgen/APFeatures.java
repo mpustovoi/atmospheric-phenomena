@@ -20,18 +20,21 @@ public class APFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> OVERWORLD_METEORITE = FEATURES.register("overworld_meteorite", () -> new OverworldMeteoriteFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> BURIED_METEORITE = FEATURES.register("buried_meteorite", () -> new BuriedMeteoriteFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> FRESH_METEORITE = FEATURES.register("fresh_meteorite", () -> new FreshMeteoriteFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> COMET = FEATURES.register("comet", () -> new CometFeature(NoneFeatureConfiguration.CODEC));
     //public static final RegistryObject<Feature<NoneFeatureConfiguration>> LARGE_CRATER = FEATURES.register("large_crater", () -> new LargeCraterFeature(NoneFeatureConfiguration.CODEC));
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_OVERWORLD_METEORITE = createKey("overworld_meteorite");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_BURIED_METEORITE = createKey("buried_meteorite");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_FRESH_METEORITE = createKey("fresh_meteorite");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_COMET = createKey("comet");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_LARGE_CRATER= createKey("large_crater");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         register(context, CONFIGURED_OVERWORLD_METEORITE, OVERWORLD_METEORITE.get(), new NoneFeatureConfiguration());
         register(context, CONFIGURED_BURIED_METEORITE, BURIED_METEORITE.get(), new NoneFeatureConfiguration());
         register(context, CONFIGURED_FRESH_METEORITE, FRESH_METEORITE.get(), new NoneFeatureConfiguration());
+        register(context, CONFIGURED_COMET, COMET.get(), new NoneFeatureConfiguration());
        // register(context, CONFIGURED_LARGE_CRATER, LARGE_CRATER.get(), new NoneFeatureConfiguration());
     }
 
