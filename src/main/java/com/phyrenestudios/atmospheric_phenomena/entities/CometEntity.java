@@ -101,6 +101,12 @@ public class CometEntity extends Entity {
     public void tick() {
         super.tick();
         this.setSize(getSize()-1);
+        if (this.getSize() == 1 && this.level().isClientSide) {
+            for (int i = 0; i < 60; ++i) {
+                this.level().addAlwaysVisibleParticle(APParticleTypes.LARGE_SNOWFLAKE.get(), true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 2, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 2, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 2, (random.nextDouble()-0.5D)*1, (random.nextDouble()-0.5D)*1, (random.nextDouble()-0.5D)*1);
+                //this.level().addAlwaysVisibleParticle(ParticleTypes.FALLING_WATER, true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0,0,0);
+            }
+        }
         if (this.getSize() <= 0) {
             this.burnOut();
             return;
@@ -113,7 +119,7 @@ public class CometEntity extends Entity {
         if (this.level().isClientSide) {
             for (int i = 0; i < 4; ++i) {
                 this.level().addAlwaysVisibleParticle(APParticleTypes.LARGE_CLOUD.get(), true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + random.nextDouble(), this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0D, 0.5D, 0D);
-                this.level().addAlwaysVisibleParticle(ParticleTypes.LARGE_SMOKE, true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + random.nextDouble(), this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0D, 0.5D, 0D);
+                this.level().addAlwaysVisibleParticle(ParticleTypes.SNOWFLAKE, true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + random.nextDouble(), this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 0D, 0.5D, 0D);
             }
         }
         this.move(MoverType.SELF, this.getDeltaMovement());
@@ -130,7 +136,7 @@ public class CometEntity extends Entity {
         BlockPos blockpos = this.blockPosition();
         if (blockpos.getY() > this.level().getMinBuildHeight() && blockpos.getY() < this.level().getMaxBuildHeight()) {
             this.discard();
-            if (this.level().isClientSide || !this.level().getGameRules().getBoolean(APGameRules.RULE_CREATE_IMPACT_CRATERS)) {
+            if (!this.level().isClientSide && !this.level().getGameRules().getBoolean(APGameRules.RULE_CREATE_IMPACT_CRATERS)) {
                 this.level().explode(null, this.getX(), this.getY(), this.getZ(), 1.0f, Level.ExplosionInteraction.NONE);
                 return;
             }
@@ -141,14 +147,6 @@ public class CometEntity extends Entity {
 
     public void burnOut() {
         this.level().explode(null, this.getX(), this.getY(), this.getZ(), 1.0f, Level.ExplosionInteraction.NONE);
-        if (!this.level().isClientSide) {
-            if (this.level() instanceof ServerLevel serverLevel) {
-                for (int i = 0; i < 60; ++i) {
-                    serverLevel.sendParticles(ParticleTypes.LARGE_SMOKE, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 1, 0.0D, 0.0D, 0.0D, 0.0D);
-                }
-            }
-
-            this.discard();
-        }
+        this.discard();
     }
 }

@@ -25,7 +25,7 @@ public class TickEventHandler {
         ServerChunkCache chunkCache = level.getChunkSource();
         for(ChunkHolder chunkholder : chunkCache.chunkMap.getChunks()) {
             LevelChunk levelchunk = chunkholder.getTickingChunk();
-            if (levelchunk != null && level.shouldTickBlocksAt(levelchunk.getPos().toLong())) return;
+            if (levelchunk == null || !level.shouldTickBlocksAt(levelchunk.getPos().toLong())) return;
             if (rand.nextInt(Config.meteorChance) == 0) {
                 spawnMeteor(level, chunkholder.getTickingChunk(), rand);
             } else if (rand.nextInt(Config.cometChance) == 0) {

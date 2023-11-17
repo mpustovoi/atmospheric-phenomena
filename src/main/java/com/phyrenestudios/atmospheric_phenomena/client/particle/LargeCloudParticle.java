@@ -22,10 +22,10 @@ public class LargeCloudParticle extends TextureSheetParticle {
         this.xd += vx;
         this.yd += vy;
         this.zd += vz;
-        float f1 = 1.0F - (float)(Math.random() * (double)0.3F);
-        this.rCol = f1;
-        this.gCol = f1;
-        this.bCol = f1;
+        float f1 = (float)Math.random() * 0.1F;
+        this.rCol = 1.0F - f1 * 4.5F;
+        this.gCol = 1.0F - f1;
+        this.bCol = 1.0F;
         this.quadSize *= 4F;
         int i = (int)(8.0D / (Math.random() * 0.8D + 0.3D));
         this.lifetime = (int)Math.max((float)i * 2.5F, 2.0F);

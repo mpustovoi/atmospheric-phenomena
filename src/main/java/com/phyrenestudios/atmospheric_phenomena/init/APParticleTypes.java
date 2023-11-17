@@ -3,6 +3,7 @@ package com.phyrenestudios.atmospheric_phenomena.init;
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.client.particle.EntryFlameParticle;
 import com.phyrenestudios.atmospheric_phenomena.client.particle.LargeCloudParticle;
+import com.phyrenestudios.atmospheric_phenomena.client.particle.LargeSnowflakeParticle;
 import com.phyrenestudios.atmospheric_phenomena.client.particle.MeteorBurnoutParticle;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -22,6 +23,7 @@ public class APParticleTypes {
     public static final RegistryObject<SimpleParticleType> ENTRY_FLAME = PARTICLE_TYPES.register("entry_flame",  () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> METEOR_BURNOUT = PARTICLE_TYPES.register("meteor_burnout",  () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> LARGE_CLOUD = PARTICLE_TYPES.register("large_cloud",  () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> LARGE_SNOWFLAKE = PARTICLE_TYPES.register("large_snowflake",  () -> new SimpleParticleType(false));
 
 
     @OnlyIn(Dist.CLIENT)
@@ -30,6 +32,7 @@ public class APParticleTypes {
         event.registerSpriteSet(APParticleTypes.ENTRY_FLAME.get(), EntryFlameParticle.Factory::new);
         event.registerSpriteSet(APParticleTypes.METEOR_BURNOUT.get(), MeteorBurnoutParticle.Factory::new);
         event.registerSpriteSet(APParticleTypes.LARGE_CLOUD.get(), LargeCloudParticle.Factory::new);
+        event.registerSpriteSet(APParticleTypes.LARGE_SNOWFLAKE.get(), LargeSnowflakeParticle.Factory::new);
     }
 
 }

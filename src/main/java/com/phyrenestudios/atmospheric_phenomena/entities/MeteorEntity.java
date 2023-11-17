@@ -101,6 +101,12 @@ public class MeteorEntity extends Entity {
     public void tick() {
         super.tick();
         this.setSize(getSize()-1);
+        if (this.getSize() == 1 && this.level().isClientSide) {
+            for (int i = 0; i < 60; ++i) {
+                this.level().addAlwaysVisibleParticle(APParticleTypes.METEOR_BURNOUT.get(), true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 2, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 2, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 2, (random.nextDouble()-0.5D)*1, (random.nextDouble()-0.5D)*1, (random.nextDouble()-0.5D)*1);
+                //this.level().addAlwaysVisibleParticle(ParticleTypes.FALLING_LAVA, true, this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 4, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4, 0,0,0);
+            }
+        }
         if (this.getSize() <= 0) {
             this.burnOut();
             return;
@@ -134,7 +140,7 @@ public class MeteorEntity extends Entity {
         BlockPos blockpos = this.blockPosition();
         if (blockpos.getY() > this.level().getMinBuildHeight() && blockpos.getY() < this.level().getMaxBuildHeight()) {
             this.discard();
-            if (this.level().isClientSide || !this.level().getGameRules().getBoolean(APGameRules.RULE_CREATE_IMPACT_CRATERS)) {
+            if (!this.level().getGameRules().getBoolean(APGameRules.RULE_CREATE_IMPACT_CRATERS)) {
                 this.level().explode(null, this.getX(), this.getY(), this.getZ(), 1.0f, Level.ExplosionInteraction.NONE);
                 return;
             }
@@ -145,14 +151,6 @@ public class MeteorEntity extends Entity {
 
     public void burnOut() {
         this.level().explode(null, this.getX(), this.getY(), this.getZ(), 1.0f, Level.ExplosionInteraction.NONE);
-        if (!this.level().isClientSide) {
-            if (this.level() instanceof ServerLevel serverLevel) {
-                for (int i = 0; i < 60; ++i) {
-                    serverLevel.sendParticles(APParticleTypes.METEOR_BURNOUT.get(), this.getX() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getY() + 0.5D + (random.nextDouble() - 0.5) * 4.0, this.getZ() + 0.5D + (random.nextDouble() - 0.5) * 4.0, 1, 0.0D, 0.0D, 0.0D, 0.0D);
-                }
-            }
-
-            this.discard();
-        }
+        this.discard();
     }
 }
