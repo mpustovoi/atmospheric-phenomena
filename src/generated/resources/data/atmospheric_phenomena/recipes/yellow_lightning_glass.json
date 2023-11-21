@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "building",
   "group": "atmospheric_phenomena:lightning_glasses",
   "key": {
     "D": {

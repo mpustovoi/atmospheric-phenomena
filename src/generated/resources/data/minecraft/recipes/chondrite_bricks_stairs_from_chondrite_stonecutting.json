@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "atmospheric_phenomena:chondrite"
+  },
+  "result": "atmospheric_phenomena:chondrite_bricks_stairs"
+}

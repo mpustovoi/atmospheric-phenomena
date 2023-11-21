@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ingredient": {
+    "has_angrite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "atmospheric_phenomena:lonsdaleite"
+              "atmospheric_phenomena:angrite"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "atmospheric_phenomena:lonsdaleite_block"
+        "recipe": "minecraft:angrite_bricks_stairs_from_angrite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_ingredient",
+      "has_angrite",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "atmospheric_phenomena:lonsdaleite_block"
+      "minecraft:angrite_bricks_stairs_from_angrite_stonecutting"
     ]
   },
   "sends_telemetry_event": false

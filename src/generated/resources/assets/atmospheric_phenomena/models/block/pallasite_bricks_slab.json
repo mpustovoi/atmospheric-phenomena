@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "atmospheric_phenomena:block/pallasite_bricks",
+    "side": "atmospheric_phenomena:block/pallasite_bricks",
+    "top": "atmospheric_phenomena:block/pallasite_bricks"
+  }
+}

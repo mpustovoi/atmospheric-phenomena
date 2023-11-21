@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "atmospheric_phenomena:pallasite"
+  },
+  "result": "atmospheric_phenomena:pallasite_bricks"
+}

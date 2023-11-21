@@ -5,26 +5,36 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.RegistryObject;
 
 public enum MeteorBlocks implements StringRepresentable {
 
-    CHONDRITE("chondrite"),
-    ENSTATITE_CHONDRITE("enstatite_chondrite"),
-    CARBONACEOUS_CHONDRITE("carbonaceous_chondrite"),
-    ANGRITE("angrite"),
-    UREILITE("ureilite"),
-    PALLASITE("pallasite"),
-    MESOSIDERITE("mesosiderite");
+    CHONDRITE("chondrite", MapColor.TERRACOTTA_CYAN),
+    ENSTATITE_CHONDRITE("enstatite_chondrite", MapColor.TERRACOTTA_BROWN),
+    CARBONACEOUS_CHONDRITE("carbonaceous_chondrite", MapColor.TERRACOTTA_BLACK),
+    ANGRITE("angrite", MapColor.TERRACOTTA_MAGENTA),
+    UREILITE("ureilite", MapColor.TERRACOTTA_BLUE),
+    PALLASITE("pallasite", MapColor.TERRACOTTA_WHITE),
+    MESOSIDERITE("mesosiderite", MapColor.TERRACOTTA_YELLOW);
 
     RegistryObject<Block> block;
+    RegistryObject<Block> bricks;
+    RegistryObject<SlabBlock> slab;
+    RegistryObject<StairBlock> stairs;
+    RegistryObject<WallBlock> wall;
 
     private final String name;
+    private final MapColor mapColor;
 
-    MeteorBlocks(String name) {
+    MeteorBlocks(String name, MapColor mapColor) {
         this.name = name;
+        this.mapColor = mapColor;
     }
 
     public String toString() {
@@ -34,16 +44,28 @@ public enum MeteorBlocks implements StringRepresentable {
         return this.name;
     }
     public Block getMeteorBlock() {return this.block.get();}
+    public Block getBricks() {return this.bricks.get();}
+    public SlabBlock getBricksSlab() {return this.slab.get();}
+    public StairBlock getBricksStairs() {return this.stairs.get();}
+    public WallBlock getBricksWall() {return this.wall.get();}
 
     public static void registerBlocks() {
         for (MeteorBlocks baseBlock : values()) {
-            baseBlock.block =  APBlocks.BLOCKS.register(baseBlock.getSerializedName(), () -> new Block(BlockBehaviour.Properties.copy(Blocks.END_STONE).requiresCorrectToolForDrops().strength(2.0F, 6.0F)));
+            baseBlock.block =  APBlocks.BLOCKS.register(baseBlock.getSerializedName(), () -> new Block(BlockBehaviour.Properties.of().mapColor(baseBlock.mapColor).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 9.0F)));
+            baseBlock.bricks =  APBlocks.BLOCKS.register(baseBlock.getSerializedName()+"_bricks", () -> new Block(BlockBehaviour.Properties.of().mapColor(baseBlock.mapColor).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0F, 12.0F)));
+            baseBlock.slab =  APBlocks.BLOCKS.register(baseBlock.getSerializedName()+"_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(baseBlock.bricks.get())));
+            baseBlock.stairs =  APBlocks.BLOCKS.register(baseBlock.getSerializedName()+"_bricks_stairs", () -> new StairBlock(baseBlock.bricks.get().defaultBlockState(), BlockBehaviour.Properties.copy(baseBlock.bricks.get())));
+            baseBlock.wall =  APBlocks.BLOCKS.register(baseBlock.getSerializedName()+"_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(baseBlock.bricks.get())));
         }
     }
 
     public static void registerItems() {
         for (MeteorBlocks baseBlock : values()) {
             APItems.ITEMS.register(baseBlock.getSerializedName(), () -> new BlockItem(baseBlock.block.get(), new Item.Properties().stacksTo(64)));
+            APItems.ITEMS.register(baseBlock.getSerializedName()+"_bricks", () -> new BlockItem(baseBlock.bricks.get(), new Item.Properties().stacksTo(64)));
+            APItems.ITEMS.register(baseBlock.getSerializedName()+"_bricks_slab", () -> new BlockItem(baseBlock.slab.get(), new Item.Properties().stacksTo(64)));
+            APItems.ITEMS.register(baseBlock.getSerializedName()+"_bricks_stairs", () -> new BlockItem(baseBlock.stairs.get(), new Item.Properties().stacksTo(64)));
+            APItems.ITEMS.register(baseBlock.getSerializedName()+"_bricks_wall", () -> new BlockItem(baseBlock.wall.get(), new Item.Properties().stacksTo(64)));
         }
     }
 

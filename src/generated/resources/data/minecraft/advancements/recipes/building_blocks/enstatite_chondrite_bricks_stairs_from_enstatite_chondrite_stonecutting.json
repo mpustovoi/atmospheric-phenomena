@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enstatite_chondrite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "atmospheric_phenomena:enstatite_chondrite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:enstatite_chondrite_bricks_stairs_from_enstatite_chondrite_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_enstatite_chondrite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:enstatite_chondrite_bricks_stairs_from_enstatite_chondrite_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

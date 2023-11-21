@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "atmospheric_phenomena:block/enstatite_chondrite_bricks_slab"
+    },
+    "type=double": {
+      "model": "atmospheric_phenomena:block/enstatite_chondrite_bricks"
+    },
+    "type=top": {
+      "model": "atmospheric_phenomena:block/enstatite_chondrite_bricks_slab_top"
+    }
+  }
+}

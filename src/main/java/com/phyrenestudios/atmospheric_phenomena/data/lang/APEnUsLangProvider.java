@@ -28,6 +28,7 @@ public class APEnUsLangProvider extends LanguageProvider {
     protected void addTranslations() {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             add(base.getMeteorBlock());
+            add(base.getBricks());
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             add(base.getTektite());

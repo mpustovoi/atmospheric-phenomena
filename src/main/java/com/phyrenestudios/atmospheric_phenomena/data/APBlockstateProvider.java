@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -31,6 +32,10 @@ public class APBlockstateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             simpleBlock(base.getMeteorBlock());
+            simpleBlock(base.getBricks());
+            slabBlock(base.getBricksSlab(), getBlockRSL(base.getBricks()), getBlockRSL(base.getBricks()));
+            stairsBlock(base.getBricksStairs(), getBlockRSL(base.getBricks()));
+            wallBlock(base.getBricksWall(), getBlockRSL(base.getBricks()));
         }
         for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
             getVariantBuilder(base.getGlass())
@@ -83,6 +88,12 @@ public class APBlockstateProvider extends BlockStateProvider {
         super.fenceBlock(blk, texture);
         models().withExistingParent(name(blk) + "_inventory", mcLoc("block/fence_inventory"))
                 .texture("texture", texture);
+    }
+    @Override
+    public void wallBlock(WallBlock blk, ResourceLocation texture) {
+        super.wallBlock(blk, texture);
+        models().withExistingParent(name(blk) + "_inventory", mcLoc("block/wall_inventory"))
+                .texture("wall", texture);
     }
 
     public void buttonBlock(ButtonBlock blk, ResourceLocation texture) {

@@ -19,7 +19,6 @@ public class TickEventHandler {
         if (event.phase != TickEvent.Phase.START) return;
         if (event.side != LogicalSide.SERVER) return;
         ServerLevel level = (ServerLevel) event.level;
-        //check if Overworld
         if (!level.dimension().location().toString().equals("minecraft:overworld")) return;
         RandomSource rand = level.getRandom();
         ServerChunkCache chunkCache = level.getChunkSource();

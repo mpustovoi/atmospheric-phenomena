@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "atmospheric_phenomena:carbonaceous_chondrite_bricks"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "item": "atmospheric_phenomena:carbonaceous_chondrite_bricks_wall"
+  },
+  "show_notification": true
+}

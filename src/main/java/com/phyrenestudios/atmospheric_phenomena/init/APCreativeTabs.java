@@ -21,6 +21,7 @@ public class APCreativeTabs {
             .displayItems((parameters, output) -> {
                 for (MeteorBlocks base : MeteorBlocks.values()) {
                     output.accept(base.getMeteorBlock());
+                    output.accept(base.getBricks());
                 }
                 output.accept(APItems.KAMACITE.get());
                 output.accept(APItems.TAENITE.get());

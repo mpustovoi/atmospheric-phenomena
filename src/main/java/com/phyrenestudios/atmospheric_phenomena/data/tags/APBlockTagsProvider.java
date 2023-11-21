@@ -27,9 +27,12 @@ public class APBlockTagsProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
         for (MeteorBlocks base : MeteorBlocks.values()) {
-            tag(BlockTags.MINEABLE_WITH_PICKAXE).add(base.getMeteorBlock());
-            tag(BlockTags.NEEDS_IRON_TOOL).add(base.getMeteorBlock());
+            tag(BlockTags.MINEABLE_WITH_PICKAXE).add(base.getMeteorBlock(),base.getBricks(),base.getBricksSlab(),base.getBricksStairs(),base.getBricksWall());
+            tag(BlockTags.NEEDS_IRON_TOOL).add(base.getMeteorBlock(),base.getBricks(),base.getBricksSlab(),base.getBricksStairs(),base.getBricksWall());
             tag(APTags.Blocks.METEOR_BLOCKS).add(base.getMeteorBlock());
+            tag(BlockTags.SLABS).add(base.getBricksSlab());
+            tag(BlockTags.STAIRS).add(base.getBricksStairs());
+            tag(BlockTags.WALLS).add(base.getBricksWall());
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             tag(BlockTags.MINEABLE_WITH_PICKAXE).add(base.getTektite());

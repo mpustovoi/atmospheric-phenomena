@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "atmospheric_phenomena:block/carbonaceous_chondrite_bricks"
+  }
+}

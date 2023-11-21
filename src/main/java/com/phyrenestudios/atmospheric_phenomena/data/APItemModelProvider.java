@@ -32,6 +32,10 @@ public class APItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             withExistingParent(base.getMeteorBlock());
+            withExistingParent(base.getBricks());
+            slabParent(base.getBricksSlab());
+            stairsParent(base.getBricksStairs());
+            wallParent(base.getBricksWall());
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             withExistingParent(base.getTektite());
@@ -78,6 +82,10 @@ public class APItemModelProvider extends ItemModelProvider {
 
 
 
+    }
+
+    private ItemModelBuilder wallParent(Block BLK) {
+        return withExistingParent(name(BLK), getBlockRSL(name(BLK,"_inventory")));
     }
 
     private ItemModelBuilder withExistingParent(Block blk) {

@@ -45,6 +45,10 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
     protected void generate() {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             dropSelf(base.getMeteorBlock());
+            dropSelf(base.getBricks());
+            addSlab(base.getBricksSlab());
+            dropSelf(base.getBricksStairs());
+            dropSelf(base.getBricksWall());
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             dropSelf(base.getTektite());
