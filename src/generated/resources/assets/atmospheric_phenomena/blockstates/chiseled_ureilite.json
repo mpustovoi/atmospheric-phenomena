@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "phase=0": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite0"
+    },
+    "phase=1": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite1"
+    },
+    "phase=2": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite2"
+    },
+    "phase=3": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite3"
+    },
+    "phase=4": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite4"
+    },
+    "phase=5": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite5"
+    },
+    "phase=6": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite6"
+    },
+    "phase=7": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite7"
+    }
+  }
+}

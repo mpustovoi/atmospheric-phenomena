@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "item": "atmospheric_phenomena:mesosiderite_bricks_slab"
+    }
+  },
+  "pattern": [
+    "B",
+    "B"
+  ],
+  "result": {
+    "item": "atmospheric_phenomena:chiseled_mesosiderite"
+  },
+  "show_notification": true
+}

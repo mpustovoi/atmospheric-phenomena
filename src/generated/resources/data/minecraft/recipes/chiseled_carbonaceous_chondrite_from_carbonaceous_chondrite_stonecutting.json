@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "atmospheric_phenomena:carbonaceous_chondrite"
+  },
+  "result": "atmospheric_phenomena:chiseled_carbonaceous_chondrite"
+}

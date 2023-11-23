@@ -28,6 +28,7 @@ public enum MeteorBlocks implements StringRepresentable {
     RegistryObject<SlabBlock> slab;
     RegistryObject<StairBlock> stairs;
     RegistryObject<WallBlock> wall;
+    RegistryObject<ChiseledMeteoriteBlock> chiseled;
 
     private final String name;
     private final MapColor mapColor;
@@ -48,6 +49,7 @@ public enum MeteorBlocks implements StringRepresentable {
     public SlabBlock getBricksSlab() {return this.slab.get();}
     public StairBlock getBricksStairs() {return this.stairs.get();}
     public WallBlock getBricksWall() {return this.wall.get();}
+    public ChiseledMeteoriteBlock getChiseled() {return this.chiseled.get();}
 
     public static void registerBlocks() {
         for (MeteorBlocks baseBlock : values()) {
@@ -56,6 +58,7 @@ public enum MeteorBlocks implements StringRepresentable {
             baseBlock.slab =  APBlocks.BLOCKS.register(baseBlock.getSerializedName()+"_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(baseBlock.bricks.get())));
             baseBlock.stairs =  APBlocks.BLOCKS.register(baseBlock.getSerializedName()+"_bricks_stairs", () -> new StairBlock(baseBlock.bricks.get().defaultBlockState(), BlockBehaviour.Properties.copy(baseBlock.bricks.get())));
             baseBlock.wall =  APBlocks.BLOCKS.register(baseBlock.getSerializedName()+"_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(baseBlock.bricks.get())));
+            baseBlock.chiseled =  APBlocks.BLOCKS.register("chiseled_"+baseBlock.getSerializedName(), () -> new ChiseledMeteoriteBlock(BlockBehaviour.Properties.of().mapColor(baseBlock.mapColor).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0F, 12.0F)));
         }
     }
 
@@ -66,6 +69,7 @@ public enum MeteorBlocks implements StringRepresentable {
             APItems.ITEMS.register(baseBlock.getSerializedName()+"_bricks_slab", () -> new BlockItem(baseBlock.slab.get(), new Item.Properties().stacksTo(64)));
             APItems.ITEMS.register(baseBlock.getSerializedName()+"_bricks_stairs", () -> new BlockItem(baseBlock.stairs.get(), new Item.Properties().stacksTo(64)));
             APItems.ITEMS.register(baseBlock.getSerializedName()+"_bricks_wall", () -> new BlockItem(baseBlock.wall.get(), new Item.Properties().stacksTo(64)));
+            APItems.ITEMS.register("chiseled_"+baseBlock.getSerializedName(), () -> new BlockItem(baseBlock.chiseled.get(), new Item.Properties().stacksTo(64)));
         }
     }
 

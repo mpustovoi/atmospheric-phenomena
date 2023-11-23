@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "phase=0": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite0"
+    },
+    "phase=1": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite1"
+    },
+    "phase=2": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite2"
+    },
+    "phase=3": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite3"
+    },
+    "phase=4": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite4"
+    },
+    "phase=5": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite5"
+    },
+    "phase=6": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite6"
+    },
+    "phase=7": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite7"
+    }
+  }
+}

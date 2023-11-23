@@ -36,6 +36,7 @@ public class APItemModelProvider extends ItemModelProvider {
             slabParent(base.getBricksSlab());
             stairsParent(base.getBricksStairs());
             wallParent(base.getBricksWall());
+            withExistingParent(name(base.getChiseled()), modLoc("block/" + name(base.getChiseled())+5));
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             withExistingParent(base.getTektite());

@@ -36,6 +36,7 @@ public class APBlockstateProvider extends BlockStateProvider {
             slabBlock(base.getBricksSlab(), getBlockRSL(base.getBricks()), getBlockRSL(base.getBricks()));
             stairsBlock(base.getBricksStairs(), getBlockRSL(base.getBricks()));
             wallBlock(base.getBricksWall(), getBlockRSL(base.getBricks()));
+            phaseBlock(base.getChiseled());
         }
         for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
             getVariantBuilder(base.getGlass())
@@ -114,6 +115,19 @@ public class APBlockstateProvider extends BlockStateProvider {
                     .rotationY(yRot)
                     .rotationX(face == AttachFace.CEILING ? 180 : face == AttachFace.FLOOR ? 0 : 270)
                     .uvLock(true)
+                    .build();
+        });
+    }
+    public void phaseBlock(ChiseledMeteoriteBlock blk) {
+        getVariantBuilder(blk).forAllStatesExcept(state -> {
+            int i = state.getValue(ChiseledMeteoriteBlock.PHASE);
+            return ConfiguredModel.builder()
+                    .modelFile(models().cubeAll(name(blk)+i, getBlockRSL(name(blk)+i)))
+                    //.modelFile(models().withExistingParent(name(blk)+i,mcLoc("block/block"))
+                    //        .texture("all", getBlockRSL(blk))
+                    //        .element().from(0,0,0).to(16,16,16)
+                    //        .allFaces((dir, face) -> face.uvs(0,16*(i-1), 16, 16*(i)).texture("#all").cullface(dir))
+                    //        .end())
                     .build();
         });
     }

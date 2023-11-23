@@ -30,13 +30,16 @@ public class APRecipesProvider extends RecipeProvider {
             slabRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, base.getBricksSlab(), base.getBricks());
             stairsRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, base.getBricksStairs(), base.getBricks());
             wallRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, base.getBricksWall(), base.getBricks());
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, base.getChiseled(), 1).pattern("B").pattern("B").define('B', base.getBricksSlab()).unlockedBy("has_ingredient", has(base.getBricksSlab())).save(consumer);
             stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, base.getBricks(), base.getMeteorBlock());
             stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, base.getBricksSlab(), base.getMeteorBlock(), 2);
             stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, base.getBricksStairs(), base.getMeteorBlock());
             stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, base.getBricksWall(), base.getMeteorBlock());
+            stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, base.getChiseled(), base.getMeteorBlock());
             stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, base.getBricksSlab(), base.getBricks(), 2);
             stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, base.getBricksStairs(), base.getBricks());
             stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, base.getBricksWall(), base.getBricks());
+            stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, base.getChiseled(), base.getBricks());
         }
         for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
             ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, base.getGlass(), 8).pattern("GGG").pattern("GDG").pattern("GGG").define('G', APTags.Items.LIGHTNING_GLASS).define('D', base.getDyeColor().getTag()).unlockedBy("has_ingredient", has(APTags.Items.LIGHTNING_GLASS)).group(AtmosphericPhenomena.MODID+":lightning_glasses").save(consumer);

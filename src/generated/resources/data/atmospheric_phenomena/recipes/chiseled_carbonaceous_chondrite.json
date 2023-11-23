@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "item": "atmospheric_phenomena:carbonaceous_chondrite_bricks_slab"
+    }
+  },
+  "pattern": [
+    "B",
+    "B"
+  ],
+  "result": {
+    "item": "atmospheric_phenomena:chiseled_carbonaceous_chondrite"
+  },
+  "show_notification": true
+}

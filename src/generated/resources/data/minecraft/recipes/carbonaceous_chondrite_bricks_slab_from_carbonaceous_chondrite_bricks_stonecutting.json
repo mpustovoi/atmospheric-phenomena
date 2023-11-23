@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "atmospheric_phenomena:carbonaceous_chondrite_bricks"
+  },
+  "result": "atmospheric_phenomena:carbonaceous_chondrite_bricks_slab"
+}

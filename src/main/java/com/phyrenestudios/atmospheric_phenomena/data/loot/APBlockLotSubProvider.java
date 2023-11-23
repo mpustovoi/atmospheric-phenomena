@@ -49,6 +49,7 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
             addSlab(base.getBricksSlab());
             dropSelf(base.getBricksStairs());
             dropSelf(base.getBricksWall());
+            dropSelf(base.getChiseled());
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             dropSelf(base.getTektite());

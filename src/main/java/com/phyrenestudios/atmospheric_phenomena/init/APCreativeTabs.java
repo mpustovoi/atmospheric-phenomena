@@ -22,6 +22,10 @@ public class APCreativeTabs {
                 for (MeteorBlocks base : MeteorBlocks.values()) {
                     output.accept(base.getMeteorBlock());
                     output.accept(base.getBricks());
+                    output.accept(base.getBricksSlab());
+                    output.accept(base.getBricksStairs());
+                    output.accept(base.getBricksWall());
+                    output.accept(base.getChiseled());
                 }
                 output.accept(APItems.KAMACITE.get());
                 output.accept(APItems.TAENITE.get());

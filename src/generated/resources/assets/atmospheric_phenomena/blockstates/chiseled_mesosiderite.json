@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "phase=0": {
+      "model": "atmospheric_phenomena:block/chiseled_mesosiderite0"
+    },
+    "phase=1": {
+      "model": "atmospheric_phenomena:block/chiseled_mesosiderite1"
+    },
+    "phase=2": {
+      "model": "atmospheric_phenomena:block/chiseled_mesosiderite2"
+    },
+    "phase=3": {
+      "model": "atmospheric_phenomena:block/chiseled_mesosiderite3"
+    },
+    "phase=4": {
+      "model": "atmospheric_phenomena:block/chiseled_mesosiderite4"
+    },
+    "phase=5": {
+      "model": "atmospheric_phenomena:block/chiseled_mesosiderite5"
+    },
+    "phase=6": {
+      "model": "atmospheric_phenomena:block/chiseled_mesosiderite6"
+    },
+    "phase=7": {
+      "model": "atmospheric_phenomena:block/chiseled_mesosiderite7"
+    }
+  }
+}

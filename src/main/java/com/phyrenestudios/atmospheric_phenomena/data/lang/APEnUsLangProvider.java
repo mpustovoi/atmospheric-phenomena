@@ -29,6 +29,10 @@ public class APEnUsLangProvider extends LanguageProvider {
         for (MeteorBlocks base : MeteorBlocks.values()) {
             add(base.getMeteorBlock());
             add(base.getBricks());
+            add(base.getBricksSlab());
+            add(base.getBricksStairs());
+            add(base.getBricksWall());
+            add(base.getChiseled());
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             add(base.getTektite());

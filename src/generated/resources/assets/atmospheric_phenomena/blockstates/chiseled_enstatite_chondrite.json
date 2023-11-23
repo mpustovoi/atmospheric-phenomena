@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "phase=0": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite0"
+    },
+    "phase=1": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite1"
+    },
+    "phase=2": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite2"
+    },
+    "phase=3": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite3"
+    },
+    "phase=4": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite4"
+    },
+    "phase=5": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite5"
+    },
+    "phase=6": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite6"
+    },
+    "phase=7": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite7"
+    }
+  }
+}
