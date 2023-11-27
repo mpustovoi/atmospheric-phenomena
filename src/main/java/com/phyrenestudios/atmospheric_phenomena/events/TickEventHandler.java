@@ -31,7 +31,6 @@ public class TickEventHandler {
                 spawnComet(level, chunkholder.getTickingChunk(), rand);
             }
         }
-
     }
 
     private static void spawnMeteor(ServerLevel level, LevelChunk levelchunk, RandomSource rand) {
@@ -39,8 +38,8 @@ public class TickEventHandler {
         int j = levelchunk.getPos().getMinBlockZ();
         BlockPos blockpos = level.getBlockRandomPos(i, Config.overworldMeteorSpawnHeight, j, 1);
         MeteorEntity meteor = new MeteorEntity(level, blockpos);
-        meteor.setSize(rand.nextInt(400,800));
-        meteor.setDeltaMovement(MeteorEntity.getMeteorMotion(rand));
+        meteor.setSize(rand.nextInt(400,1000));
+        meteor.setDeltaMovement(meteor.getRandomMotion(rand));
         level.addFreshEntity(meteor);
     }
     private static void spawnComet(ServerLevel level, LevelChunk levelchunk, RandomSource rand) {
@@ -48,8 +47,8 @@ public class TickEventHandler {
         int j = levelchunk.getPos().getMinBlockZ();
         BlockPos blockpos = level.getBlockRandomPos(i, Config.overworldMeteorSpawnHeight, j, 1);
         CometEntity comet = new CometEntity(level, blockpos);
-        comet.setSize(rand.nextInt(200,400));
-        comet.setDeltaMovement(CometEntity.getCometMotion(rand));
+        comet.setSize(rand.nextInt(200,500));
+        comet.setDeltaMovement(comet.getRandomMotion(rand));
         level.addFreshEntity(comet);
     }
 
