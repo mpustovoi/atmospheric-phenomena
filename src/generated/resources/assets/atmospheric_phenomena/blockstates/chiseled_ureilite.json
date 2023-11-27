@@ -1,27 +1,51 @@
 {
   "variants": {
-    "phase=0": {
+    "phase=0,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_ureilite0"
     },
-    "phase=1": {
+    "phase=0,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite0"
+    },
+    "phase=1,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_ureilite1"
     },
-    "phase=2": {
+    "phase=1,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite1"
+    },
+    "phase=2,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_ureilite2"
     },
-    "phase=3": {
+    "phase=2,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite2"
+    },
+    "phase=3,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_ureilite3"
     },
-    "phase=4": {
+    "phase=3,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite3"
+    },
+    "phase=4,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_ureilite4"
     },
-    "phase=5": {
+    "phase=4,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite4"
+    },
+    "phase=5,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_ureilite5"
     },
-    "phase=6": {
+    "phase=5,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite5"
+    },
+    "phase=6,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_ureilite6"
     },
-    "phase=7": {
+    "phase=6,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite6"
+    },
+    "phase=7,phase_locked=false": {
+      "model": "atmospheric_phenomena:block/chiseled_ureilite7"
+    },
+    "phase=7,phase_locked=true": {
       "model": "atmospheric_phenomena:block/chiseled_ureilite7"
     }
   }

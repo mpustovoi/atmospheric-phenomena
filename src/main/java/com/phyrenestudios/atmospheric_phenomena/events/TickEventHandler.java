@@ -37,20 +37,21 @@ public class TickEventHandler {
     private static void spawnMeteor(ServerLevel level, LevelChunk levelchunk, RandomSource rand) {
         int i = levelchunk.getPos().getMinBlockX();
         int j = levelchunk.getPos().getMinBlockZ();
-        BlockPos blockpos = level.getBlockRandomPos(i, 0, j, 15).above(level.getMaxBuildHeight()+10);
+        BlockPos blockpos = level.getBlockRandomPos(i, Config.overworldMeteorSpawnHeight, j, 1);
         MeteorEntity meteor = new MeteorEntity(level, blockpos);
         meteor.setSize(rand.nextInt(400,800));
-        meteor.setDeltaMovement((rand.nextDouble()-0.5D)*2.0D, rand.nextDouble()*-1.0D - 0.5D, (rand.nextDouble()-0.5D)*2.0D);
+        meteor.setDeltaMovement(MeteorEntity.getMeteorMotion(rand));
         level.addFreshEntity(meteor);
     }
     private static void spawnComet(ServerLevel level, LevelChunk levelchunk, RandomSource rand) {
         int i = levelchunk.getPos().getMinBlockX();
         int j = levelchunk.getPos().getMinBlockZ();
-        BlockPos blockpos = level.getBlockRandomPos(i, 0, j, 15).above(level.getMaxBuildHeight()+10);
+        BlockPos blockpos = level.getBlockRandomPos(i, Config.overworldMeteorSpawnHeight, j, 1);
         CometEntity comet = new CometEntity(level, blockpos);
         comet.setSize(rand.nextInt(200,400));
-        comet.setDeltaMovement((rand.nextDouble()-0.5D)*3.0D, rand.nextDouble() * -0.5D, (rand.nextDouble()-0.5D)*3.0D);
+        comet.setDeltaMovement(CometEntity.getCometMotion(rand));
         level.addFreshEntity(comet);
     }
+
 
 }

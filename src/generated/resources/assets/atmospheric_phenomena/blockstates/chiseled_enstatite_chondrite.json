@@ -1,27 +1,51 @@
 {
   "variants": {
-    "phase=0": {
+    "phase=0,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite0"
     },
-    "phase=1": {
+    "phase=0,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite0"
+    },
+    "phase=1,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite1"
     },
-    "phase=2": {
+    "phase=1,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite1"
+    },
+    "phase=2,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite2"
     },
-    "phase=3": {
+    "phase=2,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite2"
+    },
+    "phase=3,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite3"
     },
-    "phase=4": {
+    "phase=3,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite3"
+    },
+    "phase=4,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite4"
     },
-    "phase=5": {
+    "phase=4,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite4"
+    },
+    "phase=5,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite5"
     },
-    "phase=6": {
+    "phase=5,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite5"
+    },
+    "phase=6,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite6"
     },
-    "phase=7": {
+    "phase=6,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite6"
+    },
+    "phase=7,phase_locked=false": {
+      "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite7"
+    },
+    "phase=7,phase_locked=true": {
       "model": "atmospheric_phenomena:block/chiseled_enstatite_chondrite7"
     }
   }

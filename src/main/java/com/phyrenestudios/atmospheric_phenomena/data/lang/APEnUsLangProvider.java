@@ -79,6 +79,7 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("entity.atmospheric_phenomena.meteor", "Meteor");
         add("entity.atmospheric_phenomena.comet", "Comet");
         add("atmospheric_phenomena.subtitle.atmospheric_entry", "Atmospheric Entry");
+        add("gamerule.createImpactCraters", "Meteoroids create impact craters on land");
     }
 
     private void add(Block blockIn) {

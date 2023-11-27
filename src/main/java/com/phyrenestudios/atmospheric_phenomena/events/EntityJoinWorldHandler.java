@@ -23,7 +23,7 @@ import java.util.Stack;
 public class EntityJoinWorldHandler {
     public static void onLightningEvent(EntityJoinLevelEvent event) {
         if (!(event.getEntity() instanceof LightningBolt entity)) return;
-        if (Config.lightningMaxBlocks == 0) return;
+        if (Config.lightningMaxBlocksConverted == 0) return;
         if (event.getLevel().isClientSide()) return;
         Level levelIn = event.getLevel();
         BlockPos startPos = entity.blockPosition().below();
@@ -54,7 +54,7 @@ public class EntityJoinWorldHandler {
 
         toCheck.add(startPos);
         int convertedBlockCount = 0;
-        while (!toCheck.isEmpty() && convertedBlockCount < Config.lightningMaxBlocks) {
+        while (!toCheck.isEmpty() && convertedBlockCount < Config.lightningMaxBlocksConverted) {
             BlockPos cp = toCheck.pop();
             boolean converted = false;
             if (!chargeableBlocks.contains(cp) && isChargeable(levelIn.getBlockState(cp))) {

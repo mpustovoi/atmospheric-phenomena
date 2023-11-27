@@ -4,9 +4,9 @@ package com.phyrenestudios.atmospheric_phenomena.worldgen;
 import com.mojang.serialization.Codec;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.init.Config;
-import com.phyrenestudios.atmospheric_phenomena.util.WeightedCollection;
+import com.phyrenestudios.atmospheric_phenomena.util.FeatureUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,66 +33,38 @@ public class BuriedMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
         if (!target.is(APTags.Blocks.VALID_METEORITE_SPAWN)) return false;
 
         int size = 2;
+        FeatureUtils.populateBlockCollections();
 
         List<BlockPos> centerList = getCenters(rand, posIn, size, 3);
-        centerList = burriedPositions(centerList);
+        centerList = burriedPositions(centerList, rand);
         buildMeteor(levelIn, rand, centerList, size);
         return true;
     }
 
     private void buildMeteor(WorldGenLevel levelIn, RandomSource rand, List<BlockPos> centerList, int size) {
-        Block meteor = meteorBlockCollection().getRandomElement();
+        Block meteor = FeatureUtils.meteorBlockCollection.getRandomElement();
         Block coreMeteor;
         if (rand.nextFloat() < Config.solidCoreMeteoriteChance) {
             coreMeteor = meteor;
         } else {
-            coreMeteor = meteorCoreBlockCollection().getRandomElement();
+            coreMeteor = FeatureUtils.meteorCoreBlockCollection.getRandomElement();
         }
 
         for (BlockPos center : centerList) {
             int j = 1 + rand.nextInt(size);
             int k = 1 + rand.nextInt(size);
             int l = 1 + rand.nextInt(size);
-            float f = (float)(j + k + l) * 0.333F + 0.75F;
-            center = center.below(size);
-            for(BlockPos blockpos : BlockPos.betweenClosed(center.offset(-size, -size, -size), center.offset(size, size, size))) {
-                if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)*0.3) {
-                    levelIn.setBlock(blockpos.below(1), coreMeteor.defaultBlockState(), 3);
-                } else if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)) {
-                    levelIn.setBlock(blockpos.below(1), meteor.defaultBlockState(), 3);
+            float f = (float) (j + k + l) * 0.333F + 0.75F;
+            for (BlockPos blockpos : BlockPos.betweenClosed(center.offset(-size - 1, -size - 1, -size - 1), center.offset(size + 1, size + 1, size + 1))) {
+                if (shortestDistance(blockpos, centerList, size) <= (double) (f * f) * 0.3) {
+                    if (levelIn.getBlockState(blockpos).is(BlockTags.FEATURES_CANNOT_REPLACE)) continue;
+                    levelIn.setBlock(blockpos, coreMeteor.defaultBlockState(), 3);
+                } else if (shortestDistance(blockpos, centerList, size) <= (double) (f * f)) {
+                    if (levelIn.getBlockState(blockpos).is(BlockTags.FEATURES_CANNOT_REPLACE)) continue;
+                    levelIn.setBlock(blockpos, meteor.defaultBlockState(), 3);
                 }
             }
         }
-
-    }
-
-    private WeightedCollection<Block> meteorBlockCollection() {
-        WeightedCollection<Block> blockCollection = new WeightedCollection<>();
-
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_BLOCKS)) {
-            blockCollection.add(Config.meteoriteChance, blk);
-        }
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_BLOCKS)) {
-            blockCollection.add(Config.rareMeteoriteChance, blk);
-        }
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.ULTRA_RARE_METEOR_BLOCKS)) {
-            blockCollection.add(Config.ultraRareMeteoriteChance, blk);
-        }
-        return blockCollection;
-    }
-    private WeightedCollection<Block> meteorCoreBlockCollection() {
-        WeightedCollection<Block> blockCollection = new WeightedCollection<>();
-
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_CORE_BLOCKS)) {
-            blockCollection.add(Config.meteoriteChance, blk);
-        }
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_CORE_BLOCKS)) {
-            blockCollection.add(Config.rareMeteoriteChance, blk);
-        }
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.ULTRA_RARE_METEOR_CORE_BLOCKS)) {
-            blockCollection.add(Config.ultraRareMeteoriteChance, blk);
-        }
-        return blockCollection;
     }
 
     private double shortestDistance(BlockPos posIn, List<BlockPos> centerList, int size) {
@@ -107,22 +78,17 @@ public class BuriedMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
     private List<BlockPos> getCenters(RandomSource rand, BlockPos posIn, int size, int count) {
         List<BlockPos> list = new ArrayList<>();
         BlockPos pos = posIn.below(2);
-        Direction dir1 = rand.nextBoolean() ? Direction.NORTH : Direction.SOUTH;
-        Direction dir2 = rand.nextBoolean() ? Direction.EAST : Direction.WEST;
-        Direction dir3 = rand.nextBoolean() ? Direction.UP : Direction.DOWN;
-
-        //BlockPos endPos = posIn.offset(rand.nextInt(size*2)-size, rand.nextInt(size*2)-size, rand.nextInt(size*2)-size);
-        //Vector3d path = new Vector3d(endPos.getX()-posIn.getX(), endPos.getY()-posIn.getY(), endPos.getZ()-posIn.getZ());
-
         for (int i = 1; i <= count; i++) {
-            list.add(pos.relative(dir1,rand.nextInt(2)).relative(dir2,rand.nextInt(2)).relative(dir3,rand.nextInt(2)));
+            list.add(pos.offset(rand.nextInt(3)-1, rand.nextInt(3)-1, rand.nextInt(3)-1));
         }
         return list;
     }
-    private List<BlockPos> burriedPositions(List<BlockPos> centers) {
+
+    private List<BlockPos> burriedPositions(List<BlockPos> centers, RandomSource rand) {
         List<BlockPos> list = new ArrayList<>();
+        int depth = rand.nextInt(6)+2;
         for (BlockPos pos : centers) {
-            list.add(pos.below(3));
+            list.add(pos.below(depth));
         }
         return list;
     }

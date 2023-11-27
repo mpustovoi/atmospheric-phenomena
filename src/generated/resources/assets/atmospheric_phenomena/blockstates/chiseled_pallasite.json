@@ -1,27 +1,51 @@
 {
   "variants": {
-    "phase=0": {
+    "phase=0,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_pallasite0"
     },
-    "phase=1": {
+    "phase=0,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite0"
+    },
+    "phase=1,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_pallasite1"
     },
-    "phase=2": {
+    "phase=1,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite1"
+    },
+    "phase=2,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_pallasite2"
     },
-    "phase=3": {
+    "phase=2,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite2"
+    },
+    "phase=3,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_pallasite3"
     },
-    "phase=4": {
+    "phase=3,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite3"
+    },
+    "phase=4,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_pallasite4"
     },
-    "phase=5": {
+    "phase=4,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite4"
+    },
+    "phase=5,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_pallasite5"
     },
-    "phase=6": {
+    "phase=5,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite5"
+    },
+    "phase=6,phase_locked=false": {
       "model": "atmospheric_phenomena:block/chiseled_pallasite6"
     },
-    "phase=7": {
+    "phase=6,phase_locked=true": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite6"
+    },
+    "phase=7,phase_locked=false": {
+      "model": "atmospheric_phenomena:block/chiseled_pallasite7"
+    },
+    "phase=7,phase_locked=true": {
       "model": "atmospheric_phenomena:block/chiseled_pallasite7"
     }
   }

@@ -2,6 +2,8 @@ package com.phyrenestudios.atmospheric_phenomena.entities;
 
 import com.phyrenestudios.atmospheric_phenomena.init.APGameRules;
 import com.phyrenestudios.atmospheric_phenomena.init.APParticleTypes;
+import com.phyrenestudios.atmospheric_phenomena.init.Config;
+import com.phyrenestudios.atmospheric_phenomena.util.FeatureUtils;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -13,6 +15,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -148,5 +151,11 @@ public class CometEntity extends Entity {
     public void burnOut() {
         this.level().explode(null, this.getX(), this.getY(), this.getZ(), 1.0f, Level.ExplosionInteraction.NONE);
         this.discard();
+    }
+    public static Vec3 getCometMotion(RandomSource rand) {
+        double Xrand = FeatureUtils.randomDoubleBetween(rand, Config.overworldCometlocity.get(0), Config.overworldCometlocity.get(3));
+        double Yrand = FeatureUtils.randomDoubleBetween(rand, Config.overworldCometlocity.get(1), Config.overworldCometlocity.get(4));
+        double Zrand = FeatureUtils.randomDoubleBetween(rand, Config.overworldCometlocity.get(2), Config.overworldCometlocity.get(5));
+        return new Vec3(Xrand, Yrand, Zrand);
     }
 }

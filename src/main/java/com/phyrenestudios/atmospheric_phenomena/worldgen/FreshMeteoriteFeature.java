@@ -34,6 +34,7 @@ public class FreshMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
         if (!target.is(APTags.Blocks.VALID_METEORITE_SPAWN)) return false;
 
         int size = 2;
+        FeatureUtils.populateBlockCollections();
 
         List<BlockPos> centerList = getCenters(rand, posIn, size, 3);
         BlockPos centerPos = getCenterPos(centerList);
@@ -106,7 +107,7 @@ public class FreshMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
             levelIn.setBlock(posIn, Blocks.MAGMA_BLOCK.defaultBlockState(), 3);
             return;
         }
-        if (levelIn.getRandom().nextFloat() < Config.tektiteBlockFrequency) {
+        if (levelIn.getRandom().nextFloat() < Config.strewnBlockFrequency) {
             levelIn.setBlock(posIn, glass.defaultBlockState(), 3);
             return;
         }
@@ -157,7 +158,7 @@ public class FreshMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
         List<BlockPos> list = new ArrayList<>();
         BlockPos pos = posIn.below(2);
         for (int i = 1; i <= count; i++) {
-            list.add(pos.offset(rand.nextInt(4)-2, rand.nextInt(4)-2, rand.nextInt(4)-2));
+            list.add(pos.offset(rand.nextInt(3)-1, rand.nextInt(3)-1, rand.nextInt(3)-1));
         }
         return list;
     }

@@ -35,6 +35,7 @@ public class CometFeature extends Feature<NoneFeatureConfiguration> {
         if (!target.is(APTags.Blocks.VALID_METEORITE_SPAWN)) return false;
 
         int size = 1;
+        FeatureUtils.populateBlockCollections();
 
         List<BlockPos> centerList = getCenters(rand, posIn, size, 3);
         BlockPos centerPos = getCenterPos(centerList);
@@ -107,7 +108,7 @@ public class CometFeature extends Feature<NoneFeatureConfiguration> {
             levelIn.setBlock(posIn, Blocks.MAGMA_BLOCK.defaultBlockState(), 3);
             return;
         }
-        if (levelIn.getRandom().nextFloat() < Config.tektiteBlockFrequency) {
+        if (levelIn.getRandom().nextFloat() < Config.strewnBlockFrequency) {
             levelIn.setBlock(posIn, glass.defaultBlockState(), 3);
             return;
         }

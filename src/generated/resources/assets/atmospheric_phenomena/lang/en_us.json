@@ -97,6 +97,7 @@
   "block.atmospheric_phenomena.yellow_tektite": "Yellow Tektite",
   "entity.atmospheric_phenomena.comet": "Comet",
   "entity.atmospheric_phenomena.meteor": "Meteor",
+  "gamerule.createImpactCraters": "Meteoroids create impact craters on land",
   "item.atmospheric_phenomena.lonsdaleite": "Lonsdaleite",
   "item.atmospheric_phenomena.meteoric_iron": "Meteoric Iron",
   "itemGroup.atmospheric_phenomena.main": "Atmospheric Phenomena"

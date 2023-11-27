@@ -6,6 +6,7 @@ import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import com.phyrenestudios.atmospheric_phenomena.util.FeatureUtils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -34,6 +35,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         if (!target.is(APTags.Blocks.VALID_METEORITE_SPAWN)) return false;
 
         int size = 2;
+        FeatureUtils.populateBlockCollections();
 
         List<BlockPos> centerList = getCenters(rand, posIn, size, 3);
         BlockPos centerPos = getCenterPos(centerList);
@@ -54,6 +56,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         }
 
         Block glass = FeatureUtils.meteorStrewnBlockCollection.getRandomElement();
+        if (glass == null) glass = groundmass.getBlock();
         for (int i = radius-1; i<=radius*2; ++i) {
             for (BlockPos blockpos : BlockPos.betweenClosed(centerPos.offset(-radius, i, -radius), centerPos.offset(radius, i, radius))) {
                 if (outsideCrater(centerPos.above(i), blockpos, radius)) continue;
@@ -66,6 +69,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         }
         for (BlockPos blockpos : BlockPos.betweenClosed(centerPos.offset(-radius, -1, -radius), centerPos.offset(radius, radius-2, radius))) {
             if (outsideCrater(centerPos.above(radius-2), blockpos, radius)) continue;
+            if (levelIn.getBlockState(blockpos).is(BlockTags.FEATURES_CANNOT_REPLACE)) continue;
             if (levelIn.getBlockState(blockpos).is(Blocks.WATER)) {
                 if (blockpos.getY() > levelIn.getSeaLevel()) levelIn.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 3);
                 continue;
@@ -102,7 +106,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
     }
 
     private void setCraterBlock(WorldGenLevel levelIn, BlockPos posIn, Block glass, BlockState surface, BlockState groundmass, BlockPos centerPos, boolean override) {
-        if (levelIn.getRandom().nextFloat() < Config.tektiteBlockFrequency) {
+        if (levelIn.getRandom().nextFloat() < Config.strewnBlockFrequency) {
             levelIn.setBlock(posIn, glass.defaultBlockState(), 3);
             return;
         }
@@ -132,8 +136,10 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
             float f = (float)(j + k + l) * 0.333F + 0.75F;
             for(BlockPos blockpos : BlockPos.betweenClosed(center.offset(-size-1, -size-1, -size-1), center.offset(size+1, size+1, size+1))) {
                 if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)*0.3) {
+                    if (levelIn.getBlockState(blockpos).is(BlockTags.FEATURES_CANNOT_REPLACE)) continue;
                     levelIn.setBlock(blockpos, coreMeteor.defaultBlockState(), 3);
                 } else if (shortestDistance(blockpos, centerList, size) <= (double)(f * f)) {
+                    if (levelIn.getBlockState(blockpos).is(BlockTags.FEATURES_CANNOT_REPLACE)) continue;
                     levelIn.setBlock(blockpos, meteor.defaultBlockState(), 3);
                 }
             }
@@ -153,7 +159,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         List<BlockPos> list = new ArrayList<>();
         BlockPos pos = posIn.below(2);
         for (int i = 1; i <= count; i++) {
-            list.add(pos.offset(rand.nextInt(4)-2, rand.nextInt(4)-2, rand.nextInt(4)-2));
+            list.add(pos.offset(rand.nextInt(3)-1, rand.nextInt(3)-1, rand.nextInt(3)-1));
         }
         return list;
     }
