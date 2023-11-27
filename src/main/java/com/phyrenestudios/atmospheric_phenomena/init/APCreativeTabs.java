@@ -45,9 +45,10 @@ public class APCreativeTabs {
                 for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
                     output.accept(base.getGlass());
                 }
+                output.accept(APItems.METEORIC_IRON.get());
+                output.accept(APItems.METEORIC_IRON_BLOCK.get());
                 output.accept(APItems.LONSDALEITE.get());
                 output.accept(APItems.LONSDALEITE_BLOCK.get());
-                output.accept(APItems.METEORIC_IRON.get());
 
                 output.accept(APItems.BURNING_LOG.get());
                 output.accept(APItems.BURNING_WOOD.get());

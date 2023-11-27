@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-20T22:00:05.3967468	atmospheric_phenomena - Block Tags
+// 1.20.1	2023-11-27T15:36:41.7097085	atmospheric_phenomena - Block Tags
 7a0c6f8914577d382100fb581a1169aff16274fd data/atmospheric_phenomena/tags/blocks/burning_logs.json
 d66d81cd4e2c15d320a99acc3e293d6bf6ac4b36 data/atmospheric_phenomena/tags/blocks/charred_logs.json
 b00c71ccb0584a7a35e99130017ada0d409373b7 data/atmospheric_phenomena/tags/blocks/lightning_conductive.json
@@ -21,7 +21,7 @@ ba5167dcaebfb172cfd09fcf6264e36dc445248f data/forge/tags/blocks/storage_blocks/d
 270edd9b5a2684d9d5cd3996e6b2f36c0c86a538 data/minecraft/tags/blocks/ice.json
 08a7fa2b4d52477c5b46a61b0f0b337924aa5ba8 data/minecraft/tags/blocks/logs_that_burn.json
 fe1ec35e6455fe18700589cfc693976a95748c04 data/minecraft/tags/blocks/mineable/axe.json
-5161ea0844449d2f3e2d7703e9edcb2f919caaec data/minecraft/tags/blocks/mineable/pickaxe.json
+9f24b60a753a663e3fa491975294784cf5573e9e data/minecraft/tags/blocks/mineable/pickaxe.json
 b41c4fee94f7180dcf62bae5ec256b0969a0cf8b data/minecraft/tags/blocks/needs_diamond_tool.json
 bee8a31cbc64b036235fdaa1a00a0497635284a2 data/minecraft/tags/blocks/needs_iron_tool.json
 312291bb9bea80b00750a0d339453b4131c57036 data/minecraft/tags/blocks/planks.json

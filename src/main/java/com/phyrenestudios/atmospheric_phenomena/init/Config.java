@@ -45,13 +45,13 @@ public class Config
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends Double>> OVERWORLD_COMET_VELOCITY = BUILDER
             .comment("Comets spawn in with a random velocity. Set the lower and upper bounds to configure the direction and speed of new comets.",
-                    "The first double represents the minimum bound in the X axis . Default: -1.5",
-                    "The second double represents the minimum bound in the Y axis . Default: -0.5",
-                    "The third double represents the minimum bound in the Z axis . Default: -1.5",
-                    "The fourth double represents the maximum bound in the X axis . Default: 1.5",
+                    "The first double represents the minimum bound in the X axis . Default: -1.0",
+                    "The second double represents the minimum bound in the Y axis . Default: -0.3",
+                    "The third double represents the minimum bound in the Z axis . Default: -1.0",
+                    "The fourth double represents the maximum bound in the X axis . Default: 1.0",
                     "The fifth double represents the maximum bound in the Y axis . Default: -0.0",
-                    "The sixth double represents the maximum bound in the Z axis . Default: 1.5")
-            .defineList("overworldCometVelocity", Arrays.asList(-1.5D, -0.5D, -1.5D, 1.5D, -0.0D, 1.5D), (d) -> d instanceof Double);
+                    "The sixth double represents the maximum bound in the Z axis . Default: 1.0")
+            .defineList("overworldCometVelocity", Arrays.asList(-1.0D, -0.3D, -1.0D, 1.0D, -0.0D, 1.0D), (d) -> d instanceof Double);
 
     private static final ForgeConfigSpec.BooleanValue METEORITE_DESTROY_ALL = BUILDER
             .comment("Defines if meteorite features destroy all blocks. If false, the feature only replaces blocks from #atmospheric_phenomena:valid_meteorite_spawn.")

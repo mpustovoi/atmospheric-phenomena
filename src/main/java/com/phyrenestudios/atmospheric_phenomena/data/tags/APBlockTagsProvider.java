@@ -75,7 +75,7 @@ public class APBlockTagsProvider extends BlockTagsProvider {
                 APBlocks.CHARRED_WALL_SIGN.get(),
                 APBlocks.CHARRED_BOOKSHELF.get());
 
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.CHARGED_QUARTZ_MATRIX.get(), APBlocks.DEBRIS_MATRIX.get(), APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.LONSDALEITE_BLOCK.get(), APBlocks.METEORIC_ICE.get(), APBlocks.SOIL_FULGURITE.get(), APBlocks.SSTONE_FULGURITE.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.CHARGED_QUARTZ_MATRIX.get(), APBlocks.DEBRIS_MATRIX.get(), APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.LONSDALEITE_BLOCK.get(), APBlocks.METEORIC_IRON_BLOCK.get(), APBlocks.METEORIC_ICE.get(), APBlocks.SOIL_FULGURITE.get(), APBlocks.SSTONE_FULGURITE.get());
         tag(BlockTags.NEEDS_IRON_TOOL).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.CHARGED_QUARTZ_MATRIX.get());
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.DEBRIS_MATRIX.get());
         tag(APTags.Blocks.RARE_METEOR_BLOCKS).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get()).addTag(Tags.Blocks.OBSIDIAN);
