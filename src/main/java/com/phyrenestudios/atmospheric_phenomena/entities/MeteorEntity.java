@@ -51,7 +51,7 @@ public class MeteorEntity extends AbstractMeteoroidEntity {
     }
     @Override
     public int burnoutModifier() {
-        return 2;
+        return Config.overworldMeteorSpawnSettings.get(4);
     }
     @Override
     protected Optional<? extends Holder<ConfiguredFeature<?, ?>>> impactFeature() {

@@ -31,9 +31,9 @@ public class CometEntity extends AbstractMeteoroidEntity {
 
     @Override
     public Vec3 getRandomMotion(RandomSource rand) {
-        double Xrand = FeatureUtils.randomDoubleBetween(rand, Config.overworldCometlocity.get(0), Config.overworldCometlocity.get(3));
-        double Yrand = FeatureUtils.randomDoubleBetween(rand, Config.overworldCometlocity.get(1), Config.overworldCometlocity.get(4));
-        double Zrand = FeatureUtils.randomDoubleBetween(rand, Config.overworldCometlocity.get(2), Config.overworldCometlocity.get(5));
+        double Xrand = FeatureUtils.randomDoubleBetween(rand, Config.overworldCometVelocity.get(0), Config.overworldCometVelocity.get(3));
+        double Yrand = FeatureUtils.randomDoubleBetween(rand, Config.overworldCometVelocity.get(1), Config.overworldCometVelocity.get(4));
+        double Zrand = FeatureUtils.randomDoubleBetween(rand, Config.overworldCometVelocity.get(2), Config.overworldCometVelocity.get(5));
         return new Vec3(Xrand, Yrand, Zrand);
     }
 
@@ -51,7 +51,7 @@ public class CometEntity extends AbstractMeteoroidEntity {
     }
     @Override
     public int burnoutModifier() {
-        return 3;
+        return Config.overworldCometSpawnSettings.get(4);
     }
     @Override
     protected Optional<? extends Holder<ConfiguredFeature<?, ?>>> impactFeature() {

@@ -34,7 +34,7 @@ abstract class AbstractMeteoroidEntity extends Entity {
     }
     public AbstractMeteoroidEntity(EntityType<?> entityType, Level levelIn, BlockPos posIn) {
         this(entityType, levelIn);
-        this.setPos(new Vec3(posIn.getY(), posIn.getY(), posIn.getZ()));
+        this.setPos(new Vec3(posIn.getX(), posIn.getY(), posIn.getZ()));
     }
 
     @Override
@@ -74,7 +74,7 @@ abstract class AbstractMeteoroidEntity extends Entity {
         return this.entityData.get(ID_SIZE);
     }
     public void setSize(int size) {
-        int i = Mth.clamp(size, 0, 10000);
+        int i = Mth.clamp(size, 0, 100000);
         this.entityData.set(ID_SIZE, i);
     }
 

@@ -16,25 +16,16 @@ public class Config
 {
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
-    private static final ForgeConfigSpec.IntValue LIGHTNING_MAX_BLOCKS_CONVERTED = BUILDER
-            .comment("The maximum number of blocks that can be converted by a lightning strike")
-            .defineInRange("lightningMaxBlocksConverted", 80, 0, Integer.MAX_VALUE);
-
-    private static final ForgeConfigSpec.DoubleValue BURNING_LOG_SPAWN_FIRE_CHANCE = BUILDER
-            .comment("The chance for a burning log to spawn fire around it.")
-            .defineInRange("burningLogSpawnFire", 0.05D, 0.0D, 1.0D);
-
-    private static final ForgeConfigSpec.IntValue OVERWORLD_METEOR_SPAWN_HEIGHT = BUILDER
-            .comment("Y-level that meteors/comets spawn at in the Overworld.")
-            .defineInRange("overworldMeteorSpawnHeight", 350, -1*Integer.MAX_VALUE, Integer.MAX_VALUE);
-    private static final ForgeConfigSpec.IntValue METEOR_CHANCE = BUILDER
-            .comment("The chance for a meteor to spawn at the overworldMeteorSpawnHeight. Set to 0 to disable.")
-            .defineInRange("meteorChance", 1000000, 0, Integer.MAX_VALUE);
-    private static final ForgeConfigSpec.IntValue COMET_CHANCE = BUILDER
-            .comment("The chance for a comet to spawn at the overworldMeteorSpawnHeight. Set to 0 to disable.")
-            .defineInRange("cometChance", 1000000, 0, Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.ConfigValue<List<? extends Integer>> OVERWORLD_METEOR_SPAWN_SETTINGS = BUILDER
+            .comment("Settings for meteors spawning in the Overworld.",
+                    "The first integer represents the The 1 in X chance per tick for a meteor to spawn in a loaded chunk. Set to 0 to disable meteor spawning. Default: 1000000",
+                    "The second integer represents the Y-level that meteors spawn at in the Overworld.. Default: 350",
+                    "The third integer represents the minimum spawn size of a meteor. Default: 300",
+                    "The fourth integer represents the maximum spawn size of a meteor. Default: 1000",
+                    "The fifth integer represents the rate at which a meteor decreases in size per tick. Default: 2")
+            .defineList("overworldMeteorSpawnSettings", Arrays.asList(1000000, 350, 300, 1000, 2), (i) -> i instanceof Integer);
     private static final ForgeConfigSpec.ConfigValue<List<? extends Double>> OVERWORLD_METEOR_VELOCITY = BUILDER
-            .comment("Metors spawn in with a random velocity. Set the lower and upper bounds to configure the direction and speed of new meteors.",
+            .comment("Meteors spawn in with a random velocity. Set the lower and upper bounds to configure the direction and speed of new meteors.",
                     "The first double represents the minimum bound in the X axis . Default: -1.0",
                     "The second double represents the minimum bound in the Y axis . Default: -1.5",
                     "The third double represents the minimum bound in the Z axis . Default: -1.0",
@@ -42,7 +33,14 @@ public class Config
                     "The fifth double represents the maximum bound in the Y axis . Default: -0.5",
                     "The sixth double represents the maximum bound in the Z axis . Default: 1.0")
             .defineList("overworldMeteorVelocity", Arrays.asList(-1.0D, -1.5D, -1.0D, 1.0D, -0.5D, 1.0D), (d) -> d instanceof Double);
-
+    private static final ForgeConfigSpec.ConfigValue<List<? extends Integer>> OVERWORLD_COMET_SPAWN_SETTINGS = BUILDER
+            .comment("Settings for comets spawning in the Overworld.",
+                    "The first integer represents the The 1 in X chance per tick for a comet to spawn in a loaded chunk. Set to 0 to disable comet spawning. Default: 1000000",
+                    "The second integer represents the Y-level that comets spawn at in the Overworld.. Default: 350",
+                    "The third integer represents the minimum spawn size of a comet. Default: 200",
+                    "The fourth integer represents the maximum spawn size of a comet. Default: 500",
+                    "The fifth integer represents the rate at which a comet decreases in size per tick. Default: 3")
+            .defineList("overworldCometSpawnSettings", Arrays.asList(1000000, 350, 200, 500, 3), (i) -> i instanceof Integer);
     private static final ForgeConfigSpec.ConfigValue<List<? extends Double>> OVERWORLD_COMET_VELOCITY = BUILDER
             .comment("Comets spawn in with a random velocity. Set the lower and upper bounds to configure the direction and speed of new comets.",
                     "The first double represents the minimum bound in the X axis . Default: -1.0",
@@ -78,23 +76,27 @@ public class Config
                     "The third integer represents the weight of each item in #atmospheric_phenomena:ultra_rare_meteorite_core_blocks. Default: 1")
             .defineList("meteorCoreBlocksRarity", Arrays.asList(10,3,1), (i) -> i instanceof Integer);
 
+    private static final ForgeConfigSpec.IntValue LIGHTNING_MAX_BLOCKS_CONVERTED = BUILDER
+            .comment("The maximum number of blocks that can be converted by a lightning strike")
+            .defineInRange("lightningMaxBlocksConverted", 80, 0, Integer.MAX_VALUE);
+
+    private static final ForgeConfigSpec.DoubleValue BURNING_LOG_SPAWN_FIRE_CHANCE = BUILDER
+            .comment("The chance for a burning log to spawn fire around it.")
+            .defineInRange("burningLogSpawnFire", 0.05D, 0.0D, 1.0D);
+
     public static final ForgeConfigSpec SPEC = BUILDER.build();
-
-    public static int lightningMaxBlocksConverted;
-    public static double burningLogSpawnFire;
-    public static boolean meteoriteDestroyAll;
-
-    public static int overworldMeteorSpawnHeight;
-    public static int cometChance;
-    public static int meteorChance;
+    public static List<? extends Integer> overworldMeteorSpawnSettings;
     public static List<? extends Double> overworldMeteorVelocity;
-    public static List<? extends Double> overworldCometlocity;
+    public static List<? extends Integer> overworldCometSpawnSettings;
+    public static List<? extends Double> overworldCometVelocity;
     public static double solidCoreMeteoriteChance;
     public static double magmaBlockFrequency;
     public static double strewnBlockFrequency;
     public static List<? extends Integer> meteoriteBlocksRarity;
     public static List<? extends Integer> meteoriteCoreBlocksRarity;
-
+    public static int lightningMaxBlocksConverted;
+    public static double burningLogSpawnFire;
+    public static boolean meteoriteDestroyAll;
 
     private static boolean validateItemName(final Object obj) {
         return obj instanceof final String itemName && ForgeRegistries.ITEMS.containsKey(new ResourceLocation(itemName));
@@ -102,11 +104,10 @@ public class Config
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
-        overworldMeteorSpawnHeight = OVERWORLD_METEOR_SPAWN_HEIGHT.get();
-        meteorChance = METEOR_CHANCE.get();
+        overworldMeteorSpawnSettings = OVERWORLD_METEOR_SPAWN_SETTINGS.get();
         overworldMeteorVelocity = OVERWORLD_METEOR_VELOCITY.get();
-        cometChance = COMET_CHANCE.get();
-        overworldCometlocity = OVERWORLD_COMET_VELOCITY.get();
+        overworldCometSpawnSettings = OVERWORLD_COMET_SPAWN_SETTINGS.get();
+        overworldCometVelocity = OVERWORLD_COMET_VELOCITY.get();
 
         meteoriteDestroyAll = METEORITE_DESTROY_ALL.get();
         solidCoreMeteoriteChance = SOLID_CORE_METEORITE_CHANCE.get();

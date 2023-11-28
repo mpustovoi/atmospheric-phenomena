@@ -15,7 +15,6 @@ import net.minecraftforge.fml.LogicalSide;
 public class TickEventHandler {
 
     public static void levelTickEvent(TickEvent.LevelTickEvent event) {
-        if (Config.meteorChance == 0) return;
         if (event.phase != TickEvent.Phase.START) return;
         if (event.side != LogicalSide.SERVER) return;
         ServerLevel level = (ServerLevel) event.level;
@@ -25,9 +24,9 @@ public class TickEventHandler {
         for(ChunkHolder chunkholder : chunkCache.chunkMap.getChunks()) {
             LevelChunk levelchunk = chunkholder.getTickingChunk();
             if (levelchunk == null || !level.shouldTickBlocksAt(levelchunk.getPos().toLong())) return;
-            if (rand.nextInt(Config.meteorChance) == 0) {
+            if (Config.overworldMeteorSpawnSettings.get(0) != 0 && rand.nextInt(Config.overworldMeteorSpawnSettings.get(0)) == 0) {
                 spawnMeteor(level, chunkholder.getTickingChunk(), rand);
-            } else if (rand.nextInt(Config.cometChance) == 0) {
+            } else if (Config.overworldCometSpawnSettings.get(0) != 0 && rand.nextInt(Config.overworldCometSpawnSettings.get(0)) == 0) {
                 spawnComet(level, chunkholder.getTickingChunk(), rand);
             }
         }
@@ -36,18 +35,18 @@ public class TickEventHandler {
     private static void spawnMeteor(ServerLevel level, LevelChunk levelchunk, RandomSource rand) {
         int i = levelchunk.getPos().getMinBlockX();
         int j = levelchunk.getPos().getMinBlockZ();
-        BlockPos blockpos = level.getBlockRandomPos(i, Config.overworldMeteorSpawnHeight, j, 1);
+        BlockPos blockpos = level.getBlockRandomPos(i, Config.overworldMeteorSpawnSettings.get(1), j, 0);
         MeteorEntity meteor = new MeteorEntity(level, blockpos);
-        meteor.setSize(rand.nextInt(400,1000));
+        meteor.setSize(rand.nextInt(Config.overworldMeteorSpawnSettings.get(2),Config.overworldMeteorSpawnSettings.get(3)));
         meteor.setDeltaMovement(meteor.getRandomMotion(rand));
         level.addFreshEntity(meteor);
     }
     private static void spawnComet(ServerLevel level, LevelChunk levelchunk, RandomSource rand) {
         int i = levelchunk.getPos().getMinBlockX();
         int j = levelchunk.getPos().getMinBlockZ();
-        BlockPos blockpos = level.getBlockRandomPos(i, Config.overworldMeteorSpawnHeight, j, 1);
+        BlockPos blockpos = level.getBlockRandomPos(i, Config.overworldCometSpawnSettings.get(1), j, 0);
         CometEntity comet = new CometEntity(level, blockpos);
-        comet.setSize(rand.nextInt(200,500));
+        comet.setSize(rand.nextInt(Config.overworldCometSpawnSettings.get(2),Config.overworldCometSpawnSettings.get(3)));
         comet.setDeltaMovement(comet.getRandomMotion(rand));
         level.addFreshEntity(comet);
     }
