@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "atmospheric_phenomena:charred_planks"
+    }
+  ],
+  "result": {
+    "item": "atmospheric_phenomena:charred_button"
+  }
+}
