@@ -1,6 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.blocks;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import com.phyrenestudios.atmospheric_phenomena.init.APWoodTypes;
 import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.flag.FeatureFlag;
@@ -8,7 +9,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.DeferredRegister;
@@ -41,14 +41,13 @@ public class APBlocks {
     public static final RegistryObject<Block> SSTONE_FULGURITE = BLOCKS.register("stone_fulgurite", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).requiresCorrectToolForDrops().strength(3F, 3F)));
 
 
-    private static final String baseName = "charred";
-    public static final WoodType CHARRED_WOODTYPE = WoodType.register(new WoodType(AtmosphericPhenomena.MODID+baseName, BlockSetType.OAK));
     public static final RegistryObject<RotatedPillarBlock> BURNING_LOG = BLOCKS.register("burning_log", () -> burningLog(MapColor.STONE, MapColor.STONE));
     public static final RegistryObject<RotatedPillarBlock> BURNING_WOOD = BLOCKS.register("burning_wood", () -> new APBurningLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
 
     public static final RegistryObject<RotatedPillarBlock> SMOULDERING_LOG = BLOCKS.register("smouldering_log", () -> smoulderingLog(MapColor.STONE, MapColor.STONE));
     public static final RegistryObject<RotatedPillarBlock> SMOULDERING_WOOD = BLOCKS.register("smouldering_wood", () -> new APSmoulderingLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
 
+    private static final String baseName = "charred";
     public static final RegistryObject<RotatedPillarBlock> CHARRED_LOG = BLOCKS.register(baseName + "_log", () -> charredLog(MapColor.STONE, MapColor.STONE));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_CHARRED_LOG = BLOCKS.register("stripped_" + baseName + "_log", () -> charredLog(MapColor.STONE, MapColor.STONE));
     public static final RegistryObject<RotatedPillarBlock> CHARRED_WOOD = BLOCKS.register(baseName + "_wood", () -> new APCharredLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
@@ -57,15 +56,15 @@ public class APBlocks {
     public static final RegistryObject<APWoodenSlabBlock> CHARRED_SLAB = BLOCKS.register(baseName+"_slab", () -> new APWoodenSlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
     public static final RegistryObject<APWoodenStairBlock> CHARRED_STAIRS = BLOCKS.register(baseName+"_stairs", () -> new APWoodenStairBlock(CHARRED_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(CHARRED_PLANKS.get())));
     public static final RegistryObject<APWoodenFenceBlock> CHARRED_FENCE = BLOCKS.register(baseName+"_fence", () -> new APWoodenFenceBlock(BlockBehaviour.Properties.of().mapColor(CHARRED_PLANKS.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
-    public static final RegistryObject<APWoodenFenceGate> CHARRED_FENCE_GATE = BLOCKS.register(baseName+"_fence_gate", () -> new APWoodenFenceGate(BlockBehaviour.Properties.of().mapColor(CHARRED_PLANKS.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava(), CHARRED_WOODTYPE));
+    public static final RegistryObject<APWoodenFenceGate> CHARRED_FENCE_GATE = BLOCKS.register(baseName+"_fence_gate", () -> new APWoodenFenceGate(BlockBehaviour.Properties.of().mapColor(CHARRED_PLANKS.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava(), APWoodTypes.CHARRED));
     public static final RegistryObject<DoorBlock> CHARRED_DOOR = BLOCKS.register(baseName+"_door", () -> new DoorBlock(BlockBehaviour.Properties.of().mapColor(CHARRED_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY), BlockSetType.OAK));
     public static final RegistryObject<TrapDoorBlock> CHARRED_TRAPDOOR = BLOCKS.register(baseName+"_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava(), BlockSetType.OAK));
     public static final RegistryObject<PressurePlateBlock> CHARRED_PRESSURE_PLATE = BLOCKS.register(baseName+"_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().mapColor(CHARRED_PLANKS.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY), BlockSetType.OAK));
     public static final RegistryObject<ButtonBlock> CHARRED_BUTTON = BLOCKS.register(baseName+"_button", () -> woodenButton(BlockSetType.OAK));
-    public static final RegistryObject<APSignBlock> CHARRED_SIGN = BLOCKS.register(baseName+"_sign", () -> new APSignBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), CHARRED_WOODTYPE));
-    public static final RegistryObject<APWallSignBlock> CHARRED_WALL_SIGN = BLOCKS.register(baseName+"_wall_sign", () -> new APWallSignBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).dropsLike(CHARRED_SIGN.get()).ignitedByLava(),CHARRED_WOODTYPE));
-    //public static final RegistryObject<Block> CHARRED_WALL_SIGN = BLOCKS.register(baseName+"_wall_sign", () -> new CeilingHangingSignBlock(BlockBehaviour.Properties.of().mapColor(OAK_LOG.defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), WoodType.OAK));
-    //public static final RegistryObject<Block> CHARRED_WALL_SIGN = BLOCKS.register(baseName+"_wall_sign", () -> new WallHangingSignBlock(BlockBehaviour.Properties.of().mapColor(OAK_LOG.defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().dropsLike(OAK_HANGING_SIGN), WoodType.OAK));
+    public static final RegistryObject<APSignBlock> CHARRED_SIGN = BLOCKS.register(baseName+"_sign", () -> new APSignBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), APWoodTypes.CHARRED));
+    public static final RegistryObject<APWallSignBlock> CHARRED_WALL_SIGN = BLOCKS.register(baseName+"_wall_sign", () -> new APWallSignBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), APWoodTypes.CHARRED));
+    public static final RegistryObject<APCeilingHangingSignBlock> CHARRED_HANGING_SIGN = BLOCKS.register(baseName+"_hanging_sign", () -> new APCeilingHangingSignBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), APWoodTypes.CHARRED));
+    public static final RegistryObject<APWallHangingSignBlock> CHARRED_WALL_HANGING_SIGN = BLOCKS.register(baseName+"_wall_hanging_sign", () -> new APWallHangingSignBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), APWoodTypes.CHARRED));
     public static final RegistryObject<APBookshelvesBlock> CHARRED_BOOKSHELF = BLOCKS.register(baseName+"_bookshelf", () -> new APBookshelvesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD).ignitedByLava()));
 
     private static RotatedPillarBlock charredLog(MapColor p_285370_, MapColor p_285126_) {

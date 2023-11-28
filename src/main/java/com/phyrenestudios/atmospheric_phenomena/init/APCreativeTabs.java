@@ -68,6 +68,7 @@ public class APCreativeTabs {
                 output.accept(APItems.CHARRED_PRESSURE_PLATE.get());
                 output.accept(APItems.CHARRED_BUTTON.get());
                 output.accept(APItems.CHARRED_SIGN.get());
+                output.accept(APItems.CHARRED_HANGING_SIGN.get());
                 output.accept(APItems.CHARRED_BOOKSHELF.get());
 
 

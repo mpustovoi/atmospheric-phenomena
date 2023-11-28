@@ -75,6 +75,7 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APBlocks.CHARRED_BUTTON.get());
         add(APBlocks.CHARRED_BOOKSHELF.get());
         add(APItems.CHARRED_SIGN.get());
+        add(APItems.CHARRED_HANGING_SIGN.get());
 
         add("itemGroup.atmospheric_phenomena.main", "Atmospheric Phenomena");
         add("entity.atmospheric_phenomena.meteor", "Meteor");

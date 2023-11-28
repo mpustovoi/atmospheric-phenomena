@@ -81,6 +81,7 @@ public class APBlockstateProvider extends BlockStateProvider {
         pressurePlateBlock(APBlocks.CHARRED_PRESSURE_PLATE.get(), getBlockRSL(APBlocks.CHARRED_PLANKS.get()));
         buttonBlock(APBlocks.CHARRED_BUTTON.get(), getBlockRSL(APBlocks.CHARRED_PLANKS.get()));
         signBlock(APBlocks.CHARRED_SIGN.get(), APBlocks.CHARRED_WALL_SIGN.get(), getBlockRSL(APBlocks.CHARRED_PLANKS.get()));
+
         simpleBlock(APBlocks.CHARRED_BOOKSHELF.get(), models().withExistingParent("charred_bookshelf", mcLoc("block/cube_column")).texture("end", getBlockRSL("charred_planks")).texture("side", getBlockRSL("charred_bookshelf")));
 
     }

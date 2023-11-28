@@ -54,7 +54,7 @@ public class AtmosphericPhenomena {
 
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        WoodType.register(APBlocks.CHARRED_WOODTYPE);
+        WoodType.register(APWoodTypes.CHARRED);
         AbstractCharredLogBlock.populateMaps();
         APGameRules.initializeGamerules();
     }
@@ -73,7 +73,7 @@ public class AtmosphericPhenomena {
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             event.enqueueWork(() -> {
-                    Sheets.addWoodType(APBlocks.CHARRED_WOODTYPE);
+                    Sheets.addWoodType(APWoodTypes.CHARRED);
                     APBlockEntities.registerBlockEntityRenders();
             });
         }

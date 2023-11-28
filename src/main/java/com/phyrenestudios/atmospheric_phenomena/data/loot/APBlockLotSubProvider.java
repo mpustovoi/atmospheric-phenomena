@@ -91,7 +91,9 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
         dropSelf(APBlocks.CHARRED_PRESSURE_PLATE.get());
         dropSelf(APBlocks.CHARRED_BUTTON.get());
         dropSelf(APBlocks.CHARRED_SIGN.get());
-        dropSelf(APBlocks.CHARRED_WALL_SIGN.get());
+        dropOther(APBlocks.CHARRED_WALL_SIGN.get(), APBlocks.CHARRED_SIGN.get());
+        dropSelf(APBlocks.CHARRED_HANGING_SIGN.get());
+        dropOther(APBlocks.CHARRED_WALL_HANGING_SIGN.get(), APBlocks.CHARRED_HANGING_SIGN.get());
         addSilkTouchSingleItem(APBlocks.CHARRED_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3.0F));
     }
     private void addSlab(Block blk) {

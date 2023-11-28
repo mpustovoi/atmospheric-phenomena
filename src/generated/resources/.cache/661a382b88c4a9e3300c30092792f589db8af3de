@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-27T15:36:41.7107561	atmospheric_phenomena - Item Models
+// 1.20.1	2023-11-27T20:49:37.2686993	atmospheric_phenomena - Item Models
 3d1da5031883499244b58c6e45de5c3347572d6c assets/atmospheric_phenomena/models/item/angrite.json
 ad31523e46091dc28e6bfcf74bdd182aba1d4c2c assets/atmospheric_phenomena/models/item/angrite_bricks.json
 57ebf6276c1d52c439ca037d5240a0cf82dc02a1 assets/atmospheric_phenomena/models/item/angrite_bricks_slab.json
@@ -22,6 +22,7 @@ ffc01323668d3bf1b3ba60c222e21b22e2052127 assets/atmospheric_phenomena/models/ite
 79dbf6151b8661ee37195e833d4cbfecbd2ff3a4 assets/atmospheric_phenomena/models/item/charred_door.json
 a8197665957075e4061326155e5cbe6c468489d0 assets/atmospheric_phenomena/models/item/charred_fence.json
 3210a51b318f49c9339d6d7e3274445e0be96d31 assets/atmospheric_phenomena/models/item/charred_fence_gate.json
+7118bfc38122322ab1ac9bcf98ef41f5eb2043b6 assets/atmospheric_phenomena/models/item/charred_hanging_sign.json
 e9f7adb8e0052a82f4ddf33432913a5bf766f837 assets/atmospheric_phenomena/models/item/charred_log.json
 13dcb37d30064582760a4ccee0a31bde1d5c4478 assets/atmospheric_phenomena/models/item/charred_planks.json
 2ca3966d4c21fbdef8e64be0d2655f4479ae9da8 assets/atmospheric_phenomena/models/item/charred_pressure_plate.json

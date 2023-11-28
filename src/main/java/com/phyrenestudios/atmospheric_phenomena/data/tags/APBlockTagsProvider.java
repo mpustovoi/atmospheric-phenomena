@@ -61,6 +61,8 @@ public class APBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.WOODEN_BUTTONS).add(APBlocks.CHARRED_BUTTON.get());
         tag(BlockTags.STANDING_SIGNS).add(APBlocks.CHARRED_SIGN.get());
         tag(BlockTags.WALL_SIGNS).add(APBlocks.CHARRED_WALL_SIGN.get());
+        tag(BlockTags.CEILING_HANGING_SIGNS).add(APBlocks.CHARRED_HANGING_SIGN.get());
+        tag(BlockTags.WALL_HANGING_SIGNS).add(APBlocks.CHARRED_WALL_HANGING_SIGN.get());
         tag(BlockTags.MINEABLE_WITH_AXE).addTag(APTags.Blocks.CHARRED_LOGS).addTag(APTags.Blocks.SMOULDERING_LOGS).add(
                 APBlocks.CHARRED_PLANKS.get(),
                 APBlocks.CHARRED_SLAB.get(),

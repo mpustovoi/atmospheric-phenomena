@@ -79,6 +79,7 @@ public class APItemModelProvider extends ItemModelProvider {
         withExistingParent(APBlocks.CHARRED_PRESSURE_PLATE.get());
         withExistingParent(name(APBlocks.CHARRED_BUTTON.get()), getBlockRSL(name(APBlocks.CHARRED_BUTTON.get(),"_inventory")));
         basicItem(APItems.CHARRED_SIGN.get());
+        basicItem(APItems.CHARRED_HANGING_SIGN.get());
         withExistingParent(APBlocks.CHARRED_BOOKSHELF.get());
         //basicItem(Wood.getBoat());
 

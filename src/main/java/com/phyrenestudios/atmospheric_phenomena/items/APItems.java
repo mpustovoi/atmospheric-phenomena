@@ -6,6 +6,7 @@ import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraftforge.registries.DeferredRegister;
@@ -58,6 +59,7 @@ public class APItems {
     public static final RegistryObject<Item> CHARRED_PRESSURE_PLATE = ITEMS.register(baseName+"_pressure_plate", () -> new BlockItem(APBlocks.CHARRED_PRESSURE_PLATE.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> CHARRED_BUTTON = ITEMS.register(baseName+"_button", () -> new BlockItem(APBlocks.CHARRED_BUTTON.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> CHARRED_SIGN = ITEMS.register(baseName+"_sign", () -> new SignItem(new Item.Properties().stacksTo(16), APBlocks.CHARRED_SIGN.get(), APBlocks.CHARRED_WALL_SIGN.get()));
+    public static final RegistryObject<Item> CHARRED_HANGING_SIGN = ITEMS.register(baseName+"_hanging_sign", () -> new HangingSignItem(APBlocks.CHARRED_HANGING_SIGN.get(), APBlocks.CHARRED_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> CHARRED_BOOKSHELF = ITEMS.register(baseName+"_bookshelf", () -> new BlockItem(APBlocks.CHARRED_BOOKSHELF.get(), new Item.Properties().stacksTo(64)));
     //public static final RegistryObject<Item> CHARRED_ = ITEMS.register(baseName+"_boat", () -> new RankineBoatItem(RankineBoatEntity.Type.getTypeFromString(baseName), new Item.Properties().stacksTo(1)));
 

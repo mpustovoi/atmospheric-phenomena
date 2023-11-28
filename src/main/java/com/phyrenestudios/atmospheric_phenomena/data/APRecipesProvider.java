@@ -56,6 +56,9 @@ public class APRecipesProvider extends RecipeProvider {
         woodFromLogs(consumer, APBlocks.STRIPPED_CHARRED_WOOD.get(), APBlocks.STRIPPED_CHARRED_LOG.get());
         //woodenBoat(consumer, APItems.CHARRED_BOAT.get(), APBlocks.CHARRED_PLANKS);
         //chestBoat(p_250804_, Items.ACACIA_CHEST_BOAT, Items.ACACIA_BOAT);
+        hangingSign(consumer, APItems.CHARRED_HANGING_SIGN.get(), APBlocks.STRIPPED_CHARRED_LOG.get());
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, APBlocks.CHARRED_BOOKSHELF.get()).pattern("PPP").pattern("BBB").pattern("PPP").define('P', APItems.CHARRED_PLANKS.get()).define('B',Items.BOOK).unlockedBy("has_ingredient", has(APItems.CHARRED_PLANKS.get())).save(consumer);
+
     }
 
     private static void slabRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike output, ItemLike input) {
