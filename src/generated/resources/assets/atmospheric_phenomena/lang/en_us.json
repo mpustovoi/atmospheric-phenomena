@@ -97,9 +97,13 @@
   "block.atmospheric_phenomena.white_lightning_glass": "White Lightning Glass",
   "block.atmospheric_phenomena.yellow_lightning_glass": "Yellow Lightning Glass",
   "block.atmospheric_phenomena.yellow_tektite": "Yellow Tektite",
+  "entity.atmospheric_phenomena.ap_boat": "Boat",
+  "entity.atmospheric_phenomena.ap_chest_boat": "Chest Boat",
   "entity.atmospheric_phenomena.comet": "Comet",
   "entity.atmospheric_phenomena.meteor": "Meteor",
   "gamerule.createImpactCraters": "Meteoroids create impact craters on land",
+  "item.atmospheric_phenomena.charred_boat": "Charred Boat",
+  "item.atmospheric_phenomena.charred_chest_boat": "Charred Chest Boat",
   "item.atmospheric_phenomena.lonsdaleite": "Lonsdaleite",
   "item.atmospheric_phenomena.meteoric_iron": "Meteoric Iron",
   "itemGroup.atmospheric_phenomena.main": "Atmospheric Phenomena"

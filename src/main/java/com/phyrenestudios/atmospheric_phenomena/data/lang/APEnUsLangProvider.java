@@ -76,10 +76,14 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APBlocks.CHARRED_BOOKSHELF.get());
         add(APItems.CHARRED_SIGN.get());
         add(APItems.CHARRED_HANGING_SIGN.get());
+        add(APItems.CHARRED_BOAT.get());
+        add(APItems.CHARRED_CHEST_BOAT.get());
 
         add("itemGroup.atmospheric_phenomena.main", "Atmospheric Phenomena");
         add("entity.atmospheric_phenomena.meteor", "Meteor");
         add("entity.atmospheric_phenomena.comet", "Comet");
+        add("entity.atmospheric_phenomena.ap_boat", "Boat");
+        add("entity.atmospheric_phenomena.ap_chest_boat", "Chest Boat");
         add("atmospheric_phenomena.subtitle.atmospheric_entry", "Atmospheric Entry");
         add("gamerule.createImpactCraters", "Meteoroids create impact craters on land");
     }

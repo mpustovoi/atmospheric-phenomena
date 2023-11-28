@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "atmospheric_phenomena:charred_boat"
+    }
+  ],
+  "result": {
+    "item": "atmospheric_phenomena:charred_chest_boat"
+  }
+}

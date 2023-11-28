@@ -5,6 +5,7 @@ import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
+import com.phyrenestudios.atmospheric_phenomena.entities.APBoat;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
@@ -61,15 +62,8 @@ public class APItems {
     public static final RegistryObject<Item> CHARRED_SIGN = ITEMS.register(baseName+"_sign", () -> new SignItem(new Item.Properties().stacksTo(16), APBlocks.CHARRED_SIGN.get(), APBlocks.CHARRED_WALL_SIGN.get()));
     public static final RegistryObject<Item> CHARRED_HANGING_SIGN = ITEMS.register(baseName+"_hanging_sign", () -> new HangingSignItem(APBlocks.CHARRED_HANGING_SIGN.get(), APBlocks.CHARRED_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> CHARRED_BOOKSHELF = ITEMS.register(baseName+"_bookshelf", () -> new BlockItem(APBlocks.CHARRED_BOOKSHELF.get(), new Item.Properties().stacksTo(64)));
-    //public static final RegistryObject<Item> CHARRED_ = ITEMS.register(baseName+"_boat", () -> new RankineBoatItem(RankineBoatEntity.Type.getTypeFromString(baseName), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> CHARRED_BOAT = ITEMS.register(baseName+"_boat", () -> new APBoatItem(false, APBoat.Type.CHARRED, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> CHARRED_CHEST_BOAT = ITEMS.register(baseName+"_chest_boat", () -> new APBoatItem(true, APBoat.Type.CHARRED, new Item.Properties().stacksTo(1)));
 
-
-
-
-    // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
-    //public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
-    // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
-    //public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-    //        .alwaysEat().nutrition(1).saturationMod(2f).build())));
 
 }

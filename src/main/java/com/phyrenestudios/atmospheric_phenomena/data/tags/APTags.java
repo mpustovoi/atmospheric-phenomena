@@ -41,6 +41,8 @@ public class APTags {
     public static final class Items {
         public static final TagKey<Item> LIGHTNING_GLASS = modItem("lightning_glass");
         public static final TagKey<Item> CHARRED_LOGS = modItem("charred_logs");
+        public static final TagKey<Item> SMOULDERING_LOGS = modItem("smouldering_logs");
+        public static final TagKey<Item> BURNING_LOGS = modItem("burning_logs");
 
     }
 

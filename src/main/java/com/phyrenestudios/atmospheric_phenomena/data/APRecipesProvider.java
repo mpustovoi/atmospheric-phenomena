@@ -54,8 +54,8 @@ public class APRecipesProvider extends RecipeProvider {
         planksFromLogs(consumer, APBlocks.CHARRED_PLANKS.get(), APTags.Items.CHARRED_LOGS, 4);
         woodFromLogs(consumer, APBlocks.CHARRED_WOOD.get(), APBlocks.CHARRED_LOG.get());
         woodFromLogs(consumer, APBlocks.STRIPPED_CHARRED_WOOD.get(), APBlocks.STRIPPED_CHARRED_LOG.get());
-        //woodenBoat(consumer, APItems.CHARRED_BOAT.get(), APBlocks.CHARRED_PLANKS);
-        //chestBoat(p_250804_, Items.ACACIA_CHEST_BOAT, Items.ACACIA_BOAT);
+        woodenBoat(consumer, APItems.CHARRED_BOAT.get(), APBlocks.CHARRED_PLANKS.get());
+        chestBoat(consumer, APItems.CHARRED_CHEST_BOAT.get(), APItems.CHARRED_BOAT.get());
         hangingSign(consumer, APItems.CHARRED_HANGING_SIGN.get(), APBlocks.STRIPPED_CHARRED_LOG.get());
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, APBlocks.CHARRED_BOOKSHELF.get()).pattern("PPP").pattern("BBB").pattern("PPP").define('P', APItems.CHARRED_PLANKS.get()).define('B',Items.BOOK).unlockedBy("has_ingredient", has(APItems.CHARRED_PLANKS.get())).save(consumer);
 

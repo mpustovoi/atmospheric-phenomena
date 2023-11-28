@@ -70,6 +70,8 @@ public class APCreativeTabs {
                 output.accept(APItems.CHARRED_SIGN.get());
                 output.accept(APItems.CHARRED_HANGING_SIGN.get());
                 output.accept(APItems.CHARRED_BOOKSHELF.get());
+                output.accept(APItems.CHARRED_BOAT.get());
+                output.accept(APItems.CHARRED_CHEST_BOAT.get());
 
 
             }).build());

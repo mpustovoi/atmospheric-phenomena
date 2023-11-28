@@ -6,12 +6,16 @@ import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.AbstractCharredLogBlock;
 import com.phyrenestudios.atmospheric_phenomena.client.model.CometModel;
 import com.phyrenestudios.atmospheric_phenomena.client.model.MeteorModel;
+import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.APBoatRenderer;
 import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.CometRenderer;
 import com.phyrenestudios.atmospheric_phenomena.client.renderer.entity.MeteorRenderer;
+import com.phyrenestudios.atmospheric_phenomena.entities.APBoat;
 import com.phyrenestudios.atmospheric_phenomena.entities.APEntityTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.*;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
+import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -87,12 +91,18 @@ public class AtmosphericPhenomena {
         public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerEntityRenderer(APEntityTypes.METEOR.get(), MeteorRenderer::new);
             event.registerEntityRenderer(APEntityTypes.COMET.get(), CometRenderer::new);
+            event.registerEntityRenderer(APEntityTypes.AP_BOAT.get(), m -> new APBoatRenderer(m, false));
+            event.registerEntityRenderer(APEntityTypes.AP_CHEST_BOAT.get(), m -> new APBoatRenderer(m, true));
         }
 
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
             event.registerLayerDefinition(MeteorModel.LAYER_LOCATION, MeteorModel::createBodyLayer);
             event.registerLayerDefinition(CometModel.LAYER_LOCATION, CometModel::createBodyLayer);
+            for (APBoat.Type boatType : APBoat.Type.values()) {
+                event.registerLayerDefinition(APBoatRenderer.createBoatModelName(boatType), BoatModel::createBodyModel);
+                event.registerLayerDefinition(APBoatRenderer.createChestBoatModelName(boatType), ChestBoatModel::createBodyModel);
+            }
         }
 
         @SubscribeEvent

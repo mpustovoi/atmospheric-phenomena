@@ -81,7 +81,8 @@ public class APItemModelProvider extends ItemModelProvider {
         basicItem(APItems.CHARRED_SIGN.get());
         basicItem(APItems.CHARRED_HANGING_SIGN.get());
         withExistingParent(APBlocks.CHARRED_BOOKSHELF.get());
-        //basicItem(Wood.getBoat());
+        basicItem(APItems.CHARRED_BOAT.get());
+        basicItem(APItems.CHARRED_CHEST_BOAT.get());
 
 
 
