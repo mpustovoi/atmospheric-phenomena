@@ -86,7 +86,7 @@ public class BuriedMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
 
     private List<BlockPos> burriedPositions(List<BlockPos> centers, RandomSource rand) {
         List<BlockPos> list = new ArrayList<>();
-        int depth = rand.nextInt(6)+2;
+        int depth = rand.nextInt(8)+2;
         for (BlockPos pos : centers) {
             list.add(pos.below(depth));
         }

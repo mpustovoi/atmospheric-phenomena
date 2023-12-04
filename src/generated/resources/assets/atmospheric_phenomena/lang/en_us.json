@@ -97,6 +97,8 @@
   "block.atmospheric_phenomena.white_lightning_glass": "White Lightning Glass",
   "block.atmospheric_phenomena.yellow_lightning_glass": "Yellow Lightning Glass",
   "block.atmospheric_phenomena.yellow_tektite": "Yellow Tektite",
+  "death.attack.meteoroid": "%1$s was pummeled by a meteoroid",
+  "death.attack.meteoroid.player": "%1$s was pummeled by a meteoroid whilst trying to escape %2$s",
   "entity.atmospheric_phenomena.ap_boat": "Boat",
   "entity.atmospheric_phenomena.ap_chest_boat": "Chest Boat",
   "entity.atmospheric_phenomena.comet": "Comet",

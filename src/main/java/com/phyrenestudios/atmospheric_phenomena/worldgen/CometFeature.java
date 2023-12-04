@@ -33,6 +33,7 @@ public class CometFeature extends Feature<NoneFeatureConfiguration> {
         RandomSource rand = levelIn.getRandom();
         BlockState target = levelIn.getBlockState(posIn.below());
         if (!target.is(APTags.Blocks.VALID_METEORITE_SPAWN)) return false;
+        if (posIn.getY() <= levelIn.getMinBuildHeight() || posIn.getY() > levelIn.getMaxBuildHeight()) return false;
 
         int size = 1;
         FeatureUtils.populateBlockCollections();

@@ -19,7 +19,8 @@ public class LargeSnowflakeParticle extends TextureSheetParticle {
         this.yd = p_172297_ + (Math.random() * 2.0D - 1.0D) * (double)0.05F;
         this.zd = p_172298_ + (Math.random() * 2.0D - 1.0D) * (double)0.05F;
         this.quadSize = 0.75F * (this.random.nextFloat() * this.random.nextFloat() * 1.0F + 1.0F);
-        this.lifetime = (int)(16.0D / ((double)this.random.nextFloat() * 0.8D + 0.2D)) + 2;
+        this.lifetime = (int)((double)32 / ((double)p_172292_.random.nextFloat() * 0.8D + 0.2D) * 0.3D);
+        this.lifetime = Math.max(this.lifetime, 1);
         this.setSpriteFromAge(p_172299_);
     }
 

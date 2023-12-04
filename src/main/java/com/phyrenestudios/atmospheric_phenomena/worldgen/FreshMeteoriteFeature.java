@@ -32,6 +32,7 @@ public class FreshMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
         RandomSource rand = levelIn.getRandom();
         BlockState target = levelIn.getBlockState(posIn.below());
         if (!target.is(APTags.Blocks.VALID_METEORITE_SPAWN)) return false;
+        if (posIn.getY() <= levelIn.getMinBuildHeight() || posIn.getY() > levelIn.getMaxBuildHeight()) return false;
 
         int size = 2;
         FeatureUtils.populateBlockCollections();

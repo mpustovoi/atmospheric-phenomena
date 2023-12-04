@@ -9,6 +9,8 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
@@ -48,6 +50,10 @@ public class MeteorEntity extends AbstractMeteoroidEntity {
     @Override
     public ParticleOptions burnoutParticle() {
         return burnoutParticle;
+    }
+    @Override
+    public SoundEvent burnoutSound() {
+        return SoundEvents.STONE_BREAK;
     }
     @Override
     public int burnoutModifier() {

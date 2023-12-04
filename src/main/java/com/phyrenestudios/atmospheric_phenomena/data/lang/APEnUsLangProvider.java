@@ -86,6 +86,8 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("entity.atmospheric_phenomena.ap_chest_boat", "Chest Boat");
         add("atmospheric_phenomena.subtitle.atmospheric_entry", "Atmospheric Entry");
         add("gamerule.createImpactCraters", "Meteoroids create impact craters on land");
+        add("death.attack.meteoroid", "%1$s was pummeled by a meteoroid");
+        add("death.attack.meteoroid.player", "%1$s was pummeled by a meteoroid whilst trying to escape %2$s");
     }
 
     private void add(Block blockIn) {

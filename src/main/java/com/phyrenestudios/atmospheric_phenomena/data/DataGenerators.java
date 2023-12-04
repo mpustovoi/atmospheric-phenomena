@@ -83,6 +83,7 @@ public final class DataGenerators {
 
         });
         registryBuilder.add(Registries.BIOME, context -> {});
+        registryBuilder.add(Registries.DAMAGE_TYPE, APDamageTypeProvider::bootstrap);
         RegistryAccess.Frozen regAccess = RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY);
         return registryBuilder.buildPatch(regAccess, VanillaRegistries.createLookup());
     }
