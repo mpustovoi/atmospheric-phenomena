@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:atmospheric_phenomena/main/root",
+  "criteria": {
+    "meteoric_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "atmospheric_phenomena:meteoric_iron"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.atmospheric_phenomena.obtain_meteoric_iron.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "atmospheric_phenomena:meteoric_iron"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.atmospheric_phenomena.obtain_meteoric_iron.title"
+    }
+  },
+  "requirements": [
+    [
+      "meteoric_iron"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

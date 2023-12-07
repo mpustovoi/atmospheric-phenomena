@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": [],
   "features": "atmospheric_phenomena:overworld_meteorite",
   "step": "local_modifications"
 }

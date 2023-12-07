@@ -6,12 +6,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class APTags {
 
+
+    public static final class DamageTypes {
+        public static final TagKey<DamageType> IS_METEOROID_DAMAGE = createDamageTypeTag("is_meteoroid_damage");
+    }
 
     public static final class Biomes {
         public static final TagKey<Biome> METEORITE_BLACKLIST = createBiomeTag("meteorite_blacklist");
@@ -59,8 +64,11 @@ public class APTags {
     private static TagKey<Item> modItem(String path) {
         return ItemTags.create(new ResourceLocation(AtmosphericPhenomena.MODID, path));
     }
-    private static TagKey<Biome> createBiomeTag(String p_207631_) {
-        return TagKey.create(Registries.BIOME, new ResourceLocation(AtmosphericPhenomena.MODID, p_207631_));
+    private static TagKey<Biome> createBiomeTag(String path) {
+        return TagKey.create(Registries.BIOME, new ResourceLocation(AtmosphericPhenomena.MODID, path));
+    }
+    private static TagKey<DamageType> createDamageTypeTag(String path) {
+        return TagKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(AtmosphericPhenomena.MODID, path));
     }
 
 

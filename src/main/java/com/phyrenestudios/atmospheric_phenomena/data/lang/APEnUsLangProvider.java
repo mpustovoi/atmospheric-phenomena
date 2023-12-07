@@ -88,6 +88,18 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("gamerule.createImpactCraters", "Meteoroids create impact craters on land");
         add("death.attack.meteoroid", "%1$s was pummeled by a meteoroid");
         add("death.attack.meteoroid.player", "%1$s was pummeled by a meteoroid whilst trying to escape %2$s");
+
+        //Advancements
+        add("advancements.atmospheric_phenomena.root.title", "Atmospheric Phenomena");
+        add("advancements.atmospheric_phenomena.root.description", "Seeing is believing");
+        add("advancements.atmospheric_phenomena.obtain_meteoric_iron.title", "Not Quite Rusty");
+        add("advancements.atmospheric_phenomena.obtain_meteoric_iron.description", "Obtain a chunk of meteoric iron from a fallen meteorite");
+        add("advancements.atmospheric_phenomena.obtain_lonsdaleite.title", "Lonsdaleite");
+        add("advancements.atmospheric_phenomena.obtain_lonsdaleite.description", "Obtain a lonsdaleite gem from a fallen meteorite");
+        add("advancements.atmospheric_phenomena.obtain_debris_matrix.title", "Space Debris");
+        add("advancements.atmospheric_phenomena.obtain_debris_matrix.description", "Obtain a debris matrix from a fallen meteorite");
+        add("advancements.atmospheric_phenomena.killed_by_meteoroid.title", "The Way of the Dinosaurs");
+        add("advancements.atmospheric_phenomena.killed_by_meteoroid.description", "Get killed by a meteoroid");
     }
 
     private void add(Block blockIn) {

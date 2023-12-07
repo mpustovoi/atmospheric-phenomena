@@ -149,10 +149,13 @@ abstract class AbstractMeteoroidEntity extends Entity {
 
     private void damageEntities() {
         Predicate<Entity> predicate = EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE);
-        DamageSource damagesource = this.level().damageSources().source(APDamageTypes.METEOROID);
-        float f = 10.0f;
-        this.level().getEntities(this, this.getBoundingBox().inflate(10.0D), predicate).forEach((entityIn) -> {
-            entityIn.hurt(damagesource, f);
+        DamageSource damagesource = this.damageSources().source(APDamageTypes.METEOROID, this);
+        this.level().getEntities(this, this.getBoundingBox().inflate(10.0D), predicate).forEach((ent) -> {
+            float f = Math.max(1.0f, Math.min(20.0f, 100.0f));
+            ent.hurt(damagesource, f);
+            //if (ent instanceof ServerPlayer playerEnt) {
+            //    playerEnt.getAdvancements().award(((ServerLevel)this.level()).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID+"/main/killed_by_meteoroid")), "idk");
+            //}
         });
     }
 

@@ -1,10 +1,11 @@
 package com.phyrenestudios.atmospheric_phenomena.data;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import com.phyrenestudios.atmospheric_phenomena.data.advancements.APAdvancementProvider;
 import com.phyrenestudios.atmospheric_phenomena.data.lang.APEnUsLangProvider;
 import com.phyrenestudios.atmospheric_phenomena.data.loot.APLootTableSubProvider;
-import com.phyrenestudios.atmospheric_phenomena.data.tags.APBiomeTagsProvider;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APBlockTagsProvider;
+import com.phyrenestudios.atmospheric_phenomena.data.tags.APDamageTypesTagsProvider;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APItemTagProvider;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APPlacements;
@@ -21,12 +22,14 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
@@ -48,20 +51,20 @@ public final class DataGenerators {
         APBlockTagsProvider blockTags = new APBlockTagsProvider(packOutput, provider, helper);
         gen.addProvider(event.includeServer(), blockTags);
         gen.addProvider(event.includeServer(), new APItemTagProvider(packOutput, provider, blockTags.contentsGetter(), helper));
+        gen.addProvider(event.includeServer(), new APDamageTypesTagsProvider(packOutput, provider, helper));
+        //gen.addProvider(event.includeServer(), new APBiomeTagsProvider(packOutput, provider, helper));
         gen.addProvider(event.includeServer(), new APRecipesProvider(packOutput));
-        gen.addProvider(event.includeServer(), new APBiomeTagsProvider(packOutput, provider, helper));
-
         gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(packOutput, CompletableFuture.supplyAsync(DataGenerators::getProvider), Set.of(AtmosphericPhenomena.MODID)));
+
+        gen.addProvider(event.includeServer(), new ForgeAdvancementProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper(), List.of(new APAdvancementProvider())));
     }
 
     private static HolderLookup.Provider getProvider() {
         final RegistrySetBuilder registryBuilder = new RegistrySetBuilder();
-        registryBuilder.add(Registries.CONFIGURED_FEATURE, context -> {
-            APFeatures.bootstrap(context);
-        });
-        registryBuilder.add(Registries.PLACED_FEATURE, context -> {
-            APPlacements.bootstrap(context);
-        });
+        //registryBuilder.add(Registries.BIOME, context -> {});
+        registryBuilder.add(Registries.DAMAGE_TYPE, APDamageTypeProvider::bootstrap);
+        registryBuilder.add(Registries.CONFIGURED_FEATURE, APFeatures::bootstrap);
+        registryBuilder.add(Registries.PLACED_FEATURE, APPlacements::bootstrap);
         registryBuilder.add(ForgeRegistries.Keys.BIOME_MODIFIERS, context -> {
             HolderGetter<Biome> biomeGetter = context.lookup(Registries.BIOME);
 
@@ -82,8 +85,6 @@ public final class DataGenerators {
             //));
 
         });
-        registryBuilder.add(Registries.BIOME, context -> {});
-        registryBuilder.add(Registries.DAMAGE_TYPE, APDamageTypeProvider::bootstrap);
         RegistryAccess.Frozen regAccess = RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY);
         return registryBuilder.buildPatch(regAccess, VanillaRegistries.createLookup());
     }
