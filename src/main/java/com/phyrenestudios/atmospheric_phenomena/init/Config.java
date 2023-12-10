@@ -65,16 +65,18 @@ public class Config
             .defineInRange("strewnBlockFrequency", 0.2D, 0.0D, 1.0D);
     private static final ForgeConfigSpec.ConfigValue<List<? extends Integer>> METEOR_BLOCKS_RARITY = BUILDER
             .comment("Determines the rarity of meteorite blocks selected for meteorite generation. Blocks from all of the meteorite tags are added to a collection.",
-                    "The first integer represents the weight of each item in #atmospheric_phenomena:meteorite_blocks. Default: 10",
-                    "The second integer represents the weight of each item in #atmospheric_phenomena:rare_meteorite_blocks. Default: 3",
-                    "The third integer represents the weight of each item in #atmospheric_phenomena:ultra_rare_meteorite_blocks. Default: 1")
-            .defineList("meteorBlocksRarity", Arrays.asList(10,3,1), (i) -> i instanceof Integer);
+                    "The first integer represents the weight of each item in #atmospheric_phenomena:common_meteorite_blocks. Default: 30",
+                    "The second integer represents the weight of each item in #atmospheric_phenomena:uncommon_meteorite_blocks. Default: 10",
+                    "The third integer represents the weight of each item in #atmospheric_phenomena:rare_meteorite_blocks. Default: 3",
+                    "The third integer represents the weight of each item in #atmospheric_phenomena:very_rare_meteorite_blocks. Default: 1")
+            .defineList("meteorBlocksRarity", Arrays.asList(30,10,3,1), (i) -> i instanceof Integer);
     private static final ForgeConfigSpec.ConfigValue<List<? extends Integer>> METEOR_CORE_BLOCKS_RARITY = BUILDER
             .comment("Determines the rarity of meteorite core blocks selected for meteorite generation. Blocks from all of the meteorite tags are added to a collection.",
-                    "The first integer represents the weight of each item in #atmospheric_phenomena:meteorite_core_blocks. Default: 10",
-                    "The second integer represents the weight of each item in #atmospheric_phenomena:rare_meteorite_core_blocks. Default: 3",
-                    "The third integer represents the weight of each item in #atmospheric_phenomena:ultra_rare_meteorite_core_blocks. Default: 1")
-            .defineList("meteorCoreBlocksRarity", Arrays.asList(10,3,1), (i) -> i instanceof Integer);
+                    "The first integer represents the weight of each item in #atmospheric_phenomena:common_meteorite_core_blocks. Default: 30",
+                    "The second integer represents the weight of each item in #atmospheric_phenomena:uncommon_meteorite_core_blocks. Default: 10",
+                    "The third integer represents the weight of each item in #atmospheric_phenomena:rare_meteorite_core_blocks. Default: 3",
+                    "The third integer represents the weight of each item in #atmospheric_phenomena:very_rare_meteorite_core_blocks. Default: 1")
+            .defineList("meteorCoreBlocksRarity", Arrays.asList(30,10,3,1), (i) -> i instanceof Integer);
 
     private static final ForgeConfigSpec.IntValue LIGHTNING_MAX_BLOCKS_CONVERTED = BUILDER
             .comment("The maximum number of blocks that can be converted by a lightning strike")

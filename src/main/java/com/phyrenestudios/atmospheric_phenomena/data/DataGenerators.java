@@ -51,11 +51,11 @@ public final class DataGenerators {
         APBlockTagsProvider blockTags = new APBlockTagsProvider(packOutput, provider, helper);
         gen.addProvider(event.includeServer(), blockTags);
         gen.addProvider(event.includeServer(), new APItemTagProvider(packOutput, provider, blockTags.contentsGetter(), helper));
-        gen.addProvider(event.includeServer(), new APDamageTypesTagsProvider(packOutput, provider, helper));
         //gen.addProvider(event.includeServer(), new APBiomeTagsProvider(packOutput, provider, helper));
         gen.addProvider(event.includeServer(), new APRecipesProvider(packOutput));
         gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(packOutput, CompletableFuture.supplyAsync(DataGenerators::getProvider), Set.of(AtmosphericPhenomena.MODID)));
 
+        gen.addProvider(event.includeServer(), new APDamageTypesTagsProvider(packOutput, provider, helper));
         gen.addProvider(event.includeServer(), new ForgeAdvancementProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper(), List.of(new APAdvancementProvider())));
     }
 

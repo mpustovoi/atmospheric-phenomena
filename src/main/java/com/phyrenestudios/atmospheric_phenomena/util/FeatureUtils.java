@@ -14,25 +14,31 @@ public class FeatureUtils {
 
     public static void populateBlockCollections() {
         meteorBlockCollection = new WeightedCollection<>();
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_BLOCKS)) {
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.COMMON_METEOR_BLOCKS)) {
             meteorBlockCollection.add(Config.meteoriteBlocksRarity.get(0), blk);
         }
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_BLOCKS)) {
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.UNCOMMON_METEOR_BLOCKS)) {
             meteorBlockCollection.add(Config.meteoriteBlocksRarity.get(1), blk);
         }
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.ULTRA_RARE_METEOR_BLOCKS)) {
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_BLOCKS)) {
             meteorBlockCollection.add(Config.meteoriteBlocksRarity.get(2), blk);
+        }
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.VERY_RARE_METEOR_BLOCKS)) {
+            meteorBlockCollection.add(Config.meteoriteBlocksRarity.get(3), blk);
         }
 
         meteorCoreBlockCollection = new WeightedCollection<>();
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.METEOR_CORE_BLOCKS)) {
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.COMMON_METEOR_CORE_BLOCKS)) {
             meteorCoreBlockCollection.add(Config.meteoriteCoreBlocksRarity.get(0), blk);
         }
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_CORE_BLOCKS)) {
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.UNCOMMON_METEOR_CORE_BLOCKS)) {
             meteorCoreBlockCollection.add(Config.meteoriteCoreBlocksRarity.get(1), blk);
         }
-        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.ULTRA_RARE_METEOR_CORE_BLOCKS)) {
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.RARE_METEOR_CORE_BLOCKS)) {
             meteorCoreBlockCollection.add(Config.meteoriteCoreBlocksRarity.get(2), blk);
+        }
+        for (Block blk : ForgeRegistries.BLOCKS.tags().getTag(APTags.Blocks.VERY_RARE_METEOR_CORE_BLOCKS)) {
+            meteorCoreBlockCollection.add(Config.meteoriteCoreBlocksRarity.get(3), blk);
         }
 
         meteorStrewnBlockCollection = new WeightedCollection<>();

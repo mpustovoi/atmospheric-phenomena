@@ -24,12 +24,14 @@ public class APTags {
     }
     public static final class Blocks {
         public static final TagKey<Block> VALID_METEORITE_SPAWN = modBlock("valid_meteorite_spawn");
-        public static final TagKey<Block> METEOR_BLOCKS = modBlock("meteor_blocks");
+        public static final TagKey<Block> COMMON_METEOR_BLOCKS = modBlock("common_meteor_blocks");
+        public static final TagKey<Block> UNCOMMON_METEOR_BLOCKS = modBlock("uncommon_meteor_blocks");
         public static final TagKey<Block> RARE_METEOR_BLOCKS = modBlock("rare_meteor_blocks");
-        public static final TagKey<Block> ULTRA_RARE_METEOR_BLOCKS = modBlock("ultra_rare_meteor_blocks");
-        public static final TagKey<Block> METEOR_CORE_BLOCKS = modBlock("meteor_core_blocks");
+        public static final TagKey<Block> VERY_RARE_METEOR_BLOCKS = modBlock("very_rare_meteor_blocks");
+        public static final TagKey<Block> COMMON_METEOR_CORE_BLOCKS = modBlock("common_meteor_core_blocks");
+        public static final TagKey<Block> UNCOMMON_METEOR_CORE_BLOCKS = modBlock("uncommon_meteor_core_blocks");
         public static final TagKey<Block> RARE_METEOR_CORE_BLOCKS = modBlock("rare_meteor_core_blocks");
-        public static final TagKey<Block> ULTRA_RARE_METEOR_CORE_BLOCKS = modBlock("ultra_rare_meteor_core_blocks");
+        public static final TagKey<Block> VERY_RARE_METEOR_CORE_BLOCKS = modBlock("very_rare_meteor_core_blocks");
         public static final TagKey<Block> METEORITE_STREWN_BLOCKS = modBlock("meteorite_strewn_blocks");
         public static final TagKey<Block> VITRIFIES_TO_SOIL_FULGURITE = modBlock("vitrifies_to_soil_fulgurite");
         public static final TagKey<Block> VITRIFIES_TO_STONE_FULGURITE = modBlock("vitrifies_to_stone_fulgurite");
