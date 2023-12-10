@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:atmospheric_phenomena/main/obtain_meteoric_iron",
+  "parent": "minecraft:atmospheric_phenomena/obtain_meteoric_iron",
   "criteria": {
     "lonsdaleite": {
       "conditions": {

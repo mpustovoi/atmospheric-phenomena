@@ -7,6 +7,7 @@ import com.phyrenestudios.atmospheric_phenomena.data.loot.APLootTableSubProvider
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APBlockTagsProvider;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APDamageTypesTagsProvider;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APItemTagProvider;
+import com.phyrenestudios.atmospheric_phenomena.init.APDamageTypes;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APPlacements;
 import net.minecraft.core.*;
@@ -61,8 +62,7 @@ public final class DataGenerators {
 
     private static HolderLookup.Provider getProvider() {
         final RegistrySetBuilder registryBuilder = new RegistrySetBuilder();
-        //registryBuilder.add(Registries.BIOME, context -> {});
-        registryBuilder.add(Registries.DAMAGE_TYPE, APDamageTypeProvider::bootstrap);
+        registryBuilder.add(Registries.DAMAGE_TYPE, APDamageTypes::bootstrap);
         registryBuilder.add(Registries.CONFIGURED_FEATURE, APFeatures::bootstrap);
         registryBuilder.add(Registries.PLACED_FEATURE, APPlacements::bootstrap);
         registryBuilder.add(ForgeRegistries.Keys.BIOME_MODIFIERS, context -> {

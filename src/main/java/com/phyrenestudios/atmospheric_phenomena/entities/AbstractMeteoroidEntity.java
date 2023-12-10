@@ -1,5 +1,6 @@
 package com.phyrenestudios.atmospheric_phenomena.entities;
 
+import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.init.APDamageTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.APGameRules;
 import net.minecraft.core.BlockPos;
@@ -9,7 +10,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -150,12 +153,13 @@ abstract class AbstractMeteoroidEntity extends Entity {
     private void damageEntities() {
         Predicate<Entity> predicate = EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE);
         DamageSource damagesource = this.damageSources().source(APDamageTypes.METEOROID, this);
-        this.level().getEntities(this, this.getBoundingBox().inflate(10.0D), predicate).forEach((ent) -> {
-            float f = Math.max(1.0f, Math.min(20.0f, 100.0f));
+        this.level().getEntities(this, this.getBoundingBox().inflate(20.0D, 10.0D, 20.0D), predicate).forEach((ent) -> {
+            float f = Math.max(1.0f, 30f - (float) this.position().distanceTo(ent.position()));
             ent.hurt(damagesource, f);
-            //if (ent instanceof ServerPlayer playerEnt) {
-            //    playerEnt.getAdvancements().award(((ServerLevel)this.level()).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID+"/main/killed_by_meteoroid")), "idk");
-            //}
+            if (ent instanceof ServerPlayer playerEnt) {
+                if (playerEnt.isAlive()) return;
+                playerEnt.getAdvancements().award(((ServerLevel)this.level()).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID+"/killed_by_meteoroid")), "killed_by_meteoroid");
+            }
         });
     }
 

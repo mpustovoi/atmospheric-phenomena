@@ -1,16 +1,17 @@
 {
-  "parent": "minecraft:atmospheric_phenomena/main/root",
+  "parent": "minecraft:atmospheric_phenomena/root",
   "criteria": {
-    "killed_by_meteoroid_damage": {
+    "killed_by_meteoroid": {
       "conditions": {
-        "killing_blow": {
-          "tags": [
-            {
-              "expected": true,
-              "id": "atmospheric_phenomena:is_meteoroid_damage"
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "atmospheric_phenomena:meteor"
             }
-          ]
-        }
+          }
+        ]
       },
       "trigger": "minecraft:entity_killed_player"
     }
@@ -32,7 +33,7 @@
   },
   "requirements": [
     [
-      "killed_by_meteoroid_damage"
+      "killed_by_meteoroid"
     ]
   ],
   "sends_telemetry_event": true

@@ -1,12 +1,12 @@
 {
-  "parent": "minecraft:atmospheric_phenomena/main/root",
+  "parent": "minecraft:atmospheric_phenomena/obtain_lonsdaleite",
   "criteria": {
-    "meteoric_iron": {
+    "debris_matrix": {
       "conditions": {
         "items": [
           {
             "items": [
-              "atmospheric_phenomena:meteoric_iron"
+              "atmospheric_phenomena:debris_matrix"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.atmospheric_phenomena.obtain_meteoric_iron.description"
+      "translate": "advancements.atmospheric_phenomena.obtain_debris_matrix.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "atmospheric_phenomena:meteoric_iron"
+      "item": "atmospheric_phenomena:debris_matrix"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.atmospheric_phenomena.obtain_meteoric_iron.title"
+      "translate": "advancements.atmospheric_phenomena.obtain_debris_matrix.title"
     }
   },
   "requirements": [
     [
-      "meteoric_iron"
+      "debris_matrix"
     ]
   ],
   "sends_telemetry_event": true

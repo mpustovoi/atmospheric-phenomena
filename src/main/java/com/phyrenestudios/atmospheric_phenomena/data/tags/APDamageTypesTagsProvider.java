@@ -19,6 +19,6 @@ public class APDamageTypesTagsProvider extends DamageTypeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
-        //tag(APTags.DamageTypes.IS_METEOROID_DAMAGE).add(APDamageTypes.METEOROID);
+        //tag(DamageTypeTags.BYPASSES_ARMOR).add(APDamageTypes.METEOROID);
     }
 }

@@ -13,15 +13,6 @@ import net.minecraft.world.level.block.Block;
 
 public class APTags {
 
-
-    public static final class DamageTypes {
-        public static final TagKey<DamageType> IS_METEOROID_DAMAGE = createDamageTypeTag("is_meteoroid_damage");
-    }
-
-    public static final class Biomes {
-        public static final TagKey<Biome> METEORITE_BLACKLIST = createBiomeTag("meteorite_blacklist");
-
-    }
     public static final class Blocks {
         public static final TagKey<Block> VALID_METEORITE_SPAWN = modBlock("valid_meteorite_spawn");
         public static final TagKey<Block> COMMON_METEOR_BLOCKS = modBlock("common_meteor_blocks");
