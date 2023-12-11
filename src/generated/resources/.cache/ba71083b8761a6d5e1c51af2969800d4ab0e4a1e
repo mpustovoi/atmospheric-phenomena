@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-10T15:17:25.4058016	atmospheric_phenomena - Block Tags
+// 1.20.1	2023-12-11T17:51:15.5388599	atmospheric_phenomena - Block Tags
 7a0c6f8914577d382100fb581a1169aff16274fd data/atmospheric_phenomena/tags/blocks/burning_logs.json
 d66d81cd4e2c15d320a99acc3e293d6bf6ac4b36 data/atmospheric_phenomena/tags/blocks/charred_logs.json
 acdf642b637a4d60ab574d48a9d0303782cfb4cb data/atmospheric_phenomena/tags/blocks/common_meteor_blocks.json
@@ -9,6 +9,7 @@ b37fdc9abe7a98f320159a38fe11438e01677b9e data/atmospheric_phenomena/tags/blocks/
 6709e029dcdb781bc96e92c5e95ef69620b94c99 data/atmospheric_phenomena/tags/blocks/rare_meteor_blocks.json
 80f0c88eae5e374014267b6803a99d55d3c7ee2d data/atmospheric_phenomena/tags/blocks/rare_meteor_core_blocks.json
 9b69a580b78719cb98b5153c216e0c1fa09984bd data/atmospheric_phenomena/tags/blocks/smouldering_logs.json
+b37fdc9abe7a98f320159a38fe11438e01677b9e data/atmospheric_phenomena/tags/blocks/tektites.json
 0408676ac9f2d27946ceae9de91480ffaf592e7e data/atmospheric_phenomena/tags/blocks/uncommon_meteor_blocks.json
 58c1031d19477d2d467907d2e45d158b02e36ddd data/atmospheric_phenomena/tags/blocks/uncommon_meteor_core_blocks.json
 b7a8b8c8dce36fc92612f2d86c0bcc6a313fa62b data/atmospheric_phenomena/tags/blocks/valid_meteorite_spawn.json
@@ -17,7 +18,7 @@ b7a8b8c8dce36fc92612f2d86c0bcc6a313fa62b data/atmospheric_phenomena/tags/blocks/
 c1b2a217bb3fcb7e1d67f5bc45409796720bd171 data/atmospheric_phenomena/tags/blocks/vitrifies_to_glass.json
 95bef16bd9380966b4590ffa3c3bfdb585bd78de data/atmospheric_phenomena/tags/blocks/vitrifies_to_soil_fulgurite.json
 8728fba352d2773c70fd79a0fffbb3bea026c028 data/atmospheric_phenomena/tags/blocks/vitrifies_to_stone_fulgurite.json
-f211a5d7f6078c24f70d65ce26631d618f1bc83d data/forge/tags/blocks/glass.json
+1ec39b26596f29382042148f535e06577c885654 data/forge/tags/blocks/glass.json
 ba5167dcaebfb172cfd09fcf6264e36dc445248f data/forge/tags/blocks/storage_blocks/diamond.json
 678ba021943c66512e1289a47e25054b391a7d93 data/minecraft/tags/blocks/ceiling_hanging_signs.json
 22a9e10689601a6f4795cf6dec96f10987936376 data/minecraft/tags/blocks/fence_gates.json

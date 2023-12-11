@@ -93,9 +93,15 @@ public class APEnUsLangProvider extends LanguageProvider {
 
         //Smithing Modifiers
         add("tooltip.modifier.lonsdaleite_armor", "Upgraded with Lonsdaleite");
-        add("tooltip.modifier.lonsdaleite_tools", "Upgraded with Lonsdaleite");
+        add("tooltip.modifier.lonsdaleite_tool", "Upgraded with Lonsdaleite");
         add("tooltip.modifier.meteoric_iron_armor", "Upgraded with Meteoric Iron");
         add("tooltip.modifier.meteoric_iron_tool", "Upgraded with Meteoric Iron");
+
+        add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.additions_slot_description", "Add Otherworldly Material");
+        add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.applies_to", "Iron & Diamond Equipment");
+        add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.base_slot_description", "Add armor, weapon, or tool");
+        add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.ingredients", "Otherworldly Material");
+        add("upgrade.atmospheric_phenomena.otherworldly_upgrade", "Otherworldly Upgrade");
 
         //Advancements
         add("advancements.atmospheric_phenomena.root.title", "Atmospheric Phenomena");

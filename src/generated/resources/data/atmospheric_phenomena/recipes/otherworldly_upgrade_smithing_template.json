@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "forge:gems/diamond"
+    },
+    "C": {
+      "tag": "atmospheric_phenomena:meteorite_blocks"
+    },
+    "S": {
+      "item": "atmospheric_phenomena:otherworldly_upgrade_smithing_template"
+    },
+    "T": {
+      "tag": "atmospheric_phenomena:tektites"
+    }
+  },
+  "pattern": [
+    "TST",
+    "TCT",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "item": "atmospheric_phenomena:otherworldly_upgrade_smithing_template"
+  },
+  "show_notification": true
+}

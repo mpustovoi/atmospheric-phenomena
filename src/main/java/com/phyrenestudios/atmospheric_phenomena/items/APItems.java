@@ -6,10 +6,7 @@ import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
 import com.phyrenestudios.atmospheric_phenomena.entities.APBoat;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -65,5 +62,5 @@ public class APItems {
     public static final RegistryObject<Item> CHARRED_BOAT = ITEMS.register(baseName+"_boat", () -> new APBoatItem(false, APBoat.Type.CHARRED, new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> CHARRED_CHEST_BOAT = ITEMS.register(baseName+"_chest_boat", () -> new APBoatItem(true, APBoat.Type.CHARRED, new Item.Properties().stacksTo(1)));
 
-
+    public static final RegistryObject<Item> OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("otherworldly_upgrade_smithing_template", APSmithingTemplateItem::createOtherworldlyUpgradeTemplate);
 }

@@ -72,6 +72,7 @@ public class APCreativeTabs {
                 output.accept(APItems.CHARRED_BOOKSHELF.get());
                 output.accept(APItems.CHARRED_BOAT.get());
                 output.accept(APItems.CHARRED_CHEST_BOAT.get());
+                output.accept(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get());
 
 
             }).build());

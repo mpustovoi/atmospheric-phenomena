@@ -15,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
@@ -61,6 +62,7 @@ public class APRecipesProvider extends RecipeProvider {
         chestBoat(consumer, APItems.CHARRED_CHEST_BOAT.get(), APItems.CHARRED_BOAT.get());
         hangingSign(consumer, APItems.CHARRED_HANGING_SIGN.get(), APBlocks.STRIPPED_CHARRED_LOG.get());
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, APBlocks.CHARRED_BOOKSHELF.get()).pattern("PPP").pattern("BBB").pattern("PPP").define('P', APItems.CHARRED_PLANKS.get()).define('B',Items.BOOK).unlockedBy("has_ingredient", has(APItems.CHARRED_PLANKS.get())).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get(), 2).define('#', Tags.Items.GEMS_DIAMOND).define('T', APTags.Items.TEKTITES).define('C', APTags.Items.METEORITE_BLOCKS).define('S', APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()).pattern("TST").pattern("TCT").pattern("###").unlockedBy(getHasName(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()), has(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get())).save(consumer);
 
         nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_HELMET, APItems.LONSDALEITE.get(), Items.DIAMOND_HELMET, "lonsdaleite_armor");
         nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_CHESTPLATE, APItems.LONSDALEITE.get(), Items.DIAMOND_CHESTPLATE, "lonsdaleite_armor");
@@ -103,6 +105,6 @@ public class APRecipesProvider extends RecipeProvider {
     }
 
     protected static void nbtSmithing(Consumer<FinishedRecipe> consumer, RecipeCategory p_248986_, Item base, Item material, Item result, String modifierIn) {
-        SmithingNBTRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(base), Ingredient.of(material), p_248986_, result, modifierIn).unlocks("has_lonsdaleite", has(APItems.LONSDALEITE.get())).save(consumer, getItemName(result) + "_upgrade_smithing");
+        SmithingNBTRecipeBuilder.smithing(Ingredient.of(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(base), Ingredient.of(material), p_248986_, result, modifierIn).unlocks("has_lonsdaleite", has(APItems.LONSDALEITE.get())).save(consumer, getItemName(result) + "_upgrade_smithing");
     }
 }

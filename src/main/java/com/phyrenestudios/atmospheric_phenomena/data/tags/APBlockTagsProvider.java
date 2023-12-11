@@ -35,15 +35,14 @@ public class APBlockTagsProvider extends BlockTagsProvider {
             tag(BlockTags.WALLS).add(base.getBricksWall());
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
+            tag(APTags.Blocks.TEKTITES).add(base.getTektite());
             tag(BlockTags.MINEABLE_WITH_PICKAXE).add(base.getTektite());
             tag(BlockTags.NEEDS_IRON_TOOL).add(base.getTektite());
-            tag(Tags.Blocks.GLASS).add(base.getTektite());
             tag(APTags.Blocks.METEORITE_STREWN_BLOCKS).add(base.getTektite());
         }
         for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
             tag(BlockTags.MINEABLE_WITH_PICKAXE).add(base.getGlass());
             tag(APTags.Blocks.LIGHTNING_GLASS).add(base.getGlass());
-            tag(Tags.Blocks.GLASS).add(base.getGlass());
         }
 
         tag(APTags.Blocks.CHARRED_LOGS).add(APBlocks.CHARRED_LOG.get(),APBlocks.STRIPPED_CHARRED_LOG.get(),APBlocks.CHARRED_WOOD.get(),APBlocks.STRIPPED_CHARRED_WOOD.get());
@@ -76,7 +75,7 @@ public class APBlockTagsProvider extends BlockTagsProvider {
                 APBlocks.CHARRED_SIGN.get(),
                 APBlocks.CHARRED_WALL_SIGN.get(),
                 APBlocks.CHARRED_BOOKSHELF.get());
-
+        tag(Tags.Blocks.GLASS).addTag(APTags.Blocks.TEKTITES).addTag(APTags.Blocks.LIGHTNING_GLASS);
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.CHARGED_QUARTZ_MATRIX.get(), APBlocks.DEBRIS_MATRIX.get(), APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.LONSDALEITE_BLOCK.get(), APBlocks.METEORIC_IRON_BLOCK.get(), APBlocks.METEORIC_ICE.get(), APBlocks.SOIL_FULGURITE.get(), APBlocks.SSTONE_FULGURITE.get());
         tag(BlockTags.NEEDS_IRON_TOOL).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get(), APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.CHARGED_QUARTZ_MATRIX.get());
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.DEBRIS_MATRIX.get());

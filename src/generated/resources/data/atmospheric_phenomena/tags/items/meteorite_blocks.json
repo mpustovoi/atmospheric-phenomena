@@ -1,0 +1,11 @@
+{
+  "values": [
+    "atmospheric_phenomena:chondrite",
+    "atmospheric_phenomena:enstatite_chondrite",
+    "atmospheric_phenomena:carbonaceous_chondrite",
+    "atmospheric_phenomena:angrite",
+    "atmospheric_phenomena:ureilite",
+    "atmospheric_phenomena:pallasite",
+    "atmospheric_phenomena:mesosiderite"
+  ]
+}

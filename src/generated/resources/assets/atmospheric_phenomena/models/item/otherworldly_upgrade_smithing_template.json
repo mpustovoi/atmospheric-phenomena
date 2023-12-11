@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "atmospheric_phenomena:item/otherworldly_upgrade_smithing_template"
+  }
+}

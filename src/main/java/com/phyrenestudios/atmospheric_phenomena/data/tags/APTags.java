@@ -27,6 +27,7 @@ public class APTags {
         public static final TagKey<Block> VITRIFIES_TO_SOIL_FULGURITE = modBlock("vitrifies_to_soil_fulgurite");
         public static final TagKey<Block> VITRIFIES_TO_STONE_FULGURITE = modBlock("vitrifies_to_stone_fulgurite");
         public static final TagKey<Block> VITRIFIES_TO_GLASS = modBlock("vitrifies_to_glass");
+        public static final TagKey<Block> TEKTITES = modBlock("tektites");
         public static final TagKey<Block> LIGHTNING_GLASS = modBlock("lightning_glass");
         public static final TagKey<Block> LIGHTNING_CONDUCTIVE = modBlock("lightning_conductive");
         public static final TagKey<Block> EXPLODES_FROM_CONDUCTIVITY = modBlock("explodes_from_conductivity");
@@ -41,6 +42,8 @@ public class APTags {
         public static final TagKey<Item> CHARRED_LOGS = modItem("charred_logs");
         public static final TagKey<Item> SMOULDERING_LOGS = modItem("smouldering_logs");
         public static final TagKey<Item> BURNING_LOGS = modItem("burning_logs");
+        public static final TagKey<Item> METEORITE_BLOCKS = modItem("meteorite_blocks");
+        public static final TagKey<Item> TEKTITES = modItem("tektites");
 
     }
 

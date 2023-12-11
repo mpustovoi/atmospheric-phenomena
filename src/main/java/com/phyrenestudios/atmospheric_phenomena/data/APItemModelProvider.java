@@ -60,6 +60,7 @@ public class APItemModelProvider extends ItemModelProvider {
 
         basicItem(APItems.LONSDALEITE.get());
         basicItem(APItems.METEORIC_IRON.get());
+        basicItem(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get());
 
         withExistingParent(APBlocks.BURNING_LOG.get());
         withExistingParent(APBlocks.BURNING_WOOD.get());

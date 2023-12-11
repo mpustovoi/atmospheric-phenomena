@@ -11,6 +11,6 @@
     "item": "minecraft:iron_hoe"
   },
   "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
+    "item": "atmospheric_phenomena:otherworldly_upgrade_smithing_template"
   }
 }
