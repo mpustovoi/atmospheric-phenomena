@@ -118,5 +118,11 @@
   "item.atmospheric_phenomena.charred_chest_boat": "Charred Chest Boat",
   "item.atmospheric_phenomena.lonsdaleite": "Lonsdaleite",
   "item.atmospheric_phenomena.meteoric_iron": "Meteoric Iron",
-  "itemGroup.atmospheric_phenomena.main": "Atmospheric Phenomena"
+  "itemGroup.atmospheric_phenomena.main": "Atmospheric Phenomena",
+  "tooltip.modifier.lonsdaleite_armor": "Upgraded with Lonsdaleite",
+  "tooltip.modifier.lonsdaleite_tools": "Upgraded with Lonsdaleite",
+  "tooltip.modifier.meteoric_iron_armor": "Upgraded with Meteoric Iron",
+  "tooltip.modifier.meteoric_iron_tool": "Upgraded with Meteoric Iron",
+  "trim_material.atmospheric_phenomena.lonsdaleite": "Lonsdaleite Material",
+  "trim_material.atmospheric_phenomena.meteoric_iron": "Meteoric Iron Material"
 }

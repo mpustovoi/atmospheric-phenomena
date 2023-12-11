@@ -1,0 +1,16 @@
+{
+  "type": "atmospheric_phenomena:smithing_nbt",
+  "addition": {
+    "item": "atmospheric_phenomena:lonsdaleite"
+  },
+  "base": {
+    "item": "minecraft:diamond_boots"
+  },
+  "modifier": "lonsdaleite_armor",
+  "result": {
+    "item": "minecraft:diamond_boots"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

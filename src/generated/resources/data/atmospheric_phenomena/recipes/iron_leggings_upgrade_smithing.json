@@ -1,0 +1,16 @@
+{
+  "type": "atmospheric_phenomena:smithing_nbt",
+  "addition": {
+    "item": "atmospheric_phenomena:meteoric_iron"
+  },
+  "base": {
+    "item": "minecraft:iron_leggings"
+  },
+  "modifier": "meteoric_iron_armor",
+  "result": {
+    "item": "minecraft:iron_leggings"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

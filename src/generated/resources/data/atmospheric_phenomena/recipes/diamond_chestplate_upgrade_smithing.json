@@ -1,0 +1,16 @@
+{
+  "type": "atmospheric_phenomena:smithing_nbt",
+  "addition": {
+    "item": "atmospheric_phenomena:lonsdaleite"
+  },
+  "base": {
+    "item": "minecraft:diamond_chestplate"
+  },
+  "modifier": "lonsdaleite_armor",
+  "result": {
+    "item": "minecraft:diamond_chestplate"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

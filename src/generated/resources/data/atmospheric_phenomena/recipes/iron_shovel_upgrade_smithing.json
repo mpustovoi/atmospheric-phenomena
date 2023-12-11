@@ -1,0 +1,16 @@
+{
+  "type": "atmospheric_phenomena:smithing_nbt",
+  "addition": {
+    "item": "atmospheric_phenomena:meteoric_iron"
+  },
+  "base": {
+    "item": "minecraft:iron_shovel"
+  },
+  "modifier": "meteoric_iron_tool",
+  "result": {
+    "item": "minecraft:iron_shovel"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

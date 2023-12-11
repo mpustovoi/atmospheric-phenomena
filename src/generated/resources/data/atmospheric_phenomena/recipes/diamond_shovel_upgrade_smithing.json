@@ -1,0 +1,16 @@
+{
+  "type": "atmospheric_phenomena:smithing_nbt",
+  "addition": {
+    "item": "atmospheric_phenomena:lonsdaleite"
+  },
+  "base": {
+    "item": "minecraft:diamond_shovel"
+  },
+  "modifier": "lonsdaleite_tool",
+  "result": {
+    "item": "minecraft:diamond_shovel"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

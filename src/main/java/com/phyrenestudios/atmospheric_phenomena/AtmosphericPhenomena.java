@@ -13,6 +13,8 @@ import com.phyrenestudios.atmospheric_phenomena.entities.APBoat;
 import com.phyrenestudios.atmospheric_phenomena.entities.APEntityTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.*;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
+import com.phyrenestudios.atmospheric_phenomena.recipe.APRecipeSerializers;
+import com.phyrenestudios.atmospheric_phenomena.recipe.APRecipeTypes;
 import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
@@ -50,6 +52,8 @@ public class AtmosphericPhenomena {
         APFeatures.FEATURES.register(modEventBus);
         APItems.ITEMS.register(modEventBus);
         APParticleTypes.PARTICLE_TYPES.register(modEventBus);
+        APRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
+        APRecipeTypes.RECIPE_TYPES.register(modEventBus);
         APSoundEvents.SOUNDS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);

@@ -90,6 +90,13 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("death.attack.meteoroid.player", "%1$s was pummeled by a meteoroid whilst trying to escape %2$s");
         add("trim_material.atmospheric_phenomena.lonsdaleite", "Lonsdaleite Material");
         add("trim_material.atmospheric_phenomena.meteoric_iron", "Meteoric Iron Material");
+
+        //Smithing Modifiers
+        add("tooltip.modifier.lonsdaleite_armor", "Upgraded with Lonsdaleite");
+        add("tooltip.modifier.lonsdaleite_tools", "Upgraded with Lonsdaleite");
+        add("tooltip.modifier.meteoric_iron_armor", "Upgraded with Meteoric Iron");
+        add("tooltip.modifier.meteoric_iron_tool", "Upgraded with Meteoric Iron");
+
         //Advancements
         add("advancements.atmospheric_phenomena.root.title", "Atmospheric Phenomena");
         add("advancements.atmospheric_phenomena.root.description", "Seeing is believing");
