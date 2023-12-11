@@ -25,6 +25,7 @@ public class APItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        tag(ItemTags.TRIM_MATERIALS).add(APItems.LONSDALEITE.get(), APItems.METEORIC_IRON.get());
         tag(Tags.Items.GEMS_DIAMOND).add(APItems.LONSDALEITE.get());
         tag(Tags.Items.STORAGE_BLOCKS_DIAMOND).add(APItems.LONSDALEITE_BLOCK.get());
         copy(APTags.Blocks.CHARRED_LOGS, APTags.Items.CHARRED_LOGS);

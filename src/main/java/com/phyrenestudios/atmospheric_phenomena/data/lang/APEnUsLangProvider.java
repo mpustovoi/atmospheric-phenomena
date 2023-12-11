@@ -88,7 +88,8 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("gamerule.createImpactCraters", "Meteoroids create impact craters on land");
         add("death.attack.meteoroid", "%1$s was pummeled by a meteoroid");
         add("death.attack.meteoroid.player", "%1$s was pummeled by a meteoroid whilst trying to escape %2$s");
-
+        add("trim_material.atmospheric_phenomena.lonsdaleite", "Lonsdaleite Material");
+        add("trim_material.atmospheric_phenomena.meteoric_iron", "Meteoric Iron Material");
         //Advancements
         add("advancements.atmospheric_phenomena.root.title", "Atmospheric Phenomena");
         add("advancements.atmospheric_phenomena.root.description", "Seeing is believing");

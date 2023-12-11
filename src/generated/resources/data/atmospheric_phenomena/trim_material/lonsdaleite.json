@@ -1,0 +1,9 @@
+{
+  "asset_name": "lonsdaleite",
+  "description": {
+    "color": "#AB7B76",
+    "translate": "trim_material.atmospheric_phenomena.lonsdaleite"
+  },
+  "ingredient": "atmospheric_phenomena:lonsdaleite",
+  "item_model_index": 0.1
+}
