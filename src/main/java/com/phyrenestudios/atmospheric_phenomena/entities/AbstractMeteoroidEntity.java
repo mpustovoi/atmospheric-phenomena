@@ -27,6 +27,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.fluids.FluidType;
 
@@ -95,10 +96,25 @@ abstract class AbstractMeteoroidEntity extends Entity {
     }
 
     @Override
+    public boolean touchingUnloadedChunk() {
+        AABB aabb = this.getBoundingBox().inflate(3.0D);
+        int i = Mth.floor(aabb.minX);
+        int j = Mth.ceil(aabb.maxX);
+        int k = Mth.floor(aabb.minZ);
+        int l = Mth.ceil(aabb.maxZ);
+        return !this.level().hasChunksAt(i, k, j, l);
+    }
+
+    @Override
     public void tick() {
         super.tick();
+        if (touchingUnloadedChunk()) {
+            this.burnOut();
+            return;
+        }
         if (this.onGround()) {
             this.crash();
+            return;
         }
         if (!this.level().isClientSide) {
             if (!this.isNoGravity() && this.getDeltaMovement().length() == 0.0D) {
