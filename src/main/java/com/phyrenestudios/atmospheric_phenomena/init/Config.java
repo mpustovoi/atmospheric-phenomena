@@ -49,7 +49,7 @@ public class Config
                     "The fourth double represents the maximum bound in the X axis . Default: 1.0",
                     "The fifth double represents the maximum bound in the Y axis . Default: -0.0",
                     "The sixth double represents the maximum bound in the Z axis . Default: 1.0")
-            .defineList("overworldCometVelocity", Arrays.asList(-0.5D, -0.3D, -0.5D, 0.5D, -0.0D, 0.5D), (d) -> d instanceof Double);
+            .defineList("overworldCometVelocity", Arrays.asList(-0.5D, -0.8D, -0.5D, 0.5D, -0.3D, 0.5D), (d) -> d instanceof Double);
 
     private static final ForgeConfigSpec.BooleanValue METEORITE_DESTROY_ALL = BUILDER
             .comment("Defines if meteorite features destroy all blocks. If false, the feature only replaces blocks from #atmospheric_phenomena:valid_meteorite_spawn.")

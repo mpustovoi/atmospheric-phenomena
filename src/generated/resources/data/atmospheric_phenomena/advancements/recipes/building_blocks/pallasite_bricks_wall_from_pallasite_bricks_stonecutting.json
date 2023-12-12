@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pallasite_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "atmospheric_phenomena:pallasite_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "atmospheric_phenomena:pallasite_bricks_wall_from_pallasite_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_pallasite_bricks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "atmospheric_phenomena:pallasite_bricks_wall_from_pallasite_bricks_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

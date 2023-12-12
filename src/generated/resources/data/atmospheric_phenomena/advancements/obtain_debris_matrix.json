@@ -1,0 +1,38 @@
+{
+  "parent": "atmospheric_phenomena:obtain_lonsdaleite",
+  "criteria": {
+    "debris_matrix": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "atmospheric_phenomena:debris_matrix"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.atmospheric_phenomena.obtain_debris_matrix.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "atmospheric_phenomena:debris_matrix"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.atmospheric_phenomena.obtain_debris_matrix.title"
+    }
+  },
+  "requirements": [
+    [
+      "debris_matrix"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

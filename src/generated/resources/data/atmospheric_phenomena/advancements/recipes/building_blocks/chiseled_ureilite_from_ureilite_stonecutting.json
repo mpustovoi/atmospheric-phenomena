@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "atmospheric_phenomena:chiseled_ureilite_from_ureilite_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ureilite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "atmospheric_phenomena:ureilite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_ureilite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "atmospheric_phenomena:chiseled_ureilite_from_ureilite_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

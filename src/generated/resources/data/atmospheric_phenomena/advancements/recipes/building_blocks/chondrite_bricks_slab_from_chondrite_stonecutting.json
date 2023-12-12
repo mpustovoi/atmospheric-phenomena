@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chondrite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "atmospheric_phenomena:chondrite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "atmospheric_phenomena:chondrite_bricks_slab_from_chondrite_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_chondrite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "atmospheric_phenomena:chondrite_bricks_slab_from_chondrite_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}
