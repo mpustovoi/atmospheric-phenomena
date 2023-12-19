@@ -52,7 +52,8 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APBlocks.METEORIC_IRON_BLOCK.get(), "Block of Meteoric Iron");
         add(APBlocks.METEORIC_ICE.get());
         add(APBlocks.SOIL_FULGURITE.get());
-        add(APBlocks.SSTONE_FULGURITE.get());
+        add(APBlocks.STONE_FULGURITE.get());
+        add(APBlocks.METEOR_CRATE.get());
         add(APItems.LONSDALEITE.get());
         add(APItems.METEORIC_IRON.get());
 

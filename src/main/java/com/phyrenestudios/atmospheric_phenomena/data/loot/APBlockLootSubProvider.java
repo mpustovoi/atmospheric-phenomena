@@ -25,14 +25,14 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
-public class APBlockLotSubProvider extends BlockLootSubProvider {
+public class APBlockLootSubProvider extends BlockLootSubProvider {
     protected static final LootItemCondition.Builder HAS_SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))));
     protected static final LootItemCondition.Builder HAS_NO_SILK_TOUCH = HAS_SILK_TOUCH.invert();
     protected static final LootItemCondition.Builder HAS_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
     private static final LootItemCondition.Builder HAS_SHEARS_OR_SILK_TOUCH = HAS_SHEARS.or(HAS_SILK_TOUCH);
     private static final LootItemCondition.Builder HAS_NO_SHEARS_OR_SILK_TOUCH = HAS_SHEARS_OR_SILK_TOUCH.invert();
 
-    public APBlockLotSubProvider() {
+    public APBlockLootSubProvider() {
         super(Collections.emptySet(), FeatureFlags.REGISTRY.allFlags());
     }
 
@@ -70,7 +70,8 @@ public class APBlockLotSubProvider extends BlockLootSubProvider {
         dropSelf(APBlocks.METEORIC_IRON_BLOCK.get());
         dropSelf(APBlocks.METEORIC_ICE.get());
         dropSelf(APBlocks.SOIL_FULGURITE.get());
-        dropSelf(APBlocks.SSTONE_FULGURITE.get());
+        dropSelf(APBlocks.STONE_FULGURITE.get());
+        dropSelf(APBlocks.METEOR_CRATE.get());
 
 
         dropOther(APBlocks.BURNING_LOG.get(), APBlocks.CHARRED_LOG.get());

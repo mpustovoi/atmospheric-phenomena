@@ -2,6 +2,9 @@ package com.phyrenestudios.atmospheric_phenomena.worldgen;
 
 
 import com.mojang.serialization.Codec;
+import com.phyrenestudios.atmospheric_phenomena.block_entities.MeteorCrateBlockEntity;
+import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
+import com.phyrenestudios.atmospheric_phenomena.data.loot.APLootTables;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import com.phyrenestudios.atmospheric_phenomena.util.FeatureUtils;
@@ -35,10 +38,17 @@ public class BuriedMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
         int size = 2;
         FeatureUtils.populateBlockCollections();
 
-        List<BlockPos> centerList = getCenters(rand, posIn, size, 3);
-        centerList = burriedPositions(centerList, rand);
+        List<BlockPos> centerList = getCenters(rand, posIn.below(2), size, 3);
+        int depth = rand.nextInt(8)+2;
+        centerList = burriedPositions(centerList, rand, depth);
         buildMeteor(levelIn, rand, centerList, size);
+        if (rand.nextDouble() < Config.meteoriteCrateSpawnChance) setCrate(levelIn, rand, posIn.below(depth+2));
         return true;
+    }
+
+    private void setCrate(WorldGenLevel levelIn, RandomSource rand, BlockPos posIn) {
+        levelIn.setBlock(posIn, APBlocks.METEOR_CRATE.get().defaultBlockState(), 2);
+        MeteorCrateBlockEntity.setLootTable(levelIn, rand, posIn, APLootTables.OVERWORLD_METEOR);
     }
 
     private void buildMeteor(WorldGenLevel levelIn, RandomSource rand, List<BlockPos> centerList, int size) {
@@ -77,16 +87,14 @@ public class BuriedMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
 
     private List<BlockPos> getCenters(RandomSource rand, BlockPos posIn, int size, int count) {
         List<BlockPos> list = new ArrayList<>();
-        BlockPos pos = posIn.below(2);
         for (int i = 1; i <= count; i++) {
-            list.add(pos.offset(rand.nextInt(3)-1, rand.nextInt(3)-1, rand.nextInt(3)-1));
+            list.add(posIn.offset(rand.nextInt(3)-1, rand.nextInt(3)-1, rand.nextInt(3)-1));
         }
         return list;
     }
 
-    private List<BlockPos> burriedPositions(List<BlockPos> centers, RandomSource rand) {
+    private List<BlockPos> burriedPositions(List<BlockPos> centers, RandomSource rand, int depth) {
         List<BlockPos> list = new ArrayList<>();
-        int depth = rand.nextInt(8)+2;
         for (BlockPos pos : centers) {
             list.add(pos.below(depth));
         }

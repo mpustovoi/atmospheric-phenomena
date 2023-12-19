@@ -16,10 +16,15 @@ public class APBlockEntities {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, AtmosphericPhenomena.MODID);
 
+    public static final RegistryObject<BlockEntityType<MeteorCrateBlockEntity>> METEOR_CRATE = BLOCK_ENTITY_TYPES.register("meteor_crate",
+            () -> BlockEntityType.Builder.of(MeteorCrateBlockEntity::new, APBlocks.METEOR_CRATE.get())
+                    .build(null));
+
     public static final RegistryObject<BlockEntityType<APSignBlockEntity>> AP_SIGN = BLOCK_ENTITY_TYPES.register("ap_sign",
             () -> BlockEntityType.Builder.of(APSignBlockEntity::new,
                     APBlocks.CHARRED_SIGN.get(), APBlocks.CHARRED_WALL_SIGN.get()
             ).build(null));
+
     public static final RegistryObject<BlockEntityType<APSignBlockEntity>> AP_HANGING_SIGN = BLOCK_ENTITY_TYPES.register("ap_hanging_sign",
             () -> BlockEntityType.Builder.of(APSignBlockEntity::new,
                     APBlocks.CHARRED_HANGING_SIGN.get(), APBlocks.CHARRED_WALL_HANGING_SIGN.get()

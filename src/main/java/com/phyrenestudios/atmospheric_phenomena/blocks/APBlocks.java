@@ -38,7 +38,8 @@ public class APBlocks {
     public static final RegistryObject<Block> METEORIC_ICE = BLOCKS.register("meteoric_ice", () -> new HalfTransparentBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).strength(2.8F).friction(1.0F).sound(SoundType.GLASS)));
 
     public static final RegistryObject<Block> SOIL_FULGURITE = BLOCKS.register("soil_fulgurite", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).requiresCorrectToolForDrops().strength(3F, 3F)));
-    public static final RegistryObject<Block> SSTONE_FULGURITE = BLOCKS.register("stone_fulgurite", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).requiresCorrectToolForDrops().strength(3F, 3F)));
+    public static final RegistryObject<Block> STONE_FULGURITE = BLOCKS.register("stone_fulgurite", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).requiresCorrectToolForDrops().strength(3F, 3F)));
+    public static final RegistryObject<MeteorCrateBlock> METEOR_CRATE = BLOCKS.register("meteor_crate", () -> new MeteorCrateBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).requiresCorrectToolForDrops().strength(50.0F, 2000.0F)));
 
 
     public static final RegistryObject<RotatedPillarBlock> BURNING_LOG = BLOCKS.register("burning_log", () -> burningLog(MapColor.STONE, MapColor.STONE));

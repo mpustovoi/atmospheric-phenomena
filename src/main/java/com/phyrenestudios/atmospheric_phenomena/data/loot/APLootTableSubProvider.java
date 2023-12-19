@@ -17,7 +17,8 @@ public class APLootTableSubProvider extends LootTableProvider {
     @Override
     public List<SubProviderEntry> getTables() {
         return ImmutableList.of(
-                new SubProviderEntry(APBlockLotSubProvider::new, LootContextParamSets.BLOCK)
+                new SubProviderEntry(APBlockLootSubProvider::new, LootContextParamSets.BLOCK),
+                new SubProviderEntry(APChestLootSubProvider::new, LootContextParamSets.CHEST)
                 //other loot sub providers (fishing, entities)
         );
     }

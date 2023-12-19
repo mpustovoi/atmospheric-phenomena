@@ -2,6 +2,9 @@ package com.phyrenestudios.atmospheric_phenomena.worldgen;
 
 
 import com.mojang.serialization.Codec;
+import com.phyrenestudios.atmospheric_phenomena.block_entities.MeteorCrateBlockEntity;
+import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
+import com.phyrenestudios.atmospheric_phenomena.data.loot.APLootTables;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import com.phyrenestudios.atmospheric_phenomena.util.FeatureUtils;
@@ -42,6 +45,7 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
         BlockPos centerPos = getCenterPos(centerList);
         buildCrater(levelIn, centerPos, size + 6, levelIn.getBlockState(posIn.below()), levelIn.getBlockState(centerPos.below(5)));
         buildMeteor(levelIn, rand, centerList, size);
+        if (rand.nextDouble() < Config.meteoriteCrateSpawnChance) setCrate(levelIn, rand, centerPos);
         return true;
     }
 
@@ -146,6 +150,11 @@ public class OverworldMeteoriteFeature extends Feature<NoneFeatureConfiguration>
             }
         }
 
+    }
+
+    private void setCrate(WorldGenLevel levelIn, RandomSource rand, BlockPos posIn) {
+        levelIn.setBlock(posIn, APBlocks.METEOR_CRATE.get().defaultBlockState(), 2);
+        MeteorCrateBlockEntity.setLootTable(levelIn, rand, posIn, APLootTables.OVERWORLD_METEOR);
     }
 
     private double shortestDistance(BlockPos posIn, List<BlockPos> centerList, int size) {

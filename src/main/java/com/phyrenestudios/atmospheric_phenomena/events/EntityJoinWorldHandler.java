@@ -119,7 +119,7 @@ public class EntityJoinWorldHandler {
     private static BlockState getVitrifiedBlock(BlockState stateIn) {
         if (stateIn.is(APTags.Blocks.VITRIFIES_TO_GLASS)) return LightningGlassBlocks.WHITE_LIGHTNING_GLASS.getGlass().defaultBlockState();
         if (stateIn.is(APTags.Blocks.VITRIFIES_TO_SOIL_FULGURITE)) return APBlocks.SOIL_FULGURITE.get().defaultBlockState();
-        if (stateIn.is(APTags.Blocks.VITRIFIES_TO_STONE_FULGURITE)) return APBlocks.SSTONE_FULGURITE.get().defaultBlockState();
+        if (stateIn.is(APTags.Blocks.VITRIFIES_TO_STONE_FULGURITE)) return APBlocks.STONE_FULGURITE.get().defaultBlockState();
         if (stateIn.is(BlockTags.LOGS_THAT_BURN)) return APBlocks.BURNING_LOG.get().defaultBlockState();
         return Blocks.AIR.defaultBlockState();
     }

@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-11T17:26:13.8872844	atmospheric_phenomena - Item Models
+// 1.20.1	2023-12-12T15:26:03.7075422	atmospheric_phenomena - Item Models
 3d1da5031883499244b58c6e45de5c3347572d6c assets/atmospheric_phenomena/models/item/angrite.json
 ad31523e46091dc28e6bfcf74bdd182aba1d4c2c assets/atmospheric_phenomena/models/item/angrite_bricks.json
 57ebf6276c1d52c439ca037d5240a0cf82dc02a1 assets/atmospheric_phenomena/models/item/angrite_bricks_slab.json
@@ -73,6 +73,7 @@ f283f84c9a11817e77555587a948eab297504cd8 assets/atmospheric_phenomena/models/ite
 938484199968cc876a2fdf4372677f124cefca60 assets/atmospheric_phenomena/models/item/meteoric_ice.json
 e07ed91e97e138172709fc08b680bccb5c5e26a6 assets/atmospheric_phenomena/models/item/meteoric_iron.json
 6cceaceec62ea4db8d0891fc42e15a2069dbcf15 assets/atmospheric_phenomena/models/item/meteoric_iron_block.json
+ca9a4ed947217b9aeb986a0a19a0777e48f99adc assets/atmospheric_phenomena/models/item/meteor_crate.json
 166e6ffba1a9d5f5f71e542e63614e56bf7d84be assets/atmospheric_phenomena/models/item/orange_lightning_glass.json
 c25277e6b91d0ec052b4b736ab05f33ee3915f83 assets/atmospheric_phenomena/models/item/otherworldly_upgrade_smithing_template.json
 d33a43fcefb4e3592b81fd47a23a214e8dbab3ed assets/atmospheric_phenomena/models/item/pallasite.json

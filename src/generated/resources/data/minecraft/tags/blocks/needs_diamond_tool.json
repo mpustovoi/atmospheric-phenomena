@@ -1,6 +1,7 @@
 {
   "values": [
     "atmospheric_phenomena:lonsdaleite_matrix",
-    "atmospheric_phenomena:debris_matrix"
+    "atmospheric_phenomena:debris_matrix",
+    "atmospheric_phenomena:meteor_crate"
   ]
 }

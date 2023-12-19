@@ -76,6 +76,7 @@
     "atmospheric_phenomena:meteoric_iron_block",
     "atmospheric_phenomena:meteoric_ice",
     "atmospheric_phenomena:soil_fulgurite",
-    "atmospheric_phenomena:stone_fulgurite"
+    "atmospheric_phenomena:stone_fulgurite",
+    "atmospheric_phenomena:meteor_crate"
   ]
 }

@@ -54,6 +54,9 @@ public class Config
     private static final ForgeConfigSpec.BooleanValue METEORITE_DESTROY_ALL = BUILDER
             .comment("Defines if meteorite features destroy all blocks. If false, the feature only replaces blocks from #atmospheric_phenomena:valid_meteorite_spawn.")
             .define("meteoriteDestroyAll", true);
+    private static final ForgeConfigSpec.DoubleValue METEORITE_CRATE_SPAWN_CHANCE = BUILDER
+            .comment("The chance for a meteor to spawn with a crate.")
+            .defineInRange("meteoriteCrateSpawnChance", 0.5D, 0.0D, 1.0D);
     private static final ForgeConfigSpec.DoubleValue SOLID_CORE_METEORITE_CHANCE = BUILDER
             .comment("The chance for a meteorite to generate with no core blocks.")
             .defineInRange("solidCoreMeteoriteChance", 0.2D, 0.0D, 1.0D);
@@ -91,6 +94,7 @@ public class Config
     public static List<? extends Double> overworldMeteorVelocity;
     public static List<? extends Integer> overworldCometSpawnSettings;
     public static List<? extends Double> overworldCometVelocity;
+    public static double meteoriteCrateSpawnChance;
     public static double solidCoreMeteoriteChance;
     public static double magmaBlockFrequency;
     public static double strewnBlockFrequency;
@@ -112,6 +116,7 @@ public class Config
         overworldCometVelocity = OVERWORLD_COMET_VELOCITY.get();
 
         meteoriteDestroyAll = METEORITE_DESTROY_ALL.get();
+        meteoriteCrateSpawnChance = METEORITE_CRATE_SPAWN_CHANCE.get();
         solidCoreMeteoriteChance = SOLID_CORE_METEORITE_CHANCE.get();
         magmaBlockFrequency = MAGMA_FREQUENCY.get();
         strewnBlockFrequency = STREWN_BLOCK_FREQUENCY.get();

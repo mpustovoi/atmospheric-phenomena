@@ -39,6 +39,7 @@ public class APCreativeTabs {
                 output.accept(APItems.GOLDEN_MATRIX.get());
                 output.accept(APItems.LONSDALEITE_MATRIX.get());
                 output.accept(APItems.DEBRIS_MATRIX.get());
+                output.accept(APItems.METEOR_CRATE.get());
                 output.accept(APItems.STONE_FULGURITE.get());
                 output.accept(APItems.SOIL_FULGURITE.get());
 
