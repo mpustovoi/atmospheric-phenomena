@@ -46,6 +46,9 @@ public class APBlockstateProvider extends BlockStateProvider {
         for (TektiteBlocks base : TektiteBlocks.values()) {
             simpleBlock(base.getTektite(), models().cubeAll(base.getSerializedName(), blockTexture(base.getTektite())).renderType("translucent"));
         }
+        for (CapsuleBlocks base : CapsuleBlocks.values()) {
+            simpleBlock(base.getCapsule());
+        }
         simpleBlock(APBlocks.KAMACITE.get());
         simpleBlock(APBlocks.TAENITE.get());
         simpleBlock(APBlocks.TETRATAENITE.get());
@@ -59,7 +62,6 @@ public class APBlockstateProvider extends BlockStateProvider {
         simpleBlock(APBlocks.METEORIC_ICE.get());
         simpleBlock(APBlocks.SOIL_FULGURITE.get());
         simpleBlock(APBlocks.STONE_FULGURITE.get());
-        simpleBlock(APBlocks.METEOR_CRATE.get());
 
 
         axisBlock(APBlocks.BURNING_LOG.get(), getBlockRSL(APBlocks.BURNING_LOG.get()), getBlockRSL(name(APBlocks.BURNING_LOG.get(),"_top")));

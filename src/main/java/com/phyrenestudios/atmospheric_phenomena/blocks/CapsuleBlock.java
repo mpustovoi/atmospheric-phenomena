@@ -1,6 +1,6 @@
 package com.phyrenestudios.atmospheric_phenomena.blocks;
 
-import com.phyrenestudios.atmospheric_phenomena.block_entities.MeteorCrateBlockEntity;
+import com.phyrenestudios.atmospheric_phenomena.block_entities.CapsuleBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
@@ -12,16 +12,15 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class MeteorCrateBlock extends BaseEntityBlock {
-
-    protected MeteorCrateBlock(Properties p_49224_) {
+public class CapsuleBlock extends BaseEntityBlock {
+    protected CapsuleBlock(Properties p_49224_) {
         super(p_49224_);
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos posIn, BlockState stateIn) {
-        return new MeteorCrateBlockEntity(posIn, stateIn);
+        return new CapsuleBlockEntity(posIn, stateIn);
     }
 
     public boolean hasAnalogOutputSignal(BlockState p_56221_) {
@@ -39,8 +38,8 @@ public class MeteorCrateBlock extends BaseEntityBlock {
     public void onRemove(BlockState state, Level worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.is(newState.getBlock())) return;
         BlockEntity blockentity = worldIn.getBlockEntity(pos);
-        if (blockentity instanceof MeteorCrateBlockEntity meteorCrateBlockEntity) {
-            Containers.dropContents(worldIn, pos, meteorCrateBlockEntity);
+        if (blockentity instanceof CapsuleBlockEntity capsuleBlockEntity) {
+            Containers.dropContents(worldIn, pos, capsuleBlockEntity);
             worldIn.updateNeighbourForOutputSignal(pos, this);
         }
         super.onRemove(state, worldIn, pos, newState, isMoving);

@@ -1,7 +1,12 @@
 {
   "values": [
+    "atmospheric_phenomena:plated_capsule",
+    "atmospheric_phenomena:crystalline_capsule",
+    "atmospheric_phenomena:gilded_capsule",
+    "atmospheric_phenomena:studded_capsule",
+    "atmospheric_phenomena:ancient_capsule",
+    "atmospheric_phenomena:frozen_capsule",
     "atmospheric_phenomena:lonsdaleite_matrix",
-    "atmospheric_phenomena:debris_matrix",
-    "atmospheric_phenomena:meteor_crate"
+    "atmospheric_phenomena:debris_matrix"
   ]
 }

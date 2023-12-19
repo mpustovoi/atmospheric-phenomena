@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-12T20:06:17.1474665	atmospheric_phenomena - Block Tags
+// 1.20.1	2023-12-19T09:11:56.4054552	atmospheric_phenomena - Block Tags
 7a0c6f8914577d382100fb581a1169aff16274fd data/atmospheric_phenomena/tags/blocks/burning_logs.json
 d66d81cd4e2c15d320a99acc3e293d6bf6ac4b36 data/atmospheric_phenomena/tags/blocks/charred_logs.json
 acdf642b637a4d60ab574d48a9d0303782cfb4cb data/atmospheric_phenomena/tags/blocks/common_meteor_blocks.json
@@ -21,13 +21,13 @@ c1b2a217bb3fcb7e1d67f5bc45409796720bd171 data/atmospheric_phenomena/tags/blocks/
 1ec39b26596f29382042148f535e06577c885654 data/forge/tags/blocks/glass.json
 ba5167dcaebfb172cfd09fcf6264e36dc445248f data/forge/tags/blocks/storage_blocks/diamond.json
 678ba021943c66512e1289a47e25054b391a7d93 data/minecraft/tags/blocks/ceiling_hanging_signs.json
-4bac502f74ce4686e5530b730a16178e8cac7132 data/minecraft/tags/blocks/features_cannot_replace.json
+3889e1c83025a9e6e63bcde8fa4341336bb6aaad data/minecraft/tags/blocks/features_cannot_replace.json
 22a9e10689601a6f4795cf6dec96f10987936376 data/minecraft/tags/blocks/fence_gates.json
 270edd9b5a2684d9d5cd3996e6b2f36c0c86a538 data/minecraft/tags/blocks/ice.json
 08a7fa2b4d52477c5b46a61b0f0b337924aa5ba8 data/minecraft/tags/blocks/logs_that_burn.json
 fe1ec35e6455fe18700589cfc693976a95748c04 data/minecraft/tags/blocks/mineable/axe.json
-209048f3dc4c216e17277f6e0cdfedf84537a33f data/minecraft/tags/blocks/mineable/pickaxe.json
-126791d73cf158c48684c66c16b2e77371204222 data/minecraft/tags/blocks/needs_diamond_tool.json
+ecc7ad2b5f8eedd94f68a7a4d564dc3a0688ccfe data/minecraft/tags/blocks/mineable/pickaxe.json
+a65c310c9b7e1d86a4895f55cd6fb277d3e7843d data/minecraft/tags/blocks/needs_diamond_tool.json
 bee8a31cbc64b036235fdaa1a00a0497635284a2 data/minecraft/tags/blocks/needs_iron_tool.json
 312291bb9bea80b00750a0d339453b4131c57036 data/minecraft/tags/blocks/planks.json
 7e1e9b56d607f4f3160701b1cca0d4d8f2fb1821 data/minecraft/tags/blocks/slabs.json

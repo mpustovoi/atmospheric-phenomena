@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "atmospheric_phenomena:block/plated_capsule"
+    }
+  }
+}

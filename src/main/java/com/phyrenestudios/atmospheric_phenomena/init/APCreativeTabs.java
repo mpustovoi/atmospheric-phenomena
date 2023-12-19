@@ -1,6 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.init;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import com.phyrenestudios.atmospheric_phenomena.blocks.CapsuleBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
@@ -39,7 +40,11 @@ public class APCreativeTabs {
                 output.accept(APItems.GOLDEN_MATRIX.get());
                 output.accept(APItems.LONSDALEITE_MATRIX.get());
                 output.accept(APItems.DEBRIS_MATRIX.get());
-                output.accept(APItems.METEOR_CRATE.get());
+                for (CapsuleBlocks base : CapsuleBlocks.values()) {
+                    output.accept(base.getCapsule());
+                }
+                output.accept(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get());
+
                 output.accept(APItems.STONE_FULGURITE.get());
                 output.accept(APItems.SOIL_FULGURITE.get());
 
@@ -73,7 +78,6 @@ public class APCreativeTabs {
                 output.accept(APItems.CHARRED_BOOKSHELF.get());
                 output.accept(APItems.CHARRED_BOAT.get());
                 output.accept(APItems.CHARRED_CHEST_BOAT.get());
-                output.accept(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get());
 
 
             }).build());

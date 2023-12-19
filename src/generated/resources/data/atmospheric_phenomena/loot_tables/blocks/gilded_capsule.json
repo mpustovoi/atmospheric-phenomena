@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "atmospheric_phenomena:meteor_crate"
+          "name": "atmospheric_phenomena:gilded_capsule"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "atmospheric_phenomena:blocks/meteor_crate"
+  "random_sequence": "atmospheric_phenomena:blocks/gilded_capsule"
 }

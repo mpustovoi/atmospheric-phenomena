@@ -1,9 +1,6 @@
 package com.phyrenestudios.atmospheric_phenomena.data.loot;
 
-import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.*;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -57,6 +54,9 @@ public class APBlockLootSubProvider extends BlockLootSubProvider {
         for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
             dropSelf(base.getGlass());
         }
+        for (CapsuleBlocks base : CapsuleBlocks.values()) {
+            dropSelf(base.getCapsule());
+        }
 
         addOre(APBlocks.KAMACITE.get(), APItems.METEORIC_IRON.get());
         addOre(APBlocks.TAENITE.get(), APItems.METEORIC_IRON.get());
@@ -71,7 +71,6 @@ public class APBlockLootSubProvider extends BlockLootSubProvider {
         dropSelf(APBlocks.METEORIC_ICE.get());
         dropSelf(APBlocks.SOIL_FULGURITE.get());
         dropSelf(APBlocks.STONE_FULGURITE.get());
-        dropSelf(APBlocks.METEOR_CRATE.get());
 
 
         dropOther(APBlocks.BURNING_LOG.get(), APBlocks.CHARRED_LOG.get());

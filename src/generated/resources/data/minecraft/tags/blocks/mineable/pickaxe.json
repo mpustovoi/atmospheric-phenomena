@@ -64,6 +64,12 @@
     "atmospheric_phenomena:purple_lightning_glass",
     "atmospheric_phenomena:magenta_lightning_glass",
     "atmospheric_phenomena:pink_lightning_glass",
+    "atmospheric_phenomena:plated_capsule",
+    "atmospheric_phenomena:crystalline_capsule",
+    "atmospheric_phenomena:gilded_capsule",
+    "atmospheric_phenomena:studded_capsule",
+    "atmospheric_phenomena:ancient_capsule",
+    "atmospheric_phenomena:frozen_capsule",
     "atmospheric_phenomena:kamacite",
     "atmospheric_phenomena:taenite",
     "atmospheric_phenomena:tetrataenite",
@@ -76,7 +82,6 @@
     "atmospheric_phenomena:meteoric_iron_block",
     "atmospheric_phenomena:meteoric_ice",
     "atmospheric_phenomena:soil_fulgurite",
-    "atmospheric_phenomena:stone_fulgurite",
-    "atmospheric_phenomena:meteor_crate"
+    "atmospheric_phenomena:stone_fulgurite"
   ]
 }

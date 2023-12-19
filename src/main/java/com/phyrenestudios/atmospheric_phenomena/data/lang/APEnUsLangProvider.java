@@ -1,10 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.data.lang;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
-import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.*;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
@@ -40,6 +37,9 @@ public class APEnUsLangProvider extends LanguageProvider {
         for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
             add(base.getGlass());
         }
+        for (CapsuleBlocks base : CapsuleBlocks.values()) {
+            add(base.getCapsule());
+        }
         add(APBlocks.KAMACITE.get());
         add(APBlocks.TAENITE.get());
         add(APBlocks.TETRATAENITE.get());
@@ -53,7 +53,6 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APBlocks.METEORIC_ICE.get());
         add(APBlocks.SOIL_FULGURITE.get());
         add(APBlocks.STONE_FULGURITE.get());
-        add(APBlocks.METEOR_CRATE.get());
         add(APItems.LONSDALEITE.get());
         add(APItems.METEORIC_IRON.get());
 

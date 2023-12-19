@@ -1,10 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.data;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
-import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.*;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -44,6 +41,9 @@ public class APItemModelProvider extends ItemModelProvider {
         for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
             withExistingParent(base.getGlass());
         }
+        for (CapsuleBlocks base : CapsuleBlocks.values()) {
+            withExistingParent(base.getCapsule());
+        }
         withExistingParent(APBlocks.KAMACITE.get());
         withExistingParent(APBlocks.TAENITE.get());
         withExistingParent(APBlocks.TETRATAENITE.get());
@@ -57,7 +57,6 @@ public class APItemModelProvider extends ItemModelProvider {
         withExistingParent(APBlocks.METEORIC_ICE.get());
         withExistingParent(APBlocks.SOIL_FULGURITE.get());
         withExistingParent(APBlocks.STONE_FULGURITE.get());
-        withExistingParent(APBlocks.METEOR_CRATE.get());
 
         basicItem(APItems.LONSDALEITE.get());
         basicItem(APItems.METEORIC_IRON.get());

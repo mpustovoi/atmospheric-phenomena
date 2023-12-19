@@ -2,8 +2,8 @@ package com.phyrenestudios.atmospheric_phenomena.worldgen;
 
 
 import com.mojang.serialization.Codec;
-import com.phyrenestudios.atmospheric_phenomena.block_entities.MeteorCrateBlockEntity;
-import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
+import com.phyrenestudios.atmospheric_phenomena.block_entities.CapsuleBlockEntity;
+import com.phyrenestudios.atmospheric_phenomena.blocks.CapsuleBlocks;
 import com.phyrenestudios.atmospheric_phenomena.data.loot.APLootTables;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.init.Config;
@@ -152,8 +152,8 @@ public class FreshMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     private void setCrate(WorldGenLevel levelIn, RandomSource rand, BlockPos posIn) {
-        levelIn.setBlock(posIn, APBlocks.METEOR_CRATE.get().defaultBlockState(), 2);
-        MeteorCrateBlockEntity.setLootTable(levelIn, rand, posIn, APLootTables.OVERWORLD_METEOR);
+        levelIn.setBlock(posIn, CapsuleBlocks.PLATED_CAPSULE.getCapsule().defaultBlockState(), 2);
+        CapsuleBlockEntity.setLootTable(levelIn, rand, posIn, APLootTables.OVERWORLD_METEOR);
     }
     private double shortestDistance(BlockPos posIn, List<BlockPos> centerList, int size) {
         double minDist = 100D;

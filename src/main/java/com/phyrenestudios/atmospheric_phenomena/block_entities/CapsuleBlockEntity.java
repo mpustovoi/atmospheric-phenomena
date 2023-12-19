@@ -23,8 +23,8 @@ import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
-public class MeteorCrateBlockEntity extends BlockEntity implements Container {
-    public static final int CONTAINER_SIZE = 16;
+public class CapsuleBlockEntity extends BlockEntity implements Container {
+    private final int CONTAINER_SIZE = 16;
     private NonNullList<ItemStack> items = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
     public static final String LOOT_TABLE_TAG = "LootTable";
     public static final String LOOT_TABLE_SEED_TAG = "LootTableSeed";
@@ -32,8 +32,8 @@ public class MeteorCrateBlockEntity extends BlockEntity implements Container {
     protected ResourceLocation lootTable;
     protected long lootTableSeed;
 
-    public MeteorCrateBlockEntity(BlockPos posIn, BlockState stateIn) {
-        super(APBlockEntities.METEOR_CRATE.get(), posIn, stateIn);
+    public CapsuleBlockEntity(BlockPos posIn, BlockState stateIn) {
+        super(APBlockEntities.CRATE.get(), posIn, stateIn);
     }
 
     protected void saveAdditional(CompoundTag p_187459_) {
@@ -110,8 +110,8 @@ public class MeteorCrateBlockEntity extends BlockEntity implements Container {
 
     public static void setLootTable(BlockGetter p_222767_, RandomSource p_222768_, BlockPos p_222769_, ResourceLocation p_222770_) {
         BlockEntity blockentity = p_222767_.getBlockEntity(p_222769_);
-        if (blockentity instanceof MeteorCrateBlockEntity) {
-            ((MeteorCrateBlockEntity)blockentity).setLootTable(p_222770_, p_222768_.nextLong());
+        if (blockentity instanceof CapsuleBlockEntity capsuleBlockEntity) {
+            capsuleBlockEntity.setLootTable(p_222770_, p_222768_.nextLong());
         }
 
     }

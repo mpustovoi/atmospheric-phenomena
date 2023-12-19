@@ -2,6 +2,7 @@ package com.phyrenestudios.atmospheric_phenomena.block_entities;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.CapsuleBlocks;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -16,8 +17,8 @@ public class APBlockEntities {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, AtmosphericPhenomena.MODID);
 
-    public static final RegistryObject<BlockEntityType<MeteorCrateBlockEntity>> METEOR_CRATE = BLOCK_ENTITY_TYPES.register("meteor_crate",
-            () -> BlockEntityType.Builder.of(MeteorCrateBlockEntity::new, APBlocks.METEOR_CRATE.get())
+    public static final RegistryObject<BlockEntityType<CapsuleBlockEntity>> CRATE = BLOCK_ENTITY_TYPES.register("crate",
+            () -> BlockEntityType.Builder.of(CapsuleBlockEntity::new, CapsuleBlocks.FROZEN_CAPSULE.getCapsule(), CapsuleBlocks.ANCIENT_CAPSULE.getCapsule(), CapsuleBlocks.CRYSTALLINE_CAPSULE.getCapsule(), CapsuleBlocks.GILDED_CAPSULE.getCapsule(), CapsuleBlocks.PLATED_CAPSULE.getCapsule(), CapsuleBlocks.STUDDED_CAPSULE.getCapsule())
                     .build(null));
 
     public static final RegistryObject<BlockEntityType<APSignBlockEntity>> AP_SIGN = BLOCK_ENTITY_TYPES.register("ap_sign",

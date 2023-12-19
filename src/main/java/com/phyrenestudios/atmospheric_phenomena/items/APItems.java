@@ -1,10 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.items;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
-import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
-import com.phyrenestudios.atmospheric_phenomena.blocks.TektiteBlocks;
+import com.phyrenestudios.atmospheric_phenomena.blocks.*;
 import com.phyrenestudios.atmospheric_phenomena.entities.APBoat;
 import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,7 +16,7 @@ public class APItems {
         MeteorBlocks.registerItems();
         TektiteBlocks.registerItems();
         LightningGlassBlocks.registerItems();
-
+        CapsuleBlocks.registerItems();
     }
     public static final RegistryObject<Item> KAMACITE = ITEMS.register("kamacite", () -> new BlockItem(APBlocks.KAMACITE.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> TAENITE = ITEMS.register("taenite", () -> new BlockItem(APBlocks.TAENITE.get(), new Item.Properties().stacksTo(64)));
@@ -37,7 +34,6 @@ public class APItems {
 
     public static final RegistryObject<Item> SOIL_FULGURITE = ITEMS.register("soil_fulgurite", () -> new BlockItem(APBlocks.SOIL_FULGURITE.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> STONE_FULGURITE = ITEMS.register("stone_fulgurite", () -> new BlockItem(APBlocks.STONE_FULGURITE.get(), new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> METEOR_CRATE = ITEMS.register("meteor_crate", () -> new BlockItem(APBlocks.METEOR_CRATE.get(), new Item.Properties().stacksTo(64)));
 
     private static final String baseName = "charred";
     public static final RegistryObject<Item> BURNING_LOG = ITEMS.register("burning_log", () -> new BlockItem(APBlocks.BURNING_LOG.get(), new Item.Properties().stacksTo(64)));
