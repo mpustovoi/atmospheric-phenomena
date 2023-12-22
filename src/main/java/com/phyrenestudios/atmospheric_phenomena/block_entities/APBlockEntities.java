@@ -17,7 +17,7 @@ public class APBlockEntities {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, AtmosphericPhenomena.MODID);
 
-    public static final RegistryObject<BlockEntityType<CapsuleBlockEntity>> CRATE = BLOCK_ENTITY_TYPES.register("crate",
+    public static final RegistryObject<BlockEntityType<CapsuleBlockEntity>> CAPSULE = BLOCK_ENTITY_TYPES.register("capsule",
             () -> BlockEntityType.Builder.of(CapsuleBlockEntity::new, CapsuleBlocks.FROZEN_CAPSULE.getCapsule(), CapsuleBlocks.ANCIENT_CAPSULE.getCapsule(), CapsuleBlocks.CRYSTALLINE_CAPSULE.getCapsule(), CapsuleBlocks.GILDED_CAPSULE.getCapsule(), CapsuleBlocks.PLATED_CAPSULE.getCapsule(), CapsuleBlocks.STUDDED_CAPSULE.getCapsule())
                     .build(null));
 

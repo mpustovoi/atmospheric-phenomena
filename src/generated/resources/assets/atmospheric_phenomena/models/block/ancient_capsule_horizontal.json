@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
     "end": "atmospheric_phenomena:block/ancient_capsule_top",
     "side": "atmospheric_phenomena:block/ancient_capsule"

@@ -4,12 +4,14 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.Nameable;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -23,9 +25,11 @@ import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
-public class CapsuleBlockEntity extends BlockEntity implements Container {
+public class CapsuleBlockEntity extends BlockEntity implements Container, Nameable {
+    @Nullable
+    private Component name;
     private final int CONTAINER_SIZE = 16;
-    private NonNullList<ItemStack> items = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
+    private NonNullList<ItemStack> itemStacks = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
     public static final String LOOT_TABLE_TAG = "LootTable";
     public static final String LOOT_TABLE_SEED_TAG = "LootTableSeed";
     @Nullable
@@ -33,24 +37,36 @@ public class CapsuleBlockEntity extends BlockEntity implements Container {
     protected long lootTableSeed;
 
     public CapsuleBlockEntity(BlockPos posIn, BlockState stateIn) {
-        super(APBlockEntities.CRATE.get(), posIn, stateIn);
+        super(APBlockEntities.CAPSULE.get(), posIn, stateIn);
     }
 
-    protected void saveAdditional(CompoundTag p_187459_) {
-        super.saveAdditional(p_187459_);
-        if (!this.trySaveLootTable(p_187459_)) {
-            ContainerHelper.saveAllItems(p_187459_, this.items);
+    public void load(CompoundTag p_155678_) {
+        super.load(p_155678_);
+        this.loadFromTag(p_155678_);
+        if (p_155678_.contains("CustomName", 8)) {
+            this.name = Component.Serializer.fromJson(p_155678_.getString("CustomName"));
+        }
+    }
+
+    protected void saveAdditional(CompoundTag p_187513_) {
+        super.saveAdditional(p_187513_);
+        if (!this.trySaveLootTable(p_187513_)) {
+            ContainerHelper.saveAllItems(p_187513_, this.itemStacks, false);
+        }
+        if (this.name != null) {
+            p_187513_.putString("CustomName", Component.Serializer.toJson(this.name));
         }
 
     }
-    public void load(CompoundTag p_155055_) {
-        super.load(p_155055_);
-        this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        if (!this.tryLoadLootTable(p_155055_)) {
-            ContainerHelper.loadAllItems(p_155055_, this.items);
+
+    public void loadFromTag(CompoundTag p_59694_) {
+        this.itemStacks = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
+        if (!this.tryLoadLootTable(p_59694_) && p_59694_.contains("Items", 9)) {
+            ContainerHelper.loadAllItems(p_59694_, this.itemStacks);
         }
 
     }
+
     @Override
     public int getContainerSize() {
         return CONTAINER_SIZE;
@@ -58,17 +74,17 @@ public class CapsuleBlockEntity extends BlockEntity implements Container {
     @Override
     public boolean isEmpty() {
         this.unpackLootTable((Player)null);
-        return this.getItems().stream().allMatch(ItemStack::isEmpty);
+        return this.getItemStacks().stream().allMatch(ItemStack::isEmpty);
     }
     @Override
     public ItemStack getItem(int index) {
         this.unpackLootTable((Player)null);
-        return this.getItems().get(index);
+        return this.getItemStacks().get(index);
     }
     @Override
     public ItemStack removeItem(int index, int count) {
         this.unpackLootTable((Player)null);
-        ItemStack itemstack = ContainerHelper.removeItem(this.getItems(), index, count);
+        ItemStack itemstack = ContainerHelper.removeItem(this.getItemStacks(), index, count);
         if (!itemstack.isEmpty()) {
             this.setChanged();
         }
@@ -78,12 +94,12 @@ public class CapsuleBlockEntity extends BlockEntity implements Container {
     @Override
     public ItemStack removeItemNoUpdate(int index) {
         this.unpackLootTable((Player)null);
-        return ContainerHelper.takeItem(this.getItems(), index);
+        return ContainerHelper.takeItem(this.getItemStacks(), index);
     }
     @Override
     public void setItem(int index, ItemStack p_59617_) {
         this.unpackLootTable((Player)null);
-        this.getItems().set(index, p_59617_);
+        this.getItemStacks().set(index, p_59617_);
         if (p_59617_.getCount() > this.getMaxStackSize()) {
             p_59617_.setCount(this.getMaxStackSize());
         }
@@ -96,15 +112,15 @@ public class CapsuleBlockEntity extends BlockEntity implements Container {
     }
     @Override
     public void clearContent() {
-        this.getItems().clear();
+        this.getItemStacks().clear();
     }
 
-    protected NonNullList<ItemStack> getItems() {
-        return this.items;
+    protected NonNullList<ItemStack> getItemStacks() {
+        return this.itemStacks;
     }
 
-    protected void setItems(NonNullList<ItemStack> p_58610_) {
-        this.items = p_58610_;
+    protected void setItemStacks(NonNullList<ItemStack> p_58610_) {
+        this.itemStacks = p_58610_;
     }
 
 
@@ -160,5 +176,26 @@ public class CapsuleBlockEntity extends BlockEntity implements Container {
             loottable.fill(this, lootparams$builder.create(LootContextParamSets.CHEST), this.lootTableSeed);
         }
 
+    }
+
+    public void setCustomName(Component p_58639_) {
+        this.name = p_58639_;
+    }
+
+    public Component getName() {
+        return this.name != null ? this.name : this.getDefaultName();
+    }
+
+    public Component getDisplayName() {
+        return this.getName();
+    }
+
+    @Nullable
+    public Component getCustomName() {
+        return this.name;
+    }
+
+    protected Component getDefaultName() {
+        return Component.translatable("container.capsule.name");
     }
 }

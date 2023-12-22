@@ -4,7 +4,6 @@ import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -19,7 +18,7 @@ public enum CapsuleBlocks implements StringRepresentable {
     ANCIENT_CAPSULE("ancient_capsule", MapColor.NETHER),
     FROZEN_CAPSULE("frozen_capsule", MapColor.ICE);
 
-    RegistryObject<Block> block;
+    RegistryObject<CapsuleBlock> block;
     //RegistryObject<Block> coreBlock;
 
     private final String name;
@@ -37,7 +36,7 @@ public enum CapsuleBlocks implements StringRepresentable {
     public String getSerializedName() {
         return this.name;
     }
-    public Block getCapsule() {return this.block.get();}
+    public CapsuleBlock getCapsule() {return this.block.get();}
     //public Block getCoreBlock() {return this.coreBlock.get();}
 
     public static void registerBlocks() {

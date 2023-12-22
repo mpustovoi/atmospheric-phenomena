@@ -1,5 +1,6 @@
 package com.phyrenestudios.atmospheric_phenomena.data.loot;
 
+import com.phyrenestudios.atmospheric_phenomena.block_entities.APBlockEntities;
 import com.phyrenestudios.atmospheric_phenomena.blocks.*;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
@@ -11,10 +12,17 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.DynamicLoot;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.CopyNameFunction;
+import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
+import net.minecraft.world.level.storage.loot.functions.SetContainerContents;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
 import net.minecraftforge.registries.RegistryObject;
@@ -55,7 +63,7 @@ public class APBlockLootSubProvider extends BlockLootSubProvider {
             dropSelf(base.getGlass());
         }
         for (CapsuleBlocks base : CapsuleBlocks.values()) {
-            dropSelf(base.getCapsule());
+            this.add(base.getCapsule(), this::createCapsuleDrop);
         }
 
         addOre(APBlocks.KAMACITE.get(), APItems.METEORIC_IRON.get());
@@ -111,5 +119,9 @@ public class APBlockLootSubProvider extends BlockLootSubProvider {
     }
     private void addSilkTouchSingleItem(Block blk, ItemLike itemLike, NumberProvider p_250047_) {
         add(blk, createSingleItemTableWithSilkTouch(blk, itemLike, p_250047_));
+    }
+
+    protected LootTable.Builder createCapsuleDrop(Block p_252164_) {
+        return LootTable.lootTable().withPool(this.applyExplosionCondition(p_252164_, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(p_252164_).apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY)).apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY).copy("LootTable", "BlockEntityTag.LootTable").copy("LootTableSeed", "BlockEntityTag.LootTableSeed")).apply(SetContainerContents.setContents(APBlockEntities.CAPSULE.get()).withEntry(DynamicLoot.dynamicEntry(CapsuleBlock.CONTENTS))))));
     }
 }

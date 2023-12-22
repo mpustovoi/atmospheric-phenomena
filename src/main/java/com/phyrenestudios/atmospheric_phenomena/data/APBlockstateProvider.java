@@ -5,10 +5,7 @@ import com.phyrenestudios.atmospheric_phenomena.blocks.*;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ButtonBlock;
-import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -47,7 +44,7 @@ public class APBlockstateProvider extends BlockStateProvider {
             simpleBlock(base.getTektite(), models().cubeAll(base.getSerializedName(), blockTexture(base.getTektite())).renderType("translucent"));
         }
         for (CapsuleBlocks base : CapsuleBlocks.values()) {
-            simpleBlock(base.getCapsule());
+            capsuleBlock(base.getCapsule());
         }
         simpleBlock(APBlocks.KAMACITE.get());
         simpleBlock(APBlocks.TAENITE.get());
@@ -138,6 +135,18 @@ public class APBlockstateProvider extends BlockStateProvider {
         });
     }
 
+    public void capsuleBlock(CapsuleBlock block) {
+        ModelFile vertical = models().cubeColumn(name(block), blockTexture(block),  extend(blockTexture(block), "_top"));
+        ModelFile horizontal = models().cubeColumnHorizontal(name(block) + "_horizontal", blockTexture(block),  extend(blockTexture(block), "_top"));
+        getVariantBuilder(block)
+                .partialState().with(CapsuleBlock.AXIS, Direction.Axis.Y)
+                .modelForState().modelFile(vertical).addModel()
+                .partialState().with(CapsuleBlock.AXIS, Direction.Axis.Z)
+                .modelForState().modelFile(horizontal).rotationX(90).addModel()
+                .partialState().with(CapsuleBlock.AXIS, Direction.Axis.X)
+                .modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel();
+    }
+
 
     public ResourceLocation getBlockRSL(Block blk) {
         return getBlockRSL(name(blk));
@@ -162,6 +171,10 @@ public class APBlockstateProvider extends BlockStateProvider {
     }
     private static String name(String prefix, Block blk, String suffix) {
         return prefix + key(blk).getPath() + suffix;
+    }
+
+    private ResourceLocation extend(ResourceLocation rl, String suffix) {
+        return new ResourceLocation(rl.getNamespace(), rl.getPath() + suffix);
     }
 }
 

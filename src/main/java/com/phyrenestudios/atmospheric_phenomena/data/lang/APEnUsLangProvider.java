@@ -92,6 +92,8 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("death.attack.meteoroid.player", "%1$s was pummeled by a meteoroid whilst trying to escape %2$s");
         add("trim_material.atmospheric_phenomena.lonsdaleite", "Lonsdaleite Material");
         add("trim_material.atmospheric_phenomena.meteoric_iron", "Meteoric Iron Material");
+        add("container.capsule.filled", "Filled");
+        add("container.capsule.name", "Capsule");
 
         //Smithing Modifiers
         add("tooltip.modifier.mining_speed", "+25% Mining Speed");
