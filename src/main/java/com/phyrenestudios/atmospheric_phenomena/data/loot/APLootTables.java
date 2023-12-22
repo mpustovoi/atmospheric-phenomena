@@ -10,6 +10,7 @@ public class APLootTables {
     private static final Set<ResourceLocation> AP_LOOT_TABLES = Sets.newHashSet();
 
     public static final ResourceLocation OVERWORLD_METEOR = register("chests/overworld_meteor");
+    public static final ResourceLocation OVERWORLD_COMET = register("chests/overworld_comet");
 
     private static ResourceLocation register(String path) {
         return register(new ResourceLocation(AtmosphericPhenomena.MODID, path));

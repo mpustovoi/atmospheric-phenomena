@@ -39,6 +39,24 @@ public class APChestLootSubProvider implements LootTableSubProvider {
                                 .add(LootItem.lootTableItem(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()).setWeight(2))
                                 .add(EmptyLootItem.emptyItem().setWeight(2))));
 
+        register.accept(APLootTables.OVERWORLD_COMET,
+                LootTable.lootTable()
+                        .withPool(LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(2))
+                                .add(LootItem.lootTableItem(Items.ICE).apply(SetItemCountFunction.setCount(UniformGenerator.between(4, 16))).setWeight(20))
+                                .add(LootItem.lootTableItem(Items.PACKED_ICE).apply(SetItemCountFunction.setCount(UniformGenerator.between(4, 8))).setWeight(20))
+                                .add(EmptyLootItem.emptyItem().setWeight(10)))
+                        .withPool(LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(LootItem.lootTableItem(Items.BLUE_ICE).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 4))))
+                                .add(LootItem.lootTableItem(APItems.METEORIC_ICE.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 4))))
+                                .add(LootItem.lootTableItem(Items.EXPERIENCE_BOTTLE).apply(SetItemCountFunction.setCount(UniformGenerator.between(4, 12)))))
+                        .withPool(LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(LootItem.lootTableItem(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()).setWeight(2))
+                                .add(LootItem.lootTableItem(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()).setWeight(2))
+                                .add(EmptyLootItem.emptyItem().setWeight(2))));
+
     }
 
 

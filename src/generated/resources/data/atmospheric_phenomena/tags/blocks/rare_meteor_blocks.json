@@ -1,5 +1,7 @@
 {
   "values": [
-    "minecraft:crying_obsidian"
+    "atmospheric_phenomena:kamacite",
+    "atmospheric_phenomena:taenite",
+    "atmospheric_phenomena:tetrataenite"
   ]
 }
