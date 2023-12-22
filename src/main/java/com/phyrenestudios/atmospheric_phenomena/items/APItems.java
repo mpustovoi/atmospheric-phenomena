@@ -28,6 +28,8 @@ public class APItems {
     public static final RegistryObject<Item> LONSDALEITE_MATRIX = ITEMS.register("lonsdaleite_matrix", () -> new BlockItem(APBlocks.LONSDALEITE_MATRIX.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> LONSDALEITE = ITEMS.register("lonsdaleite", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> LONSDALEITE_BLOCK = ITEMS.register("lonsdaleite_block", () -> new BlockItem(APBlocks.LONSDALEITE_BLOCK.get(), new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> MOISSANITE = ITEMS.register("moissanite", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> MOISSANITE_BLOCK = ITEMS.register("moissanite_block", () -> new BlockItem(APBlocks.MOISSANITE_BLOCK.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> METEORIC_ICE = ITEMS.register("meteoric_ice", () -> new BlockItem(APBlocks.METEORIC_ICE.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> METEORIC_IRON = ITEMS.register("meteoric_iron", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> METEORIC_IRON_BLOCK = ITEMS.register("meteoric_iron_block", () -> new BlockItem(APBlocks.METEORIC_IRON_BLOCK.get(), new Item.Properties().stacksTo(64)));

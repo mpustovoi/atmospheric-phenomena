@@ -55,6 +55,8 @@ public class APCreativeTabs {
                 output.accept(APItems.METEORIC_IRON_BLOCK.get());
                 output.accept(APItems.LONSDALEITE.get());
                 output.accept(APItems.LONSDALEITE_BLOCK.get());
+                output.accept(APItems.MOISSANITE.get());
+                output.accept(APItems.MOISSANITE_BLOCK.get());
 
                 output.accept(APItems.BURNING_LOG.get());
                 output.accept(APItems.BURNING_WOOD.get());

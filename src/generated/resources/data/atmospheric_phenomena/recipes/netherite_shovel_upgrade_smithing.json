@@ -1,0 +1,16 @@
+{
+  "type": "atmospheric_phenomena:smithing_nbt",
+  "addition": {
+    "item": "atmospheric_phenomena:moissanite"
+  },
+  "base": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "modifier": "moissanite_tool",
+  "result": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "template": {
+    "item": "atmospheric_phenomena:otherworldly_upgrade_smithing_template"
+  }
+}

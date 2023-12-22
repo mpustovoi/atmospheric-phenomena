@@ -15,6 +15,11 @@ public class ItemTooltipHandler {
             event.getToolTip().add(Component.translatable("tooltip.modifier." + modifierName).withStyle(ChatFormatting.LIGHT_PURPLE));
         } else if (modifierName.contains("meteoric_iron")) {
             event.getToolTip().add(Component.translatable("tooltip.modifier." + modifierName).withStyle(ChatFormatting.GREEN));
+        } else if (modifierName.contains("moissanite")) {
+            event.getToolTip().add(Component.translatable("tooltip.modifier." + modifierName).withStyle(ChatFormatting.AQUA));
+        }
+        if (modifierName.contains("_tool")) {
+            event.getToolTip().add(Component.translatable("tooltip.modifier.mining_speed").withStyle(ChatFormatting.BLUE));
         }
 
     }

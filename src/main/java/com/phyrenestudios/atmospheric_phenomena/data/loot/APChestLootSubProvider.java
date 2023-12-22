@@ -36,7 +36,7 @@ public class APChestLootSubProvider implements LootTableSubProvider {
                         .withPool(LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1))
                                 .add(LootItem.lootTableItem(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()).setWeight(2))
-                                .add(LootItem.lootTableItem(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()).setWeight(2))
+                                .add(LootItem.lootTableItem(APItems.MOISSANITE.get()).setWeight(2))
                                 .add(EmptyLootItem.emptyItem().setWeight(2))));
 
         register.accept(APLootTables.OVERWORLD_COMET,

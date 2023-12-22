@@ -49,11 +49,13 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APBlocks.DEBRIS_MATRIX.get());
         add(APBlocks.LONSDALEITE_MATRIX.get());
         add(APBlocks.LONSDALEITE_BLOCK.get(), "Block of Lonsdaleite");
+        add(APBlocks.MOISSANITE_BLOCK.get(), "Block of Moissanite");
         add(APBlocks.METEORIC_IRON_BLOCK.get(), "Block of Meteoric Iron");
         add(APBlocks.METEORIC_ICE.get());
         add(APBlocks.SOIL_FULGURITE.get());
         add(APBlocks.STONE_FULGURITE.get());
         add(APItems.LONSDALEITE.get());
+        add(APItems.MOISSANITE.get());
         add(APItems.METEORIC_IRON.get());
 
         add(APBlocks.BURNING_LOG.get());
@@ -92,13 +94,16 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("trim_material.atmospheric_phenomena.meteoric_iron", "Meteoric Iron Material");
 
         //Smithing Modifiers
+        add("tooltip.modifier.mining_speed", "+25% Mining Speed");
+        add("tooltip.modifier.moissanite_armor", "Upgraded with Moissanite");
+        add("tooltip.modifier.moissanite_tool", "Upgraded with Moissanite");
         add("tooltip.modifier.lonsdaleite_armor", "Upgraded with Lonsdaleite");
         add("tooltip.modifier.lonsdaleite_tool", "Upgraded with Lonsdaleite");
         add("tooltip.modifier.meteoric_iron_armor", "Upgraded with Meteoric Iron");
         add("tooltip.modifier.meteoric_iron_tool", "Upgraded with Meteoric Iron");
 
         add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.additions_slot_description", "Add Otherworldly Material");
-        add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.applies_to", "Iron & Diamond Equipment");
+        add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.applies_to", "Equipment");
         add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.base_slot_description", "Add armor, weapon, or tool");
         add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.ingredients", "Otherworldly Material");
         add("upgrade.atmospheric_phenomena.otherworldly_upgrade", "Otherworldly Upgrade");

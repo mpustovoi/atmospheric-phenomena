@@ -6,6 +6,7 @@ import net.minecraftforge.event.OnDatapackSyncEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -25,6 +26,10 @@ public class APEvents {
     @SubscribeEvent
     public static void test(OnDatapackSyncEvent event) {
         //FeatureUtils.populateBlockCollections();
+    }
+    @SubscribeEvent
+    public static void breakSpeedEvent(PlayerEvent.BreakSpeed event) {
+        BreakSpeedHandler.smithingModifiers(event);
     }
 
     @SubscribeEvent
