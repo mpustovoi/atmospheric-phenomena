@@ -9,11 +9,11 @@ public class BreakSpeedHandler {
         ItemStack itemStack = event.getEntity().getMainHandItem();
         if (itemStack.getTag() == null || !itemStack.getTag().contains("modifier")) return;
         String modifierName = itemStack.getTag().getString("modifier");
-        if (modifierName.contains("lonsdaleite")) {
+        if (modifierName.contains("studded")) {
             event.setNewSpeed(event.getNewSpeed()*1.25f);
-        } else if (modifierName.contains("meteoric_iron")) {
+        } else if (modifierName.contains("plated")) {
             event.setNewSpeed(event.getNewSpeed()*1.25f);
-        } else if (modifierName.contains("moissanite")) {
+        } else if (modifierName.contains("embossed")) {
             event.setNewSpeed(event.getNewSpeed()*1.25f);
         }
 

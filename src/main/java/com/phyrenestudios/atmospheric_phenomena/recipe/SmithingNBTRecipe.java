@@ -4,11 +4,15 @@ import com.google.gson.JsonObject;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.item.crafting.SmithingRecipe;
 import net.minecraft.world.level.Level;
 
 import java.util.stream.Stream;
@@ -42,6 +46,7 @@ public class SmithingNBTRecipe implements SmithingRecipe {
         }
         if (!itemstack.getTag().contains("modifier")) {
             itemstack.getOrCreateTag().putString("modifier", modifier);
+            itemstack.setHoverName(Component.translatable("tooltip.modifier." + modifier).append(" ").append(itemstack.getHoverName().copy()));
         }
         return itemstack;
     }

@@ -1,12 +1,12 @@
 {
   "type": "atmospheric_phenomena:smithing_nbt",
   "addition": {
-    "item": "atmospheric_phenomena:lonsdaleite"
+    "item": "atmospheric_phenomena:studded_sheet"
   },
   "base": {
     "item": "minecraft:diamond_boots"
   },
-  "modifier": "lonsdaleite_armor",
+  "modifier": "studded_armor",
   "result": {
     "item": "minecraft:diamond_boots"
   },

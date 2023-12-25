@@ -23,18 +23,18 @@ public class ItemAttributeModifierHandler {
     }
 
     private static void addModifiers(ItemAttributeModifierEvent event, String modifierName) {
-        if (modifierName.equals("moissanite_armor") && event.getItemStack().getItem() instanceof ArmorItem && event.getSlotType() == ((ArmorItem) event.getItemStack().getItem()).getEquipmentSlot()) {
-            event.addModifier(Attributes.ARMOR, new AttributeModifier(APAttributes.MOISSANITE_ARMOR, "moissanite_armor", 2, AttributeModifier.Operation.ADDITION));
-        } else if (modifierName.equals("moissanite_tool") && (event.getSlotType() == EquipmentSlot.MAINHAND || event.getSlotType() == EquipmentSlot.OFFHAND)) {
-            event.addModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier(APAttributes.MOISSANITE_TOOL, "moissanite_tool", 2, AttributeModifier.Operation.ADDITION));
-        } else if (modifierName.equals("lonsdaleite_armor") && event.getItemStack().getItem() instanceof ArmorItem && event.getSlotType() == ((ArmorItem) event.getItemStack().getItem()).getEquipmentSlot()) {
-            event.addModifier(Attributes.ARMOR, new AttributeModifier(APAttributes.LONSDALEITE_ARMOR, "lonsdaleite_armor", 1.5, AttributeModifier.Operation.ADDITION));
-        } else if (modifierName.equals("lonsdaleite_tool") && (event.getSlotType() == EquipmentSlot.MAINHAND || event.getSlotType() == EquipmentSlot.OFFHAND)) {
-            event.addModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier(APAttributes.LONSDALEITE_TOOL, "lonsdaleite_tool", 1.5, AttributeModifier.Operation.ADDITION));
-        } else if (modifierName.equals("meteoric_iron_armor") && event.getItemStack().getItem() instanceof ArmorItem && event.getSlotType() == ((ArmorItem) event.getItemStack().getItem()).getEquipmentSlot()) {
-            event.addModifier(Attributes.ARMOR, new AttributeModifier(APAttributes.METEORIC_IRON_ARMOR, "meteoric_iron_armor", 1, AttributeModifier.Operation.ADDITION));
-        } else if (modifierName.equals("meteoric_iron_tool") && (event.getSlotType() == EquipmentSlot.MAINHAND || event.getSlotType() == EquipmentSlot.OFFHAND)) {
-            event.addModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier(APAttributes.METEORIC_IRON_TOOL, "meteoric_iron_tool", 1, AttributeModifier.Operation.ADDITION));
+        if (modifierName.equals("embossed_armor") && event.getItemStack().getItem() instanceof ArmorItem && event.getSlotType() == ((ArmorItem) event.getItemStack().getItem()).getEquipmentSlot()) {
+            event.addModifier(Attributes.ARMOR, new AttributeModifier(APAttributes.EMBOSSED_ARMOR, "embossed_armor", 2, AttributeModifier.Operation.ADDITION));
+        } else if (modifierName.equals("embossed_tool") && (event.getSlotType() == EquipmentSlot.MAINHAND || event.getSlotType() == EquipmentSlot.OFFHAND)) {
+            event.addModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier(APAttributes.EMBOSSED_TOOL, "embossed_tool", 2, AttributeModifier.Operation.ADDITION));
+        } else if (modifierName.equals("studded_armor") && event.getItemStack().getItem() instanceof ArmorItem && event.getSlotType() == ((ArmorItem) event.getItemStack().getItem()).getEquipmentSlot()) {
+            event.addModifier(Attributes.ARMOR, new AttributeModifier(APAttributes.STUDDED_ARMOR, "studded_armor", 1.5, AttributeModifier.Operation.ADDITION));
+        } else if (modifierName.equals("studded_tool") && (event.getSlotType() == EquipmentSlot.MAINHAND || event.getSlotType() == EquipmentSlot.OFFHAND)) {
+            event.addModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier(APAttributes.STUDDED_TOOL, "studded_tool", 1.5, AttributeModifier.Operation.ADDITION));
+        } else if (modifierName.equals("plated_armor") && event.getItemStack().getItem() instanceof ArmorItem && event.getSlotType() == ((ArmorItem) event.getItemStack().getItem()).getEquipmentSlot()) {
+            event.addModifier(Attributes.ARMOR, new AttributeModifier(APAttributes.PLATED_ARMOR, "plated_armor", 1, AttributeModifier.Operation.ADDITION));
+        } else if (modifierName.equals("plated_tool") && (event.getSlotType() == EquipmentSlot.MAINHAND || event.getSlotType() == EquipmentSlot.OFFHAND)) {
+            event.addModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier(APAttributes.PLATED_TOOL, "plated_tool", 1, AttributeModifier.Operation.ADDITION));
         }
     }
 }

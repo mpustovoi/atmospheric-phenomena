@@ -1,12 +1,12 @@
 {
   "type": "atmospheric_phenomena:smithing_nbt",
   "addition": {
-    "item": "atmospheric_phenomena:meteoric_iron"
+    "item": "atmospheric_phenomena:plated_sheet"
   },
   "base": {
     "item": "minecraft:iron_leggings"
   },
-  "modifier": "meteoric_iron_armor",
+  "modifier": "plated_armor",
   "result": {
     "item": "minecraft:iron_leggings"
   },

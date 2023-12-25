@@ -11,15 +11,15 @@ public class ItemTooltipHandler {
         ItemStack itemStack = event.getItemStack();
         if (itemStack.getTag() == null || !itemStack.getTag().contains("modifier")) return;
         String modifierName = itemStack.getTag().getString("modifier");
-        if (modifierName.contains("lonsdaleite")) {
+        if (modifierName.contains("studded")) {
             event.getToolTip().add(Component.empty());
-            event.getToolTip().add(Component.translatable("tooltip.modifier." + modifierName).withStyle(ChatFormatting.LIGHT_PURPLE));
-        } else if (modifierName.contains("meteoric_iron")) {
+            event.getToolTip().add(Component.translatable("tooltip.modifier." + modifierName).withStyle(ChatFormatting.LIGHT_PURPLE).withStyle(ChatFormatting.ITALIC));
+        } else if (modifierName.contains("plated")) {
             event.getToolTip().add(Component.empty());
-            event.getToolTip().add(Component.translatable("tooltip.modifier." + modifierName).withStyle(ChatFormatting.GREEN));
-        } else if (modifierName.contains("moissanite")) {
+            event.getToolTip().add(Component.translatable("tooltip.modifier." + modifierName).withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
+        } else if (modifierName.contains("embossed")) {
             event.getToolTip().add(Component.empty());
-            event.getToolTip().add(Component.translatable("tooltip.modifier." + modifierName).withStyle(ChatFormatting.AQUA));
+            event.getToolTip().add(Component.translatable("tooltip.modifier." + modifierName).withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         }
         if (modifierName.contains("_tool")) {
             event.getToolTip().add(Component.translatable("tooltip.modifier.mining_speed").withStyle(ChatFormatting.BLUE));

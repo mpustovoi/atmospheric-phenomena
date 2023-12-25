@@ -1,12 +1,12 @@
 {
   "type": "atmospheric_phenomena:smithing_nbt",
   "addition": {
-    "item": "atmospheric_phenomena:moissanite"
+    "item": "atmospheric_phenomena:embossed_sheet"
   },
   "base": {
     "item": "minecraft:netherite_chestplate"
   },
-  "modifier": "moissanite_armor",
+  "modifier": "embossed_armor",
   "result": {
     "item": "minecraft:netherite_chestplate"
   },

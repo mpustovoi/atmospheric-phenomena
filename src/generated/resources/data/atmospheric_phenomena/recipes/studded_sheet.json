@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "atmospheric_phenomena:lonsdaleite"
+    },
+    "P": {
+      "item": "atmospheric_phenomena:plated_sheet"
+    }
+  },
+  "pattern": [
+    "PG",
+    "PG",
+    "PG"
+  ],
+  "result": {
+    "item": "atmospheric_phenomena:studded_sheet"
+  },
+  "show_notification": true
+}

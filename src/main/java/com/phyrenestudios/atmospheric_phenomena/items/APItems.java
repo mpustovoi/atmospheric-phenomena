@@ -34,6 +34,10 @@ public class APItems {
     public static final RegistryObject<Item> METEORIC_IRON = ITEMS.register("meteoric_iron", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> METEORIC_IRON_BLOCK = ITEMS.register("meteoric_iron_block", () -> new BlockItem(APBlocks.METEORIC_IRON_BLOCK.get(), new Item.Properties().stacksTo(64)));
 
+    public static final RegistryObject<Item> PLATED_SHEET = ITEMS.register("plated_sheet", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> STUDDED_SHEET = ITEMS.register("studded_sheet", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> EMBOSSED_SHEET = ITEMS.register("embossed_sheet", () -> new Item(new Item.Properties().stacksTo(64)));
+
     public static final RegistryObject<Item> SOIL_FULGURITE = ITEMS.register("soil_fulgurite", () -> new BlockItem(APBlocks.SOIL_FULGURITE.get(), new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> STONE_FULGURITE = ITEMS.register("stone_fulgurite", () -> new BlockItem(APBlocks.STONE_FULGURITE.get(), new Item.Properties().stacksTo(64)));
 

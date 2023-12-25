@@ -1,12 +1,12 @@
 {
   "type": "atmospheric_phenomena:smithing_nbt",
   "addition": {
-    "item": "atmospheric_phenomena:meteoric_iron"
+    "item": "atmospheric_phenomena:plated_sheet"
   },
   "base": {
     "item": "minecraft:iron_axe"
   },
-  "modifier": "meteoric_iron_tool",
+  "modifier": "plated_tool",
   "result": {
     "item": "minecraft:iron_axe"
   },

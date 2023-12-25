@@ -1,12 +1,12 @@
 {
   "type": "atmospheric_phenomena:smithing_nbt",
   "addition": {
-    "item": "atmospheric_phenomena:moissanite"
+    "item": "atmospheric_phenomena:embossed_sheet"
   },
   "base": {
     "item": "minecraft:netherite_pickaxe"
   },
-  "modifier": "moissanite_tool",
+  "modifier": "embossed_tool",
   "result": {
     "item": "minecraft:netherite_pickaxe"
   },

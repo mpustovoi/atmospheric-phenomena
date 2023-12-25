@@ -40,6 +40,16 @@ public class APCreativeTabs {
                 output.accept(APItems.GOLDEN_MATRIX.get());
                 output.accept(APItems.LONSDALEITE_MATRIX.get());
                 output.accept(APItems.DEBRIS_MATRIX.get());
+                output.accept(APItems.METEORIC_IRON.get());
+                output.accept(APItems.METEORIC_IRON_BLOCK.get());
+                output.accept(APItems.LONSDALEITE.get());
+                output.accept(APItems.LONSDALEITE_BLOCK.get());
+                output.accept(APItems.MOISSANITE.get());
+                output.accept(APItems.MOISSANITE_BLOCK.get());
+                output.accept(APItems.PLATED_SHEET.get());
+                output.accept(APItems.STUDDED_SHEET.get());
+                output.accept(APItems.EMBOSSED_SHEET.get());
+
                 for (CapsuleBlocks base : CapsuleBlocks.values()) {
                     output.accept(base.getCapsule());
                 }
@@ -51,12 +61,6 @@ public class APCreativeTabs {
                 for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
                     output.accept(base.getGlass());
                 }
-                output.accept(APItems.METEORIC_IRON.get());
-                output.accept(APItems.METEORIC_IRON_BLOCK.get());
-                output.accept(APItems.LONSDALEITE.get());
-                output.accept(APItems.LONSDALEITE_BLOCK.get());
-                output.accept(APItems.MOISSANITE.get());
-                output.accept(APItems.MOISSANITE_BLOCK.get());
 
                 output.accept(APItems.BURNING_LOG.get());
                 output.accept(APItems.BURNING_WOOD.get());

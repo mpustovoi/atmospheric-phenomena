@@ -34,6 +34,9 @@ public class APRecipesProvider extends RecipeProvider {
         nineBlockStorageRecipes(consumer, RecipeCategory.MISC, APItems.METEORIC_IRON.get(), RecipeCategory.BUILDING_BLOCKS, APBlocks.METEORIC_IRON_BLOCK.get());
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(APItems.METEORIC_IRON.get()), RecipeCategory.MISC, Items.IRON_INGOT, 0.8F, 200).unlockedBy("has_ingredient", has(APItems.METEORIC_IRON.get())).save(consumer, AtmosphericPhenomena.MODID+":iron_from_meteoric_iron_smelting");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.PLATED_SHEET.get(), 1).pattern("PG").pattern("PG").pattern("PG").define('G', APItems.METEORIC_IRON.get()).define('P', Items.IRON_INGOT).unlockedBy("has_ingredient", has(APItems.METEORIC_IRON.get())).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.STUDDED_SHEET.get(), 1).pattern("PG").pattern("PG").pattern("PG").define('G', APItems.LONSDALEITE.get()).define('P', APItems.PLATED_SHEET.get()).unlockedBy("has_ingredient", has(APItems.LONSDALEITE.get())).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.EMBOSSED_SHEET.get(), 1).pattern("PG").pattern("PG").pattern("PG").define('G', APItems.MOISSANITE.get()).define('P', APItems.STUDDED_SHEET.get()).unlockedBy("has_ingredient", has(APItems.MOISSANITE.get())).save(consumer);
 
 
         for (MeteorBlocks base : MeteorBlocks.values()) {
@@ -67,33 +70,33 @@ public class APRecipesProvider extends RecipeProvider {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, APBlocks.CHARRED_BOOKSHELF.get()).pattern("PPP").pattern("BBB").pattern("PPP").define('P', APItems.CHARRED_PLANKS.get()).define('B',Items.BOOK).unlockedBy("has_ingredient", has(APItems.CHARRED_PLANKS.get())).save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get(), 2).define('#', Tags.Items.GEMS_DIAMOND).define('T', APTags.Items.TEKTITES).define('C', APTags.Items.METEORITE_BLOCKS).define('S', APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()).pattern("TST").pattern("TCT").pattern("###").unlockedBy(getHasName(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()), has(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get())).save(consumer);
 
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_HELMET, APItems.MOISSANITE.get(), Items.NETHERITE_HELMET, "moissanite_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_CHESTPLATE, APItems.MOISSANITE.get(), Items.NETHERITE_CHESTPLATE, "moissanite_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_LEGGINGS, APItems.MOISSANITE.get(), Items.NETHERITE_LEGGINGS, "moissanite_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_BOOTS, APItems.MOISSANITE.get(), Items.NETHERITE_BOOTS, "moissanite_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_PICKAXE, APItems.MOISSANITE.get(), Items.NETHERITE_PICKAXE, "moissanite_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_SHOVEL, APItems.MOISSANITE.get(), Items.NETHERITE_SHOVEL, "moissanite_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_AXE, APItems.MOISSANITE.get(), Items.NETHERITE_AXE, "moissanite_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_HOE, APItems.MOISSANITE.get(), Items.NETHERITE_HOE, "moissanite_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_SWORD, APItems.MOISSANITE.get(), Items.NETHERITE_SWORD, "moissanite_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_HELMET, APItems.LONSDALEITE.get(), Items.DIAMOND_HELMET, "lonsdaleite_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_CHESTPLATE, APItems.LONSDALEITE.get(), Items.DIAMOND_CHESTPLATE, "lonsdaleite_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_LEGGINGS, APItems.LONSDALEITE.get(), Items.DIAMOND_LEGGINGS, "lonsdaleite_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_BOOTS, APItems.LONSDALEITE.get(), Items.DIAMOND_BOOTS, "lonsdaleite_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_PICKAXE, APItems.LONSDALEITE.get(), Items.DIAMOND_PICKAXE, "lonsdaleite_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_SHOVEL, APItems.LONSDALEITE.get(), Items.DIAMOND_SHOVEL, "lonsdaleite_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_AXE, APItems.LONSDALEITE.get(), Items.DIAMOND_AXE, "lonsdaleite_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_HOE, APItems.LONSDALEITE.get(), Items.DIAMOND_HOE, "lonsdaleite_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_SWORD, APItems.LONSDALEITE.get(), Items.DIAMOND_SWORD, "lonsdaleite_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_HELMET, APItems.METEORIC_IRON.get(), Items.IRON_HELMET, "meteoric_iron_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_CHESTPLATE, APItems.METEORIC_IRON.get(), Items.IRON_CHESTPLATE, "meteoric_iron_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_LEGGINGS, APItems.METEORIC_IRON.get(), Items.IRON_LEGGINGS, "meteoric_iron_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_BOOTS, APItems.METEORIC_IRON.get(), Items.IRON_BOOTS, "meteoric_iron_armor");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_PICKAXE, APItems.METEORIC_IRON.get(), Items.IRON_PICKAXE, "meteoric_iron_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_SHOVEL, APItems.METEORIC_IRON.get(), Items.IRON_SHOVEL, "meteoric_iron_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_AXE, APItems.METEORIC_IRON.get(), Items.IRON_AXE, "meteoric_iron_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_HOE, APItems.METEORIC_IRON.get(), Items.IRON_HOE, "meteoric_iron_tool");
-        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_SWORD, APItems.METEORIC_IRON.get(), Items.IRON_SWORD, "meteoric_iron_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_HELMET, APItems.EMBOSSED_SHEET.get(), Items.NETHERITE_HELMET, "embossed_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_CHESTPLATE, APItems.EMBOSSED_SHEET.get(), Items.NETHERITE_CHESTPLATE, "embossed_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_LEGGINGS, APItems.EMBOSSED_SHEET.get(), Items.NETHERITE_LEGGINGS, "embossed_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_BOOTS, APItems.EMBOSSED_SHEET.get(), Items.NETHERITE_BOOTS, "embossed_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_PICKAXE, APItems.EMBOSSED_SHEET.get(), Items.NETHERITE_PICKAXE, "embossed_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_SHOVEL, APItems.EMBOSSED_SHEET.get(), Items.NETHERITE_SHOVEL, "embossed_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_AXE, APItems.EMBOSSED_SHEET.get(), Items.NETHERITE_AXE, "embossed_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_HOE, APItems.EMBOSSED_SHEET.get(), Items.NETHERITE_HOE, "embossed_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.NETHERITE_SWORD, APItems.EMBOSSED_SHEET.get(), Items.NETHERITE_SWORD, "embossed_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_HELMET, APItems.STUDDED_SHEET.get(), Items.DIAMOND_HELMET, "studded_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_CHESTPLATE, APItems.STUDDED_SHEET.get(), Items.DIAMOND_CHESTPLATE, "studded_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_LEGGINGS, APItems.STUDDED_SHEET.get(), Items.DIAMOND_LEGGINGS, "studded_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_BOOTS, APItems.STUDDED_SHEET.get(), Items.DIAMOND_BOOTS, "studded_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_PICKAXE, APItems.STUDDED_SHEET.get(), Items.DIAMOND_PICKAXE, "studded_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_SHOVEL, APItems.STUDDED_SHEET.get(), Items.DIAMOND_SHOVEL, "studded_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_AXE, APItems.STUDDED_SHEET.get(), Items.DIAMOND_AXE, "studded_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_HOE, APItems.STUDDED_SHEET.get(), Items.DIAMOND_HOE, "studded_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.DIAMOND_SWORD, APItems.STUDDED_SHEET.get(), Items.DIAMOND_SWORD, "studded_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_HELMET, APItems.PLATED_SHEET.get(), Items.IRON_HELMET, "plated_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_CHESTPLATE, APItems.PLATED_SHEET.get(), Items.IRON_CHESTPLATE, "plated_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_LEGGINGS, APItems.PLATED_SHEET.get(), Items.IRON_LEGGINGS, "plated_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_BOOTS, APItems.PLATED_SHEET.get(), Items.IRON_BOOTS, "plated_armor");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_PICKAXE, APItems.PLATED_SHEET.get(), Items.IRON_PICKAXE, "plated_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_SHOVEL, APItems.PLATED_SHEET.get(), Items.IRON_SHOVEL, "plated_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_AXE, APItems.PLATED_SHEET.get(), Items.IRON_AXE, "plated_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_HOE, APItems.PLATED_SHEET.get(), Items.IRON_HOE, "plated_tool");
+        nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_SWORD, APItems.PLATED_SHEET.get(), Items.IRON_SWORD, "plated_tool");
     }
 
     protected static void stonecutterResultFromBase(Consumer<FinishedRecipe> p_251589_, RecipeCategory p_248911_, ItemLike p_251265_, ItemLike p_250033_) {
