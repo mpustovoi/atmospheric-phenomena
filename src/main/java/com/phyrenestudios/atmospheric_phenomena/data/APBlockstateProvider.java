@@ -58,8 +58,8 @@ public class APBlockstateProvider extends BlockStateProvider {
         simpleBlock(APBlocks.MOISSANITE_BLOCK.get());
         simpleBlock(APBlocks.METEORIC_IRON_BLOCK.get());
         simpleBlock(APBlocks.METEORIC_ICE.get());
-        simpleBlock(APBlocks.SOIL_FULGURITE.get());
-        simpleBlock(APBlocks.STONE_FULGURITE.get());
+        axisBlock(APBlocks.SOIL_FULGURITE.get());
+        axisBlock(APBlocks.STONE_FULGURITE.get());
 
 
         axisBlock(APBlocks.BURNING_LOG.get(), getBlockRSL(APBlocks.BURNING_LOG.get()), getBlockRSL(name(APBlocks.BURNING_LOG.get(),"_top")));

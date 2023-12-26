@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
     "end": "atmospheric_phenomena:block/soil_fulgurite_end",
     "side": "atmospheric_phenomena:block/soil_fulgurite_side"
