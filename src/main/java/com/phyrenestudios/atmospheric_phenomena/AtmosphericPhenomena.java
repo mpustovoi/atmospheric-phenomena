@@ -1,5 +1,6 @@
 package com.phyrenestudios.atmospheric_phenomena;
 
+import com.google.common.collect.Maps;
 import com.mojang.logging.LogUtils;
 import com.phyrenestudios.atmospheric_phenomena.block_entities.APBlockEntities;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
@@ -19,6 +20,7 @@ import com.phyrenestudios.atmospheric_phenomena.worldgen.APFeatures;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -64,7 +66,13 @@ public class AtmosphericPhenomena {
     private void commonSetup(final FMLCommonSetupEvent event) {
         WoodType.register(APWoodTypes.CHARRED);
         AbstractCharredLogBlock.populateMaps();
-        APGameRules.initializeGamerules();
+        event.enqueueWork(() -> {
+            APGameRules.initializeGamerules();
+
+            AxeItem.STRIPPABLES = Maps.newHashMap(AxeItem.STRIPPABLES);
+            AxeItem.STRIPPABLES.put(APBlocks.CHARRED_LOG.get(), APBlocks.STRIPPED_CHARRED_LOG.get());
+            AxeItem.STRIPPABLES.put(APBlocks.CHARRED_WOOD.get(), APBlocks.STRIPPED_CHARRED_WOOD.get());
+        });
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
