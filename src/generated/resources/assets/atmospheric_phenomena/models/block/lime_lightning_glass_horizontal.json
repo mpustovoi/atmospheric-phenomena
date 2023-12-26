@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "end": "atmospheric_phenomena:block/lime_lightning_glass_end",
+    "side": "atmospheric_phenomena:block/lime_lightning_glass_side"
+  }
+}

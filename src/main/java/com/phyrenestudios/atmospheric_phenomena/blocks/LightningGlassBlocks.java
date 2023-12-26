@@ -5,7 +5,6 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.RegistryObject;
@@ -32,7 +31,7 @@ public enum LightningGlassBlocks implements StringRepresentable {
 
 
 
-    RegistryObject<Block> block;
+    RegistryObject<LightningGlassBlock> block;
 
     private final String name;
     private final DyeColor dyeColor;
@@ -48,7 +47,7 @@ public enum LightningGlassBlocks implements StringRepresentable {
     public String getSerializedName() {
         return this.name;
     }
-    public Block getGlass() {return this.block.get();}
+    public LightningGlassBlock getGlass() {return this.block.get();}
     public DyeColor getDyeColor() {return this.dyeColor;}
 
     public static void registerBlocks() {

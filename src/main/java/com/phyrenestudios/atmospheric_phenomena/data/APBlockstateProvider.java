@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.AttachFace;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -36,9 +37,7 @@ public class APBlockstateProvider extends BlockStateProvider {
             phaseBlock(base.getChiseled());
         }
         for (LightningGlassBlocks base : LightningGlassBlocks.values()) {
-            getVariantBuilder(base.getGlass())
-                    .partialState().with(LightningGlassBlock.GLOWING, false).modelForState().modelFile(models().cubeAll(base.getSerializedName(), blockTexture(base.getGlass())).renderType("translucent")).addModel()
-                    .partialState().with(LightningGlassBlock.GLOWING, true).modelForState().modelFile(models().cubeAll(base.getSerializedName()+"_glowing", blockTexture(base.getGlass())).renderType("translucent")).addModel();
+            axisBlockWithRenderType(base.getGlass(), "translucent");
         }
         for (TektiteBlocks base : TektiteBlocks.values()) {
             simpleBlock(base.getTektite(), models().cubeAll(base.getSerializedName(), blockTexture(base.getTektite())).renderType("translucent"));
@@ -147,6 +146,26 @@ public class APBlockstateProvider extends BlockStateProvider {
                 .modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel();
     }
 
+    public void axisBlockWithRenderType(Block block, String renderType) {
+        axisBlockWithRenderType(block, blockTexture(block), renderType);
+    }
+    public void axisBlockWithRenderType(Block block, ResourceLocation baseName, String renderType) {
+        axisBlockWithRenderType(block, extend(baseName, "_side"), extend(baseName, "_end"), renderType);
+    }
+    public void axisBlockWithRenderType(Block block, ResourceLocation side, ResourceLocation end, String renderType) {
+        axisBlock(block,
+                models().cubeColumn(name(block), side, end).renderType(renderType),
+                models().cubeColumnHorizontal(name(block) + "_horizontal", side, end).renderType(renderType));
+    }
+    public void axisBlock(Block block, ModelFile vertical, ModelFile horizontal) {
+        getVariantBuilder(block)
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Y)
+                .modelForState().modelFile(vertical).addModel()
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Z)
+                .modelForState().modelFile(horizontal).rotationX(90).addModel()
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.X)
+                .modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel();
+    }
 
     public ResourceLocation getBlockRSL(Block blk) {
         return getBlockRSL(name(blk));

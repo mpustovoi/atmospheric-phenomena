@@ -126,7 +126,7 @@ abstract class AbstractMeteoriteFeature extends Feature<NoneFeatureConfiguration
             return;
         }
         int chance = levelIn.getRandom().nextInt(3);
-        if (chance == 1) {
+        if (chance == 1 && !groundmass.is(Blocks.WATER)) {
             levelIn.setBlock(posIn, groundmass, 3);
         } else if (chance == 2) {
             levelIn.setBlock(posIn, surface, 3);

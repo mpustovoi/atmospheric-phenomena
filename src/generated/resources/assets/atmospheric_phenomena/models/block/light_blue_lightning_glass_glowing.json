@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "render_type": "minecraft:translucent",
-  "textures": {
-    "all": "atmospheric_phenomena:block/light_blue_lightning_glass"
-  }
-}
