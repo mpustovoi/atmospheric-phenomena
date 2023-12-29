@@ -62,6 +62,7 @@ public final class DataGenerators {
 
     private static HolderLookup.Provider getProvider() {
         final RegistrySetBuilder registryBuilder = new RegistrySetBuilder();
+        registryBuilder.add(Registries.BIOME, context -> {});
         registryBuilder.add(Registries.TRIM_MATERIAL, APTrimMaterials::bootstrap);
         registryBuilder.add(Registries.DAMAGE_TYPE, APDamageTypes::bootstrap);
         registryBuilder.add(Registries.CONFIGURED_FEATURE, APFeatures::bootstrap);
