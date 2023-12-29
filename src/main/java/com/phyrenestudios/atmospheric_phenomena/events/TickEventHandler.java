@@ -22,12 +22,12 @@ public class TickEventHandler {
         RandomSource rand = level.getRandom();
         ServerChunkCache chunkCache = level.getChunkSource();
         for(ChunkHolder chunkholder : chunkCache.chunkMap.getChunks()) {
-            LevelChunk levelchunk = chunkholder.getTickingChunk();
-            if (levelchunk == null || !level.shouldTickBlocksAt(levelchunk.getPos().toLong())) return;
+            LevelChunk levelchunk = chunkholder.getFullChunk();
+            if (levelchunk == null /*|| !level.shouldTickBlocksAt(levelchunk.getPos().toLong())*/) continue;
             if (Config.overworldMeteorSpawnSettings.get(0) != 0 && rand.nextInt(Config.overworldMeteorSpawnSettings.get(0)) == 0) {
-                spawnMeteor(level, chunkholder.getTickingChunk(), rand);
+                spawnMeteor(level, levelchunk, rand);
             } else if (Config.overworldCometSpawnSettings.get(0) != 0 && rand.nextInt(Config.overworldCometSpawnSettings.get(0)) == 0) {
-                spawnComet(level, chunkholder.getTickingChunk(), rand);
+                spawnComet(level, levelchunk, rand);
             }
         }
     }
