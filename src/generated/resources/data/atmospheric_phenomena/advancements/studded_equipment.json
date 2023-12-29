@@ -1,0 +1,47 @@
+{
+  "parent": "atmospheric_phenomena:plated_equipment",
+  "criteria": {
+    "studded_armor": {
+      "conditions": {
+        "items": [
+          {
+            "nbt": "{modifier:\"studded_armor\"}"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "studded_tool": {
+      "conditions": {
+        "items": [
+          {
+            "nbt": "{modifier:\"studded_tool\"}"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.atmospheric_phenomena.studded_equipment.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "atmospheric_phenomena:studded_sheet"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.atmospheric_phenomena.studded_equipment.title"
+    }
+  },
+  "requirements": [
+    [
+      "studded_armor",
+      "studded_tool"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

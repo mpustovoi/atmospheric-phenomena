@@ -5,14 +5,16 @@
     "G": {
       "item": "atmospheric_phenomena:lonsdaleite"
     },
+    "I": {
+      "item": "minecraft:obsidian"
+    },
     "P": {
       "item": "atmospheric_phenomena:plated_sheet"
     }
   },
   "pattern": [
-    "PG",
-    "PG",
-    "PG"
+    "GGG",
+    "IPI"
   ],
   "result": {
     "item": "atmospheric_phenomena:studded_sheet"

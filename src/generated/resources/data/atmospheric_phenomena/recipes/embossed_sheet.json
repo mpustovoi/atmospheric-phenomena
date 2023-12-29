@@ -5,14 +5,16 @@
     "G": {
       "item": "atmospheric_phenomena:moissanite"
     },
+    "I": {
+      "item": "minecraft:netherite_scrap"
+    },
     "P": {
       "item": "atmospheric_phenomena:studded_sheet"
     }
   },
   "pattern": [
-    "PG",
-    "PG",
-    "PG"
+    "GGG",
+    "IPI"
   ],
   "result": {
     "item": "atmospheric_phenomena:embossed_sheet"

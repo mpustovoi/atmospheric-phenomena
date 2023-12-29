@@ -1,39 +1,39 @@
 {
-  "parent": "atmospheric_phenomena:obtain_lonsdaleite",
+  "parent": "atmospheric_phenomena:obtain_vitrified_blocks",
   "criteria": {
-    "killed_by_meteoroid": {
+    "killed_by_discharge": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "atmospheric_phenomena:meteor"
+              "type": "minecraft:lightning_bolt"
             }
           }
         ]
       },
-      "trigger": "minecraft:entity_killed_player"
+      "trigger": "minecraft:player_killed_entity"
     }
   },
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.atmospheric_phenomena.killed_by_meteoroid.description"
+      "translate": "advancements.atmospheric_phenomena.killed_by_discharge.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "atmospheric_phenomena:chondrite"
+      "item": "atmospheric_phenomena:charged_quartz_matrix"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.atmospheric_phenomena.killed_by_meteoroid.title"
+      "translate": "advancements.atmospheric_phenomena.killed_by_discharge.title"
     }
   },
   "requirements": [
     [
-      "killed_by_meteoroid"
+      "killed_by_discharge"
     ]
   ],
   "sends_telemetry_event": true

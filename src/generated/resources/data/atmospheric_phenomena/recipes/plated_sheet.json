@@ -5,14 +5,16 @@
     "G": {
       "item": "atmospheric_phenomena:meteoric_iron"
     },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
     "P": {
       "item": "minecraft:iron_ingot"
     }
   },
   "pattern": [
-    "PG",
-    "PG",
-    "PG"
+    "GGG",
+    "IPI"
   ],
   "result": {
     "item": "atmospheric_phenomena:plated_sheet"

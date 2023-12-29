@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-22T08:53:40.2403466	atmospheric_phenomena - Block Tags
+// 1.20.1	2023-12-26T20:17:40.3612477	atmospheric_phenomena - Block Tags
 7a0c6f8914577d382100fb581a1169aff16274fd data/atmospheric_phenomena/tags/blocks/burning_logs.json
 d66d81cd4e2c15d320a99acc3e293d6bf6ac4b36 data/atmospheric_phenomena/tags/blocks/charred_logs.json
 acdf642b637a4d60ab574d48a9d0303782cfb4cb data/atmospheric_phenomena/tags/blocks/common_meteor_blocks.json
@@ -13,7 +13,7 @@ b37fdc9abe7a98f320159a38fe11438e01677b9e data/atmospheric_phenomena/tags/blocks/
 6f0da433ae2e95c61d4c05568e3e8c4efebdb9e9 data/atmospheric_phenomena/tags/blocks/uncommon_meteor_blocks.json
 58c1031d19477d2d467907d2e45d158b02e36ddd data/atmospheric_phenomena/tags/blocks/uncommon_meteor_core_blocks.json
 b7a8b8c8dce36fc92612f2d86c0bcc6a313fa62b data/atmospheric_phenomena/tags/blocks/valid_meteorite_spawn.json
-6709e029dcdb781bc96e92c5e95ef69620b94c99 data/atmospheric_phenomena/tags/blocks/very_rare_meteor_blocks.json
+81ae3e55d47fa91f38e258b96877c95fa753dfb4 data/atmospheric_phenomena/tags/blocks/very_rare_meteor_blocks.json
 95a2c3409b9b81d78893c64628bebb96d4607406 data/atmospheric_phenomena/tags/blocks/very_rare_meteor_core_blocks.json
 c1b2a217bb3fcb7e1d67f5bc45409796720bd171 data/atmospheric_phenomena/tags/blocks/vitrifies_to_glass.json
 95bef16bd9380966b4590ffa3c3bfdb585bd78de data/atmospheric_phenomena/tags/blocks/vitrifies_to_soil_fulgurite.json

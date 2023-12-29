@@ -34,9 +34,9 @@ public class APRecipesProvider extends RecipeProvider {
         nineBlockStorageRecipes(consumer, RecipeCategory.MISC, APItems.METEORIC_IRON.get(), RecipeCategory.BUILDING_BLOCKS, APBlocks.METEORIC_IRON_BLOCK.get());
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(APItems.METEORIC_IRON.get()), RecipeCategory.MISC, Items.IRON_INGOT, 0.8F, 200).unlockedBy("has_ingredient", has(APItems.METEORIC_IRON.get())).save(consumer, AtmosphericPhenomena.MODID+":iron_from_meteoric_iron_smelting");
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.PLATED_SHEET.get(), 1).pattern("PG").pattern("PG").pattern("PG").define('G', APItems.METEORIC_IRON.get()).define('P', Items.IRON_INGOT).unlockedBy("has_ingredient", has(APItems.METEORIC_IRON.get())).save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.STUDDED_SHEET.get(), 1).pattern("PG").pattern("PG").pattern("PG").define('G', APItems.LONSDALEITE.get()).define('P', APItems.PLATED_SHEET.get()).unlockedBy("has_ingredient", has(APItems.LONSDALEITE.get())).save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.EMBOSSED_SHEET.get(), 1).pattern("PG").pattern("PG").pattern("PG").define('G', APItems.MOISSANITE.get()).define('P', APItems.STUDDED_SHEET.get()).unlockedBy("has_ingredient", has(APItems.MOISSANITE.get())).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.PLATED_SHEET.get(), 1).pattern("GGG").pattern("IPI").define('G', APItems.METEORIC_IRON.get()).define('P', Items.IRON_INGOT).define('I', Items.IRON_INGOT).unlockedBy("has_ingredient", has(APItems.METEORIC_IRON.get())).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.STUDDED_SHEET.get(), 1).pattern("GGG").pattern("IPI").define('G', APItems.LONSDALEITE.get()).define('P', APItems.PLATED_SHEET.get()).define('I', Items.OBSIDIAN).unlockedBy("has_ingredient", has(APItems.LONSDALEITE.get())).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, APItems.EMBOSSED_SHEET.get(), 1).pattern("GGG").pattern("IPI").define('G', APItems.MOISSANITE.get()).define('P', APItems.STUDDED_SHEET.get()).define('I', Items.NETHERITE_SCRAP).unlockedBy("has_ingredient", has(APItems.MOISSANITE.get())).save(consumer);
 
 
         for (MeteorBlocks base : MeteorBlocks.values()) {

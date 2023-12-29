@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-22T15:17:54.1147794	Loot Tables
+// 1.20.1	2023-12-26T20:17:40.3622525	Loot Tables
 cd07ce378cea7472853cc4f62d79743a81ddb5b1 data/atmospheric_phenomena/loot_tables/blocks/ancient_capsule.json
 4aa4b96f99e1d2602aa5efb875511614b493d41c data/atmospheric_phenomena/loot_tables/blocks/angrite.json
 128258b59ca24fdaec3522239b6bcfd870c1e00e data/atmospheric_phenomena/loot_tables/blocks/angrite_bricks.json
@@ -105,5 +105,5 @@ ef01ef55c5812cb4f5183342456930ad4c55b51b data/atmospheric_phenomena/loot_tables/
 0ee0fae337bc84bfbf904dde661278cffcd3c341 data/atmospheric_phenomena/loot_tables/blocks/white_lightning_glass.json
 bf600270b3ba12f987fa4d2451c356d18f840360 data/atmospheric_phenomena/loot_tables/blocks/yellow_lightning_glass.json
 e48e5b52b3272d18dd5cd6e8219da8bd561dbd5e data/atmospheric_phenomena/loot_tables/blocks/yellow_tektite.json
-c1c66f4328f3a548de50217b831997dfe21e82c1 data/atmospheric_phenomena/loot_tables/chests/overworld_comet.json
-201134233c7ba75df4457d5ce4a08283b2a8f5fa data/atmospheric_phenomena/loot_tables/chests/overworld_meteor.json
+107d273867c3aecc5e1c22b8b457f5c3a96e1ef7 data/atmospheric_phenomena/loot_tables/chests/overworld_comet.json
+d8ace725a38da913c9c6e0cbd36d3728300c55ff data/atmospheric_phenomena/loot_tables/chests/overworld_meteor.json

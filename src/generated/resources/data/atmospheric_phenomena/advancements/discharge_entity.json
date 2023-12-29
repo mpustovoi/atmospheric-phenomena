@@ -1,0 +1,43 @@
+{
+  "parent": "atmospheric_phenomena:killed_by_discharge",
+  "criteria": {
+    "discharge_entity": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:lightning_bolt"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.atmospheric_phenomena.discharge_entity.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "atmospheric_phenomena:charged_quartz_matrix"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.atmospheric_phenomena.discharge_entity.title"
+    }
+  },
+  "requirements": [
+    [
+      "discharge_entity"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

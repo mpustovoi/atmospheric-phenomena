@@ -1,0 +1,64 @@
+{
+  "parent": "atmospheric_phenomena:root",
+  "criteria": {
+    "ligntning_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "atmospheric_phenomena:white_lightning_glass"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "soil_fulgurite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "atmospheric_phenomena:soil_fulgurite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "stone_fulgurite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "atmospheric_phenomena:stone_fulgurite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.atmospheric_phenomena.obtain_vitrified_blocks.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "atmospheric_phenomena:orange_lightning_glass"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.atmospheric_phenomena.obtain_vitrified_blocks.title"
+    }
+  },
+  "requirements": [
+    [
+      "ligntning_glass",
+      "soil_fulgurite",
+      "stone_fulgurite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

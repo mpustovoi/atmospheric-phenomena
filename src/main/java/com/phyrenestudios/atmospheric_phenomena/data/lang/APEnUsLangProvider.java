@@ -118,12 +118,28 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("advancements.atmospheric_phenomena.root.description", "Seeing is believing");
         add("advancements.atmospheric_phenomena.obtain_meteoric_iron.title", "Not Quite Rusty");
         add("advancements.atmospheric_phenomena.obtain_meteoric_iron.description", "Obtain a chunk of meteoric iron from a fallen meteorite");
-        add("advancements.atmospheric_phenomena.obtain_lonsdaleite.title", "Lonsdaleite");
+        add("advancements.atmospheric_phenomena.obtain_lonsdaleite.title", "Pink Diamonds!");
         add("advancements.atmospheric_phenomena.obtain_lonsdaleite.description", "Obtain a lonsdaleite gem from a fallen meteorite");
-        add("advancements.atmospheric_phenomena.obtain_debris_matrix.title", "Space Debris");
-        add("advancements.atmospheric_phenomena.obtain_debris_matrix.description", "Obtain a debris matrix from a fallen meteorite");
+        //add("advancements.atmospheric_phenomena.obtain_debris_matrix.title", "Space Debris");
+        //add("advancements.atmospheric_phenomena.obtain_debris_matrix.description", "Obtain a debris matrix from a fallen meteorite");
         add("advancements.atmospheric_phenomena.killed_by_meteoroid.title", "The Way of the Dinosaurs");
         add("advancements.atmospheric_phenomena.killed_by_meteoroid.description", "Get killed by a meteoroid");
+        add("advancements.atmospheric_phenomena.obtain_otherworldly_upgrade_template.title", "Smithing for Skill");
+        add("advancements.atmospheric_phenomena.obtain_otherworldly_upgrade_template.description", "Find a new smithing template inside meteorite capsules to upgrade equipment");
+        add("advancements.atmospheric_phenomena.plated_equipment.title", "Spaceware");
+        add("advancements.atmospheric_phenomena.plated_equipment.description", "Craft a plated sheet to upgrade iron equipment");
+        add("advancements.atmospheric_phenomena.studded_equipment.title", "You Stud");
+        add("advancements.atmospheric_phenomena.studded_equipment.description", "Craft a studded sheet to upgrade diamond equipment");
+        add("advancements.atmospheric_phenomena.embossed_equipment.title", "Like a Boss");
+        add("advancements.atmospheric_phenomena.embossed_equipment.description", "Craft a embossed sheet to upgrade netherite equipment");
+        add("advancements.atmospheric_phenomena.emboss_netherite.title", "Fine Suit Indeed");
+        add("advancements.atmospheric_phenomena.emboss_netherite.description", "Emboss a full suit of netherite armor");
+        add("advancements.atmospheric_phenomena.obtain_vitrified_blocks.title", "Glassy");
+        add("advancements.atmospheric_phenomena.obtain_vitrified_blocks.description", "Find the remnants of a lightning strike seared into the ground");
+        add("advancements.atmospheric_phenomena.killed_by_discharge.title", "Discharged");
+        add("advancements.atmospheric_phenomena.killed_by_discharge.description", "Unleash the power of a lightning strike... on yourself");
+        add("advancements.atmospheric_phenomena.discharge_entity.title", "Thunderstruck");
+        add("advancements.atmospheric_phenomena.discharge_entity.description", "Convert a mob using stored lightning");
     }
 
     private void add(Block blockIn) {

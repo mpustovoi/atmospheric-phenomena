@@ -82,7 +82,7 @@ public class APBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(APBlocks.LONSDALEITE_MATRIX.get(), APBlocks.DEBRIS_MATRIX.get());
         tag(APTags.Blocks.UNCOMMON_METEOR_BLOCKS).addTag(Tags.Blocks.OBSIDIAN);
         tag(APTags.Blocks.RARE_METEOR_BLOCKS).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get());
-        tag(APTags.Blocks.VERY_RARE_METEOR_BLOCKS).add(Blocks.CRYING_OBSIDIAN);
+        tag(APTags.Blocks.VERY_RARE_METEOR_BLOCKS).add(Blocks.CRYING_OBSIDIAN, Blocks.END_STONE);
         tag(APTags.Blocks.COMMON_METEOR_CORE_BLOCKS).add(APBlocks.KAMACITE.get(), APBlocks.TAENITE.get(), APBlocks.TETRATAENITE.get());
         tag(APTags.Blocks.UNCOMMON_METEOR_CORE_BLOCKS).add(APBlocks.GOLDEN_MATRIX.get(), APBlocks.QUARTZ_MATRIX.get(), APBlocks.METEORIC_ICE.get());
         tag(APTags.Blocks.RARE_METEOR_CORE_BLOCKS).add(APBlocks.LONSDALEITE_MATRIX.get());

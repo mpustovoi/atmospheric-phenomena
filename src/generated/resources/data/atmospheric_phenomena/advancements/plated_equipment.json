@@ -1,0 +1,47 @@
+{
+  "parent": "atmospheric_phenomena:obtain_otherworldly_upgrade_template",
+  "criteria": {
+    "plated_armor": {
+      "conditions": {
+        "items": [
+          {
+            "nbt": "{modifier:\"plated_armor\"}"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "plated_tool": {
+      "conditions": {
+        "items": [
+          {
+            "nbt": "{modifier:\"plated_tool\"}"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.atmospheric_phenomena.plated_equipment.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "atmospheric_phenomena:plated_sheet"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.atmospheric_phenomena.plated_equipment.title"
+    }
+  },
+  "requirements": [
+    [
+      "plated_armor",
+      "plated_tool"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -174,7 +174,7 @@ abstract class AbstractMeteoroidEntity extends Entity {
             ent.hurt(damagesource, f);
             if (ent instanceof ServerPlayer playerEnt) {
                 if (playerEnt.isAlive()) return;
-                playerEnt.getAdvancements().award(((ServerLevel)this.level()).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID+"/killed_by_meteoroid")), "killed_by_meteoroid");
+                playerEnt.getAdvancements().award(((ServerLevel)this.level()).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID,"killed_by_meteoroid")), "killed_by_meteoroid");
             }
         });
     }
