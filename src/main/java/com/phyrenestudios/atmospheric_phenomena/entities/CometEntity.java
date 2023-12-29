@@ -1,5 +1,6 @@
 package com.phyrenestudios.atmospheric_phenomena.entities;
 
+import com.phyrenestudios.atmospheric_phenomena.data.loot.APLootTables;
 import com.phyrenestudios.atmospheric_phenomena.init.APParticleTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import com.phyrenestudios.atmospheric_phenomena.util.FeatureUtils;
@@ -9,6 +10,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -62,6 +64,10 @@ public class CometEntity extends AbstractMeteoroidEntity {
     @Override
     protected Optional<? extends Holder<ConfiguredFeature<?, ?>>> impactFeature() {
         return this.level().registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(APFeatures.CONFIGURED_COMET);
+    }
+    @Override
+    protected ResourceLocation getLoottable() {
+        return APLootTables.OVERWORLD_COMET;
     }
 
 }

@@ -15,6 +15,7 @@ public class APTags {
 
     public static final class Blocks {
         public static final TagKey<Block> VALID_METEORITE_SPAWN = modBlock("valid_meteorite_spawn");
+        public static final TagKey<Block> METEOROID_DESTROY = modBlock("meteoroid_destroy");
         public static final TagKey<Block> COMMON_METEOR_BLOCKS = modBlock("common_meteor_blocks");
         public static final TagKey<Block> UNCOMMON_METEOR_BLOCKS = modBlock("uncommon_meteor_blocks");
         public static final TagKey<Block> RARE_METEOR_BLOCKS = modBlock("rare_meteor_blocks");

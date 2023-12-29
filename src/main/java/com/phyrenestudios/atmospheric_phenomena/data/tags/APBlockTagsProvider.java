@@ -90,6 +90,7 @@ public class APBlockTagsProvider extends BlockTagsProvider {
         tag(Tags.Blocks.STORAGE_BLOCKS_DIAMOND).add(APBlocks.LONSDALEITE_BLOCK.get());
         tag(BlockTags.ICE).add(APBlocks.METEORIC_ICE.get());
         tag(APTags.Blocks.VALID_METEORITE_SPAWN).addTags(Tags.Blocks.STONE,BlockTags.DIRT,BlockTags.SNOW,BlockTags.SAND,Tags.Blocks.SANDSTONE,Tags.Blocks.OBSIDIAN,Tags.Blocks.GRAVEL,Tags.Blocks.COBBLESTONE,Tags.Blocks.ORES,BlockTags.TERRACOTTA).add(Blocks.DIRT_PATH, Blocks.CLAY);
+        tag(APTags.Blocks.METEOROID_DESTROY).addTags(BlockTags.LOGS, BlockTags.LEAVES);
         tag(APTags.Blocks.VITRIFIES_TO_STONE_FULGURITE).addTags(Tags.Blocks.STONE,Tags.Blocks.SANDSTONE,Tags.Blocks.GRAVEL,Tags.Blocks.COBBLESTONE,BlockTags.STONE_BRICKS);
         tag(APTags.Blocks.VITRIFIES_TO_SOIL_FULGURITE).addTags(BlockTags.DIRT).add(Blocks.CLAY);
         tag(APTags.Blocks.VITRIFIES_TO_GLASS).addTags(BlockTags.SAND);

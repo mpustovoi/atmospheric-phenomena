@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-abstract class AbstractMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
+public abstract class AbstractMeteoriteFeature extends Feature<NoneFeatureConfiguration> {
     public AbstractMeteoriteFeature(Codec<NoneFeatureConfiguration> p_i49915_1_) {
         super(p_i49915_1_);
     }
@@ -160,7 +160,7 @@ abstract class AbstractMeteoriteFeature extends Feature<NoneFeatureConfiguration
             .put(APBlocks.DEBRIS_MATRIX.get(), CapsuleBlocks.ANCIENT_CAPSULE.getCapsule())
             .put(APBlocks.GOLDEN_MATRIX.get(), CapsuleBlocks.GILDED_CAPSULE.getCapsule()).build());
 
-    protected void placeCapsule(WorldGenLevel levelIn, RandomSource rand, BlockPos posIn, Block coreBlock) {
+    public void placeCapsule(WorldGenLevel levelIn, RandomSource rand, BlockPos posIn, Block coreBlock) {
         Block capsuleBlock = capsuleMap.containsKey(coreBlock) ? capsuleMap.get(coreBlock) : CapsuleBlocks.PLATED_CAPSULE.getCapsule();
         levelIn.setBlock(posIn, capsuleBlock.defaultBlockState(), 2);
         CapsuleBlockEntity.setLootTable(levelIn, rand, posIn, getLoottable());

@@ -1,6 +1,9 @@
 package com.phyrenestudios.atmospheric_phenomena.entities;
 
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
+import com.phyrenestudios.atmospheric_phenomena.block_entities.CapsuleBlockEntity;
+import com.phyrenestudios.atmospheric_phenomena.blocks.CapsuleBlocks;
+import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.init.APDamageTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.APGameRules;
 import net.minecraft.core.BlockPos;
@@ -33,6 +36,7 @@ import net.minecraftforge.fluids.FluidType;
 
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 abstract class AbstractMeteoroidEntity extends Entity {
     protected static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(AbstractMeteoroidEntity.class, EntityDataSerializers.INT);
@@ -120,6 +124,12 @@ abstract class AbstractMeteoroidEntity extends Entity {
             if (!this.isNoGravity() && this.getDeltaMovement().length() == 0.0D) {
                 this.setDeltaMovement(this.getDeltaMovement().add(getRandomMotion(random)));
             }
+            Stream<BlockPos> posStream =  BlockPos.betweenClosedStream(this.getBoundingBox().inflate(4D));
+            posStream.filter((pos) -> {
+                return this.level().getBlockState(pos).is(APTags.Blocks.METEOROID_DESTROY) || this.level().getBlockState(pos).canBeReplaced();
+            }).forEach((pos) -> {
+                this.level().removeBlock(pos, false);
+            });
         }
         this.move(MoverType.SELF, this.getDeltaMovement());
 
@@ -147,6 +157,9 @@ abstract class AbstractMeteoroidEntity extends Entity {
         } else {
             if (this.level().getGameRules().getBoolean(APGameRules.RULE_CREATE_IMPACT_CRATERS)) {
                 impactFeature().ifPresent(configuredFeatureHolder -> configuredFeatureHolder.value().place((WorldGenLevel) this.level(), ((ServerLevel)this.level()).getChunkSource().getGenerator(), this.level().getRandom(), this.blockPosition()));
+            } else {
+                this.level().setBlock(this.blockPosition(), CapsuleBlocks.PLATED_CAPSULE.getCapsule().defaultBlockState(), 2);
+                CapsuleBlockEntity.setLootTable(this.level(), random, this.blockPosition(), getLoottable());
             }
             this.destroy();
         }
@@ -187,4 +200,5 @@ abstract class AbstractMeteoroidEntity extends Entity {
     protected abstract ParticleOptions burnoutParticle();
     protected abstract SoundEvent burnoutSound();
     protected abstract Optional<? extends Holder<ConfiguredFeature<?, ?>>> impactFeature();
+    protected abstract ResourceLocation getLoottable();
 }
