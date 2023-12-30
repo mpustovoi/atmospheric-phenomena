@@ -119,27 +119,33 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("advancements.atmospheric_phenomena.obtain_meteoric_iron.title", "Not Quite Rusty");
         add("advancements.atmospheric_phenomena.obtain_meteoric_iron.description", "Obtain a chunk of meteoric iron from a fallen meteorite");
         add("advancements.atmospheric_phenomena.obtain_lonsdaleite.title", "Pink Diamonds!");
-        add("advancements.atmospheric_phenomena.obtain_lonsdaleite.description", "Obtain a lonsdaleite gem from a fallen meteorite");
+        add("advancements.atmospheric_phenomena.obtain_lonsdaleite.description", "Obtain a lonsdaleite gem (a diamond polymorph) from a fallen meteorite");
+        add("advancements.atmospheric_phenomena.obtain_moissanite.title", "These Gotta Be Diamonds..");
+        add("advancements.atmospheric_phenomena.obtain_moissanite.description", "Obtain a moissanite gem (silicon carbide) from a fallen meteorite");
+        add("advancements.atmospheric_phenomena.obtain_capsule.title", "Signed and Sealed");
+        add("advancements.atmospheric_phenomena.obtain_capsule.description", "Retrieve a capsule, and get those items out by using a hopper");
         //add("advancements.atmospheric_phenomena.obtain_debris_matrix.title", "Space Debris");
         //add("advancements.atmospheric_phenomena.obtain_debris_matrix.description", "Obtain a debris matrix from a fallen meteorite");
         add("advancements.atmospheric_phenomena.killed_by_meteoroid.title", "The Way of the Dinosaurs");
-        add("advancements.atmospheric_phenomena.killed_by_meteoroid.description", "Get killed by a meteoroid");
+        add("advancements.atmospheric_phenomena.killed_by_meteoroid.description", "Face the full impact of a falling meteoroid");
         add("advancements.atmospheric_phenomena.obtain_otherworldly_upgrade_template.title", "Smithing for Skill");
         add("advancements.atmospheric_phenomena.obtain_otherworldly_upgrade_template.description", "Find a new smithing template inside meteorite capsules to upgrade equipment");
         add("advancements.atmospheric_phenomena.plated_equipment.title", "Spaceware");
-        add("advancements.atmospheric_phenomena.plated_equipment.description", "Craft a plated sheet to upgrade iron equipment");
+        add("advancements.atmospheric_phenomena.plated_equipment.description", "Use a plated sheet to upgrade iron equipment");
         add("advancements.atmospheric_phenomena.studded_equipment.title", "You Stud");
-        add("advancements.atmospheric_phenomena.studded_equipment.description", "Craft a studded sheet to upgrade diamond equipment");
+        add("advancements.atmospheric_phenomena.studded_equipment.description", "Use a studded sheet to upgrade diamond equipment");
         add("advancements.atmospheric_phenomena.embossed_equipment.title", "Like a Boss");
-        add("advancements.atmospheric_phenomena.embossed_equipment.description", "Craft a embossed sheet to upgrade netherite equipment");
+        add("advancements.atmospheric_phenomena.embossed_equipment.description", "Use a embossed sheet to upgrade netherite equipment");
         add("advancements.atmospheric_phenomena.emboss_netherite.title", "Fine Suit Indeed");
-        add("advancements.atmospheric_phenomena.emboss_netherite.description", "Emboss a full suit of netherite armor");
+        add("advancements.atmospheric_phenomena.emboss_netherite.description", "Emboss a full suit of netherite armor for maximum protection");
         add("advancements.atmospheric_phenomena.obtain_vitrified_blocks.title", "Glassy");
         add("advancements.atmospheric_phenomena.obtain_vitrified_blocks.description", "Find the remnants of a lightning strike seared into the ground");
+        add("advancements.atmospheric_phenomena.conductive_line.title", "Like a Long Rod");
+        add("advancements.atmospheric_phenomena.conductive_line.description", "Direct the energy of a lightning strike using conductive blocks");
         add("advancements.atmospheric_phenomena.killed_by_discharge.title", "Discharged");
-        add("advancements.atmospheric_phenomena.killed_by_discharge.description", "Unleash the power of a lightning strike... on yourself");
+        add("advancements.atmospheric_phenomena.killed_by_discharge.description", "Unleash the stored power of a lightning strike... on yourself");
         add("advancements.atmospheric_phenomena.discharge_entity.title", "Thunderstruck");
-        add("advancements.atmospheric_phenomena.discharge_entity.description", "Convert a mob using stored lightning");
+        add("advancements.atmospheric_phenomena.discharge_entity.description", "Convert a mob using stored lightning energy");
     }
 
     private void add(Block blockIn) {

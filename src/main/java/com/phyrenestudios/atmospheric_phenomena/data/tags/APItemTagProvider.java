@@ -35,6 +35,7 @@ public class APItemTagProvider extends ItemTagsProvider {
         copy(APTags.Blocks.CHARRED_LOGS, APTags.Items.CHARRED_LOGS);
         copy(APTags.Blocks.SMOULDERING_LOGS, APTags.Items.SMOULDERING_LOGS);
         copy(APTags.Blocks.BURNING_LOGS, APTags.Items.BURNING_LOGS);
+        copy(APTags.Blocks.CAPSULES, APTags.Items.CAPSULES);
         tag(ItemTags.SIGNS).add(APItems.CHARRED_SIGN.get());
         tag(ItemTags.HANGING_SIGNS).add(APItems.CHARRED_HANGING_SIGN.get());
         tag(ItemTags.BOATS).add(APItems.CHARRED_BOAT.get());

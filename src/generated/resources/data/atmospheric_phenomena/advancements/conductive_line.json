@@ -1,39 +1,39 @@
 {
-  "parent": "atmospheric_phenomena:obtain_capsule",
+  "parent": "atmospheric_phenomena:obtain_vitrified_blocks",
   "criteria": {
-    "killed_by_meteoroid": {
+    "conductive_line": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "atmospheric_phenomena:meteor"
+              "type": "minecraft:lightning_bolt"
             }
           }
         ]
       },
-      "trigger": "minecraft:entity_killed_player"
+      "trigger": "minecraft:player_killed_entity"
     }
   },
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.atmospheric_phenomena.killed_by_meteoroid.description"
+      "translate": "advancements.atmospheric_phenomena.conductive_line.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "atmospheric_phenomena:chondrite"
+      "item": "minecraft:copper_block"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.atmospheric_phenomena.killed_by_meteoroid.title"
+      "translate": "advancements.atmospheric_phenomena.conductive_line.title"
     }
   },
   "requirements": [
     [
-      "killed_by_meteoroid"
+      "conductive_line"
     ]
   ],
   "sends_telemetry_event": true

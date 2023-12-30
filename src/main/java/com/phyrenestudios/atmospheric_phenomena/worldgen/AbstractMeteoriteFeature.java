@@ -48,7 +48,7 @@ public abstract class AbstractMeteoriteFeature extends Feature<NoneFeatureConfig
         BlockPos centerPos = getCenterPos(centerList);
         if (generateCrater()) buildCrater(levelIn, surfacePos, centerPos, size + 6);
         Block coreBlock = buildMeteor(levelIn, rand, centerList, centerPos, size);
-        if (rand.nextDouble() < Config.meteoriteCrateSpawnChance) placeCapsule(levelIn, rand, centerPos, coreBlock);
+        if (rand.nextDouble() < Config.meteoriteCapsuleSpawnChance) placeCapsule(levelIn, rand, centerPos, coreBlock);
         return true;
     }
 

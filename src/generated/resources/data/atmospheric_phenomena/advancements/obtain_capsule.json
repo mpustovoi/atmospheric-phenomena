@@ -1,0 +1,36 @@
+{
+  "parent": "atmospheric_phenomena:obtain_meteoric_iron",
+  "criteria": {
+    "obtain_capsule": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "atmospheric_phenomena:capsules"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.atmospheric_phenomena.obtain_capsule.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "atmospheric_phenomena:plated_capsule"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.atmospheric_phenomena.obtain_capsule.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_capsule"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

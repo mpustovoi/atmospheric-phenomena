@@ -1,13 +1,18 @@
 package com.phyrenestudios.atmospheric_phenomena.events;
 
-import com.phyrenestudios.atmospheric_phenomena.init.Config;
+import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.blocks.APBlocks;
 import com.phyrenestudios.atmospheric_phenomena.blocks.LightningGlassBlocks;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
+import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -45,6 +50,10 @@ public class EntityJoinWorldHandler {
                     toCheck.add(cp.relative(dir).immutable());
                 }
             }
+        }
+        if (conductiveBlocks.size() > 1) {
+            Player playerEnt = levelIn.getNearestPlayer(startPos.getX(), startPos.getY(), startPos.getZ(), 10D, false);
+            if (playerEnt instanceof ServerPlayer) ((ServerPlayer) playerEnt).getAdvancements().award(((ServerLevel)levelIn).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID,"conductive_line")), "conductive_line");
         }
 
         Set<BlockPos> vitrifiedBlocks = new HashSet<>();

@@ -18,12 +18,12 @@ public class Config
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends Integer>> OVERWORLD_METEOR_SPAWN_SETTINGS = BUILDER
             .comment("Settings for meteors spawning in the Overworld.",
-                    "The first integer represents the The 1 in X chance per tick for a meteor to spawn in a loaded chunk. Set to 0 to disable meteor spawning. Default: 1000000",
+                    "The first integer represents the The 1 in X chance per tick for a meteor to spawn in a loaded chunk. Set to 0 to disable meteor spawning. Default: 800000",
                     "The second integer represents the Y-level that meteors spawn at in the Overworld.. Default: 350",
                     "The third integer represents the minimum spawn size of a meteor. Default: 300",
                     "The fourth integer represents the maximum spawn size of a meteor. Default: 1000",
                     "The fifth integer represents the rate at which a meteor decreases in size per tick. Default: 2")
-            .defineList("overworldMeteorSpawnSettings", Arrays.asList(1000000, 350, 300, 1000, 2), (i) -> i instanceof Integer);
+            .defineList("overworldMeteorSpawnSettings", Arrays.asList(800000, 350, 300, 1000, 2), (i) -> i instanceof Integer);
     private static final ForgeConfigSpec.ConfigValue<List<? extends Double>> OVERWORLD_METEOR_VELOCITY = BUILDER
             .comment("Meteors spawn in with a random velocity. Set the lower and upper bounds to configure the direction and speed of new meteors.",
                     "The first double represents the minimum bound in the X axis . Default: -1.0",
@@ -35,12 +35,12 @@ public class Config
             .defineList("overworldMeteorVelocity", Arrays.asList(-0.5D, -1.5D, -0.5D, 0.5D, -0.5D, 0.5D), (d) -> d instanceof Double);
     private static final ForgeConfigSpec.ConfigValue<List<? extends Integer>> OVERWORLD_COMET_SPAWN_SETTINGS = BUILDER
             .comment("Settings for comets spawning in the Overworld.",
-                    "The first integer represents the The 1 in X chance per tick for a comet to spawn in a loaded chunk. Set to 0 to disable comet spawning. Default: 1000000",
+                    "The first integer represents the The 1 in X chance per tick for a comet to spawn in a loaded chunk. Set to 0 to disable comet spawning. Default: 800000",
                     "The second integer represents the Y-level that comets spawn at in the Overworld.. Default: 350",
                     "The third integer represents the minimum spawn size of a comet. Default: 200",
                     "The fourth integer represents the maximum spawn size of a comet. Default: 500",
                     "The fifth integer represents the rate at which a comet decreases in size per tick. Default: 3")
-            .defineList("overworldCometSpawnSettings", Arrays.asList(1000000, 350, 200, 500, 3), (i) -> i instanceof Integer);
+            .defineList("overworldCometSpawnSettings", Arrays.asList(800000, 350, 200, 500, 3), (i) -> i instanceof Integer);
     private static final ForgeConfigSpec.ConfigValue<List<? extends Double>> OVERWORLD_COMET_VELOCITY = BUILDER
             .comment("Comets spawn in with a random velocity. Set the lower and upper bounds to configure the direction and speed of new comets.",
                     "The first double represents the minimum bound in the X axis . Default: -1.0",
@@ -54,9 +54,9 @@ public class Config
     private static final ForgeConfigSpec.BooleanValue METEORITE_DESTROY_ALL = BUILDER
             .comment("Defines if meteorite features destroy all blocks. If false, the feature only replaces blocks from #atmospheric_phenomena:valid_meteorite_spawn.")
             .define("meteoriteDestroyAll", true);
-    private static final ForgeConfigSpec.DoubleValue METEORITE_CRATE_SPAWN_CHANCE = BUILDER
-            .comment("The chance for a meteor to spawn with a crate.")
-            .defineInRange("meteoriteCrateSpawnChance", 0.5D, 0.0D, 1.0D);
+    private static final ForgeConfigSpec.DoubleValue METEORITE_CAPSULE_SPAWN_CHANCE = BUILDER
+            .comment("The chance for a meteor to spawn with a capsule. Affects generation of capsules when gamerule createImpactCraters is false.")
+            .defineInRange("meteoriteCapsuleSpawnChance", 0.5D, 0.0D, 1.0D);
     private static final ForgeConfigSpec.DoubleValue SOLID_CORE_METEORITE_CHANCE = BUILDER
             .comment("The chance for a meteorite to generate with no core blocks.")
             .defineInRange("solidCoreMeteoriteChance", 0.2D, 0.0D, 1.0D);
@@ -94,7 +94,7 @@ public class Config
     public static List<? extends Double> overworldMeteorVelocity;
     public static List<? extends Integer> overworldCometSpawnSettings;
     public static List<? extends Double> overworldCometVelocity;
-    public static double meteoriteCrateSpawnChance;
+    public static double meteoriteCapsuleSpawnChance;
     public static double solidCoreMeteoriteChance;
     public static double magmaBlockFrequency;
     public static double strewnBlockFrequency;
@@ -116,7 +116,7 @@ public class Config
         overworldCometVelocity = OVERWORLD_COMET_VELOCITY.get();
 
         meteoriteDestroyAll = METEORITE_DESTROY_ALL.get();
-        meteoriteCrateSpawnChance = METEORITE_CRATE_SPAWN_CHANCE.get();
+        meteoriteCapsuleSpawnChance = METEORITE_CAPSULE_SPAWN_CHANCE.get();
         solidCoreMeteoriteChance = SOLID_CORE_METEORITE_CHANCE.get();
         magmaBlockFrequency = MAGMA_FREQUENCY.get();
         strewnBlockFrequency = STREWN_BLOCK_FREQUENCY.get();

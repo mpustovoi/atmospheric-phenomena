@@ -45,6 +45,7 @@ public class APBlockTagsProvider extends BlockTagsProvider {
             tag(BlockTags.MINEABLE_WITH_PICKAXE).add(base.getCapsule());
             tag(BlockTags.NEEDS_DIAMOND_TOOL).add(base.getCapsule());
             tag(BlockTags.FEATURES_CANNOT_REPLACE).add(base.getCapsule());
+            tag(APTags.Blocks.CAPSULES).add(base.getCapsule());
         }
         tag(APTags.Blocks.CHARRED_LOGS).add(APBlocks.CHARRED_LOG.get(),APBlocks.STRIPPED_CHARRED_LOG.get(),APBlocks.CHARRED_WOOD.get(),APBlocks.STRIPPED_CHARRED_WOOD.get());
         tag(APTags.Blocks.SMOULDERING_LOGS).add(APBlocks.SMOULDERING_LOG.get(),APBlocks.SMOULDERING_WOOD.get());
@@ -95,5 +96,6 @@ public class APBlockTagsProvider extends BlockTagsProvider {
         tag(APTags.Blocks.VITRIFIES_TO_SOIL_FULGURITE).addTags(BlockTags.DIRT).add(Blocks.CLAY);
         tag(APTags.Blocks.VITRIFIES_TO_GLASS).addTags(BlockTags.SAND);
         tag(APTags.Blocks.LIGHTNING_CONDUCTIVE).addTags(Tags.Blocks.STORAGE_BLOCKS_COPPER, Tags.Blocks.STORAGE_BLOCKS_IRON, Tags.Blocks.STORAGE_BLOCKS_GOLD, Tags.Blocks.STORAGE_BLOCKS_REDSTONE).add(Blocks.CUT_COPPER, Blocks.EXPOSED_COPPER, Blocks.EXPOSED_CUT_COPPER, Blocks.WEATHERED_COPPER, Blocks.WEATHERED_CUT_COPPER, Blocks.OXIDIZED_COPPER, Blocks.OXIDIZED_CUT_COPPER, Blocks.WAXED_COPPER_BLOCK, Blocks.WAXED_CUT_COPPER, Blocks.WAXED_EXPOSED_COPPER, Blocks.WAXED_EXPOSED_CUT_COPPER, Blocks.WAXED_WEATHERED_COPPER, Blocks.WAXED_WEATHERED_CUT_COPPER, Blocks.WAXED_OXIDIZED_COPPER, Blocks.WAXED_OXIDIZED_CUT_COPPER);
+
     }
 }

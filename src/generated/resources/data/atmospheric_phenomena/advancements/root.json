@@ -1,84 +1,10 @@
 {
   "criteria": {
-    "angrite": {
+    "obtain_meteorite": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "atmospheric_phenomena:angrite"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "carbonaceous_chondrite": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "atmospheric_phenomena:carbonaceous_chondrite"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "chondrite": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "atmospheric_phenomena:chondrite"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "enstatite_chondrite": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "atmospheric_phenomena:enstatite_chondrite"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "mesosiderite": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "atmospheric_phenomena:mesosiderite"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "pallasite": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "atmospheric_phenomena:pallasite"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "ureilite": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "atmospheric_phenomena:ureilite"
-            ]
+            "tag": "atmospheric_phenomena:meteorite_blocks"
           }
         ]
       },
@@ -103,13 +29,7 @@
   },
   "requirements": [
     [
-      "chondrite",
-      "enstatite_chondrite",
-      "carbonaceous_chondrite",
-      "angrite",
-      "ureilite",
-      "pallasite",
-      "mesosiderite"
+      "obtain_meteorite"
     ]
   ],
   "sends_telemetry_event": true

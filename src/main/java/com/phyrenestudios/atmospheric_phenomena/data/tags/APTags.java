@@ -35,6 +35,7 @@ public class APTags {
         public static final TagKey<Block> CHARRED_LOGS = modBlock("charred_logs");
         public static final TagKey<Block> SMOULDERING_LOGS = modBlock("smouldering_logs");
         public static final TagKey<Block> BURNING_LOGS = modBlock("burning_logs");
+        public static final TagKey<Block> CAPSULES = modBlock("capsules");
 
     }
 
@@ -45,6 +46,7 @@ public class APTags {
         public static final TagKey<Item> BURNING_LOGS = modItem("burning_logs");
         public static final TagKey<Item> METEORITE_BLOCKS = modItem("meteorite_blocks");
         public static final TagKey<Item> TEKTITES = modItem("tektites");
+        public static final TagKey<Item> CAPSULES = modItem("capsules");
 
     }
 

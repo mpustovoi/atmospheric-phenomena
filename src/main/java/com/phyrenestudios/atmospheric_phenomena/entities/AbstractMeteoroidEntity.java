@@ -6,6 +6,7 @@ import com.phyrenestudios.atmospheric_phenomena.blocks.CapsuleBlocks;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.init.APDamageTypes;
 import com.phyrenestudios.atmospheric_phenomena.init.APGameRules;
+import com.phyrenestudios.atmospheric_phenomena.init.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
@@ -157,8 +158,8 @@ abstract class AbstractMeteoroidEntity extends Entity {
         } else {
             if (this.level().getGameRules().getBoolean(APGameRules.RULE_CREATE_IMPACT_CRATERS)) {
                 impactFeature().ifPresent(configuredFeatureHolder -> configuredFeatureHolder.value().place((WorldGenLevel) this.level(), ((ServerLevel)this.level()).getChunkSource().getGenerator(), this.level().getRandom(), this.blockPosition()));
-            } else {
-                this.level().setBlock(this.blockPosition(), CapsuleBlocks.PLATED_CAPSULE.getCapsule().defaultBlockState(), 2);
+            } else if (random.nextFloat() < Config.meteoriteCapsuleSpawnChance) {
+                this.level().setBlock(this.blockPosition(), this instanceof CometEntity ? CapsuleBlocks.FROZEN_CAPSULE.getCapsule().defaultBlockState() : CapsuleBlocks.PLATED_CAPSULE.getCapsule().defaultBlockState(), 2);
                 CapsuleBlockEntity.setLootTable(this.level(), random, this.blockPosition(), getLoottable());
             }
             this.destroy();

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "atmospheric_phenomena:white_lightning_glass"
-            ]
+            "tag": "atmospheric_phenomena:lightning_glass"
           }
         ]
       },

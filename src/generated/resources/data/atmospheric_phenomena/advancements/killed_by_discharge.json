@@ -1,5 +1,5 @@
 {
-  "parent": "atmospheric_phenomena:obtain_vitrified_blocks",
+  "parent": "atmospheric_phenomena:conductive_line",
   "criteria": {
     "killed_by_discharge": {
       "conditions": {
