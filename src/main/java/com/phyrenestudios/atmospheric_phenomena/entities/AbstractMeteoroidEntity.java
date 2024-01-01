@@ -33,7 +33,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.fluids.FluidType;
+import net.neoforged.neoforge.fluids.FluidType;
 
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -188,7 +188,7 @@ abstract class AbstractMeteoroidEntity extends Entity {
             ent.hurt(damagesource, f);
             if (ent instanceof ServerPlayer playerEnt) {
                 if (playerEnt.isAlive()) return;
-                playerEnt.getAdvancements().award(((ServerLevel)this.level()).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID,"killed_by_meteoroid")), "killed_by_meteoroid");
+                playerEnt.getAdvancements().award(((ServerLevel)this.level()).getServer().getAdvancements().get(new ResourceLocation(AtmosphericPhenomena.MODID,"killed_by_meteoroid")), "killed_by_meteoroid");
             }
         });
     }

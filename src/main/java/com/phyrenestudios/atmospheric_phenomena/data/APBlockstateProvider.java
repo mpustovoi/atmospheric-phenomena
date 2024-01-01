@@ -3,27 +3,22 @@ package com.phyrenestudios.atmospheric_phenomena.data;
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.blocks.*;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraftforge.client.model.generators.*;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
-
-import javax.annotation.Nonnull;
+import net.neoforged.neoforge.client.model.generators.*;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class APBlockstateProvider extends BlockStateProvider {
 
     public APBlockstateProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
         super(packOutput, AtmosphericPhenomena.MODID, existingFileHelper);
-    }
-
-    @Nonnull
-    @Override
-    public String getName() {
-        return AtmosphericPhenomena.MODID + " - BlockStates/Models";
     }
 
     @Override
@@ -177,7 +172,7 @@ public class APBlockstateProvider extends BlockStateProvider {
         return new ResourceLocation(namespace,"block/"+textureName);
     }
     private static ResourceLocation key(Block block) {
-        return ForgeRegistries.BLOCKS.getKey(block);
+        return BuiltInRegistries.BLOCK.getKey(block);
     }
     private static String name(Block blk) {
         return key(blk).getPath();

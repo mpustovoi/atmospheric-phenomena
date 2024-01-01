@@ -25,7 +25,7 @@ import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.Collections;
 import java.util.stream.Collectors;
@@ -43,7 +43,7 @@ public class APBlockLootSubProvider extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return APBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList());
+        return APBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get).collect(Collectors.toList());
     }
 
     @Override

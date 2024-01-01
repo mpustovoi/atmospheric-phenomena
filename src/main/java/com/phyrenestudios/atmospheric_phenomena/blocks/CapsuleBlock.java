@@ -1,5 +1,6 @@
 package com.phyrenestudios.atmospheric_phenomena.blocks;
 
+import com.mojang.serialization.MapCodec;
 import com.phyrenestudios.atmospheric_phenomena.block_entities.APBlockEntities;
 import com.phyrenestudios.atmospheric_phenomena.block_entities.CapsuleBlockEntity;
 import net.minecraft.ChatFormatting;
@@ -21,10 +22,8 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -38,11 +37,17 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class CapsuleBlock extends BaseEntityBlock {
+    public static final MapCodec<CapsuleBlock> CODEC = simpleCodec(CapsuleBlock::new);
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
     public static final ResourceLocation CONTENTS = new ResourceLocation("contents");
     protected CapsuleBlock(Properties p_49224_) {
         super(p_49224_);
         this.registerDefaultState(this.defaultBlockState().setValue(AXIS, Direction.Axis.Y));
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return CODEC;
     }
 
     @Nullable
@@ -84,7 +89,8 @@ public class CapsuleBlock extends BaseEntityBlock {
 
     }
 
-    public void playerWillDestroy(Level p_56212_, BlockPos p_56213_, BlockState stateIn, Player p_56215_) {
+    @Override
+    public BlockState playerWillDestroy(Level p_56212_, BlockPos p_56213_, BlockState stateIn, Player p_56215_) {
         BlockEntity blockentity = p_56212_.getBlockEntity(p_56213_);
         if (blockentity instanceof CapsuleBlockEntity capsuleBlockEntity) {
             if (!p_56212_.isClientSide && p_56215_.isCreative() && !capsuleBlockEntity.isEmpty()) {
@@ -101,7 +107,7 @@ public class CapsuleBlock extends BaseEntityBlock {
             }
         }
 
-        super.playerWillDestroy(p_56212_, p_56213_, stateIn, p_56215_);
+        return super.playerWillDestroy(p_56212_, p_56213_, stateIn, p_56215_);
     }
 
     public void setPlacedBy(Level p_56206_, BlockPos p_56207_, BlockState p_56208_, LivingEntity p_56209_, ItemStack p_56210_) {
@@ -128,12 +134,10 @@ public class CapsuleBlock extends BaseEntityBlock {
         return super.getDrops(p_287632_, p_287691_);
     }
 
-
-    public ItemStack getCloneItemStack(BlockGetter p_56202_, BlockPos p_56203_, BlockState p_56204_) {
-        ItemStack itemstack = super.getCloneItemStack(p_56202_, p_56203_, p_56204_);
-        p_56202_.getBlockEntity(p_56203_, APBlockEntities.CAPSULE.get()).ifPresent((p_187446_) -> {
-            p_187446_.saveToItem(itemstack);
-        });
+    @Override
+    public ItemStack getCloneItemStack(LevelReader p_304539_, BlockPos p_56203_, BlockState p_56204_) {
+        ItemStack itemstack = super.getCloneItemStack(p_304539_, p_56203_, p_56204_);
+        p_304539_.getBlockEntity(p_56203_, APBlockEntities.CAPSULE.get()).ifPresent(p_187446_ -> p_187446_.saveToItem(itemstack));
         return itemstack;
     }
 

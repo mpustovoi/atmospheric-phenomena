@@ -9,18 +9,18 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 public class APFeatures {
 
-    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, AtmosphericPhenomena.MODID);
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, AtmosphericPhenomena.MODID);
 
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> OVERWORLD_METEORITE = FEATURES.register("overworld_meteorite", () -> new OverworldMeteoriteFeature(NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> BURIED_METEORITE = FEATURES.register("buried_meteorite", () -> new BuriedMeteoriteFeature(NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> FRESH_METEORITE = FEATURES.register("fresh_meteorite", () -> new FreshMeteoriteFeature(NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> COMET = FEATURES.register("comet", () -> new CometFeature(NoneFeatureConfiguration.CODEC));
+    public static final Supplier<Feature<NoneFeatureConfiguration>> OVERWORLD_METEORITE = FEATURES.register("overworld_meteorite", () -> new OverworldMeteoriteFeature(NoneFeatureConfiguration.CODEC));
+    public static final Supplier<Feature<NoneFeatureConfiguration>> BURIED_METEORITE = FEATURES.register("buried_meteorite", () -> new BuriedMeteoriteFeature(NoneFeatureConfiguration.CODEC));
+    public static final Supplier<Feature<NoneFeatureConfiguration>> FRESH_METEORITE = FEATURES.register("fresh_meteorite", () -> new FreshMeteoriteFeature(NoneFeatureConfiguration.CODEC));
+    public static final Supplier<Feature<NoneFeatureConfiguration>> COMET = FEATURES.register("comet", () -> new CometFeature(NoneFeatureConfiguration.CODEC));
     //public static final RegistryObject<Feature<NoneFeatureConfiguration>> LARGE_CRATER = FEATURES.register("large_crater", () -> new LargeCraterFeature(NoneFeatureConfiguration.CODEC));
 
 

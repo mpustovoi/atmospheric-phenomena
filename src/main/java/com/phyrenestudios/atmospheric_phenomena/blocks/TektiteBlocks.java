@@ -5,10 +5,10 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 public enum TektiteBlocks implements StringRepresentable {
 
@@ -19,7 +19,7 @@ public enum TektiteBlocks implements StringRepresentable {
     RED_TEKTITE("red_tektite"),
     BROWN_TEKTITE("brown_tektite");
 
-    RegistryObject<Block> block;
+    DeferredBlock<Block> block;
 
     private final String name;
 
@@ -37,7 +37,7 @@ public enum TektiteBlocks implements StringRepresentable {
 
     public static void registerBlocks() {
         for (TektiteBlocks baseBlock : values()) {
-            baseBlock.block =  APBlocks.BLOCKS.register(baseBlock.getSerializedName(),() -> new GlassBlock(BlockBehaviour.Properties.of().strength(5.0F, 30.0F).sound(SoundType.GLASS).noOcclusion().requiresCorrectToolForDrops()));
+            baseBlock.block =  APBlocks.BLOCKS.register(baseBlock.getSerializedName(),() -> new TektiteBlock(BlockBehaviour.Properties.of().strength(5.0F, 30.0F).sound(SoundType.GLASS).noOcclusion().requiresCorrectToolForDrops()));
         }
     }
 

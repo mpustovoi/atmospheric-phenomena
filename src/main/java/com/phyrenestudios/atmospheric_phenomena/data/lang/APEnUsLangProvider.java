@@ -3,11 +3,11 @@ package com.phyrenestudios.atmospheric_phenomena.data.lang;
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.blocks.*;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.LanguageProvider;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class APEnUsLangProvider extends LanguageProvider {
     private final String locale;
@@ -83,6 +83,7 @@ public class APEnUsLangProvider extends LanguageProvider {
         add(APItems.CHARRED_HANGING_SIGN.get());
         add(APItems.CHARRED_BOAT.get());
         add(APItems.CHARRED_CHEST_BOAT.get());
+        add(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get());
 
         add("itemGroup.atmospheric_phenomena.main", "Atmospheric Phenomena");
         add("entity.atmospheric_phenomena.meteor", "Meteor");
@@ -149,10 +150,10 @@ public class APEnUsLangProvider extends LanguageProvider {
     }
 
     private void add(Block blockIn) {
-        add(blockIn, parseLangName(ForgeRegistries.BLOCKS.getResourceKey(blockIn).get().location().getPath()));
+        add(blockIn, parseLangName(BuiltInRegistries.BLOCK.getKey(blockIn).getPath()));
     }
     private void add(Item itemIn) {
-        add(itemIn, parseLangName(ForgeRegistries.ITEMS.getResourceKey(itemIn).get().location().getPath()));
+        add(itemIn, parseLangName(BuiltInRegistries.ITEM.getKey(itemIn).getPath()));
     }
 
     private String parseLangName(String registryName) {
@@ -167,10 +168,4 @@ public class APEnUsLangProvider extends LanguageProvider {
         return LangName;
     }
 
-    private static String name(Block block) {
-        return ForgeRegistries.BLOCKS.getKey(block).getPath();
-    }
-    private static String name(Item item) {
-        return ForgeRegistries.ITEMS.getKey(item).getPath();
-    }
 }

@@ -7,23 +7,24 @@ import com.phyrenestudios.atmospheric_phenomena.client.particle.LargeSnowflakePa
 import com.phyrenestudios.atmospheric_phenomena.client.particle.MeteorBurnoutParticle;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.core.registries.Registries;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = AtmosphericPhenomena.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class APParticleTypes {
-    public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, AtmosphericPhenomena.MODID);
+    public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(Registries.PARTICLE_TYPE, AtmosphericPhenomena.MODID);
 
-    public static final RegistryObject<SimpleParticleType> ENTRY_FLAME = PARTICLE_TYPES.register("entry_flame",  () -> new SimpleParticleType(false));
-    public static final RegistryObject<SimpleParticleType> METEOR_BURNOUT = PARTICLE_TYPES.register("meteor_burnout",  () -> new SimpleParticleType(false));
-    public static final RegistryObject<SimpleParticleType> LARGE_CLOUD = PARTICLE_TYPES.register("large_cloud",  () -> new SimpleParticleType(false));
-    public static final RegistryObject<SimpleParticleType> LARGE_SNOWFLAKE = PARTICLE_TYPES.register("large_snowflake",  () -> new SimpleParticleType(false));
+    public static final Supplier<SimpleParticleType> ENTRY_FLAME = PARTICLE_TYPES.register("entry_flame",  () -> new SimpleParticleType(false));
+    public static final Supplier<SimpleParticleType> METEOR_BURNOUT = PARTICLE_TYPES.register("meteor_burnout",  () -> new SimpleParticleType(false));
+    public static final Supplier<SimpleParticleType> LARGE_CLOUD = PARTICLE_TYPES.register("large_cloud",  () -> new SimpleParticleType(false));
+    public static final Supplier<SimpleParticleType> LARGE_SNOWFLAKE = PARTICLE_TYPES.register("large_snowflake",  () -> new SimpleParticleType(false));
 
 
     @OnlyIn(Dist.CLIENT)

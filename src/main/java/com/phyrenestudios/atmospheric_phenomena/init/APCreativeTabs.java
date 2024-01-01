@@ -9,14 +9,15 @@ import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 public class APCreativeTabs {
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, AtmosphericPhenomena.MODID);
 
-    public static final RegistryObject<CreativeModeTab> AP_TAB = CREATIVE_MODE_TABS.register("main", () -> CreativeModeTab.builder()
+    public static final Supplier<CreativeModeTab> AP_TAB = CREATIVE_MODE_TABS.register("main", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.atmospheric_phenomena.main"))
             .icon(() -> MeteorBlocks.CHONDRITE.getMeteorBlock().asItem().getDefaultInstance())
             .displayItems((parameters, output) -> {

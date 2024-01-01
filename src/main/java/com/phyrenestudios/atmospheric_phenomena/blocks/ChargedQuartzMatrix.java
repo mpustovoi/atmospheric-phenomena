@@ -24,7 +24,7 @@ import net.minecraft.world.level.material.FluidState;
 
 public class ChargedQuartzMatrix extends DropExperienceBlock {
     public ChargedQuartzMatrix(Properties p_221083_, IntProvider p_221084_) {
-        super(p_221083_, p_221084_);
+        super(p_221084_, p_221083_);
     }
 
     @Override
@@ -46,10 +46,10 @@ public class ChargedQuartzMatrix extends DropExperienceBlock {
         if (!(entityIn instanceof LivingEntity)) return;
         if (levelIn instanceof ServerLevel) entityIn.thunderHit((ServerLevel) levelIn, EntityType.LIGHTNING_BOLT.create(levelIn));
         if (entityIn instanceof ServerPlayer playerEnt && !playerEnt.isAlive()) {
-            playerEnt.getAdvancements().award(((ServerLevel)levelIn).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID,"killed_by_discharge")), "killed_by_discharge");
+            playerEnt.getAdvancements().award(((ServerLevel)levelIn).getServer().getAdvancements().get(new ResourceLocation(AtmosphericPhenomena.MODID,"killed_by_discharge")), "killed_by_discharge");
         } else if (entityIn instanceof Pig || entityIn instanceof Villager || entityIn instanceof Creeper) {
             Player playerEnt = levelIn.getNearestPlayer(entityIn, 10);
-            if (playerEnt instanceof ServerPlayer) ((ServerPlayer) playerEnt).getAdvancements().award(((ServerLevel)levelIn).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID,"discharge_entity")), "discharge_entity");
+            if (playerEnt instanceof ServerPlayer) ((ServerPlayer) playerEnt).getAdvancements().award(((ServerLevel)levelIn).getServer().getAdvancements().get(new ResourceLocation(AtmosphericPhenomena.MODID,"discharge_entity")), "discharge_entity");
         }
         levelIn.setBlockAndUpdate(posIn, APBlocks.QUARTZ_MATRIX.get().defaultBlockState());
         if (levelIn instanceof ServerLevel serverLevel) {

@@ -1,0 +1,536 @@
+{
+  "atmospheric_phenomena:recipes/building_blocks/white_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:plated_equipment": {
+    "criteria": {
+      "plated_armor": "2024-01-01 17:11:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:story/obtain_armor": {
+    "criteria": {
+      "iron_chestplate": "2024-01-01 17:11:27 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/yellow_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/diamond_hoe_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/dark_oak_chest_boat": {
+    "criteria": {
+      "has_boat": "2024-01-01 17:07:38 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/netherite_shovel_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/diamond_leggings_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/black_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/iron_nugget_from_smelting": {
+    "criteria": {
+      "has_iron_chestplate": "2024-01-01 17:11:27 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:obtain_vitrified_blocks": {
+    "criteria": {
+      "ligntning_glass": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:embossed_equipment": {
+    "criteria": {
+      "embossed_armor": "2024-01-01 17:11:33 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/bamboo_chest_raft": {
+    "criteria": {
+      "has_boat": "2024-01-01 17:07:38 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/chiseled_mesosiderite_from_mesosiderite_stonecutting": {
+    "criteria": {
+      "has_mesosiderite": "2024-01-01 17:09:30 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/lonsdaleite_block": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:obtain_lonsdaleite": {
+    "criteria": {
+      "lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/iron_shovel_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/iron_leggings_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/blue_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/diamond_axe_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/mesosiderite_bricks": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:30 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/magenta_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/cyan_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/misc/embossed_sheet": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:48 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/mesosiderite_bricks_wall_from_mesosiderite_stonecutting": {
+    "criteria": {
+      "has_mesosiderite": "2024-01-01 17:09:30 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/charcoal": {
+    "criteria": {
+      "has_log": "2024-01-01 17:10:27 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/brown_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/netherite_pickaxe_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/netherite_boots_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/meteoric_iron_block": {
+    "criteria": {
+      "has_meteoric_iron": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/misc/otherworldly_upgrade_smithing_template": {
+    "criteria": {
+      "has_otherworldly_upgrade_smithing_template": "2024-01-01 17:10:58 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/iron_chestplate_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/green_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/diamond_boots_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/spruce_chest_boat": {
+    "criteria": {
+      "has_boat": "2024-01-01 17:07:38 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/charred_planks": {
+    "criteria": {
+      "has_logs": "2024-01-01 17:10:27 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:obtain_meteoric_iron": {
+    "criteria": {
+      "meteoric_iron": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/light_blue_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/netherite_sword_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/mesosiderite_bricks_from_mesosiderite_stonecutting": {
+    "criteria": {
+      "has_mesosiderite": "2024-01-01 17:09:30 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/mesosiderite_bricks_stairs_from_mesosiderite_stonecutting": {
+    "criteria": {
+      "has_mesosiderite": "2024-01-01 17:09:30 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2024-01-01 17:07:18 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2024-01-01 17:10:27 -0500"
+    },
+    "done": true
+  },
+  "minecraft:story/shiny_gear": {
+    "criteria": {
+      "diamond_chestplate": "2024-01-01 17:11:23 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/pink_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/iron_axe_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/charred_wood": {
+    "criteria": {
+      "has_log": "2024-01-01 17:10:27 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:root": {
+    "criteria": {
+      "obtain_meteorite": "2024-01-01 17:09:30 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/jungle_chest_boat": {
+    "criteria": {
+      "has_boat": "2024-01-01 17:07:38 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/orange_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/moissanite_block": {
+    "criteria": {
+      "has_moissanite": "2024-01-01 17:09:48 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/acacia_chest_boat": {
+    "criteria": {
+      "has_boat": "2024-01-01 17:07:38 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/netherite_axe_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/misc/iron_from_meteoric_iron_smelting": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/iron_sword_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/mangrove_chest_boat": {
+    "criteria": {
+      "has_boat": "2024-01-01 17:07:38 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/netherite_leggings_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/iron_helmet_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/netherite_chestplate_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/diamond_sword_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/iron_nugget_from_blasting": {
+    "criteria": {
+      "has_iron_chestplate": "2024-01-01 17:11:27 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/lime_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:beach": "2024-01-01 17:07:26 -0500",
+      "minecraft:forest": "2024-01-01 17:07:30 -0500",
+      "minecraft:taiga": "2024-01-01 17:07:20 -0500",
+      "minecraft:cherry_grove": "2024-01-01 17:08:37 -0500",
+      "minecraft:meadow": "2024-01-01 17:07:46 -0500",
+      "minecraft:plains": "2024-01-01 17:08:20 -0500"
+    },
+    "done": false
+  },
+  "atmospheric_phenomena:recipes/misc/studded_sheet": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/misc/plated_sheet": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/mesosiderite_bricks_slab_from_mesosiderite_stonecutting": {
+    "criteria": {
+      "has_mesosiderite": "2024-01-01 17:09:30 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/iron_pickaxe_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/light_gray_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:studded_equipment": {
+    "criteria": {
+      "studded_armor": "2024-01-01 17:11:38 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/iron_hoe_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/diamond_shovel_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/iron_boots_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/oak_chest_boat": {
+    "criteria": {
+      "has_boat": "2024-01-01 17:07:38 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/diamond_pickaxe_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:obtain_otherworldly_upgrade_template": {
+    "criteria": {
+      "otherworldly_upgrade_template": "2024-01-01 17:10:58 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/diamond_helmet_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/netherite_helmet_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:obtain_capsule": {
+    "criteria": {
+      "obtain_capsule": "2024-01-01 17:09:12 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/diamond_chestplate_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/cherry_chest_boat": {
+    "criteria": {
+      "has_boat": "2024-01-01 17:07:38 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/birch_chest_boat": {
+    "criteria": {
+      "has_boat": "2024-01-01 17:07:38 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/red_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/purple_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "minecraft:story/root": {
+    "criteria": {
+      "crafting_table": "2024-01-01 17:12:28 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:obtain_moissanite": {
+    "criteria": {
+      "moissanite": "2024-01-01 17:09:48 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/transportation/charred_chest_boat": {
+    "criteria": {
+      "has_boat": "2024-01-01 17:07:38 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/combat/netherite_hoe_upgrade_smithing": {
+    "criteria": {
+      "has_lonsdaleite": "2024-01-01 17:09:46 -0500"
+    },
+    "done": true
+  },
+  "atmospheric_phenomena:recipes/building_blocks/gray_lightning_glass": {
+    "criteria": {
+      "has_ingredient": "2024-01-01 17:09:41 -0500"
+    },
+    "done": true
+  },
+  "DataVersion": 3700
+}

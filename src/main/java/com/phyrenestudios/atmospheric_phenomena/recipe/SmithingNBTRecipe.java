@@ -1,32 +1,29 @@
 package com.phyrenestudios.atmospheric_phenomena.recipe;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.item.crafting.SmithingRecipe;
 import net.minecraft.world.level.Level;
 
 import java.util.stream.Stream;
 
 public class SmithingNBTRecipe implements SmithingRecipe {
-    private final ResourceLocation id;
     final Ingredient template;
     final Ingredient base;
     final Ingredient addition;
     final ItemStack result;
     final String modifier;
 
-    public SmithingNBTRecipe(ResourceLocation p_267143_, Ingredient p_266750_, Ingredient p_266787_, Ingredient p_267292_, ItemStack resultIn, String modifierIn) {
-        this.id = p_267143_;
+    public SmithingNBTRecipe(Ingredient p_266750_, Ingredient p_266787_, Ingredient p_267292_, ItemStack resultIn, String modifierIn) {
         this.template = p_266750_;
         this.base = p_266787_;
         this.addition = p_267292_;
@@ -51,51 +48,60 @@ public class SmithingNBTRecipe implements SmithingRecipe {
         return itemstack;
     }
 
+    @Override
     public ItemStack getResultItem(RegistryAccess p_267209_) {
         return this.result;
     }
 
+    @Override
     public boolean isTemplateIngredient(ItemStack p_267113_) {
         return this.template.test(p_267113_);
     }
 
+    @Override
     public boolean isBaseIngredient(ItemStack p_267276_) {
         return this.base.test(p_267276_);
     }
 
+    @Override
     public boolean isAdditionIngredient(ItemStack p_267260_) {
         return this.addition.test(p_267260_);
     }
 
-    public ResourceLocation getId() {
-        return this.id;
-    }
-
+    @Override
     public RecipeSerializer<?> getSerializer() {
         return APRecipeSerializers.SMITHING_NBT_RECIPE_SERIALIZER.get();
     }
 
+    @Override
     public boolean isIncomplete() {
-        return Stream.of(this.template, this.base, this.addition).anyMatch(net.minecraftforge.common.ForgeHooks::hasNoElements);
+        return Stream.of(this.template, this.base, this.addition).anyMatch(net.neoforged.neoforge.common.CommonHooks::hasNoElements);
     }
 
     public static class Serializer implements RecipeSerializer<SmithingNBTRecipe> {
-        public SmithingNBTRecipe fromJson(ResourceLocation p_266953_, JsonObject jsonObject) {
-            Ingredient ingredient = Ingredient.fromJson(GsonHelper.getNonNull(jsonObject, "template"));
-            Ingredient ingredient1 = Ingredient.fromJson(GsonHelper.getNonNull(jsonObject, "base"));
-            Ingredient ingredient2 = Ingredient.fromJson(GsonHelper.getNonNull(jsonObject, "addition"));
-            ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "result"));
-            String modifier = GsonHelper.getAsString(jsonObject, "modifier");
-            return new SmithingNBTRecipe(p_266953_, ingredient, ingredient1, ingredient2, itemstack, modifier);
+        private static final Codec<SmithingNBTRecipe> CODEC = RecordCodecBuilder.create(
+                p_311739_ -> p_311739_.group(
+                                Ingredient.CODEC.fieldOf("template").forGetter(p_301310_ -> p_301310_.template),
+                                Ingredient.CODEC.fieldOf("base").forGetter(p_300938_ -> p_300938_.base),
+                                Ingredient.CODEC.fieldOf("addition").forGetter(p_301153_ -> p_301153_.addition),
+                                ItemStack.ITEM_WITH_COUNT_CODEC.fieldOf("result").forGetter(p_300935_ -> p_300935_.result),
+                                ExtraCodecs.strictOptionalField(Codec.STRING, "modifier", "").forGetter(p_300947_ -> p_300947_.modifier)
+                        )
+                        .apply(p_311739_, SmithingNBTRecipe::new)
+        );
+
+        @Override
+        public Codec<SmithingNBTRecipe> codec() {
+            return CODEC;
         }
 
-        public SmithingNBTRecipe fromNetwork(ResourceLocation p_267117_, FriendlyByteBuf buffer) {
+        public SmithingNBTRecipe fromNetwork(FriendlyByteBuf buffer) {
             Ingredient ingredient = Ingredient.fromNetwork(buffer);
             Ingredient ingredient1 = Ingredient.fromNetwork(buffer);
             Ingredient ingredient2 = Ingredient.fromNetwork(buffer);
             ItemStack itemstack = buffer.readItem();
             String modifier = buffer.readUtf();
-            return new SmithingNBTRecipe(p_267117_, ingredient, ingredient1, ingredient2, itemstack, modifier);
+            return new SmithingNBTRecipe(ingredient, ingredient1, ingredient2, itemstack, modifier);
         }
 
         public void toNetwork(FriendlyByteBuf buffer, SmithingNBTRecipe recipeIn) {

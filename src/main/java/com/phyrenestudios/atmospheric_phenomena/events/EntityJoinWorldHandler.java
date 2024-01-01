@@ -18,8 +18,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.EventHooks;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -53,7 +53,7 @@ public class EntityJoinWorldHandler {
         }
         if (conductiveBlocks.size() > 1) {
             Player playerEnt = levelIn.getNearestPlayer(startPos.getX(), startPos.getY(), startPos.getZ(), 10D, false);
-            if (playerEnt instanceof ServerPlayer) ((ServerPlayer) playerEnt).getAdvancements().award(((ServerLevel)levelIn).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID,"conductive_line")), "conductive_line");
+            if (playerEnt instanceof ServerPlayer) ((ServerPlayer) playerEnt).getAdvancements().award(((ServerLevel)levelIn).getServer().getAdvancements().get(new ResourceLocation(AtmosphericPhenomena.MODID,"conductive_line")), "conductive_line");
         }
 
         Set<BlockPos> vitrifiedBlocks = new HashSet<>();
@@ -103,7 +103,7 @@ public class EntityJoinWorldHandler {
         }
         for (BlockPos pos : explodableBlocks) {
             Explosion explosion = new Explosion(levelIn, null, pos.getX(), pos.getY(), pos.getZ(), 3f, false, Explosion.BlockInteraction.DESTROY);
-            if (!ForgeEventFactory.onExplosionStart(levelIn, explosion)) {
+            if (!EventHooks.onExplosionStart(levelIn, explosion)) {
                 if (!levelIn.isClientSide) explosion.explode();
                 explosion.finalizeExplosion(true);
                 levelIn.removeBlock(pos, false);

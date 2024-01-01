@@ -3,27 +3,20 @@ package com.phyrenestudios.atmospheric_phenomena.data;
 import com.phyrenestudios.atmospheric_phenomena.AtmosphericPhenomena;
 import com.phyrenestudios.atmospheric_phenomena.blocks.*;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-import javax.annotation.Nonnull;
 
 public class APItemModelProvider extends ItemModelProvider {
 
     public APItemModelProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
         super(packOutput, AtmosphericPhenomena.MODID, existingFileHelper);
-    }
-
-    @Nonnull
-    @Override
-    public String getName() {
-        return AtmosphericPhenomena.MODID + " - Item Models";
     }
 
     protected void registerModels() {
@@ -109,10 +102,10 @@ public class APItemModelProvider extends ItemModelProvider {
     }
 
     private static ResourceLocation key(Block block) {
-        return ForgeRegistries.BLOCKS.getKey(block);
+        return BuiltInRegistries.BLOCK.getKey(block);
     }
     private static ResourceLocation key(Item item) {
-        return ForgeRegistries.ITEMS.getKey(item);
+        return BuiltInRegistries.ITEM.getKey(item);
     }
     private static String name(Block itemLike) {
         return key(itemLike).getPath();

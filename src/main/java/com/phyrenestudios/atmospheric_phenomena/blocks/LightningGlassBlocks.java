@@ -7,7 +7,7 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 public enum LightningGlassBlocks implements StringRepresentable {
 
@@ -29,9 +29,7 @@ public enum LightningGlassBlocks implements StringRepresentable {
     MAGENTA_LIGHTNING_GLASS("magenta_lightning_glass", DyeColor.MAGENTA),
     PINK_LIGHTNING_GLASS("pink_lightning_glass", DyeColor.PINK);
 
-
-
-    RegistryObject<LightningGlassBlock> block;
+    DeferredBlock<LightningGlassBlock> block;
 
     private final String name;
     private final DyeColor dyeColor;

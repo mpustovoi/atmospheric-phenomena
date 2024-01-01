@@ -7,7 +7,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 public enum CapsuleBlocks implements StringRepresentable {
 
@@ -18,8 +18,7 @@ public enum CapsuleBlocks implements StringRepresentable {
     ANCIENT_CAPSULE("ancient_capsule", MapColor.NETHER),
     FROZEN_CAPSULE("frozen_capsule", MapColor.ICE);
 
-    RegistryObject<CapsuleBlock> block;
-    //RegistryObject<Block> coreBlock;
+    DeferredBlock<CapsuleBlock> block;
 
     private final String name;
     private final MapColor mapColor;
@@ -27,7 +26,6 @@ public enum CapsuleBlocks implements StringRepresentable {
     CapsuleBlocks(String name, MapColor mapColor) {
         this.name = name;
         this.mapColor = mapColor;
-        //this.coreBlock = coreBlockIn;
     }
 
     public String toString() {
@@ -37,7 +35,6 @@ public enum CapsuleBlocks implements StringRepresentable {
         return this.name;
     }
     public CapsuleBlock getCapsule() {return this.block.get();}
-    //public Block getCoreBlock() {return this.coreBlock.get();}
 
     public static void registerBlocks() {
         for (CapsuleBlocks baseBlock : values()) {

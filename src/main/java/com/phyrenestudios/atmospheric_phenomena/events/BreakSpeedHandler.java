@@ -1,7 +1,7 @@
 package com.phyrenestudios.atmospheric_phenomena.events;
 
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 public class BreakSpeedHandler {
 
