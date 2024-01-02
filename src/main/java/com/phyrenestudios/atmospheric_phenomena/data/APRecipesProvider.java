@@ -135,6 +135,6 @@ public class APRecipesProvider extends RecipeProvider {
     }
 
     protected static void nbtSmithing(RecipeOutput recipeOutput, RecipeCategory p_248986_, Item base, Item material, Item result, String modifierIn) {
-        SmithingNBTRecipeBuilder.smithing(Ingredient.of(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(base), Ingredient.of(material), p_248986_, result, modifierIn).unlocks("has_lonsdaleite", has(APItems.LONSDALEITE.get())).save(recipeOutput, new ResourceLocation(AtmosphericPhenomena.MODID,getItemName(result) + "_upgrade_smithing"));
+        SmithingNBTRecipeBuilder.smithing(Ingredient.of(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(base), Ingredient.of(material), p_248986_, result, modifierIn).unlocks("has_material", has(material)).save(recipeOutput, new ResourceLocation(AtmosphericPhenomena.MODID,getItemName(result) + "_upgrade_smithing"));
     }
 }
