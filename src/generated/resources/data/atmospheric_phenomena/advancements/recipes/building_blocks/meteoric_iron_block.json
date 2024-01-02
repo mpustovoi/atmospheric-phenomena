@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_meteoric_iron",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_meteoric_iron"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:meteoric_iron_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

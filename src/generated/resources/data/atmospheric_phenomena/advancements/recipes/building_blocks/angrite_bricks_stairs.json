@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_angrite_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_angrite_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:angrite_bricks_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

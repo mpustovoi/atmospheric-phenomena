@@ -23,16 +23,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.atmospheric_phenomena.embossed_equipment.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "atmospheric_phenomena:embossed_sheet"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.atmospheric_phenomena.embossed_equipment.title"
     }

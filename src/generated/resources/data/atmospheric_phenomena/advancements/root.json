@@ -17,12 +17,9 @@
     "description": {
       "translate": "advancements.atmospheric_phenomena.root.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "atmospheric_phenomena:chondrite"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.atmospheric_phenomena.root.title"
     }

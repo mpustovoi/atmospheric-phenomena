@@ -17,16 +17,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.atmospheric_phenomena.conductive_line.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "minecraft:copper_block"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.atmospheric_phenomena.conductive_line.title"
     }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_lonsdaleite_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lonsdaleite_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:lonsdaleite"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

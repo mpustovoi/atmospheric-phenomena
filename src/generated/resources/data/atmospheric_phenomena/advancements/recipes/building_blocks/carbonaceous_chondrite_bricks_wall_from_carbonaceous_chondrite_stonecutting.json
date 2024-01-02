@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_carbonaceous_chondrite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_carbonaceous_chondrite"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:carbonaceous_chondrite_bricks_wall_from_carbonaceous_chondrite_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

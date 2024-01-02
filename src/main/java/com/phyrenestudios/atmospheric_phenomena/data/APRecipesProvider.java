@@ -8,7 +8,6 @@ import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import com.phyrenestudios.atmospheric_phenomena.recipe.SmithingNBTRecipeBuilder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -132,10 +131,10 @@ public class APRecipesProvider extends RecipeProvider {
     }
 
     protected void generateForEnabledAPBlockFamilies(RecipeOutput p_301146_, FeatureFlagSet p_251836_) {
-        BlockFamilies.getAllFamilies().filter(BlockFamily::shouldGenerateRecipe).forEach(p_313461_ -> generateRecipes(p_301146_, p_313461_, p_251836_));
+        APBlockFamilies.getAllFamilies().filter(BlockFamily::shouldGenerateRecipe).forEach(p_313461_ -> generateRecipes(p_301146_, p_313461_, p_251836_));
     }
 
     protected static void nbtSmithing(RecipeOutput recipeOutput, RecipeCategory p_248986_, Item base, Item material, Item result, String modifierIn) {
-        SmithingNBTRecipeBuilder.smithing(Ingredient.of(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(base), Ingredient.of(material), p_248986_, result, modifierIn).unlocks("has_lonsdaleite", has(APItems.LONSDALEITE.get())).save(recipeOutput, getItemName(result) + "_upgrade_smithing");
+        SmithingNBTRecipeBuilder.smithing(Ingredient.of(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(base), Ingredient.of(material), p_248986_, result, modifierIn).unlocks("has_lonsdaleite", has(APItems.LONSDALEITE.get())).save(recipeOutput, new ResourceLocation(AtmosphericPhenomena.MODID,getItemName(result) + "_upgrade_smithing"));
     }
 }

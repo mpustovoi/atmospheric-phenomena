@@ -17,16 +17,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.atmospheric_phenomena.killed_by_discharge.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "atmospheric_phenomena:charged_quartz_matrix"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.atmospheric_phenomena.killed_by_discharge.title"
     }

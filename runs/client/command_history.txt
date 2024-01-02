@@ -1,2 +1,0 @@
-/summon atmospheric_phenomena:meteor ~ ~10 ~ {Size:500}
-/summon minecraft:lightning_bolt

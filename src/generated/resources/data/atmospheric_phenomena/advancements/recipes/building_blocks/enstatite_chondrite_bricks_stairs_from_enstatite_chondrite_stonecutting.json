@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_enstatite_chondrite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_enstatite_chondrite"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:enstatite_chondrite_bricks_stairs_from_enstatite_chondrite_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

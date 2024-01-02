@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_mesosiderite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_mesosiderite"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:mesosiderite_bricks_stairs_from_mesosiderite_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_lonsdaleite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lonsdaleite"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:diamond_leggings_upgrade_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ingredient",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ingredient"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:pallasite_bricks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

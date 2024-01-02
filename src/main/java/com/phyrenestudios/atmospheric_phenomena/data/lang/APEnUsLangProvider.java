@@ -125,8 +125,8 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("advancements.atmospheric_phenomena.obtain_moissanite.description", "Obtain a moissanite gem (silicon carbide) from a fallen meteorite");
         add("advancements.atmospheric_phenomena.obtain_capsule.title", "Signed and Sealed");
         add("advancements.atmospheric_phenomena.obtain_capsule.description", "Retrieve a capsule, and get those items out by using a hopper");
-        //add("advancements.atmospheric_phenomena.obtain_debris_matrix.title", "Space Debris");
-        //add("advancements.atmospheric_phenomena.obtain_debris_matrix.description", "Obtain a debris matrix from a fallen meteorite");
+        add("advancements.atmospheric_phenomena.spyglass_at_meteoroid.title", "The Sky Is Falling");
+        add("advancements.atmospheric_phenomena.spyglass_at_meteoroid.description", "Look at a meteor through a Spyglass");
         add("advancements.atmospheric_phenomena.killed_by_meteoroid.title", "The Way of the Dinosaurs");
         add("advancements.atmospheric_phenomena.killed_by_meteoroid.description", "Face the full impact of a falling meteoroid");
         add("advancements.atmospheric_phenomena.obtain_otherworldly_upgrade_template.title", "Smithing for Skill");

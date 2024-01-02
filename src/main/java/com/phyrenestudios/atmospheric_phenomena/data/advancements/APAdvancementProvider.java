@@ -8,15 +8,13 @@ import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.entities.APEntityTypes;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import net.minecraft.advancements.*;
-import net.minecraft.advancements.critereon.EntityPredicate;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.KilledTrigger;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -33,7 +31,8 @@ public class APAdvancementProvider implements AdvancementProvider.AdvancementGen
         AdvancementHolder CAPSULES = Advancement.Builder.advancement().parent(METEORIC_IRON).display(CapsuleBlocks.PLATED_CAPSULE.getCapsule(), Component.translatable("advancements.atmospheric_phenomena.obtain_capsule.title"), Component.translatable("advancements.atmospheric_phenomena.obtain_capsule.description"), null, AdvancementType.TASK, true, true, false).addCriterion("obtain_capsule", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(APTags.Items.CAPSULES).build())).save(saver, AtmosphericPhenomena.MODID+":obtain_capsule");
         AdvancementHolder LONSDALEITE = Advancement.Builder.advancement().parent(METEORIC_IRON).display(APItems.LONSDALEITE.get(), Component.translatable("advancements.atmospheric_phenomena.obtain_lonsdaleite.title"), Component.translatable("advancements.atmospheric_phenomena.obtain_lonsdaleite.description"), null, AdvancementType.TASK, true, true, false).addCriterion("lonsdaleite", InventoryChangeTrigger.TriggerInstance.hasItems(APItems.LONSDALEITE.get())).save(saver, AtmosphericPhenomena.MODID+":obtain_lonsdaleite");
         AdvancementHolder MOISSANITE = Advancement.Builder.advancement().parent(LONSDALEITE).display(APItems.MOISSANITE.get(), Component.translatable("advancements.atmospheric_phenomena.obtain_moissanite.title"), Component.translatable("advancements.atmospheric_phenomena.obtain_moissanite.description"), null, AdvancementType.TASK, true, true, false).addCriterion("moissanite", InventoryChangeTrigger.TriggerInstance.hasItems(APItems.MOISSANITE.get())).save(saver, AtmosphericPhenomena.MODID+":obtain_moissanite");
-        AdvancementHolder KILLED_BY_METEOROID = Advancement.Builder.advancement().parent(CAPSULES).display(MeteorBlocks.CHONDRITE.getMeteorBlock(), Component.translatable("advancements.atmospheric_phenomena.killed_by_meteoroid.title"), Component.translatable("advancements.atmospheric_phenomena.killed_by_meteoroid.description"), null, AdvancementType.TASK, true, true, false).addCriterion("killed_by_meteoroid", KilledTrigger.TriggerInstance.entityKilledPlayer(EntityPredicate.Builder.entity().of(APEntityTypes.METEOR.get()))).save(saver, AtmosphericPhenomena.MODID+":killed_by_meteoroid");
+        AdvancementHolder SPYGLASS_METEOROID = Advancement.Builder.advancement().parent(CAPSULES).display(Items.SPYGLASS, Component.translatable("advancements.atmospheric_phenomena.spyglass_at_meteoroid.title"), Component.translatable("advancements.atmospheric_phenomena.spyglass_at_meteoroid.description"), null, AdvancementType.TASK, true, true, false).addCriterion("spyglass_at_meteor", lookAtThroughItem(APEntityTypes.METEOR.get(), Items.SPYGLASS)).addCriterion("spyglass_at_comet", lookAtThroughItem(APEntityTypes.COMET.get(), Items.SPYGLASS)).requirements(AdvancementRequirements.Strategy.OR).save(saver, AtmosphericPhenomena.MODID+":spyglass_at_meteoroid");
+        AdvancementHolder KILLED_BY_METEOROID = Advancement.Builder.advancement().parent(SPYGLASS_METEOROID).display(MeteorBlocks.CHONDRITE.getMeteorBlock(), Component.translatable("advancements.atmospheric_phenomena.killed_by_meteoroid.title"), Component.translatable("advancements.atmospheric_phenomena.killed_by_meteoroid.description"), null, AdvancementType.TASK, true, true, false).addCriterion("killed_by_meteoroid", KilledTrigger.TriggerInstance.entityKilledPlayer(EntityPredicate.Builder.entity().of(APEntityTypes.METEOR.get()))).save(saver, AtmosphericPhenomena.MODID+":killed_by_meteoroid");
 
         CompoundTag embossedArmorModifier = new CompoundTag();
         embossedArmorModifier.putString("modifier", "embossed_armor");
@@ -60,5 +59,11 @@ public class APAdvancementProvider implements AdvancementProvider.AdvancementGen
 
     }
 
-
+    private static Criterion<UsingItemTrigger.TriggerInstance> lookAtThroughItem(EntityType<?> p_249703_, Item p_250746_) {
+        return UsingItemTrigger.TriggerInstance.lookingAt(
+                EntityPredicate.Builder.entity()
+                        .subPredicate(PlayerPredicate.Builder.player().setLookingAt(EntityPredicate.Builder.entity().of(p_249703_)).build()),
+                ItemPredicate.Builder.item().of(p_250746_)
+        );
+    }
 }

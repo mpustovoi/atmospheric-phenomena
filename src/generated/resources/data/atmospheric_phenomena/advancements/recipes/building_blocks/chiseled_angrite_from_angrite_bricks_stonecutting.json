@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_angrite_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_angrite_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:chiseled_angrite_from_angrite_bricks_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

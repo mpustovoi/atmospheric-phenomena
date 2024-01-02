@@ -12,7 +12,7 @@ out
 *.iws
 *.iml
 .idea
-
+ q
 # gradle
 build
 .gradle
@@ -20,5 +20,7 @@ build
 # other
 eclipse
 run
+runs
 run-data
-/src/generated/resources/.cache/
+
+repo

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ureilite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ureilite"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:ureilite_bricks_from_ureilite_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
