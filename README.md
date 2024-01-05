@@ -5,7 +5,11 @@ Atmospheric Phenomena adds exciting mechanics from the world surface up to upper
 
 The mod is currently for Forge & Neoforge on 1.20.1.
 
+CurseForge: https://www.curseforge.com/minecraft/mc-mods/atmospheric-phenomena
+
+Modrinth: https://modrinth.com/mod/atmospheric-phenomena
+
 Credits
 ==========
-CannoliCatfish
-tritespartan17
+tritespartan17 & CannoliCatfish
+
