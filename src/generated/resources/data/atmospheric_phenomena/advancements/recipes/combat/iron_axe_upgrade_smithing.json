@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lonsdaleite": {
+    "has_material": {
       "conditions": {
         "items": [
           {
             "items": [
-              "atmospheric_phenomena:lonsdaleite"
+              "atmospheric_phenomena:plated_sheet"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_lonsdaleite",
+      "has_material",
       "has_the_recipe"
     ]
   ],

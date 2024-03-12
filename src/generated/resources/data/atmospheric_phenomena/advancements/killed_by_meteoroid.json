@@ -1,5 +1,5 @@
 {
-  "parent": "atmospheric_phenomena:obtain_capsule",
+  "parent": "atmospheric_phenomena:spyglass_at_meteoroid",
   "criteria": {
     "killed_by_meteoroid": {
       "conditions": {

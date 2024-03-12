@@ -136,7 +136,7 @@ public class APRecipesProvider extends RecipeProvider {
         });
     }
 
-    protected static void nbtSmithing(Consumer<FinishedRecipe> consumer, RecipeCategory p_248986_, Item base, Item material, Item result, String modifierIn) {
-        SmithingNBTRecipeBuilder.smithing(Ingredient.of(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(base), Ingredient.of(material), p_248986_, result, modifierIn).unlocks("has_lonsdaleite", has(APItems.LONSDALEITE.get())).save(consumer, getItemName(result) + "_upgrade_smithing");
+    protected static void nbtSmithing(Consumer consumer, RecipeCategory p_248986_, Item base, Item material, Item result, String modifierIn) {
+        SmithingNBTRecipeBuilder.smithing(Ingredient.of(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(base), Ingredient.of(material), p_248986_, result, modifierIn).unlocks("has_material", has(material)).save(consumer, new ResourceLocation(AtmosphericPhenomena.MODID,getItemName(result) + "_upgrade_smithing"));
     }
 }

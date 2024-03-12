@@ -1,0 +1,75 @@
+{
+  "parent": "atmospheric_phenomena:obtain_capsule",
+  "criteria": {
+    "spyglass_at_comet": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:spyglass"
+          ]
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "player",
+                "looking_at": {
+                  "type": "atmospheric_phenomena:comet"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:using_item"
+    },
+    "spyglass_at_meteor": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:spyglass"
+          ]
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "player",
+                "looking_at": {
+                  "type": "atmospheric_phenomena:meteor"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:using_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.atmospheric_phenomena.spyglass_at_meteoroid.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:spyglass"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.atmospheric_phenomena.spyglass_at_meteoroid.title"
+    }
+  },
+  "requirements": [
+    [
+      "spyglass_at_meteor",
+      "spyglass_at_comet"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
