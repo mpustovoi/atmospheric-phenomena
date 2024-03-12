@@ -33,7 +33,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
@@ -45,6 +44,7 @@ public class AtmosphericPhenomena {
     public AtmosphericPhenomena(IEventBus modEventBus) {
         modEventBus.addListener(this::commonSetup);
 
+        APAttachmentTypes.ATTACHMENT_TYPES.register(modEventBus);
         APBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
         APBlocks.BLOCKS.register(modEventBus);
         APCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
@@ -113,11 +113,6 @@ public class AtmosphericPhenomena {
                 event.registerLayerDefinition(APBoatRenderer.createBoatModelName(boatType), BoatModel::createBodyModel);
                 event.registerLayerDefinition(APBoatRenderer.createChestBoatModelName(boatType), ChestBoatModel::createBodyModel);
             }
-        }
-
-        @SubscribeEvent
-        public static void entityAttributes(EntityAttributeCreationEvent event) {
-
         }
 
     }

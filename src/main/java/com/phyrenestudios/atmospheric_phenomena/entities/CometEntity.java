@@ -59,7 +59,7 @@ public class CometEntity extends AbstractMeteoroidEntity {
     }
     @Override
     public int burnoutModifier() {
-        return Config.overworldCometSpawnSettings.get(4);
+        return Config.overworldCometSpawnSettings.get(5);
     }
     @Override
     protected Optional<? extends Holder<ConfiguredFeature<?, ?>>> impactFeature() {

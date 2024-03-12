@@ -13,6 +13,18 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 @Mod.EventBusSubscriber(modid = AtmosphericPhenomena.MODID)
 public class APEvents {
 
+    /*
+    @SubscribeEvent
+    public static void entityJoinWorldEvent(PlayerInteractEvent.RightClickItem event) {
+        if (event.getLevel().isClientSide()) return;
+        if (event.getItemStack().is(Items.COMPASS)) {
+            event.getEntity().sendSystemMessage(Component.literal("Meteor Time: " + event.getLevel().getData(APAttachmentTypes.METEOR_COUNTDOWN)));
+            event.getEntity().sendSystemMessage(Component.literal("Comet Time: " + event.getLevel().getData(APAttachmentTypes.COMET_COUNTDOWN)));
+        }
+    }
+
+     */
+
     @SubscribeEvent
     public static void entityJoinWorldEvent(EntityJoinLevelEvent event) {
         EntityJoinWorldHandler.onLightningEvent(event);
