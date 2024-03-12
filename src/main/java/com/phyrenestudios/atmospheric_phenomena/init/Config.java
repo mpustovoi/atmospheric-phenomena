@@ -22,7 +22,7 @@ public class Config {
                     "The fourth integer represents the minimum spawn size of a meteor. Default: 500",
                     "The fifth integer represents the maximum spawn size of a meteor. Default: 1200",
                     "The sixth integer represents the rate at which a meteor decreases in size per tick. Default: 1")
-            .defineList("overworldMeteorSpawnSettings", Arrays.asList(70, 350, 600, 1200, 1, 20), (i) -> i instanceof Integer);
+            .defineList("overworldMeteorSpawnSettings", Arrays.asList(70, 20, 350, 600, 1200, 1), (i) -> i instanceof Integer);
     private static final ModConfigSpec.ConfigValue<List<? extends Double>> OVERWORLD_METEOR_VELOCITY = BUILDER
             .comment("Meteors spawn in with a random velocity. Set the lower and upper bounds to configure the direction and speed of new meteors.",
                     "The first double represents the minimum bound in the X axis . Default: -1.0",
@@ -40,7 +40,7 @@ public class Config {
                     "The fourth integer represents the minimum spawn size of a meteor. Default: 500",
                     "The fifth integer represents the maximum spawn size of a meteor. Default: 1200",
                     "The sixth integer represents the rate at which a comet decreases in size per tick. Default: 2")
-            .defineList("overworldCometSpawnSettings", Arrays.asList(70, 350, 600, 1200, 2, 20), (i) -> i instanceof Integer);
+            .defineList("overworldCometSpawnSettings", Arrays.asList(70, 20, 350, 600, 1200, 2), (i) -> i instanceof Integer);
     private static final ModConfigSpec.ConfigValue<List<? extends Double>> OVERWORLD_COMET_VELOCITY = BUILDER
             .comment("Comets spawn in with a random velocity. Set the lower and upper bounds to configure the direction and speed of new comets.",
                     "The first double represents the minimum bound in the X axis . Default: -1.0",
