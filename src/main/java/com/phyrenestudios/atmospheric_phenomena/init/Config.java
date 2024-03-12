@@ -18,12 +18,13 @@ public class Config
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends Integer>> OVERWORLD_METEOR_SPAWN_SETTINGS = BUILDER
             .comment("Settings for meteors spawning in the Overworld.",
-                    "The first integer represents the The 1 in X chance per tick for a meteor to spawn in a loaded chunk. Set to 0 to disable meteor spawning. Default: 800000",
-                    "The second integer represents the Y-level that meteors spawn at in the Overworld.. Default: 350",
-                    "The third integer represents the minimum spawn size of a meteor. Default: 300",
-                    "The fourth integer represents the maximum spawn size of a meteor. Default: 1000",
-                    "The fifth integer represents the rate at which a meteor decreases in size per tick. Default: 2")
-            .defineList("overworldMeteorSpawnSettings", Arrays.asList(800000, 350, 300, 1000, 2), (i) -> i instanceof Integer);
+                    "The first integer represents the time in minutes between meteor spawns. A full minecraft day cycle is 20 minutes. Set to 0 to disable meteor spawning. Default: 70",
+                    "The second integer represents the time variability in minutes of comet spawns. Default: 20",
+                    "The third integer represents the Y-level that meteors spawn at in the Overworld.. Default: 350",
+                    "The fourth integer represents the minimum spawn size of a meteor. Default: 500",
+                    "The fifth integer represents the maximum spawn size of a meteor. Default: 1200",
+                    "The sixth integer represents the rate at which a meteor decreases in size per tick. Default: 1")
+            .defineList("overworldMeteorSpawnSettings", Arrays.asList(70, 20, 350, 600, 1200, 1), (i) -> i instanceof Integer);
     private static final ForgeConfigSpec.ConfigValue<List<? extends Double>> OVERWORLD_METEOR_VELOCITY = BUILDER
             .comment("Meteors spawn in with a random velocity. Set the lower and upper bounds to configure the direction and speed of new meteors.",
                     "The first double represents the minimum bound in the X axis . Default: -1.0",
@@ -35,12 +36,13 @@ public class Config
             .defineList("overworldMeteorVelocity", Arrays.asList(-0.5D, -1.5D, -0.5D, 0.5D, -0.5D, 0.5D), (d) -> d instanceof Double);
     private static final ForgeConfigSpec.ConfigValue<List<? extends Integer>> OVERWORLD_COMET_SPAWN_SETTINGS = BUILDER
             .comment("Settings for comets spawning in the Overworld.",
-                    "The first integer represents the The 1 in X chance per tick for a comet to spawn in a loaded chunk. Set to 0 to disable comet spawning. Default: 800000",
-                    "The second integer represents the Y-level that comets spawn at in the Overworld.. Default: 350",
-                    "The third integer represents the minimum spawn size of a comet. Default: 200",
-                    "The fourth integer represents the maximum spawn size of a comet. Default: 500",
-                    "The fifth integer represents the rate at which a comet decreases in size per tick. Default: 3")
-            .defineList("overworldCometSpawnSettings", Arrays.asList(800000, 350, 200, 500, 3), (i) -> i instanceof Integer);
+                    "The first integer represents the time in minutes between comet spawns. A full minecraft day cycle is 20 minutes. Set to 0 to disable comet spawning. Default: 70",
+                    "The second integer represents the time variability in minutes of comet spawns. Default: 20",
+                    "The third integer represents the Y-level that comets spawn at in the Overworld.. Default: 350",
+                    "The fourth integer represents the minimum spawn size of a meteor. Default: 500",
+                    "The fifth integer represents the maximum spawn size of a meteor. Default: 1200",
+                    "The sixth integer represents the rate at which a comet decreases in size per tick. Default: 2")
+            .defineList("overworldCometSpawnSettings", Arrays.asList(70, 20, 350, 600, 1200, 2), (i) -> i instanceof Integer);
     private static final ForgeConfigSpec.ConfigValue<List<? extends Double>> OVERWORLD_COMET_VELOCITY = BUILDER
             .comment("Comets spawn in with a random velocity. Set the lower and upper bounds to configure the direction and speed of new comets.",
                     "The first double represents the minimum bound in the X axis . Default: -1.0",
