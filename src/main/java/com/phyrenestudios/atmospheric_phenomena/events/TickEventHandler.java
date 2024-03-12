@@ -30,7 +30,6 @@ public class TickEventHandler {
         if (Config.overworldMeteorSpawnSettings.get(0) != 0) {
             RandomSource rand = level.getRandom();
             MeteorCountdownData meteorCountdownData = MeteorCountdownData.getDataManager(level.getServer());
-            System.out.println(meteorCountdownData.getMeteorCountdown());
             meteorCountdownData.setMeteorCountdown(meteorCountdownData.getMeteorCountdown()-1);
             if (meteorCountdownData.getMeteorCountdown() <= 0) {
                 ServerChunkCache chunkCache = level.getChunkSource();
