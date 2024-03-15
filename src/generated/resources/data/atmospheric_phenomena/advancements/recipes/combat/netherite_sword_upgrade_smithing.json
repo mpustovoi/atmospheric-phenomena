@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_material",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_material"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:netherite_sword_upgrade_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

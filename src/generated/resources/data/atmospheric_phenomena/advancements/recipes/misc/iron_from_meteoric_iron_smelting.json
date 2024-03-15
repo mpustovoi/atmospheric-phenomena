@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ingredient",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ingredient"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:iron_from_meteoric_iron_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

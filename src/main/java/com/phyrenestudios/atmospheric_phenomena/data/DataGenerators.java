@@ -54,13 +54,14 @@ public final class DataGenerators {
         gen.addProvider(event.includeServer(), new APItemTagProvider(packOutput, provider, blockTags.contentsGetter(), helper));
         //gen.addProvider(event.includeServer(), new APBiomeTagsProvider(packOutput, provider, helper));
         gen.addProvider(event.includeServer(), new APRecipesProvider(packOutput));
-        gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(packOutput, CompletableFuture.supplyAsync(DataGenerators::getProvider), Set.of(AtmosphericPhenomena.MODID)));
 
+        gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(packOutput, provider, createDatapackEntriesBuilder(), Set.of(AtmosphericPhenomena.MODID)));
         gen.addProvider(event.includeServer(), new APDamageTypesTagsProvider(packOutput, provider, helper));
         gen.addProvider(event.includeServer(), new ForgeAdvancementProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper(), List.of(new APAdvancementProvider())));
     }
 
-    private static HolderLookup.Provider getProvider() {
+
+    private static RegistrySetBuilder createDatapackEntriesBuilder() {
         final RegistrySetBuilder registryBuilder = new RegistrySetBuilder();
         registryBuilder.add(Registries.BIOME, context -> {});
         registryBuilder.add(Registries.TRIM_MATERIAL, APTrimMaterials::bootstrap);
@@ -87,8 +88,7 @@ public final class DataGenerators {
             //));
 
         });
-        RegistryAccess.Frozen regAccess = RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY);
-        return registryBuilder.buildPatch(regAccess, VanillaRegistries.createLookup());
+        return registryBuilder;
     }
 
 

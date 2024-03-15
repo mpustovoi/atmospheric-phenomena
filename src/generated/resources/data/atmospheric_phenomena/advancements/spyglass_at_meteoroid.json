@@ -51,16 +51,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.atmospheric_phenomena.spyglass_at_meteoroid.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "minecraft:spyglass"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.atmospheric_phenomena.spyglass_at_meteoroid.title"
     }

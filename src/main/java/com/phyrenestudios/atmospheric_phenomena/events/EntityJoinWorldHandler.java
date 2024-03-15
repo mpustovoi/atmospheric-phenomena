@@ -53,7 +53,7 @@ public class EntityJoinWorldHandler {
         }
         if (conductiveBlocks.size() > 1) {
             Player playerEnt = levelIn.getNearestPlayer(startPos.getX(), startPos.getY(), startPos.getZ(), 10D, false);
-            if (playerEnt instanceof ServerPlayer) ((ServerPlayer) playerEnt).getAdvancements().award(((ServerLevel)levelIn).getServer().getAdvancements().getAdvancement(new ResourceLocation(AtmosphericPhenomena.MODID,"conductive_line")), "conductive_line");
+            if (playerEnt instanceof ServerPlayer) ((ServerPlayer) playerEnt).getAdvancements().award(((ServerLevel)levelIn).getServer().getAdvancements().get(new ResourceLocation(AtmosphericPhenomena.MODID,"conductive_line")), "conductive_line");
         }
 
         Set<BlockPos> vitrifiedBlocks = new HashSet<>();

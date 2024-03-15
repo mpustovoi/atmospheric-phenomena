@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_moissanite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_moissanite"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:moissanite_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

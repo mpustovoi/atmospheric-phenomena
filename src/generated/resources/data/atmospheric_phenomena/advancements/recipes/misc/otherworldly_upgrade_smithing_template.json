@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_otherworldly_upgrade_smithing_template",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_otherworldly_upgrade_smithing_template"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:otherworldly_upgrade_smithing_template"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

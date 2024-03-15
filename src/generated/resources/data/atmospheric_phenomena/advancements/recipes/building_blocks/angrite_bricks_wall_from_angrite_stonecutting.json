@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_angrite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_angrite"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:angrite_bricks_wall_from_angrite_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

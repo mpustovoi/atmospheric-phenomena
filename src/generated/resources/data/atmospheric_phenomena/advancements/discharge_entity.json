@@ -17,16 +17,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.atmospheric_phenomena.discharge_entity.description"
     },
     "frame": "challenge",
-    "hidden": false,
     "icon": {
       "item": "atmospheric_phenomena:charged_quartz_matrix"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.atmospheric_phenomena.discharge_entity.title"
     }

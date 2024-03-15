@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_enstatite_chondrite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_enstatite_chondrite"
     ]
   ],
   "rewards": {
     "recipes": [
       "atmospheric_phenomena:chiseled_enstatite_chondrite_from_enstatite_chondrite_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

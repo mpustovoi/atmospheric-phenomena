@@ -17,16 +17,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.atmospheric_phenomena.killed_by_meteoroid.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "atmospheric_phenomena:chondrite"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.atmospheric_phenomena.killed_by_meteoroid.title"
     }

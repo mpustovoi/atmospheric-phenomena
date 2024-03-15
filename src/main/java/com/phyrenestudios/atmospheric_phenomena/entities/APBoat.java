@@ -13,7 +13,7 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.common.ForgeHooks;
 
 public class APBoat extends Boat {
 
@@ -67,7 +67,7 @@ public class APBoat extends Boat {
 
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
+        return ForgeHooks.getEntitySpawnPacket(this);
     }
 
     public enum Type {

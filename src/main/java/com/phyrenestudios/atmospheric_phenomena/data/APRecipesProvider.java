@@ -7,6 +7,7 @@ import com.phyrenestudios.atmospheric_phenomena.blocks.MeteorBlocks;
 import com.phyrenestudios.atmospheric_phenomena.data.tags.APTags;
 import com.phyrenestudios.atmospheric_phenomena.items.APItems;
 import com.phyrenestudios.atmospheric_phenomena.recipe.SmithingNBTRecipeBuilder;
+import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -28,7 +29,7 @@ public class APRecipesProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(RecipeOutput consumer) {
         nineBlockStorageRecipes(consumer, RecipeCategory.MISC, APItems.LONSDALEITE.get(), RecipeCategory.BUILDING_BLOCKS, APBlocks.LONSDALEITE_BLOCK.get());
         nineBlockStorageRecipes(consumer, RecipeCategory.MISC, APItems.MOISSANITE.get(), RecipeCategory.BUILDING_BLOCKS, APBlocks.MOISSANITE_BLOCK.get());
         nineBlockStorageRecipes(consumer, RecipeCategory.MISC, APItems.METEORIC_IRON.get(), RecipeCategory.BUILDING_BLOCKS, APBlocks.METEORIC_IRON_BLOCK.get());
@@ -99,44 +100,41 @@ public class APRecipesProvider extends RecipeProvider {
         nbtSmithing(consumer, RecipeCategory.COMBAT,Items.IRON_SWORD, APItems.PLATED_SHEET.get(), Items.IRON_SWORD, "plated_tool");
     }
 
-    protected static void stonecutterResultFromBase(Consumer<FinishedRecipe> p_251589_, RecipeCategory p_248911_, ItemLike p_251265_, ItemLike p_250033_) {
+    protected static void stonecutterResultFromBase(RecipeOutput p_251589_, RecipeCategory p_248911_, ItemLike p_251265_, ItemLike p_250033_) {
         stonecutterResultFromBase(p_251589_, p_248911_, p_251265_, p_250033_, 1);
     }
 
-    protected static void stonecutterResultFromBase(Consumer<FinishedRecipe> p_249145_, RecipeCategory p_250609_, ItemLike p_251254_, ItemLike p_249666_, int p_251462_) {
+    protected static void stonecutterResultFromBase(RecipeOutput p_249145_, RecipeCategory p_250609_, ItemLike p_251254_, ItemLike p_249666_, int p_251462_) {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(p_249666_), p_250609_, p_251254_, p_251462_).unlockedBy(getHasName(p_249666_), has(p_249666_)).save(p_249145_, AtmosphericPhenomena.MODID + ":"+getConversionRecipeName(p_251254_, p_249666_) + "_stonecutting");
     }
 
-    private static void slabRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike output, ItemLike input) {
+    private static void slabRecipe(RecipeOutput consumer, RecipeCategory category, ItemLike output, ItemLike input) {
         ShapedRecipeBuilder.shaped(category, output, 6).define('#', input).pattern("###").unlockedBy(getHasName(input), has(input)).save(consumer);
     }
 
-    private static void stairsRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike output, ItemLike input) {
+    private static void stairsRecipe(RecipeOutput consumer, RecipeCategory category, ItemLike output, ItemLike input) {
         ShapedRecipeBuilder.shaped(category, output, 4).define('#', input).pattern("#  ").pattern("## ").pattern("###").unlockedBy(getHasName(input), has(input)).save(consumer);
     }
 
-    private static void wallRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike output, ItemLike input) {
+    private static void wallRecipe(RecipeOutput consumer, RecipeCategory category, ItemLike output, ItemLike input) {
         ShapedRecipeBuilder.shaped(category, output, 6).define('#', input).pattern("###").pattern("###").unlockedBy(getHasName(input), has(input)).save(consumer);
     }
 
 
-    protected static void nineBlockStorageRecipes(Consumer<FinishedRecipe> p_249580_, RecipeCategory p_251203_, ItemLike p_251689_, RecipeCategory p_251376_, ItemLike p_248771_) {
+    protected static void nineBlockStorageRecipes(RecipeOutput p_249580_, RecipeCategory p_251203_, ItemLike p_251689_, RecipeCategory p_251376_, ItemLike p_248771_) {
         nineBlockStorageRecipes(p_249580_, p_251203_, p_251689_, p_251376_, p_248771_, getSimpleRecipeName(p_248771_), (String)null, getSimpleRecipeName(p_251689_), (String)null);
     }
-    protected static void nineBlockStorageRecipes(Consumer<FinishedRecipe> p_250423_, RecipeCategory p_250083_, ItemLike p_250042_, RecipeCategory p_248977_, ItemLike p_251911_, String p_250475_, @Nullable String p_248641_, String p_252237_, @Nullable String p_250414_) {
+    protected static void nineBlockStorageRecipes(RecipeOutput p_250423_, RecipeCategory p_250083_, ItemLike p_250042_, RecipeCategory p_248977_, ItemLike p_251911_, String p_250475_, @Nullable String p_248641_, String p_252237_, @Nullable String p_250414_) {
         ShapelessRecipeBuilder.shapeless(p_250083_, p_250042_, 9).requires(p_251911_).group(p_250414_).unlockedBy(getHasName(p_251911_), has(p_251911_)).save(p_250423_, new ResourceLocation(AtmosphericPhenomena.MODID,p_252237_));
         ShapedRecipeBuilder.shaped(p_248977_, p_251911_).define('#', p_250042_).pattern("###").pattern("###").pattern("###").group(p_248641_).unlockedBy(getHasName(p_250042_), has(p_250042_)).save(p_250423_, new ResourceLocation(AtmosphericPhenomena.MODID,p_250475_));
     }
 
-    protected void generateForEnabledAPBlockFamilies(Consumer<FinishedRecipe> p_249188_, FeatureFlagSet p_251836_) {
-        APBlockFamilies.getAllFamilies().filter((p_248034_) -> {
-            return p_248034_.shouldGenerateRecipe(p_251836_);
-        }).forEach((p_176624_) -> {
-            generateRecipes(p_249188_, p_176624_);
-        });
+
+    protected void generateForEnabledAPBlockFamilies(RecipeOutput p_301146_, FeatureFlagSet p_251836_) {
+        APBlockFamilies.getAllFamilies().filter(BlockFamily::shouldGenerateRecipe).forEach(p_313461_ -> generateRecipes(p_301146_, p_313461_, p_251836_));
     }
 
-    protected static void nbtSmithing(Consumer consumer, RecipeCategory p_248986_, Item base, Item material, Item result, String modifierIn) {
+    protected static void nbtSmithing(RecipeOutput consumer, RecipeCategory p_248986_, Item base, Item material, Item result, String modifierIn) {
         SmithingNBTRecipeBuilder.smithing(Ingredient.of(APItems.OTHERWORLDLY_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(base), Ingredient.of(material), p_248986_, result, modifierIn).unlocks("has_material", has(material)).save(consumer, new ResourceLocation(AtmosphericPhenomena.MODID,getItemName(result) + "_upgrade_smithing"));
     }
 }

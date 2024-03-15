@@ -5,8 +5,8 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -37,7 +37,7 @@ public enum TektiteBlocks implements StringRepresentable {
 
     public static void registerBlocks() {
         for (TektiteBlocks baseBlock : values()) {
-            baseBlock.block =  APBlocks.BLOCKS.register(baseBlock.getSerializedName(),() -> new GlassBlock(BlockBehaviour.Properties.of().strength(5.0F, 30.0F).sound(SoundType.GLASS).noOcclusion().requiresCorrectToolForDrops()));
+            baseBlock.block =  APBlocks.BLOCKS.register(baseBlock.getSerializedName(),() -> new TransparentBlock(BlockBehaviour.Properties.of().strength(5.0F, 30.0F).sound(SoundType.GLASS).noOcclusion().requiresCorrectToolForDrops()));
         }
     }
 
