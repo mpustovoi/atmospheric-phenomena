@@ -107,6 +107,7 @@ public class APEnUsLangProvider extends LanguageProvider {
         add("tooltip.modifier.plated_armor", "Plated");
         add("tooltip.modifier.plated_tool", "Plated");
 
+        add("item.atmospheric_phenomena.otherworldly_upgrade_smithing_template", "Smithing Template");
         add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.additions_slot_description", "Add upgrade sheet");
         add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.applies_to", "Equipment");
         add("item.atmospheric_phenomena.smithing_template.otherworldly_upgrade.base_slot_description", "Add armor, weapon, or tool");
